@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team IMAGINE — Accueil</title>
+<style>
+:root {
+  --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
+  --violet-600:#581d74; --violet-500:#6b239a; --violet-400:#8433b8;
+  --violet-300:#a257cc; --violet-200:#c699e2; --violet-100:#e2c8f2; --violet-50:#f5eefa;
+  --gray-900:#111; --gray-800:#252525; --gray-700:#3d3d3d; --gray-600:#575757;
+  --gray-500:#737373; --gray-400:#909090; --gray-300:#b5b5b5; --gray-200:#d8d8d8;
+  --gray-100:#efefef; --gray-50:#f7f7f7; --white:#fff;
+  --success:#1a7a45; --success-bg:#e7f5ee; --warning:#8a4700; --warning-bg:#fff3e5;
+  --error:#b5001f; --info:#0f5fa8; --info-bg:#e7f0fa;
+  --bouger:#581d74; --bouger-bg:#f5eefa;
+  --jouer:#0f5fa8; --jouer-bg:#e7f0fa;
+  --gauge-fill:#7be8a8;
+  --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
+  --sh-sm:0 1px 3px rgba(88,29,116,.08),0 1px 2px rgba(88,29,116,.04);
+  --sh-md:0 4px 12px rgba(88,29,116,.1),0 2px 4px rgba(88,29,116,.06);
+  --sh-lg:0 10px 30px rgba(88,29,116,.12),0 4px 8px rgba(88,29,116,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:var(--font);color:var(--gray-900);background:var(--gray-50);line-height:1.5;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--violet-600);color:#fff;padding:12px 20px;z-index:999;}
+.skip-link:focus{left:0;}
+
+/* ═══ HEADER ═══ */
+.header{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100;}
+.header-top{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px;}
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.logo-mark{width:42px;height:42px;background:var(--violet-600);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;}
+.logo-mark span{color:#fff;font-weight:700;font-size:18px;letter-spacing:-.5px;}
+.logo-text{line-height:1.1;}
+.logo-name{font-weight:700;font-size:16px;color:var(--gray-900);letter-spacing:-.3px;}
+.logo-tag{font-size:11px;color:var(--violet-600);font-weight:700;}
+.nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;}
+.nav a{padding:10px 14px;font-size:14px;font-weight:700;color:var(--gray-700);border-radius:var(--r-md);transition:.15s;position:relative;display:flex;align-items:center;gap:6px;}
+.nav a:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav a.active{color:var(--violet-600);}
+.nav a.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--violet-600);border-radius:3px 3px 0 0;}
+.nav a svg{width:16px;height:16px;}
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.icon-btn{width:42px;height:42px;border-radius:var(--r-full);border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-600);transition:.15s;position:relative;}
+.icon-btn:hover{background:var(--gray-100);color:var(--violet-600);}
+.icon-btn svg{width:22px;height:22px;}
+.notif-dot{position:absolute;top:9px;right:9px;width:8px;height:8px;background:var(--error);border-radius:50%;border:2px solid #fff;}
+.user-chip{display:flex;align-items:center;gap:10px;padding:5px 12px 5px 5px;border-radius:var(--r-full);background:var(--gray-50);border:1px solid var(--gray-200);cursor:pointer;transition:.15s;}
+.user-chip:hover{border-color:var(--violet-300);background:var(--violet-50);}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--violet-600);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;}
+.user-name{font-size:14px;font-weight:700;color:var(--gray-800);}
+
+/* ═══ HERO ═══ */
+.hero{background:linear-gradient(135deg,var(--violet-800) 0%,var(--violet-600) 55%,var(--violet-500) 100%);color:#fff;position:relative;overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 20%,rgba(255,255,255,.08) 0,transparent 35%),radial-gradient(circle at 10% 90%,rgba(255,255,255,.06) 0,transparent 40%);}
+.hero-pattern{position:absolute;right:-60px;top:-40px;width:420px;height:420px;opacity:.13;}
+.hero-inner{position:relative;padding:60px 0 52px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);padding:7px 16px;border-radius:var(--r-full);font-size:13px;font-weight:700;letter-spacing:.3px;margin-bottom:20px;backdrop-filter:blur(4px);}
+.hero h1{font-size:50px;line-height:1.08;font-weight:700;letter-spacing:-1px;margin-bottom:18px;}
+.hero h1 em{font-style:normal;color:var(--violet-200);}
+.hero p{font-size:17px;line-height:1.6;color:rgba(255,255,255,.85);max-width:480px;margin-bottom:28px;}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 26px;border-radius:var(--r-md);font-family:var(--font);font-size:15px;font-weight:700;cursor:pointer;border:2px solid transparent;transition:.15s;white-space:nowrap;}
+.btn svg{width:18px;height:18px;}
+.btn-white{background:#fff;color:var(--violet-700);}
+.btn-white:hover{background:var(--violet-50);transform:translateY(-2px);box-shadow:var(--sh-lg);}
+.btn-outline-white{background:transparent;color:#fff;border-color:rgba(255,255,255,.5);}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:#fff;}
+
+/* App forme : indicateur de connexion (remplace l'ancien CTA) */
+.app-status{display:inline-flex;align-items:center;gap:12px;padding:10px 18px 10px 12px;background:rgba(123,232,168,.16);border:1.5px solid rgba(123,232,168,.5);border-radius:var(--r-md);color:#fff;}
+.app-status-check{width:28px;height:28px;background:var(--gauge-fill);color:var(--violet-800);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.app-status-check svg{width:16px;height:16px;}
+.app-status-label{font-size:14px;font-weight:700;line-height:1.2;color:#fff;}
+.app-status-sub{font-size:12px;color:rgba(255,255,255,.9);margin-top:2px;}
+.app-status-sub a{color:#fff;text-decoration:underline;font-weight:700;}
+.app-status-sub a:hover{color:var(--gauge-fill);}
+
+/* ═══ ACTIVITY GAUGE ═══ */
+.activity-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-2xl);padding:28px;backdrop-filter:blur(8px);}
+.ac-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+.ac-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--violet-200);}
+.ac-source{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.85);font-weight:700;}
+.ac-source svg{width:13px;height:13px;}
+.gauge-wrap{display:flex;align-items:center;gap:24px;margin-bottom:22px;}
+.gauge{position:relative;width:140px;height:140px;flex-shrink:0;}
+.gauge svg{width:100%;height:100%;transform:rotate(-90deg);}
+.gauge-bg{fill:none;stroke:rgba(255,255,255,.12);stroke-width:11;}
+.gauge-fill{fill:none;stroke:var(--gauge-fill);stroke-width:11;stroke-linecap:round;transition:stroke-dashoffset 1s ease;}
+.gauge-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.gauge-pct{font-size:32px;font-weight:700;line-height:1;}
+.gauge-status{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gauge-fill);margin-top:5px;}
+.gauge-info{flex:1;min-width:0;}
+.gauge-day-status{display:inline-flex;align-items:center;gap:6px;background:rgba(123,232,168,.15);color:var(--gauge-fill);padding:5px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;}
+.gauge-headline{font-size:18px;font-weight:700;line-height:1.3;margin-bottom:6px;}
+.gauge-detail{font-size:13px;color:rgba(255,255,255,.9);line-height:1.4;}
+.gauge-detail strong{color:#fff;font-weight:700;}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.stat-mini{background:rgba(255,255,255,.06);border-radius:var(--r-md);padding:10px 8px;text-align:center;}
+.stat-mini-num{font-size:15px;font-weight:700;line-height:1;}
+.stat-mini-label{font-size:10px;color:rgba(255,255,255,.85);margin-top:4px;text-transform:uppercase;letter-spacing:.04em;font-weight:700;}
+
+/* ═══ APP STATUS CHIP ═══ */
+.app-status{display:inline-flex;align-items:center;gap:12px;padding:10px 18px 10px 12px;background:rgba(123,232,168,.16);border:1.5px solid rgba(123,232,168,.5);border-radius:var(--r-md);color:#fff;}
+.app-status-check{width:28px;height:28px;background:var(--gauge-fill);color:var(--violet-800);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.app-status-check svg{width:16px;height:16px;}
+.app-status-label{font-size:14px;font-weight:700;line-height:1.2;color:#fff;}
+.app-status-sub{font-size:12px;color:rgba(255,255,255,.9);margin-top:2px;}
+.app-status-sub a{color:#fff;text-decoration:underline;font-weight:700;}
+.app-status-sub a:hover{color:var(--gauge-fill);}
+
+/* ═══ STREAK DUOLINGO STYLE ═══ */
+.streak-section{border-top:1px solid rgba(255,255,255,.14);padding-top:16px;margin-top:16px;}
+.streak-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.streak-flame{flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(245,158,11,.5));}
+.streak-count{line-height:1;}
+.streak-num{font-size:30px;font-weight:700;color:#f59e0b;line-height:1;}
+.streak-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.85);margin-top:3px;}
+.streak-days{display:flex;align-items:center;justify-content:space-between;gap:4px;}
+.sd-item{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;}
+.sd-day{font-size:10px;font-weight:700;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.04em;}
+.sd-dot{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0;transition:.2s;}
+.sd-dot.done{background:var(--gauge-fill);color:var(--violet-800);}
+.sd-dot.today{background:var(--violet-400);color:#fff;border:2px solid rgba(255,255,255,.4);animation:today-pulse 2s infinite;}
+.sd-dot.future{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.15);}
+@keyframes today-pulse{0%,100%{box-shadow:0 0 0 0 rgba(132,51,184,.5);}50%{box-shadow:0 0 0 5px rgba(132,51,184,0);}}
+
+/* ═══ BRANDS STRIP ═══ */
+.brands{background:var(--white);border-bottom:1px solid var(--gray-200);}
+.brands-inner{padding:24px 0;}
+.brands-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-600);text-align:center;margin-bottom:18px;}
+.brands-row{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;}
+.brand-item-wrap{display:flex;align-items:center;justify-content:center;height:44px;padding:0 16px;background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r-md);transition:.2s;cursor:pointer;min-width:120px;}
+.brand-item-wrap:hover{border-color:var(--violet-300);box-shadow:var(--sh-sm);transform:translateY(-1px);}
+.brand-item-wrap img{height:28px;width:auto;object-fit:contain;}
+.brand-item-wrap svg{max-height:28px;width:auto;}
+
+/* ═══ SECTIONS ═══ */
+.section{padding:48px 0;}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;gap:24px;flex-wrap:wrap;}
+.section-title{font-size:28px;font-weight:700;letter-spacing:-.5px;color:var(--gray-900);}
+.section-sub{font-size:14px;color:var(--gray-600);margin-top:4px;}
+.section-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--violet-600);white-space:nowrap;}
+.section-link:hover{color:var(--violet-700);gap:9px;}
+.section-link svg{width:14px;height:14px;transition:.15s;}
+
+/* ═══ CALENDRIER — EVENT BANNER ═══ */
+.event-banner{background:linear-gradient(110deg,#1c0926 0%,var(--violet-700) 50%,var(--violet-500) 100%);color:#fff;border-radius:var(--r-2xl);padding:0;display:grid;grid-template-columns:1.6fr 1fr;overflow:hidden;box-shadow:var(--sh-md);position:relative;cursor:pointer;transition:.2s;}
+.event-banner:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);}
+.event-left{padding:36px 40px;position:relative;z-index:1;}
+.event-status{display:inline-flex;align-items:center;gap:8px;background:var(--gauge-fill);padding:6px 14px;border-radius:var(--r-full);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px;color:var(--violet-900);}
+.event-status .pulse{width:8px;height:8px;background:var(--violet-700);border-radius:50%;animation:pulse 1.8s infinite;flex-shrink:0;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+.event-meta-top{font-size:12px;color:var(--violet-200);font-weight:700;margin-bottom:8px;letter-spacing:.04em;text-transform:uppercase;}
+.event-banner h2{font-size:30px;font-weight:700;line-height:1.1;margin-bottom:12px;letter-spacing:-.5px;color:#fff;}
+.event-banner p{font-size:15px;color:rgba(255,255,255,.85);max-width:480px;line-height:1.5;margin-bottom:22px;}
+.event-meta{display:flex;gap:24px;flex-wrap:wrap;}
+.em-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.85);}
+.em-item svg{width:16px;height:16px;color:var(--violet-200);}
+.em-item strong{color:#fff;font-weight:700;}
+.event-right{position:relative;background:linear-gradient(160deg,#8433b8,#6b239a 60%);display:flex;align-items:center;justify-content:center;padding:32px;overflow:hidden;}
+.event-right::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 2px,transparent 2px,transparent 14px);}
+.event-card-mini{position:relative;background:rgba(255,255,255,.95);color:var(--violet-700);border-radius:var(--r-lg);padding:18px 22px;box-shadow:0 8px 30px rgba(0,0,0,.25);text-align:center;width:100%;max-width:220px;}
+.ecm-day{font-size:48px;font-weight:700;line-height:1;}
+.ecm-month{font-size:14px;font-weight:700;color:var(--violet-500);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;}
+.ecm-divider{height:1px;background:var(--gray-200);margin:12px 0;}
+.ecm-time{font-size:12px;color:var(--gray-600);font-weight:700;}
+.ecm-place{font-size:11px;color:var(--gray-500);margin-top:3px;}
+
+/* ═══ BOUGER + JOUER ═══ */
+.engagement-split{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.eng-card{background:#fff;border-radius:var(--r-2xl);overflow:hidden;box-shadow:var(--sh-sm);border:1px solid var(--gray-200);display:flex;flex-direction:column;}
+.eng-banner{height:90px;position:relative;display:flex;align-items:center;padding:0 24px;overflow:hidden;}
+.eng-banner.bouger{background:linear-gradient(110deg,var(--violet-700),var(--violet-500));}
+.eng-banner.jouer{background:linear-gradient(110deg,#0c4a85,#1e7ad0);}
+.eng-banner::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 2px,transparent 2px,transparent 12px);}
+.eng-banner-inner{position:relative;color:#fff;display:flex;align-items:center;gap:14px;width:100%;}
+.eng-banner-icon{width:48px;height:48px;background:rgba(255,255,255,.18);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.eng-banner-icon svg{width:26px;height:26px;}
+.eng-banner h3{font-size:22px;font-weight:700;line-height:1;letter-spacing:-.3px;}
+.eng-banner-sub{font-size:12px;opacity:.85;margin-top:3px;}
+.eng-body{padding:22px 24px;flex:1;display:flex;flex-direction:column;}
+.eng-active{font-size:11px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;}
+.eng-name{font-size:18px;font-weight:700;color:var(--gray-900);margin-bottom:6px;line-height:1.3;}
+.eng-desc{font-size:13px;color:var(--gray-600);line-height:1.5;margin-bottom:16px;}
+.eng-meta-row{display:flex;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
+.eng-meta-row span{font-size:12px;color:var(--gray-500);display:flex;align-items:center;gap:5px;}
+.eng-meta-row svg{width:13px;height:13px;}
+.eng-progress-block{margin-bottom:18px;}
+.eng-progress-labels{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
+.eng-prog-num{font-size:18px;font-weight:700;color:var(--violet-700);}
+.eng-prog-num span{font-size:12px;color:var(--gray-500);font-weight:400;}
+.eng-prog-pct{font-size:13px;font-weight:700;}
+.progress-track{height:8px;background:var(--gray-100);border-radius:var(--r-full);overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--violet-600),var(--violet-400));border-radius:var(--r-full);}
+.eng-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:16px;border-top:1px solid var(--gray-100);}
+.eng-foot-info{font-size:12px;color:var(--gray-500);line-height:1.4;}
+.eng-foot-info strong{color:var(--gray-800);}
+.btn-violet{background:var(--violet-600);color:#fff;}
+.btn-violet:hover{background:var(--violet-700);transform:translateY(-1px);box-shadow:var(--sh-md);}
+.btn-blue{background:var(--jouer);color:#fff;}
+.btn-blue:hover{background:#0c4a85;transform:translateY(-1px);box-shadow:var(--sh-md);}
+.btn-sm{padding:9px 16px;font-size:13px;}
+
+/* Bouger : Défi individuel BPCE */
+.indiv-challenge{background:var(--violet-50);border:1px solid var(--violet-100);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:14px;}
+.ic-icon{width:42px;height:42px;border-radius:50%;background:var(--violet-600);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ic-icon svg{width:20px;height:20px;}
+.ic-info{flex:1;min-width:0;}
+.ic-title{font-size:13px;font-weight:700;color:var(--gray-900);margin-bottom:2px;}
+.ic-detail{font-size:11px;color:var(--gray-600);}
+.ic-pct{font-size:14px;font-weight:700;color:var(--violet-700);}
+
+/* Jouer : Liste de jeux participatifs (one-shot) */
+.game-list{display:flex;flex-direction:column;gap:10px;}
+.game-item{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-lg);padding:14px;display:flex;align-items:center;gap:14px;transition:.15s;cursor:pointer;}
+.game-item:hover{border-color:var(--jouer);background:var(--jouer-bg);transform:translateX(2px);}
+.game-icon{width:42px;height:42px;border-radius:var(--r-md);background:var(--jouer-bg);color:var(--jouer);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.game-icon svg{width:22px;height:22px;}
+.game-icon.featured{background:var(--jouer);color:#fff;}
+.game-info{flex:1;min-width:0;}
+.game-type{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--jouer);margin-bottom:2px;}
+.game-title{font-size:14px;font-weight:700;color:var(--gray-900);margin-bottom:2px;line-height:1.3;}
+.game-meta{font-size:11px;color:var(--gray-500);}
+.game-action{font-size:13px;font-weight:700;color:var(--jouer);white-space:nowrap;display:flex;align-items:center;gap:4px;}
+.game-status-done{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--success);background:var(--success-bg);padding:4px 10px;border-radius:var(--r-full);white-space:nowrap;}
+.game-status-done svg{width:12px;height:12px;}
+
+/* ═══ ACTUALITÉS (ex Hub BDS) ═══ */
+.articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.article-card{background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-sm);border:1px solid var(--gray-200);transition:.2s;cursor:pointer;display:flex;flex-direction:column;}
+.article-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);}
+.article-img{height:150px;position:relative;overflow:hidden;}
+.article-img.t1{background:linear-gradient(135deg,#581d74,#8433b8);}
+.article-img.t2{background:linear-gradient(135deg,#0f5fa8,#4a9fd8);}
+.article-img.t3{background:linear-gradient(135deg,#1a7a45,#4caf7d);}
+.article-img-icon{position:absolute;right:14px;bottom:14px;opacity:.25;}
+.article-img-icon svg{width:58px;height:58px;color:#fff;}
+.article-tag{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.95);padding:4px 11px;border-radius:var(--r-full);font-size:11px;font-weight:700;}
+.tag-t1{color:var(--violet-700);}
+.tag-t2{color:var(--info);}
+.tag-t3{color:var(--success);}
+.article-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;}
+.article-meta{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--gray-500);margin-bottom:8px;}
+.article-entity{font-weight:700;color:var(--gray-700);}
+.article-title{font-size:16px;font-weight:700;line-height:1.3;color:var(--gray-900);margin-bottom:7px;}
+.article-excerpt{font-size:13px;color:var(--gray-600);line-height:1.5;flex:1;}
+.article-readmore{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--violet-600);margin-top:12px;}
+
+/* ═══ SÉANCES VIDÉO ═══ */
+.videos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.video-card{background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-sm);border:1px solid var(--gray-200);transition:.2s;cursor:pointer;}
+.video-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);}
+.video-thumb{height:160px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.video-thumb.v1{background:linear-gradient(135deg,#3d1554,#6b239a);}
+.video-thumb.v2{background:linear-gradient(135deg,#4b1a67,#a257cc);}
+.video-thumb.v3{background:linear-gradient(135deg,#2e1040,#581d74);}
+.video-play{width:54px;height:54px;background:rgba(255,255,255,.92);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.2s;}
+.video-card:hover .video-play{transform:scale(1.1);background:#fff;}
+.video-play svg{width:20px;height:20px;color:var(--violet-700);margin-left:3px;}
+.video-duration{position:absolute;bottom:11px;right:11px;background:rgba(0,0,0,.7);color:#fff;padding:3px 8px;border-radius:var(--r-sm);font-size:11px;font-weight:700;}
+.video-cat{position:absolute;top:11px;left:11px;background:rgba(255,255,255,.92);color:var(--violet-700);padding:4px 10px;border-radius:var(--r-full);font-size:11px;font-weight:700;}
+.video-body{padding:14px 16px;}
+.video-title{font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:5px;line-height:1.3;}
+.video-meta{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--gray-500);}
+.video-meta span{display:flex;align-items:center;gap:4px;}
+.video-meta svg{width:13px;height:13px;}
+.section-hint{background:var(--violet-50);border:1px solid var(--violet-100);border-radius:var(--r-md);padding:10px 14px;font-size:12px;color:var(--violet-700);display:inline-flex;align-items:center;gap:8px;margin-left:auto;}
+.section-hint svg{width:14px;height:14px;}
+
+/* ═══ PODIUM DÉFI ═══ */
+.podium-section{background:#fff;}
+.podium-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;gap:24px;flex-wrap:wrap;}
+.podium-title-block{display:flex;align-items:center;gap:16px;}
+.podium-trophy{width:48px;height:48px;border-radius:var(--r-md);background:linear-gradient(135deg,#f0a850,#d68420);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.podium-trophy svg{width:26px;height:26px;}
+.podium-subtitle{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-600);margin-top:3px;}
+.podium-link-defi{font-weight:700;color:var(--violet-600);}
+.podium-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.podium-card{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--r-xl);padding:20px 16px;text-align:center;transition:.2s;position:relative;}
+.podium-card:hover{background:var(--violet-50);border-color:var(--violet-200);transform:translateY(-3px);}
+.podium-rank{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:32px;height:32px;border-radius:50%;background:var(--violet-600);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;border:3px solid #fff;}
+.podium-card.rank-1 .podium-rank{background:#f0c050;color:var(--gray-900);}
+.podium-card.rank-2 .podium-rank{background:#b8b8b8;color:var(--gray-900);}
+.podium-card.rank-3 .podium-rank{background:#8b4513;color:#fff;}
+.podium-avatar{width:58px;height:58px;border-radius:50%;background:var(--violet-600);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;margin:14px auto 12px;}
+.podium-name{font-size:14px;font-weight:700;color:var(--gray-900);}
+.podium-entity{font-size:11px;color:var(--gray-500);margin-bottom:10px;}
+.podium-score{display:inline-block;font-size:13px;font-weight:700;padding:6px 14px;border-radius:var(--r-full);background:var(--violet-100);color:var(--violet-700);}
+
+/* ═══ PROMESSE CTA ═══ */
+.promesse{background:linear-gradient(135deg,#1c0926 0%,#3d1554 60%,#4b1a67 100%);color:#fff;border-radius:var(--r-2xl);padding:42px 48px;display:flex;align-items:center;justify-content:space-between;gap:36px;position:relative;overflow:hidden;border:1px solid rgba(162,87,204,.2);}
+.promesse::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(to bottom,var(--violet-400),var(--violet-600));border-radius:var(--r-2xl) 0 0 var(--r-2xl);}
+.promesse::after{content:"";position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(132,51,184,.3),transparent 70%);}
+.promesse-content{position:relative;z-index:1;}
+.promesse h2{font-size:28px;font-weight:700;letter-spacing:-.5px;margin-bottom:10px;}
+.promesse p{font-size:15px;color:rgba(255,255,255,.8);max-width:540px;line-height:1.6;}
+.promesse-right{position:relative;z-index:1;flex-shrink:0;}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--violet-900);color:rgba(255,255,255,.85);padding:42px 0 22px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-brand .logo-mark{margin-bottom:14px;}
+.footer-brand p{font-size:13px;line-height:1.6;max-width:280px;margin-top:14px;}
+.footer-col h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.85);padding:5px 0;transition:.15s;}
+.footer-col a:hover{color:#fff;}
+.footer-qr{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);padding:12px;}
+.qr-box{width:60px;height:60px;background:#fff;border-radius:var(--r-sm);flex-shrink:0;padding:5px;}
+.qr-box svg{width:100%;height:100%;}
+.footer-qr-text{font-size:12px;line-height:1.4;}
+.footer-qr-text strong{color:#fff;display:block;font-size:13px;margin-bottom:2px;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:20px;font-size:12px;flex-wrap:wrap;gap:10px;}
+.footer-legal{display:flex;gap:18px;flex-wrap:wrap;}
+.footer-legal a:hover{color:#fff;}
+
+@media(max-width:980px){
+  .nav{display:none;}
+  .hero-inner{grid-template-columns:1fr;gap:32px;}
+  .hero h1{font-size:38px;}
+  .engagement-split{grid-template-columns:1fr;}
+  .event-banner{grid-template-columns:1fr;}
+  .articles-grid,.videos-grid{grid-template-columns:1fr 1fr;}
+  .podium-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
+  .user-name{display:none;}
+  .promesse{flex-direction:column;text-align:center;}
+}
+@media(max-width:600px){
+  .hero h1{font-size:30px;}
+  .gauge-wrap{flex-direction:column;text-align:center;gap:16px;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+  .articles-grid,.videos-grid,.podium-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .section-title{font-size:22px;}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+
+<!-- Bandeau démo -->
+<div style="background:#1c0926;color:#fff;padding:8px 24px;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:Arial,Helvetica,sans-serif;">
+  <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable Team IMAGINE V2</strong> — Démo de cadrage, juin 2026</span>
+  <a href="index.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:.15s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    Retour au sommaire
+  </a>
+</div>
+
+
+<!-- ═══ HEADER ═══ -->
+<header class="header">
+  <div class="container header-top">
+    <a href="home.html" class="logo" aria-label="Team IMAGINE - Accueil">
+      <div class="logo-mark"><span>TI</span></div>
+      <div class="logo-text">
+        <div class="logo-name">Team IMAGINE</div>
+        <div class="logo-tag">La Banque du Sport</div>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#" class="active">Accueil</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="bouger.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+        Bouger
+      </a>
+      <a href="participer.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 11h.01M15 11h.01M8 15s1.5 2 4 2 4-2 4-2"/></svg>
+        Participer
+      </a>
+      <a href="calendrier.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Calendrier
+      </a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Rechercher">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Notifications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+        <span class="notif-dot"></span>
+      </button>
+      <button class="user-chip">
+        <span class="avatar">CL</span>
+        <span class="user-name">Camille L.</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <svg class="hero-pattern" viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="100" cy="100" r="90"/><circle cx="100" cy="100" r="60"/><circle cx="100" cy="100" r="30"/><path d="M100 10v180M10 100h180"/></svg>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="hero-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21 8 13.8 2 9.4h7.6z"/></svg>
+          Bienvenue Camille
+        </span>
+        <h1>Bougez, <em>jouez,</em><br>partagez le sport.</h1>
+        <p>Rejoignez les défis sportifs et les jeux du Groupe, suivez le calendrier des athlètes et célébrez chaque effort avec vos 40 000 collègues.</p>
+        <div class="hero-cta">
+          <a href="#" class="btn btn-white">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Voir les défis en cours
+          </a>
+          <div class="app-status" role="status" aria-label="Strava connecté">
+            <div class="app-status-check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="app-status-label">Strava connecté</div>
+              <div class="app-status-sub">Marche &amp; course · <a href="#">Gérer</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jauge jour d'activité -->
+      <div class="activity-card" aria-label="Mon jour d'activité">
+        <div class="ac-head">
+          <span class="ac-title">Mon jour d'activité</span>
+          <span class="ac-source">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Mise à jour il y a 3 min
+          </span>
+        </div>
+
+        <div class="gauge-wrap">
+          <div class="gauge" role="img" aria-label="Jour d'activité à 80%">
+            <svg viewBox="0 0 120 120">
+              <circle class="gauge-bg" cx="60" cy="60" r="50"/>
+              <circle class="gauge-fill" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="62.83"/>
+            </svg>
+            <div class="gauge-center">
+              <div class="gauge-pct">80%</div>
+              <div class="gauge-status">en cours</div>
+            </div>
+          </div>
+          <div class="gauge-info">
+            <span class="gauge-day-status">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              Bientôt validé
+            </span>
+            <div class="gauge-headline">Plus que <strong>0,6 km</strong> ou <strong>1 séance</strong> pour valider votre journée</div>
+            <div class="gauge-detail">Objectif quotidien : <strong>3 km</strong> parcourus ou <strong>1 séance</strong> complétée</div>
+          </div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-mini">
+            <div class="stat-mini-num">2,4 km</div>
+            <div class="stat-mini-label">parcourus</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-num">0</div>
+            <div class="stat-mini-label">séance</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-num">28 min</div>
+            <div class="stat-mini-label">activité</div>
+          </div>
+          <div class="stat-mini">
+            <div class="stat-mini-num">7'12"</div>
+            <div class="stat-mini-label">allure /km</div>
+          </div>
+        </div>
+
+        <!-- STREAK STYLE DUOLINGO -->
+        <div class="streak-section">
+          <div class="streak-head">
+            <div class="streak-flame">
+              <svg width="26" height="32" viewBox="0 0 26 32" fill="none">
+                <path d="M13 1 C13 1,21 9,22 17 C23 23,19 29,13 31 C7 29,3 23,4 17 C5 9,13 1,13 1Z" fill="#f59e0b"/>
+                <path d="M13 10 C13 10,17 15,17.5 19 C18 23,15.5 27,13 27 C10.5 27,8 23,8.5 19 C9 15,13 10,13 10Z" fill="#fcd34d"/>
+                <circle cx="13" cy="21" r="3" fill="#f59e0b"/>
+              </svg>
+            </div>
+            <div class="streak-count">
+              <div class="streak-num">12</div>
+              <div class="streak-label">jours d'activité</div>
+            </div>
+          </div>
+          <div class="streak-days" role="list" aria-label="Jours actifs de la semaine">
+            <div class="sd-item" role="listitem">
+              <span class="sd-day">L</span>
+              <div class="sd-dot done" aria-label="Lundi validé">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+            </div>
+            <div class="sd-item" role="listitem">
+              <span class="sd-day">M</span>
+              <div class="sd-dot done" aria-label="Mardi validé">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+            </div>
+            <div class="sd-item" role="listitem">
+              <span class="sd-day">Me</span>
+              <div class="sd-dot done" aria-label="Mercredi validé">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+            </div>
+            <div class="sd-item" role="listitem">
+              <span class="sd-day">J</span>
+              <div class="sd-dot done" aria-label="Jeudi validé">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+            </div>
+            <div class="sd-item" role="listitem">
+              <span class="sd-day">V</span>
+              <div class="sd-dot done" aria-label="Vendredi validé">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+            </div>
+            <div class="sd-item" role="listitem">
+              <span class="sd-day">S</span>
+              <div class="sd-dot today" aria-label="Samedi, journée en cours">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></svg>
+              </div>
+            </div>
+            <div class="sd-item" role="listitem">
+              <span class="sd-day">D</span>
+              <div class="sd-dot future" aria-label="Dimanche, à venir"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BRANDS ═══ -->
+  <div class="brands">
+    <div class="container brands-inner">
+      <div class="brands-label">Les marques du Groupe BPCE</div>
+      <div class="brands-row">
+
+        <!-- BPCE -->
+        <div class="brand-item-wrap">
+          <svg width="72" height="28" viewBox="0 0 72 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="36" y="20" font-family="Arial" font-weight="700" font-size="20" fill="#003a78" text-anchor="middle" letter-spacing="1">BPCE</text>
+          </svg>
+        </div>
+
+        <!-- Banque Populaire -->
+        <div class="brand-item-wrap" style="min-width:150px;">
+          <svg width="130" height="28" viewBox="0 0 130 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- cigogne simplifiée -->
+            <path d="M10 22 Q8 16 12 12 Q14 8 12 4 Q16 6 15 12 Q19 9 22 12 Q18 14 16 18 Q14 22 10 22Z" fill="#c00d1e"/>
+            <text x="70" y="19" font-family="Arial" font-weight="700" font-size="11" fill="#003a78" text-anchor="middle">Banque Populaire</text>
+          </svg>
+        </div>
+
+        <!-- Caisse d'Epargne -->
+        <div class="brand-item-wrap" style="min-width:148px;">
+          <svg width="128" height="28" viewBox="0 0 128 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- écureuil stylisé -->
+            <ellipse cx="10" cy="16" rx="5" ry="6" fill="#e2001a"/>
+            <path d="M7 10 Q10 4 14 8 Q12 6 10 10Z" fill="#e2001a"/>
+            <path d="M13 20 Q18 22 16 26 Q12 24 13 20Z" fill="#e2001a"/>
+            <text x="70" y="19" font-family="Arial" font-weight="700" font-size="11" fill="#00843d" text-anchor="middle">Caisse d'Epargne</text>
+          </svg>
+        </div>
+
+        <!-- Natixis -->
+        <div class="brand-item-wrap">
+          <svg width="80" height="28" viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="40" y="19" font-family="Arial" font-weight="700" font-size="15" fill="#8b1a6b" text-anchor="middle" letter-spacing="0.5">natixis</text>
+          </svg>
+        </div>
+
+        <!-- Banque Palatine -->
+        <div class="brand-item-wrap" style="min-width:130px;">
+          <svg width="112" height="28" viewBox="0 0 112 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="56" y="19" font-family="Arial" font-weight="700" font-size="11" fill="#1a1a1a" text-anchor="middle" letter-spacing="2">PALATINE</text>
+          </svg>
+        </div>
+
+        <!-- CASDEN -->
+        <div class="brand-item-wrap">
+          <svg width="90" height="28" viewBox="0 0 90 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <text x="45" y="17" font-family="Arial" font-weight="700" font-size="13" fill="#004e8c" text-anchor="middle" letter-spacing="1">CASDEN</text>
+            <text x="45" y="27" font-family="Arial" font-weight="400" font-size="7" fill="#004e8c" text-anchor="middle" letter-spacing="0.5">Banque Populaire</text>
+          </svg>
+        </div>
+
+        <!-- Crédit Coopératif -->
+        <div class="brand-item-wrap" style="min-width:148px;">
+          <svg width="128" height="28" viewBox="0 0 128 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="6" width="16" height="16" rx="3" fill="#0066a1"/>
+            <text x="11" y="18" font-family="Arial" font-weight="700" font-size="11" fill="#fff" text-anchor="middle">cc</text>
+            <text x="76" y="19" font-family="Arial" font-weight="700" font-size="11" fill="#0066a1" text-anchor="middle">Crédit Coopératif</text>
+          </svg>
+        </div>
+
+        <!-- Oney -->
+        <div class="brand-item-wrap">
+          <svg width="64" height="28" viewBox="0 0 64 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="64" height="28" rx="4" fill="#e2006e"/>
+            <text x="32" y="19" font-family="Arial" font-weight="700" font-size="14" fill="#fff" text-anchor="middle">oney</text>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CALENDRIER — PROCHAIN ÉVÉNEMENT ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Prochain événement</h2>
+          <p class="section-sub">Athlètes sponsorisés et partenaires sportifs du Groupe BPCE</p>
+        </div>
+        <a href="#" class="section-link">Voir tout le calendrier <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <a href="#" class="event-banner" style="text-decoration:none;color:inherit;">
+        <div class="event-left">
+          <span class="event-status"><span class="pulse"></span>Dans 12 jours</span>
+          <div class="event-meta-top">Athlète sponsorisé · Athlétisme</div>
+          <h2>Meeting de Paris 2026 — Kévin Mayer</h2>
+          <p>Suivez en direct notre athlète soutenu, Kévin Mayer, qui défend ses chances au décathlon au Stade Charléty.</p>
+          <div class="event-meta">
+            <span class="em-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <strong>Samedi 14 juin 2026</strong>
+            </span>
+            <span class="em-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Stade Charléty, Paris
+            </span>
+            <span class="em-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              19h00 · Diffusion en direct
+            </span>
+          </div>
+        </div>
+        <div class="event-right">
+          <!-- Visuel athlète stade stylisé -->
+          <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.15;" viewBox="0 0 300 200" fill="none" preserveAspectRatio="xMidYMid slice">
+            <!-- Pistes ovales stade -->
+            <ellipse cx="150" cy="140" rx="120" ry="50" stroke="white" stroke-width="2" fill="none"/>
+            <ellipse cx="150" cy="140" rx="90" ry="36" stroke="white" stroke-width="1.5" fill="none"/>
+            <ellipse cx="150" cy="140" rx="60" ry="22" stroke="white" stroke-width="1" fill="none"/>
+            <!-- Tribunes -->
+            <rect x="20" y="60" width="260" height="20" rx="4" fill="white" opacity=".3"/>
+            <rect x="10" y="40" width="280" height="22" rx="4" fill="white" opacity=".2"/>
+          </svg>
+          <!-- Silhouette décathlonien -->
+          <svg style="position:relative;z-index:1;opacity:.5;" width="100" height="160" viewBox="0 0 80 140" fill="none">
+            <circle cx="40" cy="15" r="12" fill="white"/>
+            <path d="M40 27 L40 70" stroke="white" stroke-width="5" stroke-linecap="round"/>
+            <path d="M40 40 L15 55" stroke="white" stroke-width="4" stroke-linecap="round"/>
+            <path d="M40 40 L65 35" stroke="white" stroke-width="4" stroke-linecap="round"/>
+            <path d="M40 70 L25 100" stroke="white" stroke-width="4" stroke-linecap="round"/>
+            <path d="M40 70 L55 100" stroke="white" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <div class="event-card-mini">
+            <div class="ecm-day">14</div>
+            <div class="ecm-month">Juin 2026</div>
+            <div class="ecm-divider"></div>
+            <div class="ecm-time">19h00 · Direct</div>
+            <div class="ecm-place">Stade Charléty</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ BOUGER + JOUER ═══ -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Mon engagement du moment</h2>
+          <p class="section-sub">Bougez avec votre entité, jouez en équipe — opérations en cours, lancées par BPCE</p>
+        </div>
+      </div>
+
+      <div class="engagement-split">
+
+        <!-- ═══ BOUGER ═══ -->
+        <div class="eng-card">
+          <div class="eng-banner bouger">
+            <div class="eng-banner-inner">
+              <div class="eng-banner-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+              </div>
+              <div>
+                <h3>Bouger</h3>
+                <div class="eng-banner-sub">Engagement sportif</div>
+              </div>
+            </div>
+          </div>
+          <div class="eng-body">
+            <div class="eng-active">Défi collectif d'entité · en cours</div>
+            <div class="eng-name">100 000 km Ensemble</div>
+            <div class="eng-desc">Tous les collaborateurs de la CE Hauts-de-France additionnent leurs kilomètres de marche et de course pour atteindre l'objectif collectif avant le 30 juin.</div>
+            <div class="eng-meta-row">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> 2 341 participants</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Du 1<sup>er</sup> au 30 juin</span>
+            </div>
+            <div class="eng-progress-block">
+              <div class="eng-progress-labels">
+                <span class="eng-prog-num">47 832 <span>/ 100 000 km</span></span>
+                <span class="eng-prog-pct" style="color:var(--violet-600);">48%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width:48%"></div></div>
+            </div>
+
+            <div class="indiv-challenge">
+              <div class="ic-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+              <div class="ic-info">
+                <div class="ic-title">Défi individuel · 3 km par jour</div>
+                <div class="ic-detail">Proposé par BPCE · Jour 18 sur 30</div>
+              </div>
+              <div class="ic-pct">62%</div>
+            </div>
+
+            <div class="eng-foot">
+              <div class="eng-foot-info"><strong>Entité 3<sup>e</sup></strong> sur 27 au taux de participation</div>
+              <a href="#" class="btn btn-violet btn-sm">Voir tout Bouger</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ═══ JOUER ═══ -->
+        <div class="eng-card">
+          <div class="eng-banner jouer">
+            <div class="eng-banner-inner">
+              <div class="eng-banner-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 11h.01M15 11h.01M8 15s1.5 2 4 2 4-2 4-2"/></svg>
+              </div>
+              <div>
+                <h3>Participer</h3>
+                <div class="eng-banner-sub">Engagement intellectuel</div>
+              </div>
+            </div>
+          </div>
+          <div class="eng-body">
+            <div class="eng-active">3 jeux disponibles cette semaine</div>
+
+            <div class="game-list">
+              <a href="#" class="game-item" style="text-decoration:none;color:inherit;">
+                <div class="game-icon featured">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>
+                </div>
+                <div class="game-info">
+                  <div class="game-type">Quiz thématique</div>
+                  <div class="game-title">Quiz Paris 2024 : 10 questions olympiques</div>
+                  <div class="game-meta">1 482 participants · Clôture dans 5 jours</div>
+                </div>
+                <span class="game-action">Participer →</span>
+              </a>
+
+              <a href="#" class="game-item" style="text-decoration:none;color:inherit;">
+                <div class="game-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM12 8v8M8 12h8"/></svg>
+                </div>
+                <div class="game-info">
+                  <div class="game-type">Pronostic</div>
+                  <div class="game-title">Pronos Coupe de France de Football</div>
+                  <div class="game-meta">876 participants · Clôture dans 2 jours</div>
+                </div>
+                <span class="game-action">Participer →</span>
+              </a>
+
+              <a href="#" class="game-item" style="text-decoration:none;color:inherit;">
+                <div class="game-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 8v6M4.9 4.9l4.2 4.2m5.8 5.8l4.2 4.2M2 12h6m8 0h6M4.9 19.1l4.2-4.2m5.8-5.8l4.2-4.2"/></svg>
+                </div>
+                <div class="game-info">
+                  <div class="game-type">Instant-win</div>
+                  <div class="game-title">Goodies Team IMAGINE — 50 lots à gagner</div>
+                  <div class="game-meta">Tirage permanent · 1 chance par jour</div>
+                </div>
+                <span class="game-action">Tenter ma chance →</span>
+              </a>
+            </div>
+
+            <div class="eng-foot">
+              <div class="eng-foot-info">
+                <span class="game-status-done">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  Vous avez participé au prono Roland-Garros
+                </span>
+              </div>
+              <a href="#" class="btn btn-blue btn-sm">Voir tout Participer</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ACTUALITÉS ═══ -->
+  <section class="section" style="background:#fff;">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Actualités</h2>
+          <p class="section-sub">Les dernières nouvelles sportives et sociétales du Groupe BPCE</p>
+        </div>
+        <a href="#" class="section-link">Toutes les actualités <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="articles-grid">
+        <!-- Visuels des articles -->
+        <article class="article-card">
+          <div class="article-img t1">
+            <span class="article-tag tag-t1">Banque des athlètes</span>
+            <!-- Silhouette athlète podium -->
+            <svg style="position:absolute;right:0;bottom:0;opacity:.18;width:120px;height:100%" viewBox="0 0 120 160" fill="none">
+              <rect x="30" y="80" width="24" height="80" fill="white"/>
+              <rect x="10" y="100" width="24" height="60" fill="white"/>
+              <rect x="50" y="60" width="24" height="100" fill="white"/>
+              <rect x="70" y="90" width="24" height="70" fill="white"/>
+              <circle cx="42" cy="68" r="10" fill="white"/>
+              <circle cx="62" cy="48" r="10" fill="white"/>
+            </svg>
+          </div>
+          <div class="article-body">
+            <div class="article-meta"><span class="article-entity">Groupe BPCE</span> · <span>il y a 2 jours</span></div>
+            <h3 class="article-title">Nos athlètes sponsorisés brillent aux championnats d'Europe</h3>
+            <p class="article-excerpt">Retour sur une saison exceptionnelle pour les sportifs soutenus par le Groupe.</p>
+            <span class="article-readmore">Lire l'article →</span>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-img t2">
+            <span class="article-tag tag-t2">Économie du sport</span>
+            <!-- Graphique montée -->
+            <svg style="position:absolute;right:0;bottom:0;opacity:.18;width:120px;height:100%" viewBox="0 0 120 160" fill="none">
+              <polyline points="10,140 30,110 50,90 70,60 90,40 110,20" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="10,140 30,110 50,90 70,60 90,40 110,20 110,140Z" fill="white"/>
+              <circle cx="110" cy="20" r="7" fill="white"/>
+              <circle cx="90" cy="40" r="5" fill="white"/>
+              <circle cx="70" cy="60" r="5" fill="white"/>
+            </svg>
+          </div>
+          <div class="article-body">
+            <div class="article-meta"><span class="article-entity">BPCE L'Observatoire</span> · <span>il y a 4 jours</span></div>
+            <h3 class="article-title">L'économie du sport en France : les chiffres clés 2026</h3>
+            <p class="article-excerpt">Notre nouvelle étude décrypte le poids de la filière sport dans l'économie française.</p>
+            <span class="article-readmore">Lire l'article →</span>
+          </div>
+        </article>
+
+        <article class="article-card">
+          <div class="article-img t3">
+            <span class="article-tag tag-t3">Banque active &amp; sportive</span>
+            <!-- Silhouettes personnes qui courent -->
+            <svg style="position:absolute;right:0;bottom:0;opacity:.18;width:120px;height:100%" viewBox="0 0 120 160" fill="none">
+              <circle cx="35" cy="50" r="10" fill="white"/>
+              <path d="M35 60 L30 90 L20 120" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              <path d="M35 60 L40 90 L55 110" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              <path d="M28 75 L45 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="80" cy="45" r="10" fill="white"/>
+              <path d="M80 55 L75 85 L65 115" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              <path d="M80 55 L85 85 L100 105" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              <path d="M73 70 L90 65" stroke="white" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="article-body">
+            <div class="article-meta"><span class="article-entity">CE Hauts-de-France</span> · <span>il y a 5 jours</span></div>
+            <h3 class="article-title">Lancement du Défi 100 000 km Ensemble : déjà 2 341 inscrits !</h3>
+            <p class="article-excerpt">L'engouement est au rendez-vous pour ce premier grand défi collectif de l'année.</p>
+            <span class="article-readmore">Lire l'article →</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SÉANCES VIDÉO ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Séances vidéo</h2>
+          <p class="section-sub">Cours en ligne pour bouger à votre rythme — accessibles aussi depuis <strong>Bouger</strong></p>
+        </div>
+        <a href="#" class="section-link">Toutes les séances <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="videos-grid">
+        <div class="video-card">
+          <div class="video-thumb v1">
+            <span class="video-cat">HIIT</span>
+            <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-duration">18 min</span>
+          </div>
+          <div class="video-body">
+            <h3 class="video-title">HIIT express : réveil musculaire complet</h3>
+            <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg> Intermédiaire</span><span>Corps entier</span></div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb v2">
+            <span class="video-cat">Yoga</span>
+            <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-duration">25 min</span>
+          </div>
+          <div class="video-body">
+            <h3 class="video-title">Yoga doux : étirements de fin de journée</h3>
+            <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg> Tous niveaux</span><span>Dos &amp; nuque</span></div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb v3">
+            <span class="video-cat">Récupération</span>
+            <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-duration">12 min</span>
+          </div>
+          <div class="video-body">
+            <h3 class="video-title">Récupération active après l'effort</h3>
+            <div class="video-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg> Débutant</span><span>Jambes</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PODIUM DU DÉFI ═══ -->
+  <section class="section podium-section">
+    <div class="container">
+      <div class="podium-head">
+        <div class="podium-title-block">
+          <div class="podium-trophy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          </div>
+          <div>
+            <h2 class="section-title">Podium du défi en cours</h2>
+            <div class="podium-subtitle">
+              Top contributeurs du défi <a href="#" class="podium-link-defi">100 000 km Ensemble</a> · CE Hauts-de-France
+            </div>
+          </div>
+        </div>
+        <a href="#" class="section-link">Voir le classement complet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="podium-grid">
+        <div class="podium-card rank-1">
+          <div class="podium-rank">1</div>
+          <div class="podium-avatar">MD</div>
+          <div class="podium-name">Marc D.</div>
+          <div class="podium-entity">CE Hauts-de-France</div>
+          <span class="podium-score">147,8 km</span>
+        </div>
+
+        <div class="podium-card rank-2">
+          <div class="podium-rank">2</div>
+          <div class="podium-avatar">JR</div>
+          <div class="podium-name">Julie R.</div>
+          <div class="podium-entity">CE Hauts-de-France</div>
+          <span class="podium-score">142,1 km</span>
+        </div>
+
+        <div class="podium-card rank-3">
+          <div class="podium-rank">3</div>
+          <div class="podium-avatar">SB</div>
+          <div class="podium-name">Sophie B.</div>
+          <div class="podium-entity">CE Hauts-de-France</div>
+          <span class="podium-score">138,6 km</span>
+        </div>
+
+        <div class="podium-card">
+          <div class="podium-rank">4</div>
+          <div class="podium-avatar">TL</div>
+          <div class="podium-name">Thomas L.</div>
+          <div class="podium-entity">CE Hauts-de-France</div>
+          <span class="podium-score">134,2 km</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROMESSE ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="promesse">
+        <div class="promesse-content">
+          <h2>Qu'est-ce que Team IMAGINE ?</h2>
+          <p>Bien plus qu'une plateforme : un espace fédérateur où l'effort de chacun, au-delà de la performance, est encouragé et célébré. Découvrez notre promesse et les trois piliers de la Banque du Sport.</p>
+        </div>
+        <div class="promesse-right">
+          <a href="#" class="btn btn-white">Découvrir la Promesse</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-mark"><span>TI</span></div>
+          <div class="logo-text">
+            <div class="logo-name" style="color:#fff;">Team IMAGINE</div>
+            <div class="logo-tag" style="color:var(--violet-300);">La Banque du Sport</div>
+          </div>
+        </div>
+        <p>La plateforme d'engagement sportif et de bien-être des 40 000 collaborateurs du Groupe BPCE, en France et à l'international.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explorer</h4>
+        <a href="actualites.html">Actualités</a>
+        <a href="#">Bouger</a>
+        <a href="#">Participer</a>
+        <a href="#">Calendrier</a>
+        <a href="#">Séances vidéo</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#">La Promesse</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Mon compte</h4>
+        <a href="#">Mes participations</a>
+        <a href="#">Mes badges</a>
+        <a href="#">Strava</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Notifications</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Suivez-nous</h4>
+        <div class="footer-qr">
+          <div class="qr-box">
+            <svg viewBox="0 0 100 100" fill="#581d74"><rect x="0" y="0" width="30" height="30"/><rect x="8" y="8" width="14" height="14" fill="#fff"/><rect x="70" y="0" width="30" height="30"/><rect x="78" y="8" width="14" height="14" fill="#fff"/><rect x="0" y="70" width="30" height="30"/><rect x="8" y="78" width="14" height="14" fill="#fff"/><rect x="40" y="0" width="8" height="8"/><rect x="52" y="0" width="8" height="8"/><rect x="40" y="14" width="8" height="8"/><rect x="40" y="40" width="8" height="8"/><rect x="55" y="40" width="12" height="12"/><rect x="75" y="45" width="8" height="8"/><rect x="88" y="40" width="8" height="8"/><rect x="40" y="60" width="8" height="8"/><rect x="60" y="65" width="8" height="8"/><rect x="80" y="70" width="8" height="8"/><rect x="45" y="80" width="10" height="10"/><rect x="70" y="88" width="8" height="8"/><rect x="88" y="80" width="8" height="8"/></svg>
+          </div>
+          <div class="footer-qr-text">
+            <strong>@TeamPS</strong>
+            Suivez nos actus sur Instagram
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Groupe BPCE — Team IMAGINE V2. Tous droits réservés.</span>
+      <div class="footer-legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">CGU</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Cookies</a>
+        <a href="#">Accessibilité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team IMAGINE — La Banque du Sport</title>
+<style>
+:root {
+  --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
+  --violet-600:#581d74; --violet-500:#6b239a; --violet-400:#8433b8;
+  --violet-300:#a257cc; --violet-200:#c699e2; --violet-100:#e2c8f2; --violet-50:#f5eefa;
+  --gray-900:#111; --gray-800:#252525; --gray-700:#3d3d3d; --gray-600:#575757;
+  --gray-500:#737373; --gray-400:#909090; --gray-300:#b5b5b5; --gray-200:#d8d8d8;
+  --gray-100:#efefef; --gray-50:#f7f7f7; --white:#fff;
+  --success:#1a7a45; --warning:#8a4700; --error:#b5001f;
+  --gauge-fill:#7be8a8;
+  --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
+  --sh-sm:0 1px 3px rgba(88,29,116,.08),0 1px 2px rgba(88,29,116,.04);
+  --sh-md:0 4px 12px rgba(88,29,116,.1),0 2px 4px rgba(88,29,116,.06);
+  --sh-lg:0 10px 30px rgba(88,29,116,.12),0 4px 8px rgba(88,29,116,.06);
+  --sh-xl:0 20px 60px rgba(46,16,64,.3),0 10px 24px rgba(46,16,64,.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:var(--font);color:var(--gray-900);background:var(--gray-50);line-height:1.5;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100vh;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--violet-600);color:#fff;padding:12px 20px;z-index:999;}
+.skip-link:focus{left:0;}
+
+/* ═══ MAIN LAYOUT split 40/60 (login gauche, intro droite) ═══ */
+.prehome{flex:1;display:grid;grid-template-columns:40% 60%;min-height:calc(100vh - 60px);position:relative;}
+
+/* ═══ COLONNE DROITE — PRÉSENTATION ═══ */
+.intro{background:linear-gradient(135deg,#1c0926 0%,var(--violet-800) 30%,var(--violet-600) 70%,var(--violet-500) 100%);color:#fff;padding:32px 48px 28px 88px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.intro::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 80% 20%,rgba(255,255,255,.08) 0,transparent 35%),radial-gradient(circle at 15% 85%,rgba(123,232,168,.06) 0,transparent 40%);}
+.intro-pattern{position:absolute;right:-80px;bottom:-80px;width:520px;height:520px;opacity:.06;}
+
+/* Courbe organique de séparation - à gauche du bloc violet maintenant */
+.curve-divider{position:absolute;left:-1px;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
+.curve-divider svg{height:100%;width:auto;display:block;}
+
+/* Header */
+.intro-header{display:flex;align-items:center;gap:14px;position:relative;z-index:1;}
+.logo-mark-big{width:60px;height:60px;background:rgba(255,255,255,.16);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.25);}
+.logo-mark-big span{color:#fff;font-weight:700;font-size:26px;letter-spacing:-1px;}
+.logo-text-big{line-height:1.1;}
+.logo-name-big{font-weight:700;font-size:24px;color:#fff;letter-spacing:-.5px;}
+.logo-tag-big{font-size:13px;color:var(--violet-200);font-weight:700;margin-top:2px;}
+
+/* Body intro */
+.intro-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:24px 0;position:relative;z-index:1;}
+
+.intro-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;margin-bottom:16px;width:fit-content;}
+.intro-eyebrow svg{width:13px;height:13px;}
+
+.intro-title{font-size:42px;font-weight:700;line-height:1.05;letter-spacing:-1px;margin-bottom:14px;color:#fff;}
+.intro-title em{font-style:normal;color:var(--violet-200);}
+.intro-lede{font-size:15px;color:rgba(255,255,255,.85);max-width:520px;line-height:1.5;margin-bottom:24px;}
+
+/* Vidéo placeholder */
+.video-placeholder{background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);border-radius:var(--r-xl);padding:0;overflow:hidden;width:100%;max-width:480px;aspect-ratio:16/9;position:relative;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.video-placeholder:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.25);border-color:rgba(255,255,255,.32);}
+.video-placeholder-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--violet-700),var(--violet-500));opacity:.5;}
+.video-placeholder-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 2px,transparent 2px,transparent 14px);}
+.video-play-btn{position:relative;z-index:1;width:64px;height:64px;background:rgba(255,255,255,.95);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.2s;box-shadow:0 8px 24px rgba(0,0,0,.3);}
+.video-placeholder:hover .video-play-btn{transform:scale(1.1);background:#fff;}
+.video-play-btn svg{width:26px;height:26px;color:var(--violet-700);margin-left:4px;}
+.video-label{position:absolute;bottom:14px;left:18px;font-size:13px;font-weight:700;color:#fff;z-index:1;display:flex;align-items:center;gap:8px;}
+.video-label-tag{background:rgba(0,0,0,.4);padding:4px 10px;border-radius:var(--r-full);font-size:10px;text-transform:uppercase;letter-spacing:.06em;backdrop-filter:blur(8px);}
+.video-duration{position:absolute;bottom:14px;right:18px;background:rgba(0,0,0,.6);color:#fff;padding:4px 9px;border-radius:var(--r-sm);font-size:11px;font-weight:700;z-index:1;}
+
+/* Footer intro — 3 thématiques + athlètes */
+.intro-footer{position:relative;z-index:1;display:flex;flex-direction:column;gap:20px;margin-top:24px;}
+
+/* 3 piliers BDS */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.pillar{display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-md);backdrop-filter:blur(6px);}
+.pillar-icon{width:36px;height:36px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pillar-icon.p1{background:rgba(132,51,184,.35);color:#d4a3ed;}
+.pillar-icon.p2{background:rgba(194,38,211,.3);color:#f0abfc;}
+.pillar-icon.p3{background:rgba(255,255,255,.16);color:#fff;}
+.pillar-icon svg{width:18px;height:18px;}
+.pillar-text{line-height:1.2;}
+.pillar-num{font-size:9px;color:rgba(255,255,255,.7);font-weight:700;letter-spacing:.08em;}
+.pillar-title{font-size:11.5px;font-weight:700;color:#fff;margin-top:2px;}
+
+/* Mini-portraits 4 athlètes */
+.athletes-teaser{display:flex;align-items:center;gap:14px;}
+.athletes-teaser-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.85);}
+.athletes-avatars{display:flex;align-items:center;}
+.athlete-avatar{width:38px;height:38px;border-radius:50%;border:2.5px solid var(--violet-700);margin-left:-10px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;transition:.2s;}
+.athlete-avatar:first-child{margin-left:0;}
+.athlete-avatar:hover{transform:translateY(-3px) scale(1.05);z-index:2;}
+.athlete-avatar.a1{background:linear-gradient(135deg,#581d74,#8433b8);}
+.athlete-avatar.a2{background:linear-gradient(135deg,#4b1a67,#a257cc);}
+.athlete-avatar.a3{background:linear-gradient(135deg,#0c4a85,#1e7ad0);}
+.athlete-avatar.a4{background:linear-gradient(135deg,#7c2d12,#ea580c);}
+.athlete-avatar.more{background:rgba(255,255,255,.12);border:2px dashed rgba(255,255,255,.4);color:#fff;font-size:10px;}
+.athletes-teaser-stat{font-size:12px;color:rgba(255,255,255,.95);}
+.athletes-teaser-stat strong{font-size:15px;color:#fff;font-weight:700;display:block;line-height:1;}
+.athletes-teaser-stat span{font-size:10px;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.04em;font-weight:700;}
+
+/* ═══ COLONNE DROITE — CONNEXION ═══ */
+.login{background:#fff;padding:36px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;}
+.login-inner{max-width:380px;width:100%;margin:0 auto;}
+
+/* Title */
+.login-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--violet-600);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;}
+.login-eyebrow svg{width:14px;height:14px;}
+.login-title{font-size:24px;font-weight:700;letter-spacing:-.5px;color:var(--gray-900);margin-bottom:6px;line-height:1.2;}
+.login-sub{font-size:13px;color:var(--gray-600);line-height:1.5;margin-bottom:24px;}
+
+/* SSO bouton principal */
+.sso-btn{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:15px 18px;background:linear-gradient(135deg,var(--violet-700),var(--violet-500));color:#fff;border:none;border-radius:var(--r-md);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:.2s;box-shadow:0 4px 14px rgba(88,29,116,.3);position:relative;overflow:hidden;}
+.sso-btn::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent 50%);}
+.sso-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(88,29,116,.4);}
+.sso-btn:focus{outline:none;box-shadow:0 0 0 4px rgba(88,29,116,.25),0 4px 14px rgba(88,29,116,.3);}
+.sso-btn-left{display:flex;align-items:center;gap:10px;position:relative;z-index:1;}
+.sso-btn-icon{width:28px;height:28px;background:rgba(255,255,255,.2);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sso-btn-icon svg{width:15px;height:15px;}
+.sso-btn-text{position:relative;z-index:1;white-space:nowrap;}
+.sso-btn-arrow{position:relative;z-index:1;transition:.15s;width:18px;height:18px;flex-shrink:0;}
+.sso-btn:hover .sso-btn-arrow{transform:translateX(3px);}
+
+.sso-help{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--gray-600);margin-top:12px;line-height:1.4;}
+.sso-help svg{width:14px;height:14px;color:var(--violet-600);flex-shrink:0;margin-top:1px;}
+.sso-help strong{color:var(--gray-800);font-weight:700;}
+
+/* Séparateur "ou" */
+.divider{display:flex;align-items:center;gap:14px;margin:22px 0;}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--gray-200);}
+.divider span{font-size:11px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.08em;}
+
+/* Formulaire mail/mdp */
+.form-fields{display:flex;flex-direction:column;gap:12px;}
+.field{position:relative;}
+.field label{display:block;font-size:11px;font-weight:700;color:var(--gray-700);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em;}
+.field-input-wrap{position:relative;}
+.field input{width:100%;padding:11px 14px 11px 40px;border:1.5px solid var(--gray-200);border-radius:var(--r-md);font-family:var(--font);font-size:14px;color:var(--gray-900);background:var(--gray-50);transition:.15s;}
+.field input:hover{border-color:var(--gray-300);}
+.field input:focus{outline:none;border-color:var(--violet-600);background:#fff;box-shadow:0 0 0 3px rgba(88,29,116,.15);}
+.field-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--gray-500);}
+.field-icon svg{width:17px;height:17px;}
+
+.form-foot{display:flex;align-items:center;justify-content:space-between;margin-top:4px;flex-wrap:wrap;gap:10px;}
+.remember{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-700);cursor:pointer;}
+.remember input{width:16px;height:16px;accent-color:var(--violet-600);cursor:pointer;}
+.forgot-link{font-size:13px;color:var(--violet-600);font-weight:700;}
+.forgot-link:hover{color:var(--violet-700);text-decoration:underline;}
+
+.btn-login{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;background:transparent;color:var(--violet-700);border:1.5px solid var(--violet-300);border-radius:var(--r-md);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:.15s;margin-top:16px;}
+.btn-login:hover{background:var(--violet-50);border-color:var(--violet-600);}
+.btn-login svg{width:16px;height:16px;}
+
+/* Footer login — confidentialité */
+.login-foot{margin-top:auto;padding-top:24px;font-size:11px;color:var(--gray-500);line-height:1.5;text-align:center;}
+.login-foot a{color:var(--violet-600);text-decoration:underline;}
+.login-foot a:hover{color:var(--violet-700);}
+
+/* ═══ MINI FOOTER ═══ */
+.minimal-footer{background:var(--gray-50);border-top:1px solid var(--gray-200);padding:18px 0;font-size:12px;color:var(--gray-600);}
+.minimal-footer-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.minimal-footer-legal{display:flex;gap:18px;flex-wrap:wrap;}
+.minimal-footer-legal a:hover{color:var(--violet-700);text-decoration:underline;}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1100px){
+  .prehome{grid-template-columns:55% 45%;}
+  .intro{padding:36px 40px;}
+  .login{padding:36px 40px;}
+  .intro-title{font-size:42px;}
+}
+@media(max-width:880px){
+  .prehome{grid-template-columns:1fr;}
+  .intro{padding:32px 28px 48px;min-height:auto;}
+  .curve-divider{display:none;}
+  .login{padding:40px 28px;min-height:auto;}
+  .intro-title{font-size:36px;}
+  .intro-body{padding:24px 0;}
+  .video-placeholder{max-width:100%;}
+  .pillars{grid-template-columns:1fr;gap:10px;}
+  .athletes-teaser{flex-direction:column;align-items:flex-start;gap:12px;}
+}
+@media(max-width:600px){
+  .intro-title{font-size:28px;}
+  .intro-lede{font-size:15px;}
+  .login-title{font-size:24px;}
+}
+</style>
+</head>
+<body>
+
+<a href="#login" class="skip-link">Aller directement à la connexion</a>
+
+<!-- Bandeau démo -->
+<div style="background:#1c0926;color:#fff;padding:8px 24px;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:Arial,Helvetica,sans-serif;">
+  <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable Team IMAGINE V2</strong> — Démo de cadrage, juin 2026</span>
+  <a href="index.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:.15s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    Retour au sommaire
+  </a>
+</div>
+
+
+<div class="prehome">
+
+  <!-- ═══ COLONNE GAUCHE — CONNEXION ═══ -->
+  <section class="login" id="login" aria-labelledby="login-title">
+    <div class="login-inner">
+
+      <div class="login-eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Espace réservé aux collaborateurs
+      </div>
+
+      <h2 class="login-title" id="login-title">Connectez-vous</h2>
+      <p class="login-sub">Accédez à votre espace Team IMAGINE pour suivre les défis, voir le calendrier et participer aux jeux du Groupe.</p>
+
+      <!-- SSO bouton principal -->
+      <button class="sso-btn" type="button" aria-describedby="sso-help-text">
+        <span class="sso-btn-left">
+          <span class="sso-btn-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </span>
+          <span class="sso-btn-text">Se connecter avec SSO BPCE</span>
+        </span>
+        <svg class="sso-btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+
+      <div class="sso-help" id="sso-help-text">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>
+          <strong>Connexion sécurisée</strong> via votre identifiant unique Groupe BPCE — aucun mot de passe à saisir.
+        </span>
+      </div>
+
+      <!-- Séparateur -->
+      <div class="divider" role="separator"><span>Ou</span></div>
+
+      <!-- Formulaire mail/mdp -->
+      <form class="form-fields" novalidate>
+        <div class="field">
+          <label for="email">Adresse e-mail professionnelle</label>
+          <div class="field-input-wrap">
+            <span class="field-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+            </span>
+            <input type="email" id="email" name="email" placeholder="prenom.nom@bpce.fr" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password">Mot de passe</label>
+          <div class="field-input-wrap">
+            <span class="field-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span>
+            <input type="password" id="password" name="password" placeholder="••••••••••" autocomplete="current-password">
+          </div>
+        </div>
+
+        <div class="form-foot">
+          <label class="remember">
+            <input type="checkbox" name="remember">
+            Se souvenir de moi
+          </label>
+          <a href="#" class="forgot-link">Mot de passe oublié ?</a>
+        </div>
+
+        <button type="submit" class="btn-login">
+          Se connecter par e-mail
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+
+      <!-- Footer login -->
+      <div class="login-foot">
+        En vous connectant, vous acceptez les <a href="#">CGU</a> et la <a href="#">politique de confidentialité</a> de Team IMAGINE.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ COLONNE DROITE — PRÉSENTATION ═══ -->
+  <section class="intro" aria-labelledby="intro-title">
+    <!-- Pattern décoratif -->
+    <svg class="intro-pattern" viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="1.5">
+      <circle cx="100" cy="100" r="90"/>
+      <circle cx="100" cy="100" r="60"/>
+      <circle cx="100" cy="100" r="30"/>
+      <path d="M100 10v180M10 100h180"/>
+    </svg>
+
+    <!-- Courbe de séparation -->
+    <div class="curve-divider" aria-hidden="true">
+      <svg viewBox="0 0 80 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0 Q 80 400 0 800 Z" fill="#fff"/>
+      </svg>
+    </div>
+
+    <!-- Header logo -->
+    <div class="intro-header">
+      <div class="logo-mark-big"><span>TI</span></div>
+      <div class="logo-text-big">
+        <div class="logo-name-big">Team IMAGINE</div>
+        <div class="logo-tag-big">La Banque du Sport</div>
+      </div>
+    </div>
+
+    <!-- Body avec manifeste -->
+    <div class="intro-body">
+      <span class="intro-eyebrow">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+        Bienvenue dans la Banque du Sport
+      </span>
+
+      <h1 class="intro-title" id="intro-title">
+        Le sport,<br>
+        <em>au cœur du Groupe BPCE.</em>
+      </h1>
+
+      <!-- Vidéo placeholder -->
+      <div class="video-placeholder" role="button" tabindex="0" aria-label="Lire la vidéo manifeste Team IMAGINE">
+        <div class="video-placeholder-bg" aria-hidden="true"></div>
+        <div class="video-placeholder-pattern" aria-hidden="true"></div>
+        <div class="video-play-btn" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-label" aria-hidden="true">
+          <span class="video-label-tag">Manifeste</span>
+        </div>
+        <span class="video-duration" aria-hidden="true">2:14</span>
+      </div>
+    </div>
+
+    <!-- Footer intro : 3 piliers + athlètes -->
+    <div class="intro-footer">
+
+      <!-- 3 piliers BDS -->
+      <div class="pillars" aria-label="Les 3 thématiques Banque du Sport">
+        <div class="pillar">
+          <div class="pillar-icon p1" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          </div>
+          <div class="pillar-text">
+            <div class="pillar-num">01</div>
+            <div class="pillar-title">Banque des athlètes &amp; du monde sportif</div>
+          </div>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-icon p2" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <div class="pillar-text">
+            <div class="pillar-num">02</div>
+            <div class="pillar-title">Banque de l'économie du sport</div>
+          </div>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-icon p3" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+          </div>
+          <div class="pillar-text">
+            <div class="pillar-num">03</div>
+            <div class="pillar-title">Banque active &amp; sportive</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teaser athlètes -->
+      <div class="athletes-teaser">
+        <div class="athletes-teaser-label">Nos athlètes :</div>
+        <div class="athletes-avatars" role="list" aria-label="Athlètes sponsorisés BPCE">
+          <div class="athlete-avatar a1" role="listitem" title="Kévin Mayer — Décathlon">KM</div>
+          <div class="athlete-avatar a2" role="listitem" title="Margaux Dubois — Natation">MD</div>
+          <div class="athlete-avatar a3" role="listitem" title="Léa Garnier — Tennis">LG</div>
+          <div class="athlete-avatar a4" role="listitem" title="Antoine Lefebvre — Cyclisme">AL</div>
+          <div class="athlete-avatar more" role="listitem" title="Et 43 autres athlètes">+43</div>
+        </div>
+        <div class="athletes-teaser-stat">
+          <strong>47</strong>
+          <span>sportifs soutenus</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══ MINI FOOTER ═══ -->
+<footer class="minimal-footer">
+  <div class="minimal-footer-inner">
+    <span>© 2026 Groupe BPCE — Team IMAGINE V2</span>
+    <div class="minimal-footer-legal">
+      <a href="#">Mentions légales</a>
+      <a href="#">CGU</a>
+      <a href="#">Cookies</a>
+      <a href="#">Accessibilité</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

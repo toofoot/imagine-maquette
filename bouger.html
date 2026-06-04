@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team IMAGINE — Bouger</title>
+<style>
+:root {
+  --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
+  --violet-600:#581d74; --violet-500:#6b239a; --violet-400:#8433b8;
+  --violet-300:#a257cc; --violet-200:#c699e2; --violet-100:#e2c8f2; --violet-50:#f5eefa;
+  --gray-900:#111; --gray-800:#252525; --gray-700:#3d3d3d; --gray-600:#575757;
+  --gray-500:#737373; --gray-400:#909090; --gray-300:#b5b5b5; --gray-200:#d8d8d8;
+  --gray-100:#efefef; --gray-50:#f7f7f7; --white:#fff;
+  --success:#1a7a45; --success-bg:#e7f5ee; --warning:#8a4700; --warning-bg:#fff3e5;
+  --error:#b5001f; --info:#0f5fa8; --info-bg:#e7f0fa;
+  --gauge-fill:#7be8a8;
+  --water:#3b82f6; --food:#10b981; --sleep:#a78bfa;
+  --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
+  --sh-sm:0 1px 3px rgba(88,29,116,.08),0 1px 2px rgba(88,29,116,.04);
+  --sh-md:0 4px 12px rgba(88,29,116,.1),0 2px 4px rgba(88,29,116,.06);
+  --sh-lg:0 10px 30px rgba(88,29,116,.12),0 4px 8px rgba(88,29,116,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:var(--font);color:var(--gray-900);background:var(--gray-50);line-height:1.5;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--violet-600);color:#fff;padding:12px 20px;z-index:999;}
+.skip-link:focus{left:0;}
+
+/* ═══ HEADER ═══ */
+.header{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100;}
+.header-top{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px;}
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.logo-mark{width:42px;height:42px;background:var(--violet-600);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;}
+.logo-mark span{color:#fff;font-weight:700;font-size:18px;letter-spacing:-.5px;}
+.logo-text{line-height:1.1;}
+.logo-name{font-weight:700;font-size:16px;color:var(--gray-900);letter-spacing:-.3px;}
+.logo-tag{font-size:11px;color:var(--violet-600);font-weight:700;}
+.nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;}
+.nav a{padding:10px 14px;font-size:14px;font-weight:700;color:var(--gray-700);border-radius:var(--r-md);transition:.15s;position:relative;display:flex;align-items:center;gap:6px;}
+.nav a:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav a.active{color:var(--violet-600);}
+.nav a.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--violet-600);border-radius:3px 3px 0 0;}
+.nav a svg{width:16px;height:16px;}
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.icon-btn{width:42px;height:42px;border-radius:var(--r-full);border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-600);transition:.15s;position:relative;}
+.icon-btn:hover{background:var(--gray-100);color:var(--violet-600);}
+.icon-btn svg{width:22px;height:22px;}
+.notif-dot{position:absolute;top:9px;right:9px;width:8px;height:8px;background:var(--error);border-radius:50%;border:2px solid #fff;}
+.user-chip{display:flex;align-items:center;gap:10px;padding:5px 12px 5px 5px;border-radius:var(--r-full);background:var(--gray-50);border:1px solid var(--gray-200);cursor:pointer;transition:.15s;}
+.user-chip:hover{border-color:var(--violet-300);background:var(--violet-50);}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--violet-600);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;}
+.user-name{font-size:14px;font-weight:700;color:var(--gray-800);}
+
+/* ═══ HERO ═══ */
+.page-hero{background:linear-gradient(135deg,var(--violet-800) 0%,var(--violet-600) 55%,var(--violet-500) 100%);color:#fff;padding:44px 0 48px;position:relative;overflow:hidden;}
+.page-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 30%,rgba(255,255,255,.07) 0,transparent 35%),radial-gradient(circle at 10% 90%,rgba(255,255,255,.05) 0,transparent 40%);}
+.page-hero-pattern{position:absolute;right:-100px;top:-60px;width:380px;height:380px;opacity:.1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.85);margin-bottom:14px;position:relative;}
+.breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a:hover{color:#fff;}
+.breadcrumb svg{width:14px;height:14px;}
+.hero-top{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;margin-bottom:32px;position:relative;}
+.page-title{font-size:42px;font-weight:700;line-height:1.05;letter-spacing:-1px;margin-bottom:10px;display:flex;align-items:center;gap:14px;}
+.page-title-icon{width:50px;height:50px;border-radius:var(--r-md);background:rgba(255,255,255,.16);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.page-title-icon svg{width:28px;height:28px;}
+.page-sub{font-size:16px;color:rgba(255,255,255,.85);max-width:560px;line-height:1.5;margin-bottom:16px;}
+.app-status{display:inline-flex;align-items:center;gap:12px;padding:10px 18px 10px 12px;background:rgba(123,232,168,.18);border:1.5px solid rgba(123,232,168,.5);border-radius:var(--r-md);color:#fff;}
+.app-status-check{width:28px;height:28px;background:var(--gauge-fill);color:var(--violet-800);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.app-status-check svg{width:16px;height:16px;}
+.app-status-label{font-size:14px;font-weight:700;line-height:1.2;color:#fff;}
+.app-status-sub{font-size:12px;color:rgba(255,255,255,.95);margin-top:2px;}
+.app-status-sub a{color:#fff;text-decoration:underline;font-weight:700;}
+
+/* ═══ 3 ESSENTIELS SANTÉ ═══ */
+.essentials{position:relative;}
+.essentials-label{font-size:12px;font-weight:700;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.essentials-label::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.18);}
+.essentials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.essential-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-xl);padding:18px 20px;display:flex;align-items:center;gap:14px;backdrop-filter:blur(8px);transition:.2s;}
+.essential-card:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);}
+.essential-icon{width:52px;height:52px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.essential-icon.water{background:rgba(59,130,246,.25);color:#93c5fd;}
+.essential-icon.food{background:rgba(16,185,129,.25);color:#6ee7b7;}
+.essential-icon.sleep{background:rgba(167,139,250,.25);color:#c4b5fd;}
+.essential-icon svg{width:26px;height:26px;}
+.essential-text{line-height:1.3;}
+.essential-num{font-size:22px;font-weight:700;color:#fff;letter-spacing:-.3px;}
+.essential-num small{font-size:14px;font-weight:400;color:rgba(255,255,255,.85);margin-left:3px;}
+.essential-label{font-size:12px;color:rgba(255,255,255,.95);margin-top:2px;font-weight:700;}
+
+/* ═══ SECTIONS ═══ */
+.section{padding:42px 0;}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;gap:24px;flex-wrap:wrap;}
+.section-title{font-size:28px;font-weight:700;letter-spacing:-.5px;color:var(--gray-900);display:flex;align-items:center;gap:12px;}
+.section-title-num{font-size:14px;background:var(--violet-100);color:var(--violet-700);padding:4px 12px;border-radius:var(--r-full);font-weight:700;}
+.section-sub{font-size:14px;color:var(--gray-600);margin-top:4px;}
+.section-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--violet-600);white-space:nowrap;cursor:pointer;}
+.section-link:hover{color:var(--violet-700);gap:9px;}
+.section-link svg{width:14px;height:14px;transition:.15s;}
+
+/* ═══ FILTRES TABS ═══ */
+.filter-tabs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.filter-tab{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:var(--r-full);font-size:13px;font-weight:700;color:var(--gray-700);background:var(--white);border:1.5px solid var(--gray-200);cursor:pointer;transition:.15s;font-family:var(--font);}
+.filter-tab:hover{border-color:var(--violet-300);background:var(--violet-50);color:var(--violet-700);}
+.filter-tab.active{background:var(--violet-600);color:#fff;border-color:var(--violet-600);}
+.filter-tab .count{background:rgba(255,255,255,.2);padding:2px 8px;border-radius:var(--r-full);font-size:11px;}
+.filter-tab:not(.active) .count{background:var(--gray-50);color:var(--gray-500);border:1px solid var(--gray-200);}
+
+/* ═══ DÉFIS CARDS ═══ */
+.defis-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.defi-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);overflow:hidden;transition:.2s;cursor:pointer;display:flex;flex-direction:column;}
+.defi-card:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);border-color:var(--violet-200);}
+.defi-banner{height:120px;position:relative;display:flex;align-items:flex-end;padding:18px 22px;overflow:hidden;}
+.defi-banner.collectif{background:linear-gradient(120deg,var(--violet-700),var(--violet-500));}
+.defi-banner.individuel{background:linear-gradient(120deg,#3d1554,#8433b8);}
+.defi-banner::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 2px,transparent 2px,transparent 14px);}
+.defi-banner-svg{position:absolute;right:-10px;top:50%;transform:translateY(-50%);opacity:.2;}
+.defi-banner-svg svg{width:140px;height:140px;}
+.defi-banner-inner{position:relative;z-index:1;color:#fff;display:flex;align-items:center;gap:14px;width:100%;}
+.defi-banner-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.2);padding:5px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
+.defi-banner-tag .pulse{width:7px;height:7px;background:var(--gauge-fill);border-radius:50%;animation:pulse 1.8s infinite;flex-shrink:0;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.5;}}
+.defi-body{padding:20px 24px 22px;flex:1;display:flex;flex-direction:column;}
+.defi-name{font-size:19px;font-weight:700;color:var(--gray-900);margin-bottom:8px;line-height:1.3;}
+.defi-desc{font-size:13px;color:var(--gray-600);line-height:1.5;margin-bottom:18px;}
+.defi-meta{display:flex;gap:18px;margin-bottom:18px;flex-wrap:wrap;}
+.defi-meta-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-600);}
+.defi-meta-item svg{width:14px;height:14px;color:var(--violet-500);}
+.defi-meta-item strong{color:var(--gray-900);font-weight:700;}
+.defi-progress{margin-bottom:14px;}
+.defi-progress-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
+.defi-progress-num{font-size:20px;font-weight:700;color:var(--violet-700);letter-spacing:-.3px;}
+.defi-progress-num small{font-size:13px;color:var(--gray-500);font-weight:400;}
+.defi-progress-pct{font-size:14px;font-weight:700;color:var(--violet-600);}
+.defi-track{height:8px;background:var(--gray-100);border-radius:var(--r-full);overflow:hidden;}
+.defi-fill{height:100%;background:linear-gradient(90deg,var(--violet-600),var(--violet-400));border-radius:var(--r-full);}
+.defi-foot{display:flex;align-items:center;justify-content:space-between;padding-top:16px;margin-top:auto;border-top:1px solid var(--gray-100);gap:14px;}
+.defi-stat-chip{background:var(--violet-50);padding:6px 12px;border-radius:var(--r-md);font-size:12px;color:var(--violet-700);font-weight:700;}
+.defi-stat-chip strong{color:var(--violet-900);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 18px;border-radius:var(--r-md);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;border:2px solid transparent;transition:.15s;white-space:nowrap;text-decoration:none;}
+.btn svg{width:16px;height:16px;}
+.btn-violet{background:var(--violet-600);color:#fff;}
+.btn-violet:hover{background:var(--violet-700);transform:translateY(-1px);box-shadow:var(--sh-md);}
+.btn-outline{background:transparent;color:var(--violet-600);border-color:var(--violet-300);}
+.btn-outline:hover{background:var(--violet-50);border-color:var(--violet-600);}
+
+/* ═══ ACCORDÉON HISTORIQUE ═══ */
+.history-toggle{background:#fff;border:1.5px solid var(--gray-200);border-radius:var(--r-md);padding:14px 18px;width:100%;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-family:var(--font);font-size:14px;font-weight:700;color:var(--gray-800);transition:.15s;margin-top:24px;}
+.history-toggle:hover{border-color:var(--violet-300);background:var(--violet-50);}
+.history-toggle-left{display:flex;align-items:center;gap:10px;}
+.history-toggle-icon{width:28px;height:28px;border-radius:var(--r-sm);background:var(--gray-100);color:var(--gray-600);display:flex;align-items:center;justify-content:center;}
+.history-toggle-icon svg{width:16px;height:16px;}
+.history-toggle-chevron{color:var(--gray-500);transition:.2s;}
+.history-toggle-chevron svg{width:18px;height:18px;}
+.history-count{font-size:12px;font-weight:700;color:var(--gray-500);background:var(--gray-100);padding:3px 10px;border-radius:var(--r-full);}
+
+/* ═══ RÉCAP JOURNALIER ═══ */
+.daily-recap{background:linear-gradient(135deg,var(--violet-800) 0%,var(--violet-600) 100%);color:#fff;border-radius:var(--r-2xl);padding:32px 36px;position:relative;overflow:hidden;}
+.daily-recap::before{content:"";position:absolute;right:-60px;top:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(123,232,168,.15),transparent 70%);}
+.daily-recap-grid{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;position:relative;}
+.dr-gauge{width:160px;height:160px;flex-shrink:0;position:relative;}
+.dr-gauge svg{width:100%;height:100%;transform:rotate(-90deg);}
+.dr-gauge-bg{fill:none;stroke:rgba(255,255,255,.12);stroke-width:11;}
+.dr-gauge-fill{fill:none;stroke:var(--gauge-fill);stroke-width:11;stroke-linecap:round;}
+.dr-gauge-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
+.dr-gauge-pct{font-size:38px;font-weight:700;line-height:1;}
+.dr-gauge-status{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gauge-fill);margin-top:5px;}
+.dr-info-block{display:flex;flex-direction:column;}
+.dr-eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.85);margin-bottom:6px;}
+.dr-title{font-size:22px;font-weight:700;margin-bottom:8px;line-height:1.3;}
+.dr-detail{font-size:14px;color:rgba(255,255,255,.9);margin-bottom:20px;}
+.dr-detail strong{color:#fff;}
+.dr-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.dr-stat{background:rgba(255,255,255,.08);border-radius:var(--r-md);padding:14px 12px;text-align:center;}
+.dr-stat-num{font-size:20px;font-weight:700;line-height:1;}
+.dr-stat-label{font-size:11px;color:rgba(255,255,255,.9);margin-top:5px;text-transform:uppercase;letter-spacing:.04em;font-weight:700;}
+
+/* ═══ VIDÉOS ═══ */
+.videos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.video-card{background:#fff;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-sm);border:1px solid var(--gray-200);transition:.2s;cursor:pointer;}
+.video-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);}
+.video-thumb{height:170px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.video-thumb.v1{background:linear-gradient(135deg,#3d1554,#6b239a);}
+.video-thumb.v2{background:linear-gradient(135deg,#4b1a67,#a257cc);}
+.video-thumb.v3{background:linear-gradient(135deg,#2e1040,#581d74);}
+.video-thumb.v4{background:linear-gradient(135deg,#1a7a45,#3d8c5e);}
+.video-thumb.v5{background:linear-gradient(135deg,#0c4a85,#1e7ad0);}
+.video-thumb.v6{background:linear-gradient(135deg,#7c2d12,#ea580c);}
+.video-svg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.18;}
+.video-svg svg{width:65%;height:65%;}
+.video-play{position:relative;z-index:1;width:56px;height:56px;background:rgba(255,255,255,.95);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.2s;}
+.video-card:hover .video-play{transform:scale(1.1);background:#fff;}
+.video-play svg{width:22px;height:22px;color:var(--violet-700);margin-left:3px;}
+.video-duration{position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.7);color:#fff;padding:4px 9px;border-radius:var(--r-sm);font-size:11px;font-weight:700;}
+.video-cat{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.95);padding:4px 11px;border-radius:var(--r-full);font-size:11px;font-weight:700;color:var(--violet-700);}
+.video-body{padding:16px 18px;}
+.video-title{font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:7px;line-height:1.3;}
+.video-meta{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--gray-500);}
+.video-meta span{display:flex;align-items:center;gap:5px;}
+.video-meta svg{width:13px;height:13px;}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--violet-900);color:rgba(255,255,255,.85);padding:42px 0 22px;margin-top:36px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-brand .logo-mark{margin-bottom:14px;}
+.footer-brand p{font-size:13px;line-height:1.6;max-width:280px;margin-top:14px;}
+.footer-col h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.85);padding:5px 0;transition:.15s;}
+.footer-col a:hover{color:#fff;}
+.footer-qr{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);padding:12px;}
+.qr-box{width:60px;height:60px;background:#fff;border-radius:var(--r-sm);flex-shrink:0;padding:5px;}
+.qr-box svg{width:100%;height:100%;}
+.footer-qr-text{font-size:12px;line-height:1.4;}
+.footer-qr-text strong{color:#fff;display:block;font-size:13px;margin-bottom:2px;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:20px;font-size:12px;flex-wrap:wrap;gap:10px;}
+.footer-legal{display:flex;gap:18px;flex-wrap:wrap;}
+.footer-legal a:hover{color:#fff;}
+
+@media(max-width:980px){
+  .nav{display:none;}
+  .hero-top{grid-template-columns:1fr;gap:24px;}
+  .page-title{font-size:32px;}
+  .essentials-grid{grid-template-columns:1fr;}
+  .defis-grid{grid-template-columns:1fr;}
+  .daily-recap-grid{grid-template-columns:1fr;text-align:center;}
+  .dr-gauge{margin:0 auto;}
+  .dr-stats-row{grid-template-columns:1fr 1fr;}
+  .videos-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
+  .user-name{display:none;}
+}
+@media(max-width:600px){
+  .page-title{font-size:26px;}
+  .videos-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .section-title{font-size:22px;}
+  .filter-tab{padding:7px 12px;font-size:12px;}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+
+<!-- Bandeau démo -->
+<div style="background:#1c0926;color:#fff;padding:8px 24px;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:Arial,Helvetica,sans-serif;">
+  <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable Team IMAGINE V2</strong> — Démo de cadrage, juin 2026</span>
+  <a href="index.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:.15s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    Retour au sommaire
+  </a>
+</div>
+
+
+<!-- ═══ HEADER ═══ -->
+<header class="header">
+  <div class="container header-top">
+    <a href="home.html" class="logo" aria-label="Team IMAGINE - Accueil">
+      <div class="logo-mark"><span>TI</span></div>
+      <div class="logo-text">
+        <div class="logo-name">Team IMAGINE</div>
+        <div class="logo-tag">La Banque du Sport</div>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="home.html">Accueil</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="#" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+        Bouger
+      </a>
+      <a href="participer.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 11h.01M15 11h.01M8 15s1.5 2 4 2 4-2 4-2"/></svg>
+        Participer
+      </a>
+      <a href="calendrier.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Calendrier
+      </a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Rechercher">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Notifications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+        <span class="notif-dot"></span>
+      </button>
+      <button class="user-chip">
+        <span class="avatar">CL</span>
+        <span class="user-name">Camille L.</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="page-hero">
+    <svg class="page-hero-pattern" viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="100" cy="100" r="90"/><circle cx="100" cy="100" r="60"/><circle cx="100" cy="100" r="30"/><path d="M100 10v180M10 100h180"/></svg>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="home.html">Accueil</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Bouger</span>
+      </div>
+
+      <div class="hero-top">
+        <div>
+          <h1 class="page-title">
+            <span class="page-title-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+            </span>
+            Bouger
+          </h1>
+          <p class="page-sub">Vos défis sportifs, votre activité du jour et toutes les séances vidéo pour bouger à votre rythme.</p>
+        </div>
+        <div class="app-status" role="status" aria-label="Strava connecté">
+          <div class="app-status-check" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="app-status-label">Strava connecté</div>
+            <div class="app-status-sub">Marche &amp; course · <a href="#">Gérer</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 ESSENTIELS SANTÉ -->
+      <div class="essentials">
+        <div class="essentials-label">Les 3 essentiels du bien-être au quotidien</div>
+        <div class="essentials-grid">
+          <div class="essential-card">
+            <div class="essential-icon water" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.5s-7 8-7 13a7 7 0 0 0 14 0c0-5-7-13-7-13z"/></svg>
+            </div>
+            <div class="essential-text">
+              <div class="essential-num">1,5 <small>L d'eau</small></div>
+              <div class="essential-label">Bien s'hydrater chaque jour</div>
+            </div>
+          </div>
+
+          <div class="essential-card">
+            <div class="essential-icon food" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.5C10 4 8 3 6 3c-3 0-5 2-5 5 0 5 4 9 11 13 7-4 11-8 11-13 0-3-2-5-5-5-2 0-4 1-6 3.5z" fill="currentColor" fill-opacity=".15"/><path d="M14 2c-1 1.5-1.5 3-1.5 4.5"/></svg>
+            </div>
+            <div class="essential-text">
+              <div class="essential-num">5 <small>fruits &amp; légumes</small></div>
+              <div class="essential-label">Pour bien manger</div>
+            </div>
+          </div>
+
+          <div class="essential-card">
+            <div class="essential-icon sleep" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </div>
+            <div class="essential-text">
+              <div class="essential-num">7-9 <small>h de sommeil</small></div>
+              <div class="essential-label">Pour bien récupérer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DÉFIS BOUGER ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Mes défis Bouger <span class="section-title-num">2 actifs</span></h2>
+          <p class="section-sub">Défis collectifs et individuels lancés par BPCE — vos séances Strava de <strong>marche et course</strong> y contribuent automatiquement</p>
+        </div>
+      </div>
+
+      <div class="filter-tabs" role="tablist">
+        <button class="filter-tab active" role="tab" aria-selected="true">
+          Tous <span class="count">2</span>
+        </button>
+        <button class="filter-tab" role="tab">
+          Défis collectifs <span class="count">1</span>
+        </button>
+        <button class="filter-tab" role="tab">
+          Défis individuels <span class="count">1</span>
+        </button>
+      </div>
+
+      <div class="defis-grid">
+
+        <!-- DÉFI COLLECTIF -->
+        <article class="defi-card">
+          <div class="defi-banner collectif">
+            <div class="defi-banner-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="30" cy="40" r="10" fill="white"/>
+                <path d="M30 50 L30 75 M30 60 L20 70 M30 60 L40 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="70" cy="40" r="10" fill="white"/>
+                <path d="M70 50 L70 75 M70 60 L60 70 M70 60 L80 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="50" cy="55" r="10" fill="white"/>
+                <path d="M50 65 L50 90 M50 75 L40 85 M50 75 L60 85" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="defi-banner-inner">
+              <span class="defi-banner-tag"><span class="pulse"></span>Défi collectif d'entité</span>
+            </div>
+          </div>
+          <div class="defi-body">
+            <h3 class="defi-name">100 000 km Ensemble</h3>
+            <p class="defi-desc">Tous les collaborateurs de la CE Hauts-de-France additionnent leurs kilomètres de marche et de course pour atteindre l'objectif collectif.</p>
+
+            <div class="defi-meta">
+              <span class="defi-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                Du 1<sup>er</sup> au <strong>30 juin</strong>
+              </span>
+              <span class="defi-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                <strong>2 341</strong> participants
+              </span>
+            </div>
+
+            <div class="defi-progress">
+              <div class="defi-progress-row">
+                <span class="defi-progress-num">47 832 <small>/ 100 000 km</small></span>
+                <span class="defi-progress-pct">48%</span>
+              </div>
+              <div class="defi-track"><div class="defi-fill" style="width:48%"></div></div>
+            </div>
+
+            <div class="defi-foot">
+              <div class="defi-stat-chip">
+                <strong>3<sup>e</sup> entité</strong> sur 27
+              </div>
+              <a href="#" class="btn btn-violet">Voir le défi →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- DÉFI INDIVIDUEL -->
+        <article class="defi-card">
+          <div class="defi-banner individuel">
+            <div class="defi-banner-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="35" stroke="white" stroke-width="3" fill="none"/>
+                <circle cx="50" cy="50" r="22" stroke="white" stroke-width="2" fill="none"/>
+                <circle cx="50" cy="50" r="10" fill="white"/>
+                <path d="M50 15 L50 25 M50 75 L50 85 M15 50 L25 50 M75 50 L85 50" stroke="white" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="defi-banner-inner">
+              <span class="defi-banner-tag"><span class="pulse"></span>Défi individuel BPCE</span>
+            </div>
+          </div>
+          <div class="defi-body">
+            <h3 class="defi-name">3 km par jour</h3>
+            <p class="defi-desc">Parcourez 3 km de marche ou de course chaque jour pendant 30 jours. Un défi individuel pour ancrer une habitude santé.</p>
+
+            <div class="defi-meta">
+              <span class="defi-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                <strong>Jour 18</strong> sur 30
+              </span>
+              <span class="defi-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <strong>16/18</strong> objectifs atteints
+              </span>
+            </div>
+
+            <div class="defi-progress">
+              <div class="defi-progress-row">
+                <span class="defi-progress-num">18 <small>/ 30 jours validés</small></span>
+                <span class="defi-progress-pct">62%</span>
+              </div>
+              <div class="defi-track"><div class="defi-fill" style="width:62%"></div></div>
+            </div>
+
+            <div class="defi-foot">
+              <div class="defi-stat-chip">
+                <strong>6 jours</strong> d'avance
+              </div>
+              <a href="#" class="btn btn-violet">Voir le défi →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- HISTORIQUE -->
+      <button class="history-toggle" aria-expanded="false">
+        <span class="history-toggle-left">
+          <span class="history-toggle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="10"/></svg>
+          </span>
+          Historique de mes défis terminés
+          <span class="history-count">5 défis</span>
+        </span>
+        <span class="history-toggle-chevron" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══ RÉCAP JOURNALIER ═══ -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Mon activité aujourd'hui</h2>
+          <p class="section-sub">Données synchronisées en temps réel depuis Strava</p>
+        </div>
+        <a href="#" class="section-link">Voir mon Dashboard <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="daily-recap">
+        <div class="daily-recap-grid">
+          <div class="dr-gauge" role="img" aria-label="Jour d'activité à 80%">
+            <svg viewBox="0 0 120 120">
+              <circle class="dr-gauge-bg" cx="60" cy="60" r="50"/>
+              <circle class="dr-gauge-fill" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="62.83"/>
+            </svg>
+            <div class="dr-gauge-center">
+              <div class="dr-gauge-pct">80%</div>
+              <div class="dr-gauge-status">En cours</div>
+            </div>
+          </div>
+
+          <div class="dr-info-block">
+            <div class="dr-eyebrow">Samedi 27 juin · Mon jour d'activité</div>
+            <div class="dr-title">Plus que <strong>0,6 km</strong> ou <strong>1 séance</strong> pour valider votre journée</div>
+            <div class="dr-detail">Objectif quotidien : <strong>3 km</strong> parcourus <strong>ou</strong> <strong>1 séance</strong> complétée — Continuez sur ce rythme pour prolonger votre série de 12 jours.</div>
+
+            <div class="dr-stats-row">
+              <div class="dr-stat">
+                <div class="dr-stat-num">2,4 km</div>
+                <div class="dr-stat-label">Parcourus</div>
+              </div>
+              <div class="dr-stat">
+                <div class="dr-stat-num">0</div>
+                <div class="dr-stat-label">Séance</div>
+              </div>
+              <div class="dr-stat">
+                <div class="dr-stat-num">28 min</div>
+                <div class="dr-stat-label">Activité</div>
+              </div>
+              <div class="dr-stat">
+                <div class="dr-stat-num">7'12"</div>
+                <div class="dr-stat-label">Allure /km</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SÉANCES VIDÉO ═══ -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Séances vidéo <span class="section-title-num">32 disponibles</span></h2>
+          <p class="section-sub">Cours en ligne pour bouger à votre rythme — où que vous soyez, à toute heure</p>
+        </div>
+      </div>
+
+      <div class="filter-tabs" role="tablist">
+        <button class="filter-tab active" role="tab" aria-selected="true">Toutes <span class="count">32</span></button>
+        <button class="filter-tab" role="tab">HIIT <span class="count">6</span></button>
+        <button class="filter-tab" role="tab">Yoga <span class="count">8</span></button>
+        <button class="filter-tab" role="tab">Étirements <span class="count">5</span></button>
+        <button class="filter-tab" role="tab">Récupération <span class="count">4</span></button>
+        <button class="filter-tab" role="tab">Cours en ligne <span class="count">7</span></button>
+        <button class="filter-tab" role="tab">Méditation <span class="count">2</span></button>
+      </div>
+
+      <div class="videos-grid">
+
+        <div class="video-card">
+          <div class="video-thumb v1">
+            <span class="video-cat">HIIT</span>
+            <div class="video-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="30" r="10" fill="white"/>
+                <path d="M50 40 L50 65 M50 50 L30 60 M50 50 L70 60 M50 65 L35 90 M50 65 L65 90" stroke="white" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-duration">18 min</span>
+          </div>
+          <div class="video-body">
+            <h3 class="video-title">HIIT express : réveil musculaire complet</h3>
+            <div class="video-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg> Intermédiaire</span>
+              <span>Corps entier</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb v2">
+            <span class="video-cat">Yoga</span>
+            <div class="video-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="25" r="8" fill="white"/>
+                <path d="M50 33 L50 55" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                <path d="M50 40 Q35 50 35 70 L25 80" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <path d="M50 40 Q65 50 65 70 L75 80" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <path d="M50 55 Q35 65 30 85" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <path d="M50 55 Q65 65 70 85" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+            <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-duration">25 min</span>
+          </div>
+          <div class="video-body">
+            <h3 class="video-title">Yoga doux : étirements de fin de journée</h3>
+            <div class="video-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg> Tous niveaux</span>
+              <span>Dos &amp; nuque</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb v3">
+            <span class="video-cat">Récupération</span>
+            <div class="video-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="35" stroke="white" stroke-width="3" fill="none"/>
+                <path d="M50 30 L50 50 L65 60" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-duration">12 min</span>
+          </div>
+          <div class="video-body">
+            <h3 class="video-title">Récupération active après l'effort</h3>
+            <div class="video-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg> Débutant</span>
+              <span>Jambes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb v4">
+            <span class="video-cat">Étirements</span>
+            <div class="video-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="22" r="8" fill="white"/>
+                <path d="M50 30 L50 60" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                <path d="M50 40 L20 35" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M50 40 L80 35" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M50 60 L35 90" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M50 60 L65 90" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-duration">10 min</span>
+          </div>
+          <div class="video-body">
+            <h3 class="video-title">Étirements bureau : libérer les tensions</h3>
+            <div class="video-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg> Tous niveaux</span>
+              <span>Dos &amp; cervicales</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb v1">
+            <span class="video-cat">HIIT</span>
+            <div class="video-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="30" r="10" fill="white"/>
+                <path d="M50 40 L50 60 M50 50 L30 50 M50 50 L70 50 M50 60 L40 85 M50 60 L60 85" stroke="white" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-duration">22 min</span>
+          </div>
+          <div class="video-body">
+            <h3 class="video-title">HIIT cardio brûle-graisses intense</h3>
+            <div class="video-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg> Avancé</span>
+              <span>Cardio</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb v5">
+            <span class="video-cat">Cours en ligne</span>
+            <div class="video-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <rect x="15" y="25" width="70" height="50" rx="4" stroke="white" stroke-width="3" fill="none"/>
+                <circle cx="50" cy="50" r="12" fill="white"/>
+                <polygon points="46,44 46,56 58,50" fill="#0c4a85"/>
+                <path d="M50 75 L50 85" stroke="white" stroke-width="3"/>
+                <rect x="35" y="85" width="30" height="3" fill="white"/>
+              </svg>
+            </div>
+            <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-duration">45 min</span>
+          </div>
+          <div class="video-body">
+            <h3 class="video-title">Posture &amp; ergonomie au bureau</h3>
+            <div class="video-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg> Tous niveaux</span>
+              <span>Conférence</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb v2">
+            <span class="video-cat">Yoga</span>
+            <div class="video-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="30" r="8" fill="white"/>
+                <path d="M50 38 L50 60" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                <path d="M50 50 L25 65" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M50 50 L75 65" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M50 60 L40 85" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M50 60 L60 85" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-duration">30 min</span>
+          </div>
+          <div class="video-body">
+            <h3 class="video-title">Salutation au soleil : routine matinale</h3>
+            <div class="video-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg> Intermédiaire</span>
+              <span>Corps entier</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb v6">
+            <span class="video-cat">Méditation</span>
+            <div class="video-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="35" stroke="white" stroke-width="2" fill="none"/>
+                <circle cx="50" cy="50" r="22" stroke="white" stroke-width="2" fill="none"/>
+                <circle cx="50" cy="50" r="10" fill="white"/>
+              </svg>
+            </div>
+            <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-duration">15 min</span>
+          </div>
+          <div class="video-body">
+            <h3 class="video-title">Méditation guidée anti-stress</h3>
+            <div class="video-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg> Tous niveaux</span>
+              <span>Bien-être mental</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <div class="video-thumb v3">
+            <span class="video-cat">Récupération</span>
+            <div class="video-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <path d="M30 50 Q50 30 70 50 Q50 70 30 50Z" fill="white"/>
+                <circle cx="50" cy="50" r="6" fill="#2e1040"/>
+              </svg>
+            </div>
+            <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <span class="video-duration">20 min</span>
+          </div>
+          <div class="video-body">
+            <h3 class="video-title">Auto-massage des trapèzes</h3>
+            <div class="video-meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg> Tous niveaux</span>
+              <span>Cervicales</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Load more -->
+      <div style="text-align:center;margin-top:32px;">
+        <button class="btn btn-outline">
+          Charger 9 séances de plus
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <p style="font-size:13px;color:var(--gray-600);margin-top:14px;">
+          <strong>9 sur 32</strong> séances affichées
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-mark"><span>TI</span></div>
+          <div class="logo-text">
+            <div class="logo-name" style="color:#fff;">Team IMAGINE</div>
+            <div class="logo-tag" style="color:var(--violet-300);">La Banque du Sport</div>
+          </div>
+        </div>
+        <p>La plateforme d'engagement sportif et de bien-être des 40 000 collaborateurs du Groupe BPCE.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explorer</h4>
+        <a href="actualites.html">Actualités</a>
+        <a href="#">Bouger</a>
+        <a href="#">Participer</a>
+        <a href="#">Calendrier</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#">La Promesse</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Mon compte</h4>
+        <a href="#">Mes participations</a>
+        <a href="#">Mes badges</a>
+        <a href="#">Strava</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Notifications</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Suivez-nous</h4>
+        <div class="footer-qr">
+          <div class="qr-box">
+            <svg viewBox="0 0 100 100" fill="#581d74"><rect x="0" y="0" width="30" height="30"/><rect x="8" y="8" width="14" height="14" fill="#fff"/><rect x="70" y="0" width="30" height="30"/><rect x="78" y="8" width="14" height="14" fill="#fff"/><rect x="0" y="70" width="30" height="30"/><rect x="8" y="78" width="14" height="14" fill="#fff"/><rect x="40" y="0" width="8" height="8"/><rect x="52" y="0" width="8" height="8"/><rect x="40" y="14" width="8" height="8"/><rect x="40" y="40" width="8" height="8"/><rect x="55" y="40" width="12" height="12"/><rect x="75" y="45" width="8" height="8"/><rect x="88" y="40" width="8" height="8"/><rect x="40" y="60" width="8" height="8"/><rect x="60" y="65" width="8" height="8"/><rect x="80" y="70" width="8" height="8"/><rect x="45" y="80" width="10" height="10"/><rect x="70" y="88" width="8" height="8"/><rect x="88" y="80" width="8" height="8"/></svg>
+          </div>
+          <div class="footer-qr-text">
+            <strong>@TeamPS</strong>
+            Suivez nos actus sur Instagram
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Groupe BPCE — Team IMAGINE V2. Tous droits réservés.</span>
+      <div class="footer-legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">CGU</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Cookies</a>
+        <a href="#">Accessibilité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

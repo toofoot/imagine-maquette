@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team IMAGINE V2 — Maquettes navigables</title>
+<style>
+:root {
+  --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
+  --violet-600:#581d74; --violet-500:#6b239a; --violet-400:#8433b8;
+  --violet-300:#a257cc; --violet-200:#c699e2; --violet-100:#e2c8f2; --violet-50:#f5eefa;
+  --gray-900:#111; --gray-800:#252525; --gray-700:#3d3d3d; --gray-600:#575757;
+  --gray-500:#737373; --gray-400:#909090; --gray-300:#b5b5b5; --gray-200:#d8d8d8;
+  --gray-100:#efefef; --gray-50:#f7f7f7; --white:#fff;
+  --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
+  --sh-md:0 4px 12px rgba(88,29,116,.1),0 2px 4px rgba(88,29,116,.06);
+  --sh-lg:0 10px 30px rgba(88,29,116,.12),0 4px 8px rgba(88,29,116,.06);
+  --sh-xl:0 20px 60px rgba(46,16,64,.25);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:var(--font);color:var(--gray-900);background:var(--gray-50);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1400px;margin:0 auto;padding:0 32px;}
+
+/* ═══ HERO ═══ */
+.hero{background:linear-gradient(135deg,#1c0926 0%,var(--violet-800) 30%,var(--violet-600) 70%,var(--violet-500) 100%);color:#fff;padding:64px 0 80px;position:relative;overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 30%,rgba(255,255,255,.08) 0,transparent 35%),radial-gradient(circle at 10% 80%,rgba(255,255,255,.05) 0,transparent 40%);}
+.hero-pattern{position:absolute;right:-100px;top:-60px;width:480px;height:480px;opacity:.08;}
+
+.hero-inner{position:relative;}
+
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:36px;}
+.brand-mark{width:54px;height:54px;background:rgba(255,255,255,.16);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.25);}
+.brand-mark span{color:#fff;font-weight:700;font-size:22px;letter-spacing:-.5px;}
+.brand-text{line-height:1.1;}
+.brand-name{font-weight:700;font-size:20px;color:#fff;letter-spacing:-.3px;}
+.brand-tag{font-size:12px;color:var(--violet-200);font-weight:700;margin-top:2px;}
+
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;margin-bottom:18px;}
+.eyebrow svg{width:13px;height:13px;}
+.eyebrow .dot{width:7px;height:7px;background:#7be8a8;border-radius:50%;animation:pulse 1.8s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+
+.title{font-size:48px;font-weight:700;line-height:1.05;letter-spacing:-1px;margin-bottom:16px;max-width:780px;}
+.subtitle{font-size:17px;color:rgba(255,255,255,.85);max-width:680px;line-height:1.55;margin-bottom:28px;}
+
+.meta-row{display:flex;gap:32px;flex-wrap:wrap;}
+.meta-item{display:flex;flex-direction:column;}
+.meta-num{font-size:30px;font-weight:700;color:#fff;line-height:1;letter-spacing:-.5px;}
+.meta-label{font-size:11px;color:rgba(255,255,255,.75);margin-top:6px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;}
+
+/* ═══ INFO BANDEAU ═══ */
+.info-banner{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-xl);padding:24px 28px;margin:-40px auto 48px;max-width:1336px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;box-shadow:var(--sh-lg);position:relative;}
+.info-icon{width:48px;height:48px;border-radius:var(--r-md);background:var(--violet-100);color:var(--violet-700);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.info-icon svg{width:24px;height:24px;}
+.info-text{font-size:14px;color:var(--gray-700);line-height:1.55;}
+.info-text strong{color:var(--gray-900);font-weight:700;}
+.info-text br{display:block;content:"";margin-top:4px;}
+
+/* ═══ GRILLE DES MAQUETTES ═══ */
+.section{padding:0 0 48px;}
+.section-head{margin-bottom:28px;}
+.section-title{font-size:24px;font-weight:700;letter-spacing:-.3px;color:var(--gray-900);margin-bottom:6px;}
+.section-sub{font-size:14px;color:var(--gray-600);}
+
+.mockup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:24px;}
+.mockup-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-xl);overflow:hidden;transition:.25s;text-decoration:none;color:inherit;display:flex;flex-direction:column;position:relative;}
+.mockup-card:hover{transform:translateY(-5px);box-shadow:var(--sh-xl);border-color:var(--violet-300);}
+.mockup-card:focus{outline:none;box-shadow:0 0 0 3px var(--violet-300),var(--sh-xl);}
+.mockup-thumb-wrap{position:relative;background:var(--gray-100);overflow:hidden;aspect-ratio:16/10;}
+.mockup-thumb-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:.4s;}
+.mockup-card:hover .mockup-thumb-wrap img{transform:scale(1.03);}
+.mockup-badge{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.96);padding:5px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;color:var(--violet-700);backdrop-filter:blur(8px);text-transform:uppercase;letter-spacing:.05em;}
+.mockup-num{position:absolute;top:14px;right:14px;background:var(--violet-700);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;}
+
+.mockup-body{padding:22px 24px;flex:1;display:flex;flex-direction:column;}
+.mockup-title{font-size:19px;font-weight:700;color:var(--gray-900);margin-bottom:8px;letter-spacing:-.2px;}
+.mockup-desc{font-size:13px;color:var(--gray-600);line-height:1.5;margin-bottom:18px;flex:1;}
+.mockup-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--gray-100);padding-top:14px;}
+.mockup-tag{font-size:11px;color:var(--gray-500);font-weight:700;}
+.mockup-cta{display:inline-flex;align-items:center;gap:6px;color:var(--violet-600);font-size:13px;font-weight:700;}
+.mockup-card:hover .mockup-cta{gap:10px;color:var(--violet-700);}
+.mockup-cta svg{width:14px;height:14px;transition:.2s;}
+
+/* ═══ FOOTER ═══ */
+footer{background:var(--violet-900);color:rgba(255,255,255,.7);padding:36px 0;font-size:13px;text-align:center;margin-top:40px;}
+footer strong{color:#fff;}
+
+@media(max-width:900px){
+  .title{font-size:34px;}
+  .info-banner{grid-template-columns:1fr;margin-top:0;border-radius:0;border-left:none;border-right:none;}
+  .container{padding:0 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <svg class="hero-pattern" viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="1.5">
+    <circle cx="100" cy="100" r="90"/>
+    <circle cx="100" cy="100" r="60"/>
+    <circle cx="100" cy="100" r="30"/>
+    <path d="M100 10v180M10 100h180"/>
+  </svg>
+
+  <div class="container hero-inner">
+    <div class="brand">
+      <div class="brand-mark"><span>TI</span></div>
+      <div class="brand-text">
+        <div class="brand-name">Team IMAGINE</div>
+        <div class="brand-tag">La Banque du Sport · BPCE</div>
+      </div>
+    </div>
+
+    <div class="eyebrow">
+      <span class="dot"></span>
+      Cadrage V2 · Juin 2026
+    </div>
+
+    <h1 class="title">Maquettes navigables Team IMAGINE V2</h1>
+    <p class="subtitle">Explorez les 7 pages principales du nouvel intranet sportif BPCE. Cliquez sur une maquette pour la découvrir, puis naviguez librement d'une page à l'autre via le menu en haut de chaque page.</p>
+
+    <div class="meta-row">
+      <div class="meta-item">
+        <div class="meta-num">7</div>
+        <div class="meta-label">Maquettes</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-num">40k</div>
+        <div class="meta-label">Collaborateurs cibles</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-num">3</div>
+        <div class="meta-label">Thématiques BDS</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-num">RAWEB</div>
+        <div class="meta-label">60 % d'ici fin 2026</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ INFO BANDEAU ═══ -->
+<div class="container">
+  <div class="info-banner">
+    <div class="info-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    </div>
+    <div class="info-text">
+      <strong>Note importante.</strong> Ces maquettes sont des prototypes HTML/CSS statiques destinés à la revue par BPCE. Les données affichées sont fictives. Les liens dans les pages (menu, CTAs, cartes) sont fonctionnels et permettent de naviguer entre les maquettes — les autres liens secondaires (boutons, breadcrumbs spécifiques) sont des placeholders pour la démo.
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GRILLE DES MAQUETTES ═══ -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-head">
+      <h2 class="section-title">Les 7 pages principales</h2>
+      <p class="section-sub">Cliquez pour découvrir une maquette en plein écran</p>
+    </div>
+
+    <div class="mockup-grid">
+
+      <a href="prehome.html" class="mockup-card">
+        <div class="mockup-thumb-wrap">
+          <img src="thumbs/prehome.jpg" alt="Aperçu de la Pré-Home">
+          <span class="mockup-badge">Public</span>
+          <span class="mockup-num">1</span>
+        </div>
+        <div class="mockup-body">
+          <h3 class="mockup-title">Pré-Home / Login</h3>
+          <p class="mockup-desc">Page d'accueil avant connexion. SSO BPCE prioritaire, formulaire mail/mdp secondaire, vidéo manifeste à droite.</p>
+          <div class="mockup-foot">
+            <span class="mockup-tag">Connexion · SSO</span>
+            <span class="mockup-cta">Voir la maquette
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <a href="home.html" class="mockup-card">
+        <div class="mockup-thumb-wrap">
+          <img src="thumbs/home.jpg" alt="Aperçu de la Home">
+          <span class="mockup-badge">Connecté</span>
+          <span class="mockup-num">2</span>
+        </div>
+        <div class="mockup-body">
+          <h3 class="mockup-title">Home / Accueil</h3>
+          <p class="mockup-desc">Hub central post-connexion. Streak Duolingo, logos marques BPCE, prochain événement Kévin Mayer, modules Bouger / Participer, podium.</p>
+          <div class="mockup-foot">
+            <span class="mockup-tag">Page d'accueil</span>
+            <span class="mockup-cta">Voir la maquette
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <a href="actualites.html" class="mockup-card">
+        <div class="mockup-thumb-wrap">
+          <img src="thumbs/actualites.jpg" alt="Aperçu des Actualités">
+          <span class="mockup-badge">Éditorial</span>
+          <span class="mockup-num">3</span>
+        </div>
+        <div class="mockup-body">
+          <h3 class="mockup-title">Actualités</h3>
+          <p class="mockup-desc">Hub éditorial Banque du Sport. Filtres par thématique BDS, article à la une, grille de 9 articles, recherche.</p>
+          <div class="mockup-foot">
+            <span class="mockup-tag">Contenu · Hub BDS</span>
+            <span class="mockup-cta">Voir la maquette
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <a href="bouger.html" class="mockup-card">
+        <div class="mockup-thumb-wrap">
+          <img src="thumbs/bouger.jpg" alt="Aperçu de Bouger">
+          <span class="mockup-badge">Sport</span>
+          <span class="mockup-num">4</span>
+        </div>
+        <div class="mockup-body">
+          <h3 class="mockup-title">Bouger</h3>
+          <p class="mockup-desc">Cœur sportif. 3 essentiels santé (eau, fruits, sommeil), défis collectifs / individuels, récap journalier, 32 séances vidéo.</p>
+          <div class="mockup-foot">
+            <span class="mockup-tag">Activité · Défis · Vidéos</span>
+            <span class="mockup-cta">Voir la maquette
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <a href="participer.html" class="mockup-card">
+        <div class="mockup-thumb-wrap">
+          <img src="thumbs/participer.jpg" alt="Aperçu de Participer">
+          <span class="mockup-badge">Engagement</span>
+          <span class="mockup-num">5</span>
+        </div>
+        <div class="mockup-body">
+          <h3 class="mockup-title">Participer</h3>
+          <p class="mockup-desc">Mécaniques ponctuelles. Quiz Sport & BPCE, pronos Roland-Garros, instant-win Goodies, mes 5 participations, derniers gagnants.</p>
+          <div class="mockup-foot">
+            <span class="mockup-tag">Quiz · Pronos · Tirages</span>
+            <span class="mockup-cta">Voir la maquette
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <a href="calendrier.html" class="mockup-card">
+        <div class="mockup-thumb-wrap">
+          <img src="thumbs/calendrier.jpg" alt="Aperçu du Calendrier">
+          <span class="mockup-badge">Agenda</span>
+          <span class="mockup-num">6</span>
+        </div>
+        <div class="mockup-body">
+          <h3 class="mockup-title">Calendrier</h3>
+          <p class="mockup-desc">Agenda sport unifié. Timeline verticale chronologique, 12 événements à venir, 4 athlètes BPCE en mise en avant.</p>
+          <div class="mockup-foot">
+            <span class="mockup-tag">Événements · Athlètes</span>
+            <span class="mockup-cta">Voir la maquette
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <a href="dashboard.html" class="mockup-card">
+        <div class="mockup-thumb-wrap">
+          <img src="thumbs/dashboard.jpg" alt="Aperçu du Dashboard">
+          <span class="mockup-badge">Personnel</span>
+          <span class="mockup-num">7</span>
+        </div>
+        <div class="mockup-body">
+          <h3 class="mockup-title">Dashboard</h3>
+          <p class="mockup-desc">Espace personnel 100 % privé. Streak Duolingo pleine largeur, 6 stories Wrapped-style, 5 badges fondateurs, évolution 6 mois.</p>
+          <div class="mockup-foot">
+            <span class="mockup-tag">Stats personnelles</span>
+            <span class="mockup-cta">Voir la maquette
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    <p><strong>Team IMAGINE V2</strong> — Maquettes de cadrage, Juin 2026 — Toofoot &amp; BPCE</p>
+    <p style="margin-top:6px;font-size:12px;color:rgba(255,255,255,.5);">Document confidentiel · Usage interne uniquement</p>
+  </div>
+</footer>
+
+</body>
+</html>

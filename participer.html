@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team IMAGINE — Participer</title>
+<style>
+:root {
+  --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
+  --violet-600:#581d74; --violet-500:#6b239a; --violet-400:#8433b8;
+  --violet-300:#a257cc; --violet-200:#c699e2; --violet-100:#e2c8f2; --violet-50:#f5eefa;
+  --gray-900:#111; --gray-800:#252525; --gray-700:#3d3d3d; --gray-600:#575757;
+  --gray-500:#737373; --gray-400:#909090; --gray-300:#b5b5b5; --gray-200:#d8d8d8;
+  --gray-100:#efefef; --gray-50:#f7f7f7; --white:#fff;
+  --success:#1a7a45; --success-bg:#e7f5ee; --warning:#8a4700; --warning-bg:#fff3e5;
+  --error:#b5001f; --info:#0f5fa8; --info-bg:#e7f0fa;
+  --gauge-fill:#7be8a8;
+  /* Mécaniques couleurs */
+  --quiz:#8433b8; --quiz-bg:#f3e8fb;
+  --prono:#0f5fa8; --prono-bg:#e7f0fa;
+  --instant:#ea580c; --instant-bg:#fff3e5;
+  --form:#1a7a45; --form-bg:#e7f5ee;
+  --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
+  --sh-sm:0 1px 3px rgba(88,29,116,.08),0 1px 2px rgba(88,29,116,.04);
+  --sh-md:0 4px 12px rgba(88,29,116,.1),0 2px 4px rgba(88,29,116,.06);
+  --sh-lg:0 10px 30px rgba(88,29,116,.12),0 4px 8px rgba(88,29,116,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:var(--font);color:var(--gray-900);background:var(--gray-50);line-height:1.5;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--violet-600);color:#fff;padding:12px 20px;z-index:999;}
+.skip-link:focus{left:0;}
+
+/* ═══ HEADER ═══ */
+.header{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100;}
+.header-top{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px;}
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.logo-mark{width:42px;height:42px;background:var(--violet-600);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;}
+.logo-mark span{color:#fff;font-weight:700;font-size:18px;letter-spacing:-.5px;}
+.logo-text{line-height:1.1;}
+.logo-name{font-weight:700;font-size:16px;color:var(--gray-900);letter-spacing:-.3px;}
+.logo-tag{font-size:11px;color:var(--violet-600);font-weight:700;}
+.nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;}
+.nav a{padding:10px 14px;font-size:14px;font-weight:700;color:var(--gray-700);border-radius:var(--r-md);transition:.15s;position:relative;display:flex;align-items:center;gap:6px;}
+.nav a:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav a.active{color:var(--violet-600);}
+.nav a.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--violet-600);border-radius:3px 3px 0 0;}
+.nav a svg{width:16px;height:16px;}
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.icon-btn{width:42px;height:42px;border-radius:var(--r-full);border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-600);transition:.15s;position:relative;}
+.icon-btn:hover{background:var(--gray-100);color:var(--violet-600);}
+.icon-btn svg{width:22px;height:22px;}
+.notif-dot{position:absolute;top:9px;right:9px;width:8px;height:8px;background:var(--error);border-radius:50%;border:2px solid #fff;}
+.user-chip{display:flex;align-items:center;gap:10px;padding:5px 12px 5px 5px;border-radius:var(--r-full);background:var(--gray-50);border:1px solid var(--gray-200);cursor:pointer;transition:.15s;}
+.user-chip:hover{border-color:var(--violet-300);background:var(--violet-50);}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--violet-600);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;}
+.user-name{font-size:14px;font-weight:700;color:var(--gray-800);}
+
+/* ═══ HERO ═══ */
+.page-hero{background:linear-gradient(135deg,var(--violet-800) 0%,var(--violet-600) 55%,var(--violet-500) 100%);color:#fff;padding:44px 0 48px;position:relative;overflow:hidden;}
+.page-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 30%,rgba(255,255,255,.07) 0,transparent 35%),radial-gradient(circle at 10% 90%,rgba(255,255,255,.05) 0,transparent 40%);}
+.page-hero-pattern{position:absolute;right:-100px;top:-60px;width:380px;height:380px;opacity:.1;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.85);margin-bottom:14px;position:relative;}
+.breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a:hover{color:#fff;}
+.breadcrumb svg{width:14px;height:14px;}
+.hero-inner{position:relative;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;}
+.page-title{font-size:42px;font-weight:700;line-height:1.05;letter-spacing:-1px;margin-bottom:10px;display:flex;align-items:center;gap:14px;}
+.page-title-icon{width:50px;height:50px;border-radius:var(--r-md);background:rgba(255,255,255,.16);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.page-title-icon svg{width:28px;height:28px;}
+.page-sub{font-size:16px;color:rgba(255,255,255,.85);max-width:560px;line-height:1.5;}
+
+/* Stats hero */
+.hero-stats{display:flex;gap:14px;}
+.hero-stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-xl);padding:18px 24px;text-align:center;backdrop-filter:blur(8px);min-width:130px;}
+.hero-stat-num{font-size:34px;font-weight:700;line-height:1;color:#fff;letter-spacing:-.5px;}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.85);margin-top:6px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;}
+
+/* ═══ SECTIONS ═══ */
+.section{padding:42px 0;}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;gap:24px;flex-wrap:wrap;}
+.section-title{font-size:28px;font-weight:700;letter-spacing:-.5px;color:var(--gray-900);display:flex;align-items:center;gap:12px;}
+.section-title-num{font-size:14px;background:var(--violet-100);color:var(--violet-700);padding:4px 12px;border-radius:var(--r-full);font-weight:700;}
+.section-sub{font-size:14px;color:var(--gray-600);margin-top:4px;}
+.section-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--violet-600);white-space:nowrap;cursor:pointer;}
+.section-link:hover{color:var(--violet-700);gap:9px;}
+.section-link svg{width:14px;height:14px;transition:.15s;}
+
+/* ═══ FILTRES TABS ═══ */
+.filter-tabs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.filter-tab{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:var(--r-full);font-size:13px;font-weight:700;color:var(--gray-700);background:var(--white);border:1.5px solid var(--gray-200);cursor:pointer;transition:.15s;font-family:var(--font);}
+.filter-tab:hover{border-color:var(--violet-300);background:var(--violet-50);color:var(--violet-700);}
+.filter-tab.active{background:var(--violet-600);color:#fff;border-color:var(--violet-600);}
+.filter-tab .count{background:rgba(255,255,255,.2);padding:2px 8px;border-radius:var(--r-full);font-size:11px;}
+.filter-tab:not(.active) .count{background:var(--gray-50);color:var(--gray-500);border:1px solid var(--gray-200);}
+
+/* ═══ JEUX CARDS ═══ */
+.jeux-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.jeu-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);overflow:hidden;transition:.2s;display:flex;flex-direction:column;}
+.jeu-card:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);border-color:var(--violet-200);}
+.jeu-banner{height:140px;position:relative;display:flex;align-items:flex-end;padding:18px 22px;overflow:hidden;}
+.jeu-banner.quiz{background:linear-gradient(135deg,#581d74 0%,#8433b8 100%);}
+.jeu-banner.prono{background:linear-gradient(135deg,#0c4a85 0%,#0f5fa8 100%);}
+.jeu-banner.instant{background:linear-gradient(135deg,#9a3412 0%,#ea580c 100%);}
+.jeu-banner::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 2px,transparent 2px,transparent 14px);}
+.jeu-svg{position:absolute;right:-15px;top:50%;transform:translateY(-50%);opacity:.2;}
+.jeu-svg svg{width:130px;height:130px;}
+.jeu-banner-inner{position:relative;z-index:1;color:#fff;width:100%;}
+.jeu-type{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.95);padding:5px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
+.jeu-type.quiz{color:var(--quiz);}
+.jeu-type.prono{color:var(--prono);}
+.jeu-type.instant{color:var(--instant);}
+.jeu-type svg{width:13px;height:13px;}
+
+.jeu-body{padding:20px 24px 22px;flex:1;display:flex;flex-direction:column;}
+.jeu-name{font-size:18px;font-weight:700;color:var(--gray-900);margin-bottom:8px;line-height:1.3;}
+.jeu-desc{font-size:13px;color:var(--gray-600);line-height:1.5;margin-bottom:18px;}
+
+/* Compte à rebours */
+.jeu-deadline{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--r-md);margin-bottom:12px;}
+.jeu-deadline-icon{width:28px;height:28px;border-radius:var(--r-sm);background:var(--warning-bg);color:var(--warning);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.jeu-deadline-icon svg{width:16px;height:16px;}
+.jeu-deadline-text{font-size:12px;color:var(--gray-700);line-height:1.3;}
+.jeu-deadline-text strong{display:block;color:var(--gray-900);font-size:14px;}
+
+.jeu-deadline.urgent .jeu-deadline-icon{background:#fef2f2;color:var(--error);}
+.jeu-deadline.permanent .jeu-deadline-icon{background:var(--success-bg);color:var(--success);}
+
+/* Lot/Récompense */
+.jeu-prize{display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #fcd34d;border-radius:var(--r-md);margin-bottom:16px;margin-top:auto;}
+.jeu-prize-icon{width:28px;height:28px;border-radius:var(--r-sm);background:#fbbf24;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.jeu-prize-icon svg{width:16px;height:16px;}
+.jeu-prize-text{font-size:12px;color:#78350f;line-height:1.3;}
+.jeu-prize-text strong{display:block;color:#451a03;font-size:13px;}
+
+.jeu-foot{padding-top:16px;margin-top:auto;border-top:1px solid var(--gray-100);}
+
+/* Status badge dans les jeux */
+.jeu-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--success);margin-bottom:12px;}
+.jeu-status svg{width:14px;height:14px;}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:var(--r-md);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;border:2px solid transparent;transition:.15s;white-space:nowrap;text-decoration:none;width:100%;}
+.btn svg{width:16px;height:16px;}
+.btn-violet{background:var(--violet-600);color:#fff;}
+.btn-violet:hover{background:var(--violet-700);transform:translateY(-1px);box-shadow:var(--sh-md);}
+.btn-outline{background:transparent;color:var(--violet-600);border-color:var(--violet-300);}
+.btn-outline:hover{background:var(--violet-50);border-color:var(--violet-600);}
+.btn-quiz{background:var(--quiz);color:#fff;}
+.btn-quiz:hover{background:#6b239a;}
+.btn-prono{background:var(--prono);color:#fff;}
+.btn-prono:hover{background:#0c4a85;}
+.btn-instant{background:var(--instant);color:#fff;}
+.btn-instant:hover{background:#9a3412;}
+
+/* ═══ MES PARTICIPATIONS ═══ */
+.particip-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);padding:28px 32px;}
+.particip-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--gray-100);}
+.particip-item:last-child{border-bottom:none;padding-bottom:0;}
+.particip-item:first-child{padding-top:0;}
+.particip-icon{width:44px;height:44px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.particip-icon.quiz{background:var(--quiz-bg);color:var(--quiz);}
+.particip-icon.prono{background:var(--prono-bg);color:var(--prono);}
+.particip-icon.instant{background:var(--instant-bg);color:var(--instant);}
+.particip-icon svg{width:22px;height:22px;}
+.particip-info{flex:1;min-width:0;}
+.particip-name{font-size:14px;font-weight:700;color:var(--gray-900);margin-bottom:3px;}
+.particip-meta{font-size:12px;color:var(--gray-500);}
+.particip-meta strong{color:var(--gray-700);}
+.particip-status{font-size:11px;font-weight:700;padding:5px 12px;border-radius:var(--r-full);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
+.status-pending{background:var(--warning-bg);color:var(--warning);}
+.status-won{background:var(--success-bg);color:var(--success);}
+.status-lost{background:var(--gray-100);color:var(--gray-600);}
+
+/* Voir tout link */
+.particip-see-all{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;margin-top:14px;background:var(--violet-50);border:1.5px dashed var(--violet-200);border-radius:var(--r-md);font-size:13px;font-weight:700;color:var(--violet-700);transition:.15s;cursor:pointer;}
+.particip-see-all:hover{background:var(--violet-100);border-color:var(--violet-400);gap:11px;}
+.particip-see-all svg{width:14px;height:14px;}
+
+/* ═══ RÉSULTATS RÉCENTS ═══ */
+.winners-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.winner-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-xl);padding:22px 24px;position:relative;overflow:hidden;}
+.winner-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;}
+.winner-card.gold::before{background:linear-gradient(180deg,#fbbf24,#b45309);}
+.winner-card.silver::before{background:linear-gradient(180deg,#d8d8d8,#737373);}
+.winner-card.bronze::before{background:linear-gradient(180deg,#d97706,#7c2d12);}
+.winner-jeu{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-500);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.winner-jeu-dot{width:8px;height:8px;border-radius:50%;}
+.winner-jeu-dot.quiz{background:var(--quiz);}
+.winner-jeu-dot.prono{background:var(--prono);}
+.winner-jeu-dot.instant{background:var(--instant);}
+.winner-name{font-size:18px;font-weight:700;color:var(--gray-900);margin-bottom:6px;letter-spacing:-.2px;}
+.winner-entity{font-size:12px;color:var(--gray-600);margin-bottom:12px;}
+.winner-prize{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--violet-50);border-radius:var(--r-sm);font-size:12px;color:var(--violet-700);font-weight:700;}
+.winner-prize svg{width:14px;height:14px;color:var(--violet-600);flex-shrink:0;}
+.winner-date{font-size:11px;color:var(--gray-500);margin-top:10px;text-align:right;}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--violet-900);color:rgba(255,255,255,.85);padding:42px 0 22px;margin-top:36px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-brand .logo-mark{margin-bottom:14px;}
+.footer-brand p{font-size:13px;line-height:1.6;max-width:280px;margin-top:14px;}
+.footer-col h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.85);padding:5px 0;transition:.15s;}
+.footer-col a:hover{color:#fff;}
+.footer-qr{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);padding:12px;}
+.qr-box{width:60px;height:60px;background:#fff;border-radius:var(--r-sm);flex-shrink:0;padding:5px;}
+.qr-box svg{width:100%;height:100%;}
+.footer-qr-text{font-size:12px;line-height:1.4;}
+.footer-qr-text strong{color:#fff;display:block;font-size:13px;margin-bottom:2px;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:20px;font-size:12px;flex-wrap:wrap;gap:10px;}
+.footer-legal{display:flex;gap:18px;flex-wrap:wrap;}
+.footer-legal a:hover{color:#fff;}
+
+@media(max-width:980px){
+  .nav{display:none;}
+  .hero-inner{grid-template-columns:1fr;}
+  .page-title{font-size:32px;}
+  .jeux-grid{grid-template-columns:1fr 1fr;}
+  .winners-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
+  .user-name{display:none;}
+}
+@media(max-width:600px){
+  .page-title{font-size:26px;}
+  .jeux-grid,.winners-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .section-title{font-size:22px;}
+  .filter-tab{padding:7px 12px;font-size:12px;}
+  .hero-stats{flex-direction:column;width:100%;}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+
+<!-- Bandeau démo -->
+<div style="background:#1c0926;color:#fff;padding:8px 24px;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:Arial,Helvetica,sans-serif;">
+  <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable Team IMAGINE V2</strong> — Démo de cadrage, juin 2026</span>
+  <a href="index.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:.15s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    Retour au sommaire
+  </a>
+</div>
+
+
+<!-- ═══ HEADER ═══ -->
+<header class="header">
+  <div class="container header-top">
+    <a href="home.html" class="logo" aria-label="Team IMAGINE - Accueil">
+      <div class="logo-mark"><span>TI</span></div>
+      <div class="logo-text">
+        <div class="logo-name">Team IMAGINE</div>
+        <div class="logo-tag">La Banque du Sport</div>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="home.html">Accueil</a>
+      <a href="actualites.html">Actualités</a>
+      <a href="bouger.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+        Bouger
+      </a>
+      <a href="#" class="active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 11h.01M15 11h.01M8 15s1.5 2 4 2 4-2 4-2"/></svg>
+        Participer
+      </a>
+      <a href="calendrier.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Calendrier
+      </a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Rechercher">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="icon-btn" aria-label="Notifications">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+        <span class="notif-dot"></span>
+      </button>
+      <button class="user-chip">
+        <span class="avatar">CL</span>
+        <span class="user-name">Camille L.</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="page-hero">
+    <svg class="page-hero-pattern" viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="100" cy="100" r="90"/><circle cx="100" cy="100" r="60"/><circle cx="100" cy="100" r="30"/><path d="M100 10v180M10 100h180"/></svg>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="home.html">Accueil</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Participer</span>
+      </div>
+
+      <div class="hero-inner">
+        <div>
+          <h1 class="page-title">
+            <span class="page-title-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 11h.01M15 11h.01M8 15s1.5 2 4 2 4-2 4-2"/></svg>
+            </span>
+            Participer
+          </h1>
+          <p class="page-sub">Tentez votre chance, donnez votre avis et gagnez des goodies Team IMAGINE. Les jeux ponctuels du Groupe BPCE pour vous amuser entre collègues.</p>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">3</div>
+            <div class="hero-stat-label">Jeux en cours</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">5</div>
+            <div class="hero-stat-label">Mes participations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ JEUX EN COURS ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Jeux en cours <span class="section-title-num">3 actifs</span></h2>
+          <p class="section-sub">Tentez votre chance avant la date de clôture</p>
+        </div>
+      </div>
+
+      <div class="filter-tabs" role="tablist">
+        <button class="filter-tab active" role="tab" aria-selected="true">
+          Tous <span class="count">3</span>
+        </button>
+        <button class="filter-tab" role="tab">
+          Quiz <span class="count">1</span>
+        </button>
+        <button class="filter-tab" role="tab">
+          Pronostics <span class="count">1</span>
+        </button>
+        <button class="filter-tab" role="tab">
+          Instant-gagnant <span class="count">1</span>
+        </button>
+      </div>
+
+      <div class="jeux-grid">
+
+        <!-- QUIZ -->
+        <article class="jeu-card">
+          <div class="jeu-banner quiz">
+            <div class="jeu-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="35" stroke="white" stroke-width="3" fill="none"/>
+                <path d="M40 38 Q43 32 50 32 Q57 32 60 38 Q60 45 50 50 L50 60" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <circle cx="50" cy="70" r="3" fill="white"/>
+              </svg>
+            </div>
+            <div class="jeu-banner-inner">
+              <span class="jeu-type quiz">
+                <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><text x="12" y="17" text-anchor="middle" fill="white" font-size="13" font-weight="700">?</text></svg>
+                Quiz
+              </span>
+            </div>
+          </div>
+          <div class="jeu-body">
+            <h3 class="jeu-name">Quiz Sport &amp; BPCE — 10 questions</h3>
+            <p class="jeu-desc">Testez vos connaissances sur l'histoire des athlètes sponsorisés et les partenariats sportifs du Groupe.</p>
+
+            <div class="jeu-deadline urgent">
+              <div class="jeu-deadline-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="jeu-deadline-text">
+                <strong>Plus que 3 jours</strong>
+                Clôture le 30 juin à 23h59
+              </div>
+            </div>
+
+            <div class="jeu-prize">
+              <div class="jeu-prize-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+              </div>
+              <div class="jeu-prize-text">
+                <strong>10 lots Team IMAGINE</strong>
+                Tirage parmi les meilleurs scores
+              </div>
+            </div>
+
+            <div class="jeu-foot">
+              <a href="#" class="btn btn-quiz">
+                Participer au quiz
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PRONO -->
+        <article class="jeu-card">
+          <div class="jeu-banner prono">
+            <div class="jeu-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="50" r="32" stroke="white" stroke-width="3" fill="none"/>
+                <path d="M22 50 Q50 30 78 50" stroke="white" stroke-width="2" fill="none"/>
+                <path d="M22 50 Q50 70 78 50" stroke="white" stroke-width="2" fill="none"/>
+                <ellipse cx="50" cy="50" rx="15" ry="32" stroke="white" stroke-width="2" fill="none"/>
+                <ellipse cx="50" cy="50" rx="32" ry="15" stroke="white" stroke-width="2" fill="none"/>
+              </svg>
+            </div>
+            <div class="jeu-banner-inner">
+              <span class="jeu-type prono">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
+                Pronostics
+              </span>
+            </div>
+          </div>
+          <div class="jeu-body">
+            <h3 class="jeu-name">Pronos Roland-Garros 2026</h3>
+            <p class="jeu-desc">Devinez les vainqueurs des 12 matchs phares du tournoi. Pronostiquez chaque jour pendant la quinzaine.</p>
+
+            <div class="jeu-status">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              7 pronos sur 12 effectués
+            </div>
+
+            <div class="jeu-deadline">
+              <div class="jeu-deadline-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="jeu-deadline-text">
+                <strong>Encore 6 jours</strong>
+                Tournoi jusqu'au 7 juillet
+              </div>
+            </div>
+
+            <div class="jeu-prize">
+              <div class="jeu-prize-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+              </div>
+              <div class="jeu-prize-text">
+                <strong>Lots tennis exclusifs</strong>
+                Pour les 5 meilleurs pronostiqueurs
+              </div>
+            </div>
+
+            <div class="jeu-foot">
+              <a href="#" class="btn btn-prono">
+                Continuer mes pronos
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- INSTANT WIN -->
+        <article class="jeu-card">
+          <div class="jeu-banner instant">
+            <div class="jeu-svg" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <path d="M50 15 L55 40 L78 38 L60 55 L68 80 L50 65 L32 80 L40 55 L22 38 L45 40 Z" fill="white"/>
+              </svg>
+            </div>
+            <div class="jeu-banner-inner">
+              <span class="jeu-type instant">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+                Instant-gagnant
+              </span>
+            </div>
+          </div>
+          <div class="jeu-body">
+            <h3 class="jeu-name">Goodies Team IMAGINE — Tirage quotidien</h3>
+            <p class="jeu-desc">Tentez votre chance chaque jour. Un nouveau gagnant tiré au sort toutes les 24h parmi les participants.</p>
+
+            <div class="jeu-deadline permanent">
+              <div class="jeu-deadline-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="jeu-deadline-text">
+                <strong>Tirage permanent</strong>
+                Nouveau tirage chaque jour à minuit
+              </div>
+            </div>
+
+            <div class="jeu-prize">
+              <div class="jeu-prize-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M19 3H5a2 2 0 0 0-2 2v3h18V5a2 2 0 0 0-2-2zM7.5 8a2.5 2.5 0 0 1 0-5C9 3 12 8 12 8M16.5 8a2.5 2.5 0 0 0 0-5C15 3 12 8 12 8"/></svg>
+              </div>
+              <div class="jeu-prize-text">
+                <strong>50 goodies à gagner / mois</strong>
+                T-shirts, gourdes, sacs de sport...
+              </div>
+            </div>
+
+            <div class="jeu-foot">
+              <a href="#" class="btn btn-instant">
+                Tenter ma chance aujourd'hui
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MES PARTICIPATIONS ═══ -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Mes participations <span class="section-title-num">5 ce mois</span></h2>
+          <p class="section-sub">Mon historique de participations aux jeux Team IMAGINE</p>
+        </div>
+      </div>
+
+      <div class="particip-card">
+
+        <div class="particip-item">
+          <div class="particip-icon prono">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
+          </div>
+          <div class="particip-info">
+            <div class="particip-name">Pronos Roland-Garros 2026</div>
+            <div class="particip-meta"><strong>7 pronos sur 12 effectués</strong> · il y a 1 jour</div>
+          </div>
+          <span class="particip-status status-pending">En cours</span>
+        </div>
+
+        <div class="particip-item">
+          <div class="particip-icon instant">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+          </div>
+          <div class="particip-info">
+            <div class="particip-name">Goodies Team IMAGINE — Tirage du 27 juin</div>
+            <div class="particip-meta">Tentative quotidienne · il y a quelques heures</div>
+          </div>
+          <span class="particip-status status-pending">En attente</span>
+        </div>
+
+        <div class="particip-item">
+          <div class="particip-icon instant">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+          </div>
+          <div class="particip-info">
+            <div class="particip-name">Goodies Team IMAGINE — Tirage du 26 juin</div>
+            <div class="particip-meta">Tentative quotidienne · il y a 1 jour</div>
+          </div>
+          <span class="particip-status status-lost">Non retenu</span>
+        </div>
+
+        <div class="particip-item">
+          <div class="particip-icon quiz">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>
+          </div>
+          <div class="particip-info">
+            <div class="particip-name">Quiz Tour de France — édition juin</div>
+            <div class="particip-meta">Score : <strong>9/10</strong> · il y a 5 jours</div>
+          </div>
+          <span class="particip-status status-won">Gagné</span>
+        </div>
+
+        <div class="particip-item">
+          <div class="particip-icon instant">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+          </div>
+          <div class="particip-info">
+            <div class="particip-name">Goodies Team IMAGINE — Tirage du 25 juin</div>
+            <div class="particip-meta">Tentative quotidienne · il y a 2 jours</div>
+          </div>
+          <span class="particip-status status-lost">Non retenu</span>
+        </div>
+
+        <a href="#" class="particip-see-all">
+          Voir toutes mes participations
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RÉSULTATS RÉCENTS ═══ -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Derniers gagnants</h2>
+          <p class="section-sub">Bravo aux récents gagnants des jeux Team IMAGINE</p>
+        </div>
+      </div>
+
+      <div class="winners-grid">
+
+        <div class="winner-card gold">
+          <div class="winner-jeu">
+            <span class="winner-jeu-dot quiz"></span>
+            Quiz Tour de France — édition juin
+          </div>
+          <div class="winner-name">Marc D.</div>
+          <div class="winner-entity">CE Hauts-de-France · Score 10/10</div>
+          <div class="winner-prize">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M19 3H5a2 2 0 0 0-2 2v3h18V5a2 2 0 0 0-2-2zM7.5 8a2.5 2.5 0 0 1 0-5C9 3 12 8 12 8M16.5 8a2.5 2.5 0 0 0 0-5C15 3 12 8 12 8"/></svg>
+            T-shirt Team IMAGINE Premium
+          </div>
+          <div class="winner-date">il y a 3 jours</div>
+        </div>
+
+        <div class="winner-card silver">
+          <div class="winner-jeu">
+            <span class="winner-jeu-dot instant"></span>
+            Goodies — Tirage du 26 juin
+          </div>
+          <div class="winner-name">Sophie L.</div>
+          <div class="winner-entity">Natixis · Tirage du jour</div>
+          <div class="winner-prize">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M19 3H5a2 2 0 0 0-2 2v3h18V5a2 2 0 0 0-2-2zM7.5 8a2.5 2.5 0 0 1 0-5C9 3 12 8 12 8M16.5 8a2.5 2.5 0 0 0 0-5C15 3 12 8 12 8"/></svg>
+            Gourde isotherme Team IMAGINE
+          </div>
+          <div class="winner-date">il y a 1 jour</div>
+        </div>
+
+        <div class="winner-card bronze">
+          <div class="winner-jeu">
+            <span class="winner-jeu-dot prono"></span>
+            Pronos Coupe de France 2026
+          </div>
+          <div class="winner-name">Thomas R.</div>
+          <div class="winner-entity">Banque Populaire · 18/20 pronos justes</div>
+          <div class="winner-prize">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M19 3H5a2 2 0 0 0-2 2v3h18V5a2 2 0 0 0-2-2zM7.5 8a2.5 2.5 0 0 1 0-5C9 3 12 8 12 8M16.5 8a2.5 2.5 0 0 0 0-5C15 3 12 8 12 8"/></svg>
+            Sac de sport BPCE Sponsoring
+          </div>
+          <div class="winner-date">il y a 12 jours</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-mark"><span>TI</span></div>
+          <div class="logo-text">
+            <div class="logo-name" style="color:#fff;">Team IMAGINE</div>
+            <div class="logo-tag" style="color:var(--violet-300);">La Banque du Sport</div>
+          </div>
+        </div>
+        <p>La plateforme d'engagement sportif et de bien-être des 40 000 collaborateurs du Groupe BPCE.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Explorer</h4>
+        <a href="actualites.html">Actualités</a>
+        <a href="#">Bouger</a>
+        <a href="#">Participer</a>
+        <a href="#">Calendrier</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#">La Promesse</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Mon compte</h4>
+        <a href="#">Mes participations</a>
+        <a href="#">Mes badges</a>
+        <a href="#">App forme</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Notifications</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Suivez-nous</h4>
+        <div class="footer-qr">
+          <div class="qr-box">
+            <svg viewBox="0 0 100 100" fill="#581d74"><rect x="0" y="0" width="30" height="30"/><rect x="8" y="8" width="14" height="14" fill="#fff"/><rect x="70" y="0" width="30" height="30"/><rect x="78" y="8" width="14" height="14" fill="#fff"/><rect x="0" y="70" width="30" height="30"/><rect x="8" y="78" width="14" height="14" fill="#fff"/><rect x="40" y="0" width="8" height="8"/><rect x="52" y="0" width="8" height="8"/><rect x="40" y="14" width="8" height="8"/><rect x="40" y="40" width="8" height="8"/><rect x="55" y="40" width="12" height="12"/><rect x="75" y="45" width="8" height="8"/><rect x="88" y="40" width="8" height="8"/><rect x="40" y="60" width="8" height="8"/><rect x="60" y="65" width="8" height="8"/><rect x="80" y="70" width="8" height="8"/><rect x="45" y="80" width="10" height="10"/><rect x="70" y="88" width="8" height="8"/><rect x="88" y="80" width="8" height="8"/></svg>
+          </div>
+          <div class="footer-qr-text">
+            <strong>@TeamPS</strong>
+            Suivez nos actus sur Instagram
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Groupe BPCE — Team IMAGINE V2. Tous droits réservés.</span>
+      <div class="footer-legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">CGU</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Cookies</a>
+        <a href="#">Accessibilité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
