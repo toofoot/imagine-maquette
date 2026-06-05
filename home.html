@@ -138,9 +138,9 @@ img{max-width:100%;display:block;}
 .brands-inner{padding:24px 0;}
 .brands-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray-600);text-align:center;margin-bottom:18px;}
 .brands-row{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;}
-.brand-item-wrap{display:flex;align-items:center;justify-content:center;height:44px;padding:0 16px;background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r-md);transition:.2s;cursor:pointer;min-width:120px;}
+.brand-item-wrap{display:flex;align-items:center;justify-content:center;height:64px;padding:8px 18px;background:var(--white);border:1px solid var(--gray-200);border-radius:var(--r-md);transition:.2s;cursor:pointer;min-width:140px;text-decoration:none;}
 .brand-item-wrap:hover{border-color:var(--violet-300);box-shadow:var(--sh-sm);transform:translateY(-1px);}
-.brand-item-wrap img{height:28px;width:auto;object-fit:contain;}
+.brand-item-wrap img{max-height:42px;max-width:140px;width:auto;height:auto;object-fit:contain;}
 .brand-item-wrap svg{max-height:28px;width:auto;}
 
 /* ═══ SECTIONS ═══ */
@@ -413,7 +413,7 @@ img{max-width:100%;display:block;}
           Bienvenue Camille
         </span>
         <h1>Bougez, <em>participez,</em><br>partagez le sport.</h1>
-        <p>Rejoignez les défis sportifs et les jeux du Groupe, suivez le calendrier des athlètes et célébrez chaque effort avec vos 40 000 collègues.</p>
+        <p>Rejoignez les défis sportifs et les jeux du Groupe, suivez le calendrier des athlètes et célébrez chaque effort avec vos collègues du Groupe.</p>
         <div class="hero-cta">
           <a href="#" class="btn btn-white">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -549,71 +549,37 @@ img{max-width:100%;display:block;}
       <div class="brands-label">Les marques du Groupe BPCE</div>
       <div class="brands-row">
 
-        <!-- BPCE -->
-        <div class="brand-item-wrap">
-          <svg width="72" height="28" viewBox="0 0 72 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="36" y="20" font-family="Arial" font-weight="700" font-size="20" fill="#003a78" text-anchor="middle" letter-spacing="1">BPCE</text>
-          </svg>
-        </div>
+        <a class="brand-item-wrap" href="#" aria-label="Groupe BPCE">
+          <img src="assets/logo-bpce-groupe.png" alt="Groupe BPCE"/>
+        </a>
 
-        <!-- Banque Populaire -->
-        <div class="brand-item-wrap" style="min-width:150px;">
-          <svg width="130" height="28" viewBox="0 0 130 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- cigogne simplifiée -->
-            <path d="M10 22 Q8 16 12 12 Q14 8 12 4 Q16 6 15 12 Q19 9 22 12 Q18 14 16 18 Q14 22 10 22Z" fill="#c00d1e"/>
-            <text x="70" y="19" font-family="Arial" font-weight="700" font-size="11" fill="#003a78" text-anchor="middle">Banque Populaire</text>
-          </svg>
-        </div>
+        <a class="brand-item-wrap" href="#" aria-label="Banque Populaire">
+          <img src="assets/logo-banque-populaire.png" alt="Banque Populaire"/>
+        </a>
 
-        <!-- Caisse d'Epargne -->
-        <div class="brand-item-wrap" style="min-width:148px;">
-          <svg width="128" height="28" viewBox="0 0 128 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- écureuil stylisé -->
-            <ellipse cx="10" cy="16" rx="5" ry="6" fill="#e2001a"/>
-            <path d="M7 10 Q10 4 14 8 Q12 6 10 10Z" fill="#e2001a"/>
-            <path d="M13 20 Q18 22 16 26 Q12 24 13 20Z" fill="#e2001a"/>
-            <text x="70" y="19" font-family="Arial" font-weight="700" font-size="11" fill="#00843d" text-anchor="middle">Caisse d'Epargne</text>
-          </svg>
-        </div>
+        <a class="brand-item-wrap" href="#" aria-label="Caisse d'Épargne">
+          <img src="assets/Logo_Caisse_d'%C3%89pargne.png" alt="Caisse d'Épargne"/>
+        </a>
 
-        <!-- Natixis -->
-        <div class="brand-item-wrap">
-          <svg width="80" height="28" viewBox="0 0 80 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="40" y="19" font-family="Arial" font-weight="700" font-size="15" fill="#8b1a6b" text-anchor="middle" letter-spacing="0.5">natixis</text>
-          </svg>
-        </div>
+        <a class="brand-item-wrap" href="#" aria-label="Natixis">
+          <img src="assets/logo-natixis.jpg" alt="Natixis"/>
+        </a>
 
-        <!-- Banque Palatine -->
-        <div class="brand-item-wrap" style="min-width:130px;">
-          <svg width="112" height="28" viewBox="0 0 112 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="56" y="19" font-family="Arial" font-weight="700" font-size="11" fill="#1a1a1a" text-anchor="middle" letter-spacing="2">PALATINE</text>
-          </svg>
-        </div>
+        <a class="brand-item-wrap" href="#" aria-label="Banque Palatine">
+          <img src="assets/logo-banque-palatine.png" alt="Banque Palatine"/>
+        </a>
 
-        <!-- CASDEN -->
-        <div class="brand-item-wrap">
-          <svg width="90" height="28" viewBox="0 0 90 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="45" y="17" font-family="Arial" font-weight="700" font-size="13" fill="#004e8c" text-anchor="middle" letter-spacing="1">CASDEN</text>
-            <text x="45" y="27" font-family="Arial" font-weight="400" font-size="7" fill="#004e8c" text-anchor="middle" letter-spacing="0.5">Banque Populaire</text>
-          </svg>
-        </div>
+        <a class="brand-item-wrap" href="#" aria-label="CASDEN Banque Populaire">
+          <img src="assets/logo-casden.png" alt="CASDEN Banque Populaire"/>
+        </a>
 
-        <!-- Crédit Coopératif -->
-        <div class="brand-item-wrap" style="min-width:148px;">
-          <svg width="128" height="28" viewBox="0 0 128 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="6" width="16" height="16" rx="3" fill="#0066a1"/>
-            <text x="11" y="18" font-family="Arial" font-weight="700" font-size="11" fill="#fff" text-anchor="middle">cc</text>
-            <text x="76" y="19" font-family="Arial" font-weight="700" font-size="11" fill="#0066a1" text-anchor="middle">Crédit Coopératif</text>
-          </svg>
-        </div>
+        <a class="brand-item-wrap" href="#" aria-label="Crédit Coopératif">
+          <img src="assets/logo-credit-cooperatif.jpg" alt="Crédit Coopératif"/>
+        </a>
 
-        <!-- Oney -->
-        <div class="brand-item-wrap">
-          <svg width="64" height="28" viewBox="0 0 64 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="64" height="28" rx="4" fill="#e2006e"/>
-            <text x="32" y="19" font-family="Arial" font-weight="700" font-size="14" fill="#fff" text-anchor="middle">oney</text>
-          </svg>
-        </div>
+        <a class="brand-item-wrap" href="#" aria-label="Oney">
+          <img src="assets/logo-oney.png" alt="Oney"/>
+        </a>
 
       </div>
     </div>
@@ -973,7 +939,7 @@ img{max-width:100%;display:block;}
         <a href="home.html" style="display:inline-block;background:#fff;padding:8px 14px;border-radius:10px;">
           <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" style="height:48px;width:auto;display:block;"/>
         </a>
-        <p>La plateforme d'engagement sportif et de bien-être des 40 000 collaborateurs du Groupe BPCE, en France et à l'international.</p>
+        <p>La plateforme d'engagement sportif et de bien-être du Groupe BPCE, en France et à l'international.</p>
       </div>
 
       <div class="footer-col">
