@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Team IMAGINE V2 — Maquettes navigables</title>
+<title>TEAM IMAGINE — Maquettes navigables</title>
 <style>
 :root {
   --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
@@ -28,7 +28,7 @@ img{max-width:100%;display:block;}
 /* ═══ HERO ═══ */
 .hero{background:linear-gradient(135deg,#1c0926 0%,var(--violet-800) 30%,var(--violet-600) 70%,var(--violet-500) 100%);color:#fff;padding:64px 0 80px;position:relative;overflow:hidden;}
 .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 30%,rgba(255,255,255,.08) 0,transparent 35%),radial-gradient(circle at 10% 80%,rgba(255,255,255,.05) 0,transparent 40%);}
-.hero-pattern{position:absolute;right:-100px;top:-60px;width:480px;height:480px;opacity:.08;}
+.hero-pattern{position:absolute;right:-60px;top:40px;width:520px;height:520px;opacity:.25;}
 
 .hero-inner{position:relative;}
 
@@ -100,46 +100,50 @@ footer strong{color:#fff;}
 
 <!-- ═══ HERO ═══ -->
 <header class="hero">
-  <svg class="hero-pattern" viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="1.5">
-    <circle cx="100" cy="100" r="90"/>
-    <circle cx="100" cy="100" r="60"/>
-    <circle cx="100" cy="100" r="30"/>
-    <path d="M100 10v180M10 100h180"/>
+  <!-- Hero pattern : reprise des arcs colorés du logo Team IMAGINE (mouvement, élan, dynamique sportive) -->
+  <svg class="hero-pattern" viewBox="0 0 200 200" fill="none" stroke-width="6" stroke-linecap="round">
+    <path d="M20 150 A 80 80 0 0 1 180 150" stroke="#f0a850" opacity="0.9"/>
+    <path d="M30 156 A 70 70 0 0 1 170 156" stroke="#e85d4c" opacity="0.85"/>
+    <path d="M40 162 A 60 60 0 0 1 160 162" stroke="#d6336c" opacity="0.8"/>
+    <path d="M50 168 A 50 50 0 0 1 150 168" stroke="#9c2378" opacity="0.75"/>
+    <path d="M60 174 A 40 40 0 0 1 140 174" stroke="#5a4fcf" opacity="0.7"/>
+    <path d="M70 180 A 30 30 0 0 1 130 180" stroke="#2da8a3" opacity="0.65"/>
   </svg>
 
   <div class="container hero-inner">
     <div class="brand">
-      <div class="brand-mark"><span>TI</span></div>
-      <div class="brand-text">
-        <div class="brand-name">Team IMAGINE</div>
-        <div class="brand-tag">La Banque du Sport · BPCE</div>
-      </div>
+      <a href="home.html" style="display:flex;align-items:center;gap:14px;">
+        <img src="assets/team-imagine-logo.svg" alt="GROUPE BPCE × TEAM IMAGINE" style="height:56px;width:auto;background:#fff;padding:6px 12px;border-radius:8px;"/>
+      </a>
     </div>
 
     <div class="eyebrow">
       <span class="dot"></span>
-      Cadrage V2 · Juin 2026
+      CADRAGE · JUIN 2026
     </div>
 
-    <h1 class="title">Maquettes navigables Team IMAGINE V2</h1>
-    <p class="subtitle">Explorez les 7 pages principales du nouvel intranet sportif BPCE. Cliquez sur une maquette pour la découvrir, puis naviguez librement d'une page à l'autre via le menu en haut de chaque page.</p>
+    <h1 class="title">MAQUETTES NAVIGABLES TEAM IMAGINE</h1>
+    <p class="subtitle">Explorez les 7 pages principales du nouvel intranet sportif du GROUPE BPCE. Cliquez sur une maquette pour la découvrir, puis naviguez librement d'une page à l'autre via le menu en haut de chaque page.</p>
+    <p class="subtitle" style="font-size:13px;color:rgba(255,255,255,.7);margin-top:-12px;margin-bottom:24px;">
+      Réalisé par <strong style="color:#fff;">TOOFOOT</strong>, prestataire de <strong style="color:#fff;">SPORTFIVE</strong>, partenaire du <strong style="color:#fff;">GROUPE BPCE</strong>.
+    </p>
 
     <div class="meta-row">
       <div class="meta-item">
         <div class="meta-num">7</div>
-        <div class="meta-label">Maquettes</div>
+        <div class="meta-label">MAQUETTES</div>
       </div>
       <div class="meta-item">
-        <div class="meta-num">40k</div>
-        <div class="meta-label">Collaborateurs cibles</div>
+        <div class="meta-num">110K</div>
+        <div class="meta-label">COLLABORATEURS BPCE</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-num">40K</div>
+        <div class="meta-label">CONNECTÉS À LA PLATEFORME</div>
       </div>
       <div class="meta-item">
         <div class="meta-num">3</div>
-        <div class="meta-label">Thématiques BDS</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-num">RAWEB</div>
-        <div class="meta-label">60 % d'ici fin 2026</div>
+        <div class="meta-label">THÉMATIQUES BDS</div>
       </div>
     </div>
   </div>
@@ -162,7 +166,7 @@ footer strong{color:#fff;}
   <div class="container">
 
     <div class="section-head">
-      <h2 class="section-title">Les 7 pages principales</h2>
+      <h2 class="section-title">LES 7 PAGES PRINCIPALES</h2>
       <p class="section-sub">Cliquez pour découvrir une maquette en plein écran</p>
     </div>
 
@@ -194,7 +198,7 @@ footer strong{color:#fff;}
         </div>
         <div class="mockup-body">
           <h3 class="mockup-title">Home / Accueil</h3>
-          <p class="mockup-desc">Hub central post-connexion. Streak Duolingo, logos marques BPCE, prochain événement Kévin Mayer, modules Bouger / Participer, podium.</p>
+          <p class="mockup-desc">Hub central post-connexion. Streak Duolingo, logos marques BPCE, prochain événement Équipe de France de Handball, modules Bouger / Participer, podium.</p>
           <div class="mockup-foot">
             <span class="mockup-tag">Page d'accueil</span>
             <span class="mockup-cta">Voir la maquette
@@ -301,7 +305,7 @@ footer strong{color:#fff;}
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="container">
-    <p><strong>Team IMAGINE V2</strong> — Maquettes de cadrage, Juin 2026 — Toofoot &amp; BPCE</p>
+    <p><strong>TEAM IMAGINE</strong> — Maquettes de cadrage, Juin 2026 — TOOFOOT, prestataire de SPORTFIVE pour le GROUPE BPCE</p>
     <p style="margin-top:6px;font-size:12px;color:rgba(255,255,255,.5);">Document confidentiel · Usage interne uniquement</p>
   </div>
 </footer>

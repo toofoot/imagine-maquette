@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <radialGradient id="spot" cx="50%" cy="20%" r="80%">
+        <stop offset="0%" stop-color="#3a1a55"/>
+        <stop offset="100%" stop-color="#0a0518"/>
+      </radialGradient>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <radialGradient id="crowdGrad" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#6b239a" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#1c0926"/>
+    </radialGradient>
+  </defs>
+
+  <!-- background arena -->
+  <rect width="800" height="500" fill="#1a0a2e"/>
+  <rect width="800" height="350" fill="url(#crowdGrad)"/>
+
+  <!-- Crowd dots (audience) -->
+  <g opacity="0.5">
+    <g fill="#a257cc">
+      <circle cx="60" cy="120" r="3"/><circle cx="100" cy="140" r="3"/><circle cx="140" cy="125" r="3"/>
+      <circle cx="180" cy="135" r="3"/><circle cx="220" cy="120" r="3"/><circle cx="260" cy="130" r="3"/>
+      <circle cx="300" cy="125" r="3"/><circle cx="340" cy="140" r="3"/><circle cx="380" cy="125" r="3"/>
+      <circle cx="420" cy="135" r="3"/><circle cx="460" cy="120" r="3"/><circle cx="500" cy="130" r="3"/>
+      <circle cx="540" cy="125" r="3"/><circle cx="580" cy="140" r="3"/><circle cx="620" cy="125" r="3"/>
+      <circle cx="660" cy="135" r="3"/><circle cx="700" cy="120" r="3"/><circle cx="740" cy="130" r="3"/>
+    </g>
+    <g fill="#e85d4c">
+      <circle cx="80" cy="160" r="3"/><circle cx="120" cy="180" r="3"/><circle cx="160" cy="165" r="3"/>
+      <circle cx="200" cy="175" r="3"/><circle cx="240" cy="160" r="3"/><circle cx="280" cy="170" r="3"/>
+      <circle cx="320" cy="165" r="3"/><circle cx="360" cy="180" r="3"/><circle cx="400" cy="165" r="3"/>
+      <circle cx="440" cy="175" r="3"/><circle cx="480" cy="160" r="3"/><circle cx="520" cy="170" r="3"/>
+      <circle cx="560" cy="165" r="3"/><circle cx="600" cy="180" r="3"/><circle cx="640" cy="165" r="3"/>
+      <circle cx="680" cy="175" r="3"/><circle cx="720" cy="160" r="3"/><circle cx="760" cy="170" r="3"/>
+    </g>
+    <g fill="#fff">
+      <circle cx="50" cy="200" r="2"/><circle cx="90" cy="210" r="2"/><circle cx="130" cy="200" r="2"/>
+      <circle cx="170" cy="215" r="2"/><circle cx="210" cy="200" r="2"/><circle cx="250" cy="210" r="2"/>
+      <circle cx="290" cy="205" r="2"/><circle cx="330" cy="215" r="2"/><circle cx="370" cy="200" r="2"/>
+      <circle cx="410" cy="210" r="2"/><circle cx="450" cy="205" r="2"/><circle cx="490" cy="215" r="2"/>
+      <circle cx="530" cy="200" r="2"/><circle cx="570" cy="210" r="2"/><circle cx="610" cy="205" r="2"/>
+      <circle cx="650" cy="215" r="2"/><circle cx="690" cy="200" r="2"/><circle cx="730" cy="210" r="2"/>
+    </g>
+  </g>
+
+  <!-- LED banner FRANCE -->
+  <rect x="0" y="80" width="800" height="30" fill="#1a3a8a"/>
+  <g font-family="Arial,Helvetica,sans-serif" font-weight="800" fill="#fff" font-size="18">
+    <text x="80" y="101">FRANCE</text>
+    <text x="280" y="101">FRANCE</text>
+    <text x="480" y="101">FRANCE</text>
+    <text x="680" y="101">FRANCE</text>
+  </g>
+  <!-- French flag accents on LED -->
+  <g>
+    <rect x="50" y="85" width="6" height="20" fill="#0055a4"/>
+    <rect x="56" y="85" width="6" height="20" fill="#fff"/>
+    <rect x="62" y="85" width="6" height="20" fill="#ef4135"/>
+    <rect x="250" y="85" width="6" height="20" fill="#0055a4"/>
+    <rect x="256" y="85" width="6" height="20" fill="#fff"/>
+    <rect x="262" y="85" width="6" height="20" fill="#ef4135"/>
+    <rect x="450" y="85" width="6" height="20" fill="#0055a4"/>
+    <rect x="456" y="85" width="6" height="20" fill="#fff"/>
+    <rect x="462" y="85" width="6" height="20" fill="#ef4135"/>
+    <rect x="650" y="85" width="6" height="20" fill="#0055a4"/>
+    <rect x="656" y="85" width="6" height="20" fill="#fff"/>
+    <rect x="662" y="85" width="6" height="20" fill="#ef4135"/>
+  </g>
+
+  <!-- Court floor -->
+  <rect x="0" y="350" width="800" height="150" fill="url(#floor)"/>
+
+  <!-- Center court "UTILE AU SPORT" logo -->
+  <ellipse cx="400" cy="465" rx="120" ry="20" fill="#ef4135" opacity="0.9"/>
+  <text x="400" y="470" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="14" fill="#fff" text-anchor="middle">UTILE AU SPORT</text>
+
+  <!-- Team line-up of players (20 silhouettes) -->
+  <g transform="translate(0, 250)">
+    <!-- Player silhouettes -->
+    <g font-family="Arial" font-weight="700" font-size="9" fill="#1a3a8a" text-anchor="middle">
+      <!-- Player template: white jersey with red/blue stripe, number -->
+      <g transform="translate(40,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#f5d0a9"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">23</text>
+      </g>
+      <g transform="translate(85,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#e2b48a"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">39</text>
+      </g>
+      <g transform="translate(130,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#f5d0a9"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#ffd700"/>
+        <text y="50" fill="#000">92</text>
+      </g>
+      <g transform="translate(175,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#a87a5a"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">25</text>
+      </g>
+      <g transform="translate(220,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#f5d0a9"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">29</text>
+      </g>
+      <g transform="translate(265,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#e2b48a"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#ffd700"/>
+        <text y="50" fill="#000">12</text>
+      </g>
+      <g transform="translate(310,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#f5d0a9"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">8</text>
+      </g>
+      <g transform="translate(355,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#f5d0a9"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">17</text>
+      </g>
+      <!-- Captain with trophy in center -->
+      <g transform="translate(400,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#e2b48a"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">10</text>
+        <!-- trophy -->
+        <rect x="-8" y="-30" width="16" height="20" rx="2" fill="#f0c050" stroke="#a06800" stroke-width="1"/>
+        <path d="M-12 -28 L-8 -28 L-8 -22 Q-12 -22 -12 -25 Z" fill="#a06800"/>
+        <path d="M12 -28 L8 -28 L8 -22 Q12 -22 12 -25 Z" fill="#a06800"/>
+      </g>
+      <g transform="translate(445,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#f5d0a9"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">11</text>
+      </g>
+      <g transform="translate(490,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#a87a5a"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">31</text>
+      </g>
+      <g transform="translate(535,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#e2b48a"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">4</text>
+      </g>
+      <g transform="translate(580,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#a87a5a"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">7</text>
+      </g>
+      <g transform="translate(625,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#f5d0a9"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">21</text>
+      </g>
+      <g transform="translate(670,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#a87a5a"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">11</text>
+      </g>
+      <g transform="translate(715,0)">
+        <ellipse cx="0" cy="-10" rx="9" ry="11" fill="#f5d0a9"/>
+        <path d="M-18 10 L-18 80 L18 80 L18 10 Z" fill="#fff"/>
+        <path d="M-15 15 L-10 35 L-8 30 Z" fill="#0055a4"/>
+        <path d="M15 15 L10 35 L8 30 Z" fill="#ef4135"/>
+        <text y="50">10</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Sparkles -->
+  <g fill="#fff" opacity="0.9">
+    <circle cx="200" cy="240" r="2"/>
+    <circle cx="350" cy="220" r="2"/>
+    <circle cx="500" cy="240" r="2"/>
+    <circle cx="650" cy="225" r="2"/>
+  </g>
+
+  <!-- Caption -->
+  <text x="400" y="490" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" fill="#fff" text-anchor="middle" opacity="0.7">ÉQUIPE DE FRANCE DE HANDBALL · CHAMPIONS</text>
+</svg>
