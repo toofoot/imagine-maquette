@@ -171,12 +171,13 @@ img{max-width:100%;display:block;}
 
 .tl-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-xl);padding:0;overflow:hidden;transition:.2s;}
 .tl-card:hover{box-shadow:var(--sh-lg);transform:translateY(-2px);border-color:var(--violet-200);}
-.tl-card-banner{height:80px;position:relative;display:flex;align-items:center;padding:0 22px;overflow:hidden;}
-.tl-card-banner.athlete{background:linear-gradient(110deg,#581d74,#8433b8);}
-.tl-card-banner.partenariat{background:linear-gradient(110deg,#0c4a85,#1e7ad0);}
-.tl-card-banner.tempsfort{background:linear-gradient(110deg,#0c5a30,#1a7a45);}
-.tl-card-banner::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 2px,transparent 2px,transparent 14px);}
-.tl-banner-svg{position:absolute;right:0;top:0;height:100%;width:140px;opacity:.2;}
+.tl-card-banner{height:170px;position:relative;display:flex;align-items:flex-start;padding:14px 18px;overflow:hidden;background-size:cover;background-position:center;}
+.tl-card-banner.athlete{background-color:#581d74;background-image:linear-gradient(135deg,rgba(61,21,84,.7),rgba(132,51,184,.4));}
+.tl-card-banner.partenariat{background-color:#0c4a85;background-image:linear-gradient(135deg,rgba(12,74,133,.7),rgba(30,122,208,.4));}
+.tl-card-banner.tempsfort{background-color:#0c5a30;background-image:linear-gradient(135deg,rgba(12,90,48,.7),rgba(26,122,69,.4));}
+.tl-card-banner::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 2px,transparent 2px,transparent 14px);pointer-events:none;}
+.tl-card-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.35) 100%);pointer-events:none;}
+.tl-banner-svg{position:absolute;right:8px;bottom:8px;height:120px;width:120px;opacity:.35;}
 .tl-banner-svg svg{width:100%;height:100%;}
 .tl-banner-inner{position:relative;z-index:1;display:flex;align-items:center;gap:12px;width:100%;}
 .tl-type{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.95);padding:5px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
@@ -215,9 +216,8 @@ img{max-width:100%;display:block;}
 .partner-visual-icon{opacity:.45;}
 .partner-visual-icon svg{width:80px;height:80px;}
 .partner-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1;}
-.partner-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-.pb-mark{display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:26px;padding:0 8px;border-radius:var(--r-sm);font-size:11px;font-weight:800;letter-spacing:.5px;}
-.pb-name{font-size:13px;font-weight:700;color:var(--gray-900);}
+.partner-brand{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.pb-name{font-size:13px;font-weight:700;color:var(--violet-700);text-transform:uppercase;letter-spacing:.04em;}
 .partner-title{font-size:16px;font-weight:700;color:var(--gray-900);line-height:1.3;margin-bottom:8px;letter-spacing:-.2px;}
 .partner-desc{font-size:13px;color:var(--gray-600);line-height:1.5;flex:1;margin-bottom:14px;}
 .partner-foot{margin-top:auto;padding-top:12px;border-top:1px solid var(--gray-100);}
@@ -245,10 +245,10 @@ img{max-width:100%;display:block;}
 .athlete-next-month{font-size:9px;color:var(--violet-600);text-transform:uppercase;font-weight:700;letter-spacing:.05em;margin-top:2px;}
 .athlete-next-text{font-size:11px;line-height:1.3;color:var(--gray-700);}
 .athlete-next-text strong{color:var(--gray-900);display:block;font-size:12px;}
-.athlete-brand{display:flex;align-items:center;gap:8px;margin:10px 0 12px;padding:8px 10px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--r-md);}
-.ab-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;display:inline-block;}
-.ab-text{font-size:12px;color:var(--gray-700);}
-.ab-text strong{color:var(--gray-900);font-weight:700;}
+.athlete-brand-line{font-size:12px;color:var(--gray-600);margin:8px 0 14px;line-height:1.4;}
+.athlete-brand-line strong{color:var(--gray-900);font-weight:700;}
+.athlete-photo{position:absolute;inset:auto 12px 12px 12px;height:48px;display:flex;align-items:flex-end;justify-content:center;}
+.athlete-photo-fallback{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.95);color:var(--gray-800);font-weight:800;font-size:14px;letter-spacing:.5px;border:2px solid rgba(255,255,255,.8);box-shadow:0 4px 10px rgba(0,0,0,.2);}
 
 /* ═══ FOOTER ═══ */
 .footer{background:var(--violet-900);color:rgba(255,255,255,.85);padding:42px 0 22px;margin-top:36px;}
@@ -308,7 +308,7 @@ img{max-width:100%;display:block;}
 <header class="header">
   <div class="container header-top">
     <a href="home.html" class="logo" aria-label="GROUPE BPCE × TEAM IMAGINE - Accueil">
-      <img src="assets/team-imagine-logo.svg" alt="GROUPE BPCE × TEAM IMAGINE" class="logo-img"/>
+      <img src="assets/team-imagine-logo.png" alt="GROUPE BPCE × TEAM IMAGINE" class="logo-img"/>
     </a>
     <nav class="nav" aria-label="Navigation principale">
       <a href="actualites.html">Actualités</a>
@@ -394,9 +394,9 @@ img{max-width:100%;display:block;}
             <span class="pulse"></span>
             Dans 12 jours
           </div>
-          <div class="fe-meta-top">Athlète sponsorisé · Athlétisme</div>
-          <h2>Meeting de Paris 2026 — Kévin Mayer</h2>
-          <p>Suivez en direct notre athlète soutenu, Kévin Mayer, qui défend ses chances au décathlon au Stade Charléty. Première sortie internationale de la saison.</p>
+          <div class="fe-meta-top">Partenariat fédéral · Handball</div>
+          <h2>Équipe de France de Handball — Tournoi de France 2026</h2>
+          <p>Soutenez les Bleus du handball à l'Arena Paris. Partenariat majeur Caisse d'Épargne × FFHandball depuis 2015.</p>
           <div class="fe-meta">
             <span class="fe-meta-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -459,7 +459,7 @@ img{max-width:100%;display:block;}
       <div class="filters-bar">
         <div class="filter-tabs" role="tablist">
           <button class="filter-tab active" role="tab" aria-selected="true">Tous <span class="count">12</span></button>
-          <button class="filter-tab athlete-dot" role="tab"><span class="filter-tab-dot"></span>Athlètes sponsorisés <span class="count">7</span></button>
+          <button class="filter-tab athlete-dot" role="tab"><span class="filter-tab-dot"></span>Athlètes <span class="count">7</span></button>
           <button class="filter-tab partenariat-dot" role="tab"><span class="filter-tab-dot"></span>Partenariats <span class="count">3</span></button>
           <button class="filter-tab tempsfort-dot" role="tab"><span class="filter-tab-dot"></span>Temps forts plateforme <span class="count">2</span></button>
         </div>
@@ -482,7 +482,7 @@ img{max-width:100%;display:block;}
           <span class="tm-line"></span>
         </div>
 
-        <!-- Événement 1 - Athlète - Kévin Mayer -->
+        <!-- Événement 1 - Athlète - Jimmy Gressier -->
         <div class="tl-event athlete">
           <div class="tl-date">
             <div class="tl-date-day">14</div>
@@ -504,20 +504,20 @@ img{max-width:100%;display:block;}
               <div class="tl-banner-inner">
                 <span class="tl-type athlete">
                   <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                  Athlète sponsorisé
+                  Athlète
                 </span>
                 <span class="tl-sport">Athlétisme</span>
               </div>
             </div>
             <div class="tl-card-body">
               <h3 class="tl-event-name">Meeting de Paris 2026</h3>
-              <p class="tl-event-desc">Kévin Mayer défend ses chances au décathlon lors de sa première sortie internationale de la saison.</p>
+              <p class="tl-event-desc">Jimmy Gressier engage sa saison sur 5 000 m au Stade Charléty. Soutenu par la Caisse d'Épargne Hauts de France.</p>
 
               <div class="tl-athlete-chip">
-                <span class="tl-athlete-avatar">KM</span>
+                <span class="tl-athlete-avatar">JG</span>
                 <span class="tl-athlete-info">
-                  <span class="tl-athlete-name">Kévin Mayer</span>
-                  <span class="tl-athlete-disc">Décathlon · Athlète BPCE</span>
+                  <span class="tl-athlete-name">Jimmy Gressier</span>
+                  <span class="tl-athlete-disc">5 000 m · Caisse d'Épargne Hauts de France</span>
                 </span>
               </div>
 
@@ -568,7 +568,7 @@ img{max-width:100%;display:block;}
                   <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
                   Partenariat BPCE
                 </span>
-                <span class="tl-sport">Tennis</span>
+                <span class="tl-sport">Surf</span>
               </div>
             </div>
             <div class="tl-card-body">
@@ -738,31 +738,31 @@ img{max-width:100%;display:block;}
               <div class="tl-banner-inner">
                 <span class="tl-type athlete">
                   <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                  Athlète sponsorisée
+                  Athlète
                 </span>
-                <span class="tl-sport">Natation</span>
+                <span class="tl-sport">Biathlon</span>
               </div>
             </div>
             <div class="tl-card-body">
-              <h3 class="tl-event-name">Championnats du Monde de natation — 200m brasse</h3>
-              <p class="tl-event-desc">Notre athlète soutenue Margaux Dubois engagée sur la distance reine. Finale 200m brasse féminin.</p>
+              <h3 class="tl-event-name">Coupe du Monde de Biathlon — Östersund</h3>
+              <p class="tl-event-desc">Reprise de saison pour Justine Braisaz-Bouchet, championne olympique. Soutenue par la Caisse d'Épargne Rhône Alpes.</p>
 
               <div class="tl-athlete-chip">
-                <span class="tl-athlete-avatar">MD</span>
+                <span class="tl-athlete-avatar">JB</span>
                 <span class="tl-athlete-info">
-                  <span class="tl-athlete-name">Margaux Dubois</span>
-                  <span class="tl-athlete-disc">Natation · Athlète BPCE</span>
+                  <span class="tl-athlete-name">Justine Braisaz-Bouchet</span>
+                  <span class="tl-athlete-disc">Biathlon · Caisse d'Épargne</span>
                 </span>
               </div>
 
               <div class="tl-event-meta">
                 <span class="tl-event-meta-item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <strong>Singapour</strong>
+                  <strong>Östersund, Suède</strong>
                 </span>
                 <span class="tl-event-meta-item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                  <strong>12 juillet 2026</strong>
+                  <strong>29 novembre 2026</strong>
                 </span>
               </div>
 
@@ -857,27 +857,27 @@ img{max-width:100%;display:block;}
               <div class="tl-banner-inner">
                 <span class="tl-type athlete">
                   <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                  Athlète sponsorisée
+                  Athlète
                 </span>
                 <span class="tl-sport">Tennis</span>
               </div>
             </div>
             <div class="tl-card-body">
-              <h3 class="tl-event-name">Wimbledon 2026 — 1<sup>er</sup> tour</h3>
-              <p class="tl-event-desc">Première sortie sur gazon pour notre athlète soutenue Léa Garnier. Le rendez-vous mythique du tennis mondial.</p>
+              <h3 class="tl-event-name">WSL Championship Tour — Jeffreys Bay</h3>
+              <p class="tl-event-desc">Kauli Vaast, champion olympique de Paris 2024, défend ses couleurs sur l'une des plus belles vagues du tour mondial.</p>
 
               <div class="tl-athlete-chip">
-                <span class="tl-athlete-avatar">LG</span>
+                <span class="tl-athlete-avatar">KV</span>
                 <span class="tl-athlete-info">
-                  <span class="tl-athlete-name">Léa Garnier</span>
-                  <span class="tl-athlete-disc">Tennis · Athlète BPCE</span>
+                  <span class="tl-athlete-name">Kauli Vaast</span>
+                  <span class="tl-athlete-disc">Surf · Caisse d'Épargne
                 </span>
               </div>
 
               <div class="tl-event-meta">
                 <span class="tl-event-meta-item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <strong>All England Club, Londres</strong>
+                  <strong>Jeffreys Bay, Afrique du Sud</strong>
                 </span>
                 <span class="tl-event-meta-item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
@@ -917,126 +917,84 @@ img{max-width:100%;display:block;}
       <div class="section-head">
         <div>
           <h2 class="section-title">Partenariats sportifs BPCE</h2>
-          <p class="section-sub">Chaque partenariat est associé à une marque du Groupe — fédérations, événements et clubs soutenus</p>
+          <p class="section-sub">Les 4 grands partenariats du Groupe — chaque partenariat est associé à une marque BPCE</p>
         </div>
-        <button class="btn btn-outline btn-sm" type="button" title="Ajouter un visuel de partenariat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
-          Ajouter un visuel
-        </button>
       </div>
 
       <div class="partner-grid">
 
-        <article class="partner-card">
-          <div class="partner-visual" style="background:linear-gradient(135deg,#0a2540,#1e4a85);">
-            <div class="partner-visual-icon" aria-hidden="true">
-              <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="32" stroke="#fff" stroke-width="3" opacity=".8"/><path d="M50 18v64M18 50h64" stroke="#fff" stroke-width="3" opacity=".8"/></svg>
-            </div>
-          </div>
-          <div class="partner-body">
-            <div class="partner-brand">
-              <span class="pb-mark" style="background:#003a78;color:#fff;">BPCE</span>
-              <span class="pb-name">BPCE</span>
-            </div>
-            <h3 class="partner-title">Jeux Olympiques de Paris 2024</h3>
-            <p class="partner-desc">Partenaire premium du Comité d'Organisation des Jeux Olympiques.</p>
-            <div class="partner-foot">
-              <span class="partner-since">Partenaire majeur depuis 2015</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="partner-card">
-          <div class="partner-visual" style="background:linear-gradient(135deg,#3d1554,#8433b8);">
-            <div class="partner-visual-icon" aria-hidden="true">
-              <svg viewBox="0 0 100 100" fill="none"><rect x="30" y="20" width="40" height="60" rx="4" stroke="#fff" stroke-width="3"/><circle cx="50" cy="50" r="10" fill="#fff" opacity=".7"/></svg>
-            </div>
-          </div>
-          <div class="partner-body">
-            <div class="partner-brand">
-              <span class="pb-mark" style="background:#8b1a6b;color:#fff;">F</span>
-              <span class="pb-name">BPCE Factor</span>
-            </div>
-            <h3 class="partner-title">Fédération Française de Triathlon</h3>
-            <p class="partner-desc">Soutien aux athlètes de triathlon et au développement de la discipline.</p>
-            <div class="partner-foot">
-              <span class="partner-since">Partenaire fédéral depuis 2022</span>
-            </div>
-          </div>
-        </article>
-
+        <!-- 1. Banque Populaire — Voile (FFVoile, depuis 1989) -->
         <article class="partner-card">
           <div class="partner-visual" style="background:linear-gradient(135deg,#003a78,#0066cc);">
             <div class="partner-visual-icon" aria-hidden="true">
-              <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="28" stroke="#fff" stroke-width="3"/><path d="M30 50 Q50 30 70 50 Q50 70 30 50" stroke="#fff" stroke-width="2.5" fill="none"/></svg>
+              <svg viewBox="0 0 100 100" fill="none"><path d="M50 12 L50 80 M50 12 L80 75 L50 75 Z" stroke="#fff" stroke-width="3" fill="#fff" opacity=".85"/><path d="M50 12 L20 75 L50 75 Z" stroke="#fff" stroke-width="3" fill="none"/><path d="M15 84 Q35 92 50 84 Q65 76 85 84" stroke="#fff" stroke-width="3" fill="none" opacity=".75"/></svg>
             </div>
           </div>
           <div class="partner-body">
             <div class="partner-brand">
-              <span class="pb-mark" style="background:#c00d1e;color:#fff;">BP</span>
               <span class="pb-name">Banque Populaire</span>
             </div>
-            <h3 class="partner-title">Course au large &amp; voile</h3>
-            <p class="partner-desc">Engagée auprès des skippers et de la Course du Figaro depuis plus de 30 ans.</p>
+            <h3 class="partner-title">Fédération Française de Voile</h3>
+            <p class="partner-desc">La Banque de la Voile : Vendée Globe, Maxi Banque Populaire XI, Équipe de France de Voile et 1 500 clubs et écoles.</p>
             <div class="partner-foot">
               <span class="partner-since">Partenaire majeur depuis 1989</span>
             </div>
           </div>
         </article>
 
+        <!-- 2. Caisse d'Epargne — Handball (FFHandball, depuis 2015) -->
         <article class="partner-card">
           <div class="partner-visual" style="background:linear-gradient(135deg,#0c5a30,#00843d);">
             <div class="partner-visual-icon" aria-hidden="true">
-              <svg viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="55" rx="25" ry="32" stroke="#fff" stroke-width="3"/><path d="M40 40 L60 60 M60 40 L40 60" stroke="#fff" stroke-width="2.5"/></svg>
+              <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="28" stroke="#fff" stroke-width="3" fill="none"/><path d="M28 38 Q50 30 72 38 M28 50 Q50 42 72 50 M28 62 Q50 54 72 62" stroke="#fff" stroke-width="2" fill="none" opacity=".8"/><path d="M50 22 L50 78 M22 50 L78 50" stroke="#fff" stroke-width="2" opacity=".5"/></svg>
             </div>
           </div>
           <div class="partner-body">
             <div class="partner-brand">
-              <span class="pb-mark" style="background:#00843d;color:#fff;">CE</span>
               <span class="pb-name">Caisse d'Épargne</span>
             </div>
             <h3 class="partner-title">Fédération Française de Handball</h3>
-            <p class="partner-desc">Soutien historique aux Bleus et Bleues du handball français.</p>
+            <p class="partner-desc">Partenaire majeur des Bleus et des Bleues : 17 médailles internationales, dont l'or olympique de Tokyo et l'argent de Paris 2024.</p>
             <div class="partner-foot">
-              <span class="partner-since">Partenaire majeur depuis 2002</span>
+              <span class="partner-since">Partenaire majeur depuis 2015</span>
             </div>
           </div>
         </article>
 
+        <!-- 3. Caisse d'Epargne — Basket-ball (FFBB, depuis 2014) -->
         <article class="partner-card">
           <div class="partner-visual" style="background:linear-gradient(135deg,#7c2d12,#ea580c);">
             <div class="partner-visual-icon" aria-hidden="true">
-              <svg viewBox="0 0 100 100" fill="none"><circle cx="30" cy="65" r="14" stroke="#fff" stroke-width="3"/><circle cx="70" cy="65" r="14" stroke="#fff" stroke-width="3"/><path d="M30 65 L55 40 L70 65" stroke="#fff" stroke-width="3" fill="none"/></svg>
+              <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#fff" stroke-width="3" fill="none"/><path d="M20 50 Q50 25 80 50 M20 50 Q50 75 80 50 M50 20 L50 80" stroke="#fff" stroke-width="2" fill="none" opacity=".8"/></svg>
             </div>
           </div>
           <div class="partner-body">
             <div class="partner-brand">
-              <span class="pb-mark" style="background:#8b1a6b;color:#fff;">N</span>
-              <span class="pb-name">Natixis</span>
+              <span class="pb-name">Caisse d'Épargne</span>
             </div>
-            <h3 class="partner-title">Tour de France</h3>
-            <p class="partner-desc">Partenaire de la Grande Boucle et soutien des équipes professionnelles françaises.</p>
+            <h3 class="partner-title">Fédération Française de Basket-ball</h3>
+            <p class="partner-desc">Partenaire des Équipes de France 5×5 et 3×3 — argent olympique masculin et féminin à Paris 2024, titres mondiaux en 3×3.</p>
             <div class="partner-foot">
-              <span class="partner-since">Partenaire officiel depuis 2018</span>
+              <span class="partner-since">Partenaire majeur depuis 2014</span>
             </div>
           </div>
         </article>
 
+        <!-- 4. Natixis — Rugby (Racing 92, depuis 2007) -->
         <article class="partner-card">
-          <div class="partner-visual" style="background:linear-gradient(135deg,#1c0926,#581d74);">
+          <div class="partner-visual" style="background:linear-gradient(135deg,#0a1a3a,#0f5fa8);">
             <div class="partner-visual-icon" aria-hidden="true">
-              <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#fff" stroke-width="3"/><path d="M20 50 Q50 25 80 50 Q50 75 20 50" stroke="#fff" stroke-width="2.5" fill="none"/></svg>
+              <svg viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="50" rx="22" ry="32" stroke="#fff" stroke-width="3" fill="none" transform="rotate(35 50 50)"/><path d="M36 36 L64 64 M40 32 L60 52 M48 30 L66 48 M56 32 L62 38" stroke="#fff" stroke-width="2" opacity=".8"/></svg>
             </div>
           </div>
           <div class="partner-body">
             <div class="partner-brand">
-              <span class="pb-mark" style="background:#581d74;color:#fff;">BPCE</span>
-              <span class="pb-name">BPCE</span>
+              <span class="pb-name">Natixis</span>
             </div>
-            <h3 class="partner-title">Fédération Française de Tennis</h3>
-            <p class="partner-desc">Partenaire de Roland-Garros et soutien au tennis amateur.</p>
+            <h3 class="partner-title">Racing 92</h3>
+            <p class="partner-desc">Partenaire du club ciel et blanc — équipe pro masculine, féminine, école de rugby et Racing 92 Natixis Seven.</p>
             <div class="partner-foot">
-              <span class="partner-since">Partenaire premium depuis 2020</span>
+              <span class="partner-since">Partenaire majeur depuis 2007</span>
             </div>
           </div>
         </article>
@@ -1045,158 +1003,114 @@ img{max-width:100%;display:block;}
     </div>
   </section>
 
-  <!-- ═══ ATHLÈTES SPONSORISÉS ═══ -->
+  <!-- ═══ ATHLÈTES SOUTENUS ═══ -->
   <section class="section athletes-section">
     <div class="container">
       <div class="section-head">
         <div>
           <h2 class="section-title">Athlètes soutenus</h2>
-          <p class="section-sub">Nom, photo de l'athlète et marque du Groupe qui le soutient — suivez leur prochain rendez-vous</p>
+          <p class="section-sub">Nom, photo et marque du Groupe BPCE qui les soutient — suivez leur prochain rendez-vous</p>
         </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <button class="btn btn-outline btn-sm" type="button" title="Ajouter un visuel d'athlète">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
-            Ajouter un visuel
-          </button>
-          <a href="#" class="section-link">Voir tous les athlètes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+        <a href="#" class="section-link">Voir tous les athlètes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
 
       <div class="athletes-grid">
 
+        <!-- 1. Jimmy GRESSIER — Athlétisme — Caisse d'Epargne Hauts de France -->
         <div class="athlete-card">
-          <div class="athlete-portrait a1">
+          <div class="athlete-portrait" style="background:linear-gradient(135deg,#3d1554 0%,#8433b8 100%);">
             <span class="athlete-sport-tag">Athlétisme</span>
-            <div class="athlete-svg" aria-hidden="true">
-              <svg viewBox="0 0 100 130" fill="none">
-                <circle cx="50" cy="40" r="14" fill="white"/>
-                <path d="M50 54 L50 95" stroke="white" stroke-width="6" stroke-linecap="round"/>
-                <path d="M50 68 L25 78" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <path d="M50 68 L75 78" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <path d="M50 95 L35 130" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <path d="M50 95 L65 130" stroke="white" stroke-width="5" stroke-linecap="round"/>
-              </svg>
+            <div class="athlete-photo" aria-label="Photo de Jimmy Gressier">
+              <span class="athlete-photo-fallback">JG</span>
             </div>
           </div>
           <div class="athlete-body">
-            <div class="athlete-name">KÉVIN MAYER</div>
-            <div class="athlete-disc">Décathlon</div>
-            <div class="athlete-brand">
-              <span class="ab-dot" style="background:#003a78;"></span>
-              <span class="ab-text"><strong>BPCE</strong> · Partenaire principal</span>
-            </div>
+            <div class="athlete-name">JIMMY GRESSIER</div>
+            <div class="athlete-disc">Athlétisme — 5 000 m</div>
+            <div class="athlete-brand-line">Soutenu par <strong>Caisse d'Épargne Hauts de France</strong></div>
             <div class="athlete-next">
               <div class="athlete-next-date">
-                <div class="athlete-next-day">14</div>
+                <div class="athlete-next-day">21</div>
                 <div class="athlete-next-month">Juin</div>
               </div>
               <div class="athlete-next-text">
                 <strong>Meeting de Paris</strong>
-                Stade Charléty · 19h00
+                Stade Charléty · 20h30
               </div>
             </div>
           </div>
         </div>
 
+        <!-- 2. Kauli VAAST — Surf — Caisse d'Epargne Île-de-France -->
         <div class="athlete-card">
-          <div class="athlete-portrait a2">
-            <span class="athlete-sport-tag">Natation</span>
-            <div class="athlete-svg" aria-hidden="true">
-              <svg viewBox="0 0 100 130" fill="none">
-                <circle cx="50" cy="40" r="14" fill="white"/>
-                <path d="M50 54 L50 90" stroke="white" stroke-width="6" stroke-linecap="round"/>
-                <path d="M50 70 L25 60" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <path d="M50 70 L75 60" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <path d="M10 100 Q30 92 50 100 Q70 108 90 100" stroke="white" stroke-width="3" fill="none"/>
-                <path d="M10 115 Q30 107 50 115 Q70 123 90 115" stroke="white" stroke-width="3" fill="none"/>
-              </svg>
+          <div class="athlete-portrait" style="background:linear-gradient(135deg,#0c4a85 0%,#1e7ad0 100%);">
+            <span class="athlete-sport-tag">Surf</span>
+            <div class="athlete-photo" aria-label="Photo de Kauli Vaast">
+              <span class="athlete-photo-fallback">KV</span>
             </div>
           </div>
           <div class="athlete-body">
-            <div class="athlete-name">MARGAUX DUBOIS</div>
-            <div class="athlete-disc">Natation — 200m brasse</div>
-            <div class="athlete-brand">
-              <span class="ab-dot" style="background:#00843d;"></span>
-              <span class="ab-text"><strong>Caisse d'Épargne</strong> · Partenaire</span>
-            </div>
-            <div class="athlete-next">
-              <div class="athlete-next-date">
-                <div class="athlete-next-day">12</div>
-                <div class="athlete-next-month">Juil.</div>
-              </div>
-              <div class="athlete-next-text">
-                <strong>Mondiaux de natation</strong>
-                Singapour · 20h45
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="athlete-card">
-          <div class="athlete-portrait a3">
-            <span class="athlete-sport-tag">Tennis</span>
-            <div class="athlete-svg" aria-hidden="true">
-              <svg viewBox="0 0 100 130" fill="none">
-                <circle cx="50" cy="40" r="14" fill="white"/>
-                <path d="M50 54 L50 95" stroke="white" stroke-width="6" stroke-linecap="round"/>
-                <path d="M50 68 L75 50" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <circle cx="78" cy="46" r="8" stroke="white" stroke-width="3" fill="none"/>
-                <path d="M50 68 L25 78" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <path d="M50 95 L35 130" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <path d="M50 95 L65 130" stroke="white" stroke-width="5" stroke-linecap="round"/>
-              </svg>
-            </div>
-          </div>
-          <div class="athlete-body">
-            <div class="athlete-name">LÉA GARNIER</div>
-            <div class="athlete-disc">Tennis — Top 50 WTA</div>
-            <div class="athlete-brand">
-              <span class="ab-dot" style="background:#c00d1e;"></span>
-              <span class="ab-text"><strong>Banque Populaire</strong> · Partenaire</span>
-            </div>
-            <div class="athlete-next">
-              <div class="athlete-next-date">
-                <div class="athlete-next-day">28</div>
-                <div class="athlete-next-month">Juil.</div>
-              </div>
-              <div class="athlete-next-text">
-                <strong>Wimbledon 2026</strong>
-                Londres · 14h00
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="athlete-card">
-          <div class="athlete-portrait a4">
-            <span class="athlete-sport-tag">Cyclisme</span>
-            <div class="athlete-svg" aria-hidden="true">
-              <svg viewBox="0 0 100 130" fill="none">
-                <circle cx="50" cy="35" r="12" fill="white"/>
-                <path d="M50 47 L50 75 L60 95" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <path d="M50 60 L30 75" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <path d="M50 60 L75 65" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <circle cx="30" cy="105" r="18" stroke="white" stroke-width="3" fill="none"/>
-                <circle cx="80" cy="105" r="18" stroke="white" stroke-width="3" fill="none"/>
-                <path d="M30 105 L55 90 L80 105" stroke="white" stroke-width="3" fill="none"/>
-              </svg>
-            </div>
-          </div>
-          <div class="athlete-body">
-            <div class="athlete-name">ANTOINE LEFEBVRE</div>
-            <div class="athlete-disc">Cyclisme — Équipe pro</div>
-            <div class="athlete-brand">
-              <span class="ab-dot" style="background:#8b1a6b;"></span>
-              <span class="ab-text"><strong>Natixis</strong> · Partenaire</span>
-            </div>
+            <div class="athlete-name">KAULI VAAST</div>
+            <div class="athlete-disc">Surf — Champion olympique Paris 2024</div>
+            <div class="athlete-brand-line">Soutenu par <strong>Caisse d'Épargne Île-de-France</strong></div>
             <div class="athlete-next">
               <div class="athlete-next-date">
                 <div class="athlete-next-day">04</div>
                 <div class="athlete-next-month">Juil.</div>
               </div>
               <div class="athlete-next-text">
-                <strong>Tour de France — Étape 1</strong>
-                Lille — Boulogne · 13h30
+                <strong>WSL Championship Tour</strong>
+                Jeffreys Bay · 09h00
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Justine BRAISAZ-BOUCHET — Biathlon — Caisse d'Epargne Rhône Alpes -->
+        <div class="athlete-card">
+          <div class="athlete-portrait" style="background:linear-gradient(135deg,#0c5a30 0%,#1a7a45 100%);">
+            <span class="athlete-sport-tag">Biathlon</span>
+            <div class="athlete-photo" aria-label="Photo de Justine Braisaz-Bouchet">
+              <span class="athlete-photo-fallback">JB</span>
+            </div>
+          </div>
+          <div class="athlete-body">
+            <div class="athlete-name">JUSTINE BRAISAZ-BOUCHET</div>
+            <div class="athlete-disc">Biathlon — Championne olympique</div>
+            <div class="athlete-brand-line">Soutenue par <strong>Caisse d'Épargne Rhône Alpes</strong></div>
+            <div class="athlete-next">
+              <div class="athlete-next-date">
+                <div class="athlete-next-day">29</div>
+                <div class="athlete-next-month">Nov.</div>
+              </div>
+              <div class="athlete-next-text">
+                <strong>Coupe du Monde — Östersund</strong>
+                Suède · 14h15
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Manon APITHY-BRUNET — Escrime — CASDEN Banque Populaire -->
+        <div class="athlete-card">
+          <div class="athlete-portrait" style="background:linear-gradient(135deg,#7c2d12 0%,#ea580c 100%);">
+            <span class="athlete-sport-tag">Escrime · Sabre</span>
+            <div class="athlete-photo" aria-label="Photo de Manon Apithy-Brunet">
+              <span class="athlete-photo-fallback">MA</span>
+            </div>
+          </div>
+          <div class="athlete-body">
+            <div class="athlete-name">MANON APITHY-BRUNET</div>
+            <div class="athlete-disc">Escrime — Championne olympique sabre</div>
+            <div class="athlete-brand-line">Soutenue par <strong>CASDEN Banque Populaire</strong></div>
+            <div class="athlete-next">
+              <div class="athlete-next-date">
+                <div class="athlete-next-day">15</div>
+                <div class="athlete-next-month">Juil.</div>
+              </div>
+              <div class="athlete-next-text">
+                <strong>Championnats du monde</strong>
+                Tbilissi · 18h00
               </div>
             </div>
           </div>
@@ -1205,6 +1119,7 @@ img{max-width:100%;display:block;}
       </div>
     </div>
   </section>
+
 
 </main>
 
@@ -1214,7 +1129,7 @@ img{max-width:100%;display:block;}
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="home.html" style="display:inline-block;background:#fff;padding:8px 14px;border-radius:10px;">
-          <img src="assets/team-imagine-logo.svg" alt="GROUPE BPCE × TEAM IMAGINE" style="height:48px;width:auto;display:block;"/>
+          <img src="assets/team-imagine-logo.png" alt="GROUPE BPCE × TEAM IMAGINE" style="height:48px;width:auto;display:block;"/>
         </a>
         <p>La plateforme d'engagement sportif et de bien-être des 40 000 collaborateurs connectés (sur 110 000) du Groupe BPCE.</p>
       </div>
