@@ -1,18 +1,19 @@
 DOSSIER ASSETS — IMAGES UTILISÉES PAR LES MAQUETTES
 =====================================================
 
-Les pages HTML pointent vers deux fichiers dans ce dossier :
+Fichiers actuellement utilisés par les pages HTML :
 
-  1. team-imagine-logo.svg     — Logo GROUPE BPCE × team imagine
-  2. handball-team-france.svg  — Photo Équipe de France de Handball
-                                  (utilisée sur home.html / calendrier.html)
+  - Logo-IMAGINE-2025-header-composite.png
+      → Logo GROUPE BPCE × team imagine
+      → Affiché dans le header et le footer de toutes les pages
 
-POUR REMPLACER PAR LES VISUELS DÉFINITIFS
------------------------------------------
-Dépose simplement tes fichiers définitifs dans ce dossier avec EXACTEMENT
-les mêmes noms (en .svg). Tu peux aussi utiliser un .png ou .jpg, dans ce
-cas modifie l'extension dans les pages HTML (rechercher / remplacer global).
+  - visuel-handball.jpg
+      → Photo de l'Équipe de France de Handball
+      → Affichée sur home.html (section "Prochain événement")
 
-Aujourd'hui ces deux fichiers contiennent une représentation vectorielle
-provisoire pour que le rendu fonctionne dans le navigateur le temps que
-les visuels définitifs soient intégrés.
+Pour changer un visuel : remplace simplement le fichier dans ce dossier
+en gardant le même nom. Aucune modification HTML nécessaire.
+
+Pour ajouter une image sur une autre carte (par exemple un athlète ou un
+événement du calendrier), dépose le fichier ici et signale-le, je
+mettrai à jour la card concernée.
