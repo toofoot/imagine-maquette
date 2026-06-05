@@ -351,21 +351,21 @@ img{max-width:100%;display:block;}
 }
 
 /* ═══ INVITE BAR ═══ */
-.invite-bar{background:linear-gradient(110deg,#1c0926 0%,#3d1554 35%,#581d74 70%,#6b239a 100%);color:#fff;padding:36px 0;position:relative;overflow:hidden;}
-.invite-bar::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 30%,rgba(255,255,255,.08) 0,transparent 35%),radial-gradient(circle at 10% 80%,rgba(123,232,168,.06) 0,transparent 40%);pointer-events:none;}
+.invite-bar{background:linear-gradient(135deg,#f5eefa 0%,#efefef 100%);color:var(--gray-800);padding:36px 0;position:relative;overflow:hidden;border-top:1px solid var(--gray-200);}
+.invite-bar + .footer,.invite-bar + footer{margin-top:0;}
 .invite-inner{position:relative;z-index:1;display:grid;grid-template-columns:200px 1fr auto;align-items:center;gap:32px;}
-.invite-visual{width:200px;height:140px;border-radius:var(--r-xl);background:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;backdrop-filter:blur(6px);}
+.invite-visual{width:200px;height:140px;border-radius:var(--r-xl);background:linear-gradient(135deg,rgba(88,29,116,.08),rgba(88,29,116,.02));border:1px solid var(--gray-200);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
 .invite-visual img{width:100%;height:100%;object-fit:cover;display:block;}
-.invite-visual-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:rgba(255,255,255,.85);text-align:center;padding:14px;}
-.invite-visual-placeholder svg{width:48px;height:48px;opacity:.9;}
-.invite-visual-placeholder span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;}
-.invite-text h3{font-size:24px;font-weight:700;letter-spacing:-.3px;margin-bottom:6px;color:#fff;}
-.invite-text p{font-size:14px;color:rgba(255,255,255,.85);max-width:520px;line-height:1.5;}
-.invite-form{display:flex;align-items:stretch;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:var(--r-full);padding:6px;backdrop-filter:blur(6px);min-width:380px;}
-.invite-form input{flex:1;border:none;background:transparent;color:#fff;font-family:var(--font);font-size:14px;padding:10px 16px;outline:none;}
-.invite-form input::placeholder{color:rgba(255,255,255,.6);}
-.invite-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--violet-700);border:none;padding:10px 22px;border-radius:var(--r-full);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:.15s;white-space:nowrap;}
-.invite-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.2);}
+.invite-visual-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--violet-600);text-align:center;padding:14px;}
+.invite-visual-placeholder svg{width:48px;height:48px;opacity:.7;}
+.invite-visual-placeholder span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--violet-700);}
+.invite-text h3{font-size:24px;font-weight:700;letter-spacing:-.3px;margin-bottom:6px;color:var(--gray-900);}
+.invite-text p{font-size:14px;color:var(--gray-600);max-width:520px;line-height:1.5;}
+.invite-form{display:flex;align-items:stretch;gap:10px;background:#fff;border:1.5px solid var(--gray-200);border-radius:var(--r-full);padding:6px;min-width:380px;box-shadow:var(--sh-sm);}
+.invite-form input{flex:1;border:none;background:transparent;color:var(--gray-900);font-family:var(--font);font-size:14px;padding:10px 16px;outline:none;}
+.invite-form input::placeholder{color:var(--gray-500);}
+.invite-btn{display:inline-flex;align-items:center;gap:6px;background:var(--violet-600);color:#fff;border:none;padding:10px 22px;border-radius:var(--r-full);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:.15s;white-space:nowrap;}
+.invite-btn:hover{background:var(--violet-700);transform:translateY(-1px);box-shadow:0 6px 16px rgba(88,29,116,.25);}
 .invite-btn svg{width:14px;height:14px;}
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 @media(max-width:980px){.invite-inner{grid-template-columns:160px 1fr;gap:24px;}.invite-form{grid-column:1 / -1;min-width:0;}}
@@ -599,23 +599,23 @@ img{max-width:100%;display:block;}
       <div class="brands-row">
 
         <a class="brand-item-wrap" href="#" aria-label="Groupe BPCE">
-          <img src="assets/logos_01.png" alt="Groupe BPCE"/>
+          <img src="assets/logos_05.png" alt="Groupe BPCE"/>
         </a>
 
         <a class="brand-item-wrap" href="#" aria-label="Marque 2 du Groupe BPCE">
-          <img src="assets/logos_02.png" alt="Marque 2 du Groupe BPCE"/>
+          <img src="assets/logos_01.png" alt="Marque 2 du Groupe BPCE"/>
         </a>
 
         <a class="brand-item-wrap" href="#" aria-label="Marque 3 du Groupe BPCE">
-          <img src="assets/logos_03.png" alt="Marque 3 du Groupe BPCE"/>
+          <img src="assets/logos_02.png" alt="Marque 3 du Groupe BPCE"/>
         </a>
 
         <a class="brand-item-wrap" href="#" aria-label="Marque 4 du Groupe BPCE">
-          <img src="assets/logos_04.png" alt="Marque 4 du Groupe BPCE"/>
+          <img src="assets/logos_03.png" alt="Marque 4 du Groupe BPCE"/>
         </a>
 
         <a class="brand-item-wrap" href="#" aria-label="Marque 5 du Groupe BPCE">
-          <img src="assets/logos_05.png" alt="Marque 5 du Groupe BPCE"/>
+          <img src="assets/logos_04.png" alt="Marque 5 du Groupe BPCE"/>
         </a>
 
         <a class="brand-item-wrap" href="#" aria-label="Marque 6 du Groupe BPCE">
