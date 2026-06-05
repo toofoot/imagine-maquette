@@ -206,26 +206,20 @@ img{max-width:100%;display:block;}
 }
 
 /* ═══ INVITE BAR ═══ */
-.invite-bar{background:linear-gradient(135deg,#f5eefa 0%,#efefef 100%);color:var(--gray-800);padding:0;position:relative;overflow:hidden;border-top:1px solid var(--gray-200);}
+.invite-bar{background:linear-gradient(135deg,rgba(245,238,250,.88) 0%,rgba(239,239,239,.85) 100%),url('assets/image-parrainage.png') center/cover no-repeat;color:var(--gray-800);padding:0;position:relative;overflow:hidden;border-top:1px solid var(--gray-200);}
 .invite-bar + .footer,.invite-bar + footer{margin-top:0;}
-.invite-inner{display:grid;grid-template-columns:320px 1fr auto;align-items:stretch;gap:0;max-width:none;padding:0;width:100%;min-height:180px;}
-.invite-visual{position:relative;align-self:stretch;background:linear-gradient(135deg,rgba(88,29,116,.08),rgba(88,29,116,.02));border-right:1px solid var(--gray-200);overflow:hidden;}
-.invite-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
-.invite-visual-placeholder{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--violet-600);text-align:center;padding:14px;height:100%;}
-.invite-visual-placeholder svg{width:56px;height:56px;opacity:.7;}
-.invite-visual-placeholder span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--violet-700);}
-.invite-text{padding:32px 28px;align-self:center;}
-.invite-text h3{font-size:24px;font-weight:700;letter-spacing:-.3px;margin-bottom:6px;color:var(--gray-900);}
-.invite-text p{font-size:14px;color:var(--gray-600);max-width:520px;line-height:1.5;}
-.invite-form{display:flex;align-items:stretch;gap:10px;background:#fff;border:1.5px solid var(--gray-200);border-radius:var(--r-full);padding:6px;min-width:380px;box-shadow:var(--sh-sm);align-self:center;margin-right:32px;}
+.invite-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:1400px;margin:0 auto;padding:42px 32px;flex-wrap:wrap;}
+.invite-text{flex:1;min-width:280px;}
+.invite-text h3{font-size:26px;font-weight:700;letter-spacing:-.3px;margin-bottom:8px;color:var(--gray-900);}
+.invite-text p{font-size:14px;color:var(--gray-700);max-width:520px;line-height:1.5;}
+.invite-form{display:flex;align-items:stretch;gap:10px;background:#fff;border:1.5px solid var(--gray-200);border-radius:var(--r-full);padding:6px;min-width:380px;box-shadow:var(--sh-md);}
 .invite-form input{flex:1;border:none;background:transparent;color:var(--gray-900);font-family:var(--font);font-size:14px;padding:10px 16px;outline:none;}
 .invite-form input::placeholder{color:var(--gray-500);}
 .invite-btn{display:inline-flex;align-items:center;gap:6px;background:var(--violet-600);color:#fff;border:none;padding:10px 22px;border-radius:var(--r-full);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:.15s;white-space:nowrap;}
 .invite-btn:hover{background:var(--violet-700);transform:translateY(-1px);box-shadow:0 6px 16px rgba(88,29,116,.25);}
 .invite-btn svg{width:14px;height:14px;}
 .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
-@media(max-width:980px){.invite-inner{grid-template-columns:240px 1fr;min-height:160px;}.invite-form{grid-column:1 / -1;min-width:0;margin:0 28px 28px;}}
-@media(max-width:680px){.invite-inner{grid-template-columns:1fr;}.invite-visual{min-height:140px;border-right:none;border-bottom:1px solid var(--gray-200);}.invite-text{padding:24px 24px 12px;}.invite-form{margin:0 24px 24px;width:auto;}}
+@media(max-width:780px){.invite-form{min-width:0;width:100%;}.invite-inner{padding:32px 24px;}}
 
 /* ═══ NAV DROPDOWN ═══ */
 .nav-dropdown{position:relative;display:inline-block;}
@@ -634,13 +628,6 @@ img{max-width:100%;display:block;}
 <!-- ═══ INVITATION COLLABORATEUR ═══ -->
 <section class="invite-bar">
   <div class="invite-inner">
-    <div class="invite-visual">
-      <img src="assets/Visuel%20Parrainage.png" alt="" onerror="this.style.display='none';this.parentNode.querySelector('.invite-visual-placeholder').style.display='flex';"/>
-      <div class="invite-visual-placeholder" style="display:none;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        <span>Visuel parrainage</span>
-      </div>
-    </div>
     <div class="invite-text">
       <h3>Inviter un collaborateur</h3>
       <p>Partage Team IMAGINE avec un collègue du Groupe BPCE — il rejoint la plateforme en un clic.</p>
