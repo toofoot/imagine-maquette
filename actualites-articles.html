@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Team IMAGINE — Actualités</title>
+<title>Team IMAGINE — Articles</title>
 <style>
 :root {
   --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
@@ -230,40 +230,6 @@ img{max-width:100%;display:block;}
 .nav-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 14px;font-size:14px;font-weight:600;color:var(--gray-800);border-radius:var(--r-sm);transition:.12s;}
 .nav-dropdown-menu a:hover{background:var(--violet-50);color:var(--violet-700);}
 .nav-dropdown-menu a svg{width:16px;height:16px;flex-shrink:0;color:var(--violet-600);}
-
-/* ═══ HUB CARDS (landing) ═══ */
-.hub-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.hub-card{position:relative;display:block;border-radius:var(--r-2xl);overflow:hidden;text-decoration:none;color:inherit;transition:.25s;min-height:240px;}
-.hub-card:hover{transform:translateY(-4px);box-shadow:var(--sh-xl);}
-.hub-articles{background:linear-gradient(135deg,#3d1554 0%,#8433b8 100%);color:#fff;}
-.hub-videos{background:linear-gradient(135deg,#0c4a85 0%,#1e7ad0 100%);color:#fff;}
-.hub-card-inner{padding:36px 40px;display:flex;flex-direction:column;height:100%;}
-.hub-icon{width:60px;height:60px;border-radius:var(--r-md);background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
-.hub-icon svg{width:28px;height:28px;}
-.hub-text{flex:1;}
-.hub-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.85;margin-bottom:6px;}
-.hub-text h2{font-size:32px;font-weight:700;letter-spacing:-.5px;margin-bottom:8px;color:#fff;}
-.hub-text p{font-size:14px;line-height:1.55;color:rgba(255,255,255,.88);max-width:420px;}
-.hub-cta{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:14px;font-weight:700;color:#fff;transition:.15s;}
-.hub-cta svg{width:14px;height:14px;transition:.15s;}
-.hub-card:hover .hub-cta{gap:12px;}
-.hub-card:hover .hub-cta svg{transform:translateX(2px);}
-
-/* ═══ SECTION LINK (used in landing) ═══ */
-.section-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--violet-600);cursor:pointer;}
-.section-link:hover{color:var(--violet-700);gap:9px;}
-.section-link svg{width:14px;height:14px;transition:.15s;}
-
-/* ═══ VIDEO PLAY OVERLAY (preview cards) ═══ */
-.video-play-overlay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:rgba(255,255,255,.95);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 6px 20px rgba(0,0,0,.25);transition:.2s;}
-.video-play-overlay svg{width:22px;height:22px;color:var(--violet-700);margin-left:3px;}
-.article-card:hover .video-play-overlay{transform:translate(-50%,-50%) scale(1.1);background:#fff;}
-.video-duration-tag{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.7);color:#fff;padding:3px 8px;border-radius:var(--r-sm);font-size:11px;font-weight:700;z-index:2;}
-
-@media(max-width:880px){
-  .hub-grid{grid-template-columns:1fr;}
-  .hub-text h2{font-size:26px;}
-}
 </style>
 </head>
 <body>
@@ -342,10 +308,12 @@ img{max-width:100%;display:block;}
       <div class="breadcrumb">
         <a href="home.html">Accueil</a>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        <span>Actualités</span>
+        <a href="actualites.html">Actualités</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Articles</span>
       </div>
-      <h1 class="page-title">Actualités</h1>
-      <p class="page-sub">Toutes les nouvelles sportives, économiques et sociétales du Groupe BPCE — articles écrits et vidéos éditoriales.</p>
+      <h1 class="page-title">Articles</h1>
+      <p class="page-sub">Toutes les nouvelles écrites du Groupe BPCE. Plongez dans nos trois univers : athlètes &amp; partenariats, économie du sport, bien-être au quotidien.</p>
       <div class="search-bar">
         <span class="search-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -355,157 +323,434 @@ img{max-width:100%;display:block;}
     </div>
   </section>
 
-  <!-- ═══ TWO HUBS : ARTICLES + VIDÉOS ═══ -->
+  <!-- ═══ FILTERS ═══ -->
+  <section class="filters" aria-label="Filtres des articles">
+    <div class="container">
+      <div class="filters-inner">
+        <div class="filter-tabs" role="tablist">
+          <button class="filter-tab active" role="tab" aria-selected="true">
+            Tous <span class="count">28</span>
+          </button>
+          <button class="filter-tab t1-dot" role="tab" aria-selected="false">
+            <span class="filter-tab-icon" aria-hidden="true"></span>
+            Banque des athlètes
+            <span class="count">11</span>
+          </button>
+          <button class="filter-tab t2-dot" role="tab" aria-selected="false">
+            <span class="filter-tab-icon" aria-hidden="true"></span>
+            Économie du sport
+            <span class="count">7</span>
+          </button>
+          <button class="filter-tab t3-dot" role="tab" aria-selected="false">
+            <span class="filter-tab-icon" aria-hidden="true"></span>
+            Banque active &amp; sportive
+            <span class="count">10</span>
+          </button>
+        </div>
+        <div class="filter-controls">
+          <div class="select-wrap">
+            <select class="select" aria-label="Filtrer par entité">
+              <option>Toutes les entités</option>
+              <option>Groupe BPCE</option>
+              <option>Banque Populaire</option>
+              <option>Caisse d'Epargne</option>
+              <option>Natixis</option>
+              <option>CE Hauts-de-France</option>
+              <option>CE Île-de-France</option>
+              <option>BPCE L'Observatoire</option>
+            </select>
+          </div>
+          <div class="select-wrap">
+            <select class="select" aria-label="Trier les articles">
+              <option>Plus récents</option>
+              <option>Plus anciens</option>
+              <option>Plus lus</option>
+              <option>Plus commentés</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ARTICLE À LA UNE ═══ -->
   <section class="section">
     <div class="container">
-      <div class="hub-grid">
-
-        <!-- HUB ARTICLES -->
-        <a href="actualites-articles.html" class="hub-card hub-articles">
-          <div class="hub-card-inner">
-            <div class="hub-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
-            </div>
-            <div class="hub-text">
-              <div class="hub-eyebrow">28 articles</div>
-              <h2>Articles</h2>
-              <p>Décryptages, portraits d'athlètes, analyses économiques, conseils bien-être — toute l'actualité écrite du Groupe.</p>
-            </div>
-            <span class="hub-cta">Lire les articles
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-
-        <!-- HUB VIDÉOS -->
-        <a href="actualites-videos.html" class="hub-card hub-videos">
-          <div class="hub-card-inner">
-            <div class="hub-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
-            </div>
-            <div class="hub-text">
-              <div class="hub-eyebrow">14 vidéos</div>
-              <h2>Vidéos</h2>
-              <p>Portraits, coulisses des partenariats, reportages d'événements, interviews — l'actualité du Groupe en images.</p>
-            </div>
-            <span class="hub-cta">Voir les vidéos
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-        </a>
-
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">À la une</h2>
+          <p class="section-sub">L'article du moment</p>
+        </div>
+        <div class="result-count"><strong>28 articles</strong> publiés ce mois</div>
       </div>
+
+      <article class="featured-article">
+        <div class="featured-img t1">
+          <div class="featured-tag-line">
+            <span class="tag tag-featured">★ À la une</span>
+            <span class="tag t1">
+              <span class="tag-dot"></span>
+              Banque des athlètes
+            </span>
+          </div>
+          <!-- Silhouette athlète + médaille -->
+          <div class="featured-visual-wrap">
+            <svg viewBox="0 0 300 240" fill="none">
+              <!-- Couronne laurier -->
+              <path d="M150 30 Q120 60 100 110 Q120 80 150 80 Q180 80 200 110 Q180 60 150 30Z" fill="white" opacity=".4"/>
+              <!-- Silhouette athlète -->
+              <circle cx="150" cy="100" r="20" fill="white"/>
+              <path d="M150 120 L150 175" stroke="white" stroke-width="9" stroke-linecap="round"/>
+              <path d="M150 138 L115 158" stroke="white" stroke-width="7" stroke-linecap="round"/>
+              <path d="M150 138 L185 158" stroke="white" stroke-width="7" stroke-linecap="round"/>
+              <path d="M150 175 L130 215" stroke="white" stroke-width="7" stroke-linecap="round"/>
+              <path d="M150 175 L170 215" stroke="white" stroke-width="7" stroke-linecap="round"/>
+              <!-- Médaille -->
+              <circle cx="185" cy="175" r="15" fill="white"/>
+              <circle cx="185" cy="175" r="9" stroke="#581d74" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+        </div>
+        <div class="featured-body">
+          <div class="featured-meta">
+            <span class="featured-entity">Groupe BPCE</span>
+            <span class="featured-meta-sep">•</span>
+            <span>il y a 2 jours</span>
+            <span class="featured-meta-sep">•</span>
+            <span>6 min de lecture</span>
+          </div>
+          <h3 class="featured-title">Nos athlètes sponsorisés brillent aux Championnats d'Europe 2026</h3>
+          <p class="featured-excerpt">Retour sur une saison exceptionnelle pour les sportifs soutenus par le Groupe BPCE. Entre médailles décrochées, records personnels battus et engagement sociétal renouvelé, nos 47 athlètes incarnent les valeurs de la Banque du Sport.</p>
+          <span class="featured-cta">
+            Lire l'article complet
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- ═══ APERÇU ARTICLES À LA UNE ═══ -->
+  <!-- ═══ GRID ARTICLES ═══ -->
   <section class="section" style="padding-top:0;">
     <div class="container">
       <div class="section-head">
         <div>
-          <h2 class="section-title">À la une — Articles</h2>
-          <p class="section-sub">Les 3 derniers articles publiés</p>
+          <h2 class="section-title">Tous les articles</h2>
         </div>
-        <a href="actualites-articles.html" class="section-link">Tous les articles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
 
       <div class="articles-grid">
 
+        <!-- Article 1 - Athlètes -->
         <article class="article-card">
           <div class="article-img t1">
-            <span class="article-tag tag-t1">Banque des athlètes</span>
+            <span class="tag t1"><span class="tag-dot"></span>Banque des athlètes</span>
+            <div class="article-img-svg">
+              <svg viewBox="0 0 100 130" fill="none">
+                <circle cx="50" cy="35" r="10" fill="white"/>
+                <path d="M50 45 L50 80" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                <path d="M50 55 L35 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M50 55 L65 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M50 80 L40 110" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M50 80 L60 110" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M30 75 Q50 65 70 75" stroke="white" stroke-width="2" fill="none"/>
+              </svg>
+            </div>
           </div>
           <div class="article-body">
-            <div class="article-meta"><span class="article-entity">Caisse d'Épargne Hauts de France</span> · <span>il y a 2 jours</span></div>
-            <h3 class="article-title">Jimmy Gressier signe un nouveau record français sur 5 000 m</h3>
-            <p class="article-excerpt">Le sociétaire de la Caisse d'Épargne Hauts de France enchaîne les performances depuis le début de saison.</p>
-            <span class="article-readmore">Lire l'article →</span>
+            <div class="article-meta">
+              <span class="article-entity">Banque Populaire</span><span>·</span><span>il y a 1 jour</span>
+            </div>
+            <h3 class="article-title">Reconversion : portrait de Marie Dupont, championne devenue cadre BPCE</h3>
+            <p class="article-excerpt">Après sa carrière sportive de haut niveau, Marie a rejoint le Groupe via le programme Double Carrière.</p>
+            <div class="article-foot">
+              <span class="article-readmore">Lire l'article →</span>
+              <div class="article-stats">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 1.2k</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 14</span>
+              </div>
+            </div>
           </div>
         </article>
 
+        <!-- Article 2 - Économie -->
         <article class="article-card">
           <div class="article-img t2">
-            <span class="article-tag tag-t2">Économie du sport</span>
+            <span class="tag t2"><span class="tag-dot"></span>Économie du sport</span>
+            <div class="article-img-svg">
+              <svg viewBox="0 0 100 130" fill="none">
+                <polyline points="10,110 30,90 50,75 70,45 90,15" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <polygon points="10,110 30,90 50,75 70,45 90,15 90,120 10,120" fill="white" opacity=".5"/>
+                <circle cx="90" cy="15" r="6" fill="white"/>
+                <circle cx="70" cy="45" r="4" fill="white"/>
+                <circle cx="50" cy="75" r="4" fill="white"/>
+                <text x="50" y="38" fill="white" font-size="14" font-weight="700" text-anchor="middle">+20%</text>
+              </svg>
+            </div>
           </div>
           <div class="article-body">
-            <div class="article-meta"><span class="article-entity">BPCE L'Observatoire</span> · <span>il y a 4 jours</span></div>
+            <div class="article-meta">
+              <span class="article-entity">BPCE L'Observatoire</span><span>·</span><span>il y a 2 jours</span>
+            </div>
             <h3 class="article-title">L'économie du sport en France : les chiffres clés 2026</h3>
-            <p class="article-excerpt">Notre nouvelle étude décrypte le poids de la filière sport dans l'économie française.</p>
-            <span class="article-readmore">Lire l'article →</span>
+            <p class="article-excerpt">Notre nouvelle étude décrypte le poids de la filière sport dans l'économie française et ses perspectives.</p>
+            <div class="article-foot">
+              <span class="article-readmore">Lire l'article →</span>
+              <div class="article-stats">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 856</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 8</span>
+              </div>
+            </div>
           </div>
         </article>
 
+        <!-- Article 3 - Banque active -->
         <article class="article-card">
           <div class="article-img t3">
-            <span class="article-tag tag-t3">Banque active &amp; sportive</span>
+            <span class="tag t3"><span class="tag-dot"></span>Banque active</span>
+            <div class="article-img-svg">
+              <svg viewBox="0 0 100 130" fill="none">
+                <circle cx="30" cy="35" r="9" fill="white"/>
+                <path d="M30 44 L25 70 L18 100" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M30 44 L35 70 L48 95" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M22 60 L40 55" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="70" cy="30" r="9" fill="white"/>
+                <path d="M70 39 L65 65 L58 95" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M70 39 L75 65 L88 90" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M62 55 L80 50" stroke="white" stroke-width="4" stroke-linecap="round"/>
+              </svg>
+            </div>
           </div>
           <div class="article-body">
-            <div class="article-meta"><span class="article-entity">Caisse d'Épargne</span> · <span>il y a 6 jours</span></div>
-            <h3 class="article-title">Pacte Utile : 120 terrains de sport rénovés ou créés en 3 ans</h3>
-            <p class="article-excerpt">Bilan du programme d'héritage de Paris 2024 porté par Caisse d'Épargne.</p>
-            <span class="article-readmore">Lire l'article →</span>
+            <div class="article-meta">
+              <span class="article-entity">CE Hauts-de-France</span><span>·</span><span>il y a 3 jours</span>
+            </div>
+            <h3 class="article-title">Lancement du Défi 100 000 km Ensemble : déjà 2 341 inscrits !</h3>
+            <p class="article-excerpt">L'engouement est au rendez-vous pour ce premier grand défi collectif de l'année dans la région.</p>
+            <div class="article-foot">
+              <span class="article-readmore">Lire l'article →</span>
+              <div class="article-stats">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 2.3k</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 47</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 4 - Athlètes paralympiques -->
+        <article class="article-card">
+          <div class="article-img t1b">
+            <span class="tag t1"><span class="tag-dot"></span>Banque des athlètes</span>
+            <div class="article-img-svg">
+              <svg viewBox="0 0 100 130" fill="none">
+                <circle cx="40" cy="40" r="9" fill="white"/>
+                <path d="M40 49 L40 75" stroke="white" stroke-width="5" stroke-linecap="round"/>
+                <path d="M40 60 L25 75" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <path d="M40 60 L55 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                <!-- Fauteuil -->
+                <circle cx="40" cy="100" r="18" stroke="white" stroke-width="3" fill="none"/>
+                <circle cx="70" cy="100" r="10" stroke="white" stroke-width="2" fill="none"/>
+                <path d="M40 75 L70 90" stroke="white" stroke-width="3"/>
+              </svg>
+            </div>
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span class="article-entity">Groupe BPCE</span><span>·</span><span>il y a 4 jours</span>
+            </div>
+            <h3 class="article-title">Partenariat renouvelé avec le Comité Paralympique Français</h3>
+            <p class="article-excerpt">BPCE prolonge son engagement de 5 ans aux côtés des athlètes paralympiques jusqu'aux Jeux de 2032.</p>
+            <div class="article-foot">
+              <span class="article-readmore">Lire l'article →</span>
+              <div class="article-stats">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 1.8k</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 22</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 5 - Économie - Stade -->
+        <article class="article-card">
+          <div class="article-img t2b">
+            <span class="tag t2"><span class="tag-dot"></span>Économie du sport</span>
+            <div class="article-img-svg">
+              <svg viewBox="0 0 100 130" fill="none">
+                <!-- Stade -->
+                <ellipse cx="50" cy="70" rx="40" ry="20" stroke="white" stroke-width="3" fill="none"/>
+                <ellipse cx="50" cy="70" rx="28" ry="14" stroke="white" stroke-width="2" fill="none"/>
+                <ellipse cx="50" cy="70" rx="16" ry="8" stroke="white" stroke-width="1.5" fill="none"/>
+                <!-- Toit -->
+                <rect x="15" y="38" width="70" height="10" rx="3" fill="white" opacity=".7"/>
+                <rect x="5" y="28" width="90" height="12" rx="3" fill="white" opacity=".5"/>
+              </svg>
+            </div>
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span class="article-entity">Caisse d'Epargne PACA</span><span>·</span><span>il y a 5 jours</span>
+            </div>
+            <h3 class="article-title">BPCE finance la rénovation énergétique du Vélodrome de Marseille</h3>
+            <p class="article-excerpt">Un investissement de 12M€ pour moderniser l'enceinte et réduire son empreinte carbone de 40%.</p>
+            <div class="article-foot">
+              <span class="article-readmore">Lire l'article →</span>
+              <div class="article-stats">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 642</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 5</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 6 - Banque active - Diététique -->
+        <article class="article-card">
+          <div class="article-img t3b">
+            <span class="tag t3"><span class="tag-dot"></span>Banque active</span>
+            <div class="article-img-svg">
+              <svg viewBox="0 0 100 130" fill="none">
+                <!-- Bol/assiette -->
+                <ellipse cx="50" cy="80" rx="35" ry="10" fill="white" opacity=".5"/>
+                <path d="M15 80 Q15 100 50 100 Q85 100 85 80" stroke="white" stroke-width="3" fill="none"/>
+                <!-- Légumes -->
+                <circle cx="35" cy="72" r="6" fill="white"/>
+                <circle cx="55" cy="72" r="7" fill="white"/>
+                <circle cx="68" cy="76" r="5" fill="white"/>
+                <path d="M40 65 Q42 60 45 63" stroke="white" stroke-width="2"/>
+                <path d="M58 63 Q60 58 63 61" stroke="white" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span class="article-entity">Team IMAGINE</span><span>·</span><span>il y a 5 jours</span>
+            </div>
+            <h3 class="article-title">Diététique : 5 recettes simples pour booster son énergie au bureau</h3>
+            <p class="article-excerpt">Les conseils de notre nutritionniste partenaire pour bien manger sans passer 2h en cuisine.</p>
+            <div class="article-foot">
+              <span class="article-readmore">Lire l'article →</span>
+              <div class="article-stats">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 3.1k</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 34</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 7 - Athlètes - Olympic torch -->
+        <article class="article-card">
+          <div class="article-img t1c">
+            <span class="tag t1"><span class="tag-dot"></span>Banque des athlètes</span>
+            <div class="article-img-svg">
+              <svg viewBox="0 0 100 130" fill="none">
+                <!-- Flamme -->
+                <path d="M50 20 Q40 35 35 50 Q30 65 40 75 Q50 85 60 75 Q70 65 65 50 Q60 35 50 20Z" fill="white" opacity=".7"/>
+                <path d="M50 30 Q43 40 42 55 Q42 68 50 72 Q58 68 58 55 Q57 40 50 30Z" fill="white"/>
+                <!-- Torch -->
+                <rect x="46" y="78" width="8" height="35" fill="white"/>
+                <rect x="42" y="75" width="16" height="6" rx="2" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span class="article-entity">Groupe BPCE</span><span>·</span><span>il y a 1 semaine</span>
+            </div>
+            <h3 class="article-title">Double carrière : comment BPCE accompagne ses athlètes vers l'après-sport</h3>
+            <p class="article-excerpt">Le programme de mentorat de la Banque du Sport prépare 47 athlètes à leur reconversion.</p>
+            <div class="article-foot">
+              <span class="article-readmore">Lire l'article →</span>
+              <div class="article-stats">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 1.5k</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 18</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 8 - Économie - Building -->
+        <article class="article-card">
+          <div class="article-img t2c">
+            <span class="tag t2"><span class="tag-dot"></span>Économie du sport</span>
+            <div class="article-img-svg">
+              <svg viewBox="0 0 100 130" fill="none">
+                <!-- Buildings -->
+                <rect x="15" y="50" width="20" height="80" fill="white" opacity=".5"/>
+                <rect x="40" y="30" width="22" height="100" fill="white" opacity=".7"/>
+                <rect x="67" y="60" width="18" height="70" fill="white" opacity=".5"/>
+                <!-- Windows -->
+                <rect x="20" y="58" width="4" height="4" fill="#073566"/>
+                <rect x="26" y="58" width="4" height="4" fill="#073566"/>
+                <rect x="20" y="68" width="4" height="4" fill="#073566"/>
+                <rect x="26" y="68" width="4" height="4" fill="#073566"/>
+                <rect x="45" y="40" width="4" height="4" fill="#073566"/>
+                <rect x="52" y="40" width="4" height="4" fill="#073566"/>
+                <rect x="45" y="50" width="4" height="4" fill="#073566"/>
+                <rect x="52" y="50" width="4" height="4" fill="#073566"/>
+                <rect x="72" y="70" width="4" height="4" fill="#073566"/>
+                <rect x="78" y="70" width="4" height="4" fill="#073566"/>
+              </svg>
+            </div>
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span class="article-entity">BPCE L'Observatoire</span><span>·</span><span>il y a 1 semaine</span>
+            </div>
+            <h3 class="article-title">20% des entreprises de la filière sport sont clientes BPCE</h3>
+            <p class="article-excerpt">Notre nouvelle étude positionne le Groupe comme partenaire bancaire de référence du secteur.</p>
+            <div class="article-foot">
+              <span class="article-readmore">Lire l'article →</span>
+              <div class="article-stats">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 924</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 11</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 9 - Banque active - Cours en ligne -->
+        <article class="article-card">
+          <div class="article-img t3c">
+            <span class="tag t3"><span class="tag-dot"></span>Banque active</span>
+            <div class="article-img-svg">
+              <svg viewBox="0 0 100 130" fill="none">
+                <!-- Ecran -->
+                <rect x="10" y="35" width="80" height="55" rx="4" stroke="white" stroke-width="3" fill="none"/>
+                <!-- Play button -->
+                <circle cx="50" cy="62" r="14" fill="white"/>
+                <polygon points="46,55 46,69 58,62" fill="#1a7a45"/>
+                <!-- Pied écran -->
+                <path d="M50 90 L50 100" stroke="white" stroke-width="3"/>
+                <rect x="35" y="100" width="30" height="3" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          <div class="article-body">
+            <div class="article-meta">
+              <span class="article-entity">Team IMAGINE</span><span>·</span><span>il y a 1 semaine</span>
+            </div>
+            <h3 class="article-title">Comment intégrer 30 minutes d'activité dans sa journée de travail</h3>
+            <p class="article-excerpt">Pauses actives, étirements, mini-séances : 12 idées pratiques validées par notre coach sportif.</p>
+            <div class="article-foot">
+              <span class="article-readmore">Lire l'article →</span>
+              <div class="article-stats">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> 2.7k</span>
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 29</span>
+              </div>
+            </div>
           </div>
         </article>
 
       </div>
-    </div>
-  </section>
 
-  <!-- ═══ APERÇU VIDÉOS À LA UNE ═══ -->
-  <section class="section" style="padding-top:0;">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">À la une — Vidéos</h2>
-          <p class="section-sub">Les 3 dernières vidéos publiées</p>
-        </div>
-        <a href="actualites-videos.html" class="section-link">Toutes les vidéos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-
-      <div class="articles-grid">
-
-        <article class="article-card">
-          <div class="article-img t1" style="position:relative;">
-            <span class="article-tag tag-t1">Portrait d'athlète</span>
-            <span class="video-play-overlay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-            <span class="video-duration-tag">4:32</span>
-          </div>
-          <div class="article-body">
-            <div class="article-meta"><span class="article-entity">CASDEN Banque Populaire</span> · <span>il y a 1 jour</span></div>
-            <h3 class="article-title">Manon Apithy-Brunet — Dans la peau d'une championne olympique</h3>
-            <p class="article-excerpt">Plongée dans le quotidien de la sabreuse française, soutenue par la CASDEN.</p>
-            <span class="article-readmore">Regarder →</span>
-          </div>
-        </article>
-
-        <article class="article-card">
-          <div class="article-img t2" style="position:relative;">
-            <span class="article-tag tag-t2">Reportage</span>
-            <span class="video-play-overlay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-            <span class="video-duration-tag">3:18</span>
-          </div>
-          <div class="article-body">
-            <div class="article-meta"><span class="article-entity">Caisse d'Épargne</span> · <span>il y a 3 jours</span></div>
-            <h3 class="article-title">Bleus du Handball — Coulisses du Tournoi de France</h3>
-            <p class="article-excerpt">Reportage exclusif aux côtés de l'Équipe de France à l'Arena Paris.</p>
-            <span class="article-readmore">Regarder →</span>
-          </div>
-        </article>
-
-        <article class="article-card">
-          <div class="article-img t3" style="position:relative;">
-            <span class="article-tag tag-t3">Interview</span>
-            <span class="video-play-overlay" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-            <span class="video-duration-tag">6:45</span>
-          </div>
-          <div class="article-body">
-            <div class="article-meta"><span class="article-entity">Banque Populaire</span> · <span>il y a 5 jours</span></div>
-            <h3 class="article-title">Voile — Loïs Berrehar, le futur skipper de Banque Populaire 14</h3>
-            <p class="article-excerpt">Interview du jeune skipper avant le Vendée Globe 2028 / 2029.</p>
-            <span class="article-readmore">Regarder →</span>
-          </div>
-        </article>
-
+      <!-- ═══ LOAD MORE ═══ -->
+      <div class="load-more-wrap">
+        <button class="btn btn-outline">
+          Charger 9 articles de plus
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <p style="font-size:13px;color:var(--gray-600);margin-top:14px;">
+          <strong>9 sur 28</strong> articles affichés
+        </p>
       </div>
     </div>
   </section>

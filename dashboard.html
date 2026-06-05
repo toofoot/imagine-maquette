@@ -302,6 +302,32 @@ img{max-width:100%;display:block;}
   .footer-grid{grid-template-columns:1fr;}
   .section-title{font-size:20px;}
 }
+
+/* ═══ INVITE BAR ═══ */
+.invite-bar{background:linear-gradient(110deg,#3d1554 0%,#581d74 60%,#6b239a 100%);color:#fff;padding:32px 0;}
+.invite-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;}
+.invite-text h3{font-size:22px;font-weight:700;letter-spacing:-.3px;margin-bottom:6px;color:#fff;}
+.invite-text p{font-size:14px;color:rgba(255,255,255,.85);max-width:520px;line-height:1.5;}
+.invite-form{display:flex;align-items:stretch;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:var(--r-full);padding:6px;backdrop-filter:blur(6px);min-width:360px;}
+.invite-form input{flex:1;border:none;background:transparent;color:#fff;font-family:var(--font);font-size:14px;padding:10px 16px;outline:none;}
+.invite-form input::placeholder{color:rgba(255,255,255,.6);}
+.invite-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--violet-700);border:none;padding:10px 20px;border-radius:var(--r-full);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:.15s;white-space:nowrap;}
+.invite-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.18);}
+.invite-btn svg{width:14px;height:14px;}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+@media(max-width:700px){.invite-form{min-width:0;width:100%;}.invite-inner{flex-direction:column;align-items:flex-start;}}
+
+/* ═══ NAV DROPDOWN ═══ */
+.nav-dropdown{position:relative;display:inline-block;}
+.nav-dropdown-trigger{padding:10px 14px;font-size:14px;font-weight:700;color:var(--gray-700);border-radius:var(--r-md);transition:.15s;display:inline-flex;align-items:center;gap:6px;cursor:pointer;}
+.nav-dropdown-trigger:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav-dropdown-trigger.active{color:var(--violet-600);position:relative;}
+.nav-dropdown-trigger.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--violet-600);border-radius:3px 3px 0 0;}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 6px);left:0;background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-md);box-shadow:var(--sh-lg);min-width:200px;padding:6px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.15s;z-index:50;}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 14px;font-size:14px;font-weight:600;color:var(--gray-800);border-radius:var(--r-sm);transition:.12s;}
+.nav-dropdown-menu a:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav-dropdown-menu a svg{width:16px;height:16px;flex-shrink:0;color:var(--violet-600);}
 </style>
 </head>
 <body>
@@ -325,7 +351,22 @@ img{max-width:100%;display:block;}
       <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" class="logo-img"/>
     </a>
     <nav class="nav" aria-label="Navigation principale">
-      <a href="actualites.html">Actualités</a>
+      <div class="nav-dropdown">
+        <a href="actualites.html" class="nav-dropdown-trigger">
+          Actualités
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="actualites-articles.html" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+            Articles
+          </a>
+          <a href="actualites-videos.html" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
+            Vidéos
+          </a>
+        </div>
+      </div>
       <a href="bouger.html">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
         Bouger
@@ -616,7 +657,6 @@ img{max-width:100%;display:block;}
           </div>
           <div class="chart-toggle">
             <button class="chart-toggle-btn active">Distance</button>
-            <button class="chart-toggle-btn">Séances</button>
             <button class="chart-toggle-btn">Minutes</button>
           </div>
         </div>
@@ -745,8 +785,8 @@ img{max-width:100%;display:block;}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>
             </div>
             <div class="partic-info">
-              <div class="partic-name">Quiz Paris 2024 — 10 questions olympiques</div>
-              <div class="partic-meta">Score : 8/10 · il y a 2 jours</div>
+              <div class="partic-name">Quiz FFHandball — Les Bleus aux JO de Paris 2024</div>
+              <div class="partic-meta">Caisse d'Épargne · Score : 8/10 · il y a 2 jours</div>
             </div>
             <span class="partic-status status-pending">En attente</span>
           </div>
@@ -756,8 +796,8 @@ img{max-width:100%;display:block;}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM12 8v8M8 12h8"/></svg>
             </div>
             <div class="partic-info">
-              <div class="partic-name">Pronos Roland-Garros 2026</div>
-              <div class="partic-meta">7 pronos sur 12 réussis · il y a 5 jours</div>
+              <div class="partic-name">Pronos Tournoi de France — Équipe de France de Handball</div>
+              <div class="partic-meta">Caisse d'Épargne · 7 pronos sur 12 réussis · il y a 5 jours</div>
             </div>
             <span class="partic-status status-won">Gagné</span>
           </div>
@@ -767,8 +807,8 @@ img{max-width:100%;display:block;}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 8v6M4.9 4.9l4.2 4.2m5.8 5.8l4.2 4.2M2 12h6m8 0h6M4.9 19.1l4.2-4.2m5.8-5.8l4.2-4.2"/></svg>
             </div>
             <div class="partic-info">
-              <div class="partic-name">Instant-win Goodies Team IMAGINE</div>
-              <div class="partic-meta">3 tentatives ce mois · dernier tirage il y a 1 jour</div>
+              <div class="partic-name">Instant-win Banque Populaire — Maxi Banque Populaire XI</div>
+              <div class="partic-meta">Banque Populaire / FFVoile · 3 tentatives ce mois · dernier tirage il y a 1 jour</div>
             </div>
             <span class="partic-status status-lost">Non retenu</span>
           </div>
@@ -888,6 +928,25 @@ img{max-width:100%;display:block;}
 </main>
 
 <!-- ═══ FOOTER ═══ -->
+
+<!-- ═══ INVITATION COLLABORATEUR ═══ -->
+<section class="invite-bar">
+  <div class="container invite-inner">
+    <div class="invite-text">
+      <h3>Inviter un collaborateur</h3>
+      <p>Partage Team IMAGINE avec un collègue du Groupe BPCE — il rejoint la plateforme en un clic.</p>
+    </div>
+    <form class="invite-form" novalidate onsubmit="event.preventDefault();">
+      <label class="visually-hidden" for="invite-email">Adresse e-mail du collaborateur</label>
+      <input type="email" id="invite-email" name="invite-email" placeholder="prenom.nom@bpce.fr" required/>
+      <button type="submit" class="invite-btn">
+        J'invite
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </form>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -904,7 +963,6 @@ img{max-width:100%;display:block;}
         <a href="#">Bouger</a>
         <a href="#">Participer</a>
         <a href="#">Calendrier</a>
-        <a href="#">Séances vidéo</a>
         <a href="dashboard.html">Dashboard</a>
         <a href="#">La Promesse</a>
       </div>
@@ -925,8 +983,8 @@ img{max-width:100%;display:block;}
             <svg viewBox="0 0 100 100" fill="#581d74"><rect x="0" y="0" width="30" height="30"/><rect x="8" y="8" width="14" height="14" fill="#fff"/><rect x="70" y="0" width="30" height="30"/><rect x="78" y="8" width="14" height="14" fill="#fff"/><rect x="0" y="70" width="30" height="30"/><rect x="8" y="78" width="14" height="14" fill="#fff"/><rect x="40" y="0" width="8" height="8"/><rect x="52" y="0" width="8" height="8"/><rect x="40" y="14" width="8" height="8"/><rect x="40" y="40" width="8" height="8"/><rect x="55" y="40" width="12" height="12"/><rect x="75" y="45" width="8" height="8"/><rect x="88" y="40" width="8" height="8"/><rect x="40" y="60" width="8" height="8"/><rect x="60" y="65" width="8" height="8"/><rect x="80" y="70" width="8" height="8"/><rect x="45" y="80" width="10" height="10"/><rect x="70" y="88" width="8" height="8"/><rect x="88" y="80" width="8" height="8"/></svg>
           </div>
           <div class="footer-qr-text">
-            <strong>@TeamPS</strong>
-            Suivez nos actus sur Instagram
+            <strong>@bpce_banquedusport</strong>
+            <a href="https://www.instagram.com/bpce_banquedusport" target="_blank" rel="noopener" style="color:rgba(255,255,255,.85);">Suivez-nous sur Instagram</a>
           </div>
         </div>
       </div>
