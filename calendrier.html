@@ -177,8 +177,8 @@ img{max-width:100%;display:block;}
 .tl-card-visual.athlete{background-image:linear-gradient(135deg,#3d1554 0%,#8433b8 100%);}
 .tl-card-visual.partenariat{background-image:linear-gradient(135deg,#0c4a85 0%,#1e7ad0 100%);}
 .tl-card-visual.tempsfort{background-image:linear-gradient(135deg,#0c5a30 0%,#1a7a45 100%);}
-.tl-card-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.35) 100%);pointer-events:none;}
-.tl-visual-icon{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:.32;}
+.tl-card-visual::after{display:none;}
+.tl-visual-icon{display:none;}
 .tl-visual-icon svg{width:120px;height:120px;}
 @media(max-width:780px){.tl-card-grid{grid-template-columns:1fr;}.tl-card-visual{aspect-ratio:16/9;min-height:0;}}
 /* Bandeau compact des labels (type + sport) - au-dessus du visuel */
@@ -222,7 +222,7 @@ img{max-width:100%;display:block;}
 .partner-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-xl);overflow:hidden;transition:.2s;display:flex;flex-direction:column;}
 .partner-card:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);border-color:var(--violet-200);}
 .partner-visual{height:130px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.partner-visual-icon{opacity:.45;}
+.partner-visual-icon{display:none;}
 .partner-visual-icon svg{width:80px;height:80px;}
 .partner-body{padding:18px 20px 20px;display:flex;flex-direction:column;flex:1;}
 .partner-brand{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
@@ -257,7 +257,7 @@ img{max-width:100%;display:block;}
 .athlete-brand-line{font-size:12px;color:var(--gray-600);margin:8px 0 14px;line-height:1.4;}
 .athlete-brand-line strong{color:var(--gray-900);font-weight:700;}
 .athlete-photo{position:absolute;inset:auto 12px 12px 12px;height:48px;display:flex;align-items:flex-end;justify-content:center;}
-.athlete-photo-fallback{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.95);color:var(--gray-800);font-weight:800;font-size:14px;letter-spacing:.5px;border:2px solid rgba(255,255,255,.8);box-shadow:0 4px 10px rgba(0,0,0,.2);}
+.athlete-photo-fallback{display:none;}
 
 /* ═══ FOOTER ═══ */
 .footer{background:var(--violet-900);color:rgba(255,255,255,.85);padding:42px 0 22px;}
@@ -566,7 +566,7 @@ img{max-width:100%;display:block;}
  </a>
  </div>
  </div>
- <div class="tl-card-visual athlete" aria-hidden="true">
+ <div class="tl-card-visual athlete" aria-hidden="true" style="background-image:url('assets/EVENT%20Meeting%20de%20Paris%202026%20%E2%80%94%20Athl%C3%A9tisme.png');background-size:cover;background-position:center;background-repeat:no-repeat;">
  <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
  <circle cx="50" cy="25" r="10" fill="white"/>
  <path d="M50 35 L50 60 M50 45 L30 50 M50 45 L70 50 M50 60 L40 85 M50 60 L60 85" stroke="white" stroke-width="4" stroke-linecap="round"/>
@@ -621,7 +621,7 @@ img{max-width:100%;display:block;}
  </a>
  </div>
  </div>
- <div class="tl-card-visual partenariat" aria-hidden="true">
+ <div class="tl-card-visual partenariat" aria-hidden="true" style="background-image:url('assets/EVENT%20%C3%89quipe%20de%20France%20de%20Basket%20%E2%80%94%20Match%20amical%20vs%20Espagne.png');background-size:cover;background-position:center;background-repeat:no-repeat;">
  <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
  <circle cx="50" cy="50" r="30" stroke="white" stroke-width="3" fill="none"/>
  <path d="M22 50 Q50 25 78 50" stroke="white" stroke-width="2" fill="none"/>
@@ -677,7 +677,7 @@ img{max-width:100%;display:block;}
  </a>
  </div>
  </div>
- <div class="tl-card-visual tempsfort" aria-hidden="true">
+ <div class="tl-card-visual tempsfort" aria-hidden="true" style="background-image:url('assets/EVENT%20Cl%C3%B4ture%20du%20Quiz%20FFHandball.png');background-size:cover;background-position:center;background-repeat:no-repeat;">
  <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
  <circle cx="50" cy="50" r="30" stroke="white" stroke-width="3" fill="none"/>
  <path d="M40 38 Q43 32 50 32 Q57 32 60 38 Q60 45 50 50 L50 60" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
@@ -739,7 +739,7 @@ img{max-width:100%;display:block;}
  </a>
  </div>
  </div>
- <div class="tl-card-visual partenariat" aria-hidden="true">
+ <div class="tl-card-visual partenariat" aria-hidden="true" style="background-image:url('assets/EVENT%20Mise%20%C3%A0%20l%27eau%20Banque%20Populaire%2014%20%E2%80%94%20Vend%C3%A9e%20Globe%202028.png');background-size:cover;background-position:center;background-repeat:no-repeat;">
  <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
  <circle cx="30" cy="65" r="15" stroke="white" stroke-width="3" fill="none"/>
  <circle cx="70" cy="65" r="15" stroke="white" stroke-width="3" fill="none"/>
@@ -804,7 +804,7 @@ img{max-width:100%;display:block;}
  </a>
  </div>
  </div>
- <div class="tl-card-visual athlete" aria-hidden="true">
+ <div class="tl-card-visual athlete" aria-hidden="true" style="background-image:url('assets/EVENT%20Coupe%20du%20Monde%20de%20Biathlon%20%E2%80%94%20%C3%96stersund.png');background-size:cover;background-position:center;background-repeat:no-repeat;">
  <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
  <path d="M10 70 Q25 60 40 70 Q55 80 70 70 Q85 60 95 70" stroke="white" stroke-width="3" fill="none"/>
  <path d="M10 80 Q25 70 40 80 Q55 90 70 80 Q85 70 95 80" stroke="white" stroke-width="3" fill="none"/>
@@ -863,7 +863,7 @@ img{max-width:100%;display:block;}
  </a>
  </div>
  </div>
- <div class="tl-card-visual tempsfort" aria-hidden="true">
+ <div class="tl-card-visual tempsfort" aria-hidden="true" style="background-image:url('assets/EVENT%20Lancement%20D%C3%A9fi%20%C3%89t%C3%A9%20actif%202026%20%E2%80%94%20D%C3%A9fi%20Collectif.png');background-size:cover;background-position:center;background-repeat:no-repeat;">
  <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
  <circle cx="30" cy="40" r="10" fill="white"/>
  <path d="M30 50 L30 75 M30 60 L20 70 M30 60 L40 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
@@ -930,7 +930,7 @@ img{max-width:100%;display:block;}
  </a>
  </div>
  </div>
- <div class="tl-card-visual athlete" aria-hidden="true">
+ <div class="tl-card-visual athlete" aria-hidden="true" style="background-image:url('assets/EVENT%20WSL%20Championship%20Tour%20%E2%80%94%20Jeffreys%20Bay%20%E2%80%94%20Surf.png');background-size:cover;background-position:center;background-repeat:no-repeat;">
  <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
  <circle cx="50" cy="50" r="32" stroke="white" stroke-width="3" fill="none"/>
  <path d="M22 50 Q50 30 78 50" stroke="white" stroke-width="2" fill="none"/>
@@ -970,7 +970,7 @@ img{max-width:100%;display:block;}
 
  <!-- 1. Banque Populaire — Voile (FFVoile, depuis 1989) -->
  <article class="partner-card">
- <div class="partner-visual" style="background:linear-gradient(135deg,#003a78,#0066cc);">
+ <div class="partner-visual" style="background:url('assets/PARTNER%20Banque%20Populaire%20%E2%80%94%20F%C3%A9d%C3%A9ration%20Fran%C3%A7aise%20de%20Voile.png') center/cover no-repeat;">
  <div class="partner-visual-icon" aria-hidden="true">
  <svg viewBox="0 0 100 100" fill="none"><path d="M50 12 L50 80 M50 12 L80 75 L50 75 Z" stroke="#fff" stroke-width="3" fill="#fff" opacity=".85"/><path d="M50 12 L20 75 L50 75 Z" stroke="#fff" stroke-width="3" fill="none"/><path d="M15 84 Q35 92 50 84 Q65 76 85 84" stroke="#fff" stroke-width="3" fill="none" opacity=".75"/></svg>
  </div>
@@ -989,7 +989,7 @@ img{max-width:100%;display:block;}
 
  <!-- 2. Caisse d'Epargne — Handball (FFHandball, depuis 2015) -->
  <article class="partner-card">
- <div class="partner-visual" style="background:linear-gradient(135deg,#0c5a30,#00843d);">
+ <div class="partner-visual" style="background:url('assets/PARTNER%20Caisse%20d%27%C3%89pargne%20%E2%80%94%20F%C3%A9d%C3%A9ration%20Fran%C3%A7aise%20de%20Handball.png') center/cover no-repeat;">
  <div class="partner-visual-icon" aria-hidden="true">
  <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="28" stroke="#fff" stroke-width="3" fill="none"/><path d="M28 38 Q50 30 72 38 M28 50 Q50 42 72 50 M28 62 Q50 54 72 62" stroke="#fff" stroke-width="2" fill="none" opacity=".8"/><path d="M50 22 L50 78 M22 50 L78 50" stroke="#fff" stroke-width="2" opacity=".5"/></svg>
  </div>
@@ -1008,7 +1008,7 @@ img{max-width:100%;display:block;}
 
  <!-- 3. Caisse d'Epargne — Basket-ball (FFBB, depuis 2014) -->
  <article class="partner-card">
- <div class="partner-visual" style="background:linear-gradient(135deg,#7c2d12,#ea580c);">
+ <div class="partner-visual" style="background:url('assets/PARTNER%20Caisse%20d%27%C3%89pargne%20%E2%80%94%20F%C3%A9d%C3%A9ration%20Fran%C3%A7aise%20de%20Basket-ball.png') center/cover no-repeat;">
  <div class="partner-visual-icon" aria-hidden="true">
  <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#fff" stroke-width="3" fill="none"/><path d="M20 50 Q50 25 80 50 M20 50 Q50 75 80 50 M50 20 L50 80" stroke="#fff" stroke-width="2" fill="none" opacity=".8"/></svg>
  </div>
@@ -1027,7 +1027,7 @@ img{max-width:100%;display:block;}
 
  <!-- 4. Natixis — Rugby (Racing 92, depuis 2007) -->
  <article class="partner-card">
- <div class="partner-visual" style="background:linear-gradient(135deg,#0a1a3a,#0f5fa8);">
+ <div class="partner-visual" style="background:url('assets/PARTNER%20Natixis%20%E2%80%94%20Racing%2092.png') center/cover no-repeat;">
  <div class="partner-visual-icon" aria-hidden="true">
  <svg viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="50" rx="22" ry="32" stroke="#fff" stroke-width="3" fill="none" transform="rotate(35 50 50)"/><path d="M36 36 L64 64 M40 32 L60 52 M48 30 L66 48 M56 32 L62 38" stroke="#fff" stroke-width="2" opacity=".8"/></svg>
  </div>
@@ -1063,7 +1063,7 @@ img{max-width:100%;display:block;}
 
  <!-- 1. Jimmy GRESSIER — Athlétisme — Caisse d'Epargne Hauts de France -->
  <div class="athlete-card">
- <div class="athlete-portrait" style="background:linear-gradient(135deg,#3d1554 0%,#8433b8 100%);">
+ <div class="athlete-portrait" style="background:url('assets/jimmy-gressier.jpg') center/cover no-repeat;">
  <span class="athlete-sport-tag">Athlétisme</span>
  <div class="athlete-photo" aria-label="Photo de Jimmy Gressier">
  <span class="athlete-photo-fallback">JG</span>
@@ -1088,7 +1088,7 @@ img{max-width:100%;display:block;}
 
  <!-- 2. Kauli VAAST — Surf — Caisse d'Epargne Île-de-France -->
  <div class="athlete-card">
- <div class="athlete-portrait" style="background:linear-gradient(135deg,#0c4a85 0%,#1e7ad0 100%);">
+ <div class="athlete-portrait" style="background:url('assets/KAULI%20VAAST.jpg') center/cover no-repeat;">
  <span class="athlete-sport-tag">Surf</span>
  <div class="athlete-photo" aria-label="Photo de Kauli Vaast">
  <span class="athlete-photo-fallback">KV</span>
@@ -1113,7 +1113,7 @@ img{max-width:100%;display:block;}
 
  <!-- 3. Justine BRAISAZ-BOUCHET — Biathlon — Caisse d'Epargne Rhône Alpes -->
  <div class="athlete-card">
- <div class="athlete-portrait" style="background:linear-gradient(135deg,#0c5a30 0%,#1a7a45 100%);">
+ <div class="athlete-portrait" style="background:url('assets/JUSTINE%20BRAISAZ-BOUCHET.jpg') center/cover no-repeat;">
  <span class="athlete-sport-tag">Biathlon</span>
  <div class="athlete-photo" aria-label="Photo de Justine Braisaz-Bouchet">
  <span class="athlete-photo-fallback">JB</span>
@@ -1138,7 +1138,7 @@ img{max-width:100%;display:block;}
 
  <!-- 4. Manon APITHY-BRUNET — Escrime — CASDEN Banque Populaire -->
  <div class="athlete-card">
- <div class="athlete-portrait" style="background:linear-gradient(135deg,#7c2d12 0%,#ea580c 100%);">
+ <div class="athlete-portrait" style="background:url('assets/MANON%20APITHY-BRUNET.jpg') center/cover no-repeat;">
  <span class="athlete-sport-tag">Escrime · Sabre</span>
  <div class="athlete-photo" aria-label="Photo de Manon Apithy-Brunet">
  <span class="athlete-photo-fallback">MA</span>
