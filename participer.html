@@ -103,15 +103,15 @@ img{max-width:100%;display:block;}
 .jeux-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .jeu-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);overflow:hidden;transition:.2s;display:flex;flex-direction:column;}
 .jeu-card:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);border-color:var(--violet-200);}
-.jeu-banner{height:140px;position:relative;display:flex;align-items:flex-end;padding:18px 22px;overflow:hidden;}
+.jeu-banner{height:180px;position:relative;display:flex;align-items:flex-end;padding:18px 22px;overflow:hidden;background-size:cover;background-position:center;background-repeat:no-repeat;}
 .jeu-banner.quiz{background:linear-gradient(135deg,rgba(88,29,116,.5) 0%,rgba(132,51,184,.4) 100%),url('assets/Quiz%20%E2%80%94%20FFHandball%20.png') center/cover no-repeat;}
 .jeu-banner.prono{background:linear-gradient(135deg,rgba(12,74,133,.5) 0%,rgba(15,95,168,.4) 100%),url('assets/Pronos%20%E2%80%94%20Tournoi%20de%20France%20de%20Handball.png') center/cover no-repeat;}
 .jeu-banner.instant{background:linear-gradient(135deg,rgba(154,52,18,.5) 0%,rgba(234,88,12,.4) 100%),url('assets/Instant-Gagnant%20%E2%80%94%20Banque%20Populaire%20%20FFVoile%20%C2%B7%20Tirage%20quotidien.png') center/cover no-repeat;}
-.jeu-banner::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.05) 0,rgba(255,255,255,.05) 2px,transparent 2px,transparent 14px);}
-.jeu-svg{position:absolute;right:-15px;top:50%;transform:translateY(-50%);opacity:.2;}
+.jeu-banner::before{display:none;}
+.jeu-svg{display:none;}
 .jeu-svg svg{width:130px;height:130px;}
-.jeu-banner-inner{position:relative;z-index:1;color:#fff;width:100%;}
-.jeu-type{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.95);padding:5px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;}
+.jeu-banner-inner{position:relative;z-index:1;width:100%;display:flex;align-items:flex-end;}
+.jeu-type{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.95);padding:5px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;backdrop-filter:blur(6px);}
 .jeu-type.quiz{color:var(--quiz);}
 .jeu-type.prono{color:var(--prono);}
 .jeu-type.instant{color:var(--instant);}
@@ -583,7 +583,7 @@ img{max-width:100%;display:block;}
  <div class="particip-name">Banque Populaire Voile — Tirage du 27 juin</div>
  <div class="particip-meta">Tentative quotidienne · il y a quelques heures</div>
  </div>
- <span class="particip-status status-pending">En attente</span>
+ <span class="particip-status status-pending">En cours</span>
  </div>
 
  <div class="particip-item">
