@@ -6,24 +6,24 @@
 <title>Team IMAGINE — Calendrier</title>
 <style>
 :root {
-  --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
-  --violet-600:#581d74; --violet-500:#6b239a; --violet-400:#8433b8;
-  --violet-300:#a257cc; --violet-200:#c699e2; --violet-100:#e2c8f2; --violet-50:#f5eefa;
-  --gray-900:#111; --gray-800:#252525; --gray-700:#3d3d3d; --gray-600:#575757;
-  --gray-500:#737373; --gray-400:#909090; --gray-300:#b5b5b5; --gray-200:#d8d8d8;
-  --gray-100:#efefef; --gray-50:#f7f7f7; --white:#fff;
-  --success:#1a7a45; --success-bg:#e7f5ee; --warning:#8a4700; --warning-bg:#fff3e5;
-  --error:#b5001f; --info:#0f5fa8; --info-bg:#e7f0fa;
-  --gauge-fill:#7be8a8;
-  /* Types d'événements */
-  --athlete:#8433b8; --athlete-bg:#f3e8fb;
-  --partenariat:#0f5fa8; --partenariat-bg:#e7f0fa;
-  --tempsfort:#1a7a45; --tempsfort-bg:#e7f5ee;
-  --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
-  --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
-  --sh-sm:0 1px 3px rgba(88,29,116,.08),0 1px 2px rgba(88,29,116,.04);
-  --sh-md:0 4px 12px rgba(88,29,116,.1),0 2px 4px rgba(88,29,116,.06);
-  --sh-lg:0 10px 30px rgba(88,29,116,.12),0 4px 8px rgba(88,29,116,.06);
+ --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
+ --violet-600:#581d74; --violet-500:#6b239a; --violet-400:#8433b8;
+ --violet-300:#a257cc; --violet-200:#c699e2; --violet-100:#e2c8f2; --violet-50:#f5eefa;
+ --gray-900:#111; --gray-800:#252525; --gray-700:#3d3d3d; --gray-600:#575757;
+ --gray-500:#737373; --gray-400:#909090; --gray-300:#b5b5b5; --gray-200:#d8d8d8;
+ --gray-100:#efefef; --gray-50:#f7f7f7; --white:#fff;
+ --success:#1a7a45; --success-bg:#e7f5ee; --warning:#8a4700; --warning-bg:#fff3e5;
+ --error:#b5001f; --info:#0f5fa8; --info-bg:#e7f0fa;
+ --gauge-fill:#7be8a8;
+ /* Types d'événements */
+ --athlete:#8433b8; --athlete-bg:#f3e8fb;
+ --partenariat:#0f5fa8; --partenariat-bg:#e7f0fa;
+ --tempsfort:#1a7a45; --tempsfort-bg:#e7f5ee;
+ --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+ --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
+ --sh-sm:0 1px 3px rgba(88,29,116,.08),0 1px 2px rgba(88,29,116,.04);
+ --sh-md:0 4px 12px rgba(88,29,116,.1),0 2px 4px rgba(88,29,116,.06);
+ --sh-lg:0 10px 30px rgba(88,29,116,.12),0 4px 8px rgba(88,29,116,.06);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{font-size:16px;scroll-behavior:smooth;}
@@ -277,25 +277,25 @@ img{max-width:100%;display:block;}
 .footer-legal a:hover{color:#fff;}
 
 @media(max-width:980px){
-  .nav{display:none;}
-  .hero-inner{grid-template-columns:1fr;}
-  .page-title{font-size:32px;}
-  .featured-event{grid-template-columns:1fr;}
-  .tl-event{grid-template-columns:70px 1fr;gap:24px;}
-  .tl-event::before{left:80px;}
-  .tl-event::after{left:75px;}
-  .tl-date-day{font-size:28px;}
-  .athletes-grid{grid-template-columns:1fr 1fr;}
-  .partner-grid{grid-template-columns:1fr 1fr;}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
-  .user-name{display:none;}
+ .nav{display:none;}
+ .hero-inner{grid-template-columns:1fr;}
+ .page-title{font-size:32px;}
+ .featured-event{grid-template-columns:1fr;}
+ .tl-event{grid-template-columns:70px 1fr;gap:24px;}
+ .tl-event::before{left:80px;}
+ .tl-event::after{left:75px;}
+ .tl-date-day{font-size:28px;}
+ .athletes-grid{grid-template-columns:1fr 1fr;}
+ .partner-grid{grid-template-columns:1fr 1fr;}
+ .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
+ .user-name{display:none;}
 }
 @media(max-width:600px){
-  .page-title{font-size:26px;}
-  .athletes-grid{grid-template-columns:1fr;}
-  .partner-grid{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr;}
-  .section-title{font-size:22px;}
+ .page-title{font-size:26px;}
+ .athletes-grid{grid-template-columns:1fr;}
+ .partner-grid{grid-template-columns:1fr;}
+ .footer-grid{grid-template-columns:1fr;}
+ .section-title{font-size:22px;}
 }
 
 /* ═══ INVITE BAR ═══ */
@@ -333,837 +333,837 @@ img{max-width:100%;display:block;}
 
 <!-- Bandeau démo -->
 <div style="background:#1c0926;color:#fff;padding:8px 24px;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:Arial,Helvetica,sans-serif;">
-  <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable TEAM IMAGINE</strong> — Démo de cadrage, juin 2026</span>
-  <a href="index.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:.15s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-    Retour au sommaire
-  </a>
+ <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable TEAM IMAGINE</strong> — Démo de cadrage, juin 2026</span>
+ <a href="index.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:.15s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
+ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+ Retour au sommaire
+ </a>
 </div>
 
 
 <!-- ═══ HEADER ═══ -->
 <header class="header">
-  <div class="container header-top">
-    <a href="home.html" class="logo" aria-label="GROUPE BPCE × TEAM IMAGINE - Accueil">
-      <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" class="logo-img"/>
-    </a>
-    <nav class="nav" aria-label="Navigation principale">
-      <div class="nav-dropdown">
-        <a href="actualites.html" class="nav-dropdown-trigger">
-          Actualités
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </a>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="actualites-articles.html" role="menuitem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
-            Articles
-          </a>
-          <a href="actualites-videos.html" role="menuitem">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
-            Vidéos
-          </a>
-        </div>
-      </div>
-      <a href="bouger.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
-        Bouger
-      </a>
-      <a href="participer.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 11h.01M15 11h.01M8 15s1.5 2 4 2 4-2 4-2"/></svg>
-        Participer
-      </a>
-      <a href="#" class="active">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        Calendrier
-      </a>
-      <a href="dashboard.html">Dashboard</a>
-    </nav>
-    <div class="header-actions">
-      <button class="icon-btn" aria-label="Rechercher">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-      </button>
-      <button class="icon-btn" aria-label="Notifications">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-        <span class="notif-dot"></span>
-      </button>
-      <button class="user-chip">
-        <span class="avatar">CL</span>
-        <span class="user-name">Camille L.</span>
-      </button>
-    </div>
-  </div>
+ <div class="container header-top">
+ <a href="home.html" class="logo" aria-label="GROUPE BPCE × TEAM IMAGINE - Accueil">
+ <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" class="logo-img"/>
+ </a>
+ <nav class="nav" aria-label="Navigation principale">
+ <div class="nav-dropdown">
+ <a href="actualites.html" class="nav-dropdown-trigger">
+ Actualités
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </a>
+ <div class="nav-dropdown-menu" role="menu">
+ <a href="actualites-articles.html" role="menuitem">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+ Articles
+ </a>
+ <a href="actualites-videos.html" role="menuitem">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
+ Vidéos
+ </a>
+ </div>
+ </div>
+ <a href="bouger.html">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+ Bouger
+ </a>
+ <a href="participer.html">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 11h.01M15 11h.01M8 15s1.5 2 4 2 4-2 4-2"/></svg>
+ Participer
+ </a>
+ <a href="#" class="active">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ Calendrier
+ </a>
+ <a href="dashboard.html">Dashboard</a>
+ </nav>
+ <div class="header-actions">
+ <button class="icon-btn" aria-label="Rechercher">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+ </button>
+ <button class="icon-btn" aria-label="Notifications">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+ <span class="notif-dot"></span>
+ </button>
+ <button class="user-chip">
+ <span class="avatar">CL</span>
+ <span class="user-name">Camille L.</span>
+ </button>
+ </div>
+ </div>
 </header>
 
 <main id="main">
 
-  <!-- ═══ HERO ═══ -->
-  <section class="page-hero">
+ <!-- ═══ HERO ═══ -->
+ <section class="page-hero">
 
-    <div class="container">
-      <div class="breadcrumb">
-        <a href="home.html">Accueil</a>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-        <span>Calendrier</span>
-      </div>
+ <div class="container">
+ <div class="breadcrumb">
+ <a href="home.html">Accueil</a>
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+ <span>Calendrier</span>
+ </div>
 
-      <div class="hero-inner">
-        <div>
-          <h1 class="page-title">
-            <span class="page-title-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            </span>
-            Calendrier
-          </h1>
-          <p class="page-sub">Tous les rendez-vous sportifs du Groupe BPCE : athlètes sponsorisés, événements partenaires, temps forts de la plateforme.</p>
-        </div>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-num">12</div>
-            <div class="hero-stat-label">Événements à venir</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-num">47</div>
-            <div class="hero-stat-label">Athlètes BPCE</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+ <div class="hero-inner">
+ <div>
+ <h1 class="page-title">
+ <span class="page-title-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ </span>
+ Calendrier
+ </h1>
+ <p class="page-sub">Tous les rendez-vous sportifs du Groupe BPCE : athlètes sponsorisés, événements partenaires, temps forts de la plateforme.</p>
+ </div>
+ <div class="hero-stats">
+ <div class="hero-stat">
+ <div class="hero-stat-num">12</div>
+ <div class="hero-stat-label">Événements à venir</div>
+ </div>
+ <div class="hero-stat">
+ <div class="hero-stat-num">47</div>
+ <div class="hero-stat-label">Athlètes BPCE</div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
 
-  <!-- ═══ ÉVÉNEMENT À LA UNE ═══ -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Prochain événement</h2>
-          <p class="section-sub">À ne pas manquer dans 12 jours</p>
-        </div>
-      </div>
+ <!-- ═══ ÉVÉNEMENT À LA UNE ═══ -->
+ <section class="section">
+ <div class="container">
+ <div class="section-head">
+ <div>
+ <h2 class="section-title">Prochain événement</h2>
+ <p class="section-sub">À ne pas manquer dans 12 jours</p>
+ </div>
+ </div>
 
-      <article class="featured-event">
-        <div class="fe-left">
-          <div class="fe-status">
-            <span class="pulse"></span>
-            Dans 12 jours
-          </div>
-          <div class="fe-meta-top">Partenariat fédéral · Handball</div>
-          <h2>Équipe de France de Handball — Tournoi de France 2026</h2>
-          <p>Soutenez les Bleus du handball à l'Arena Paris. Partenariat majeur Caisse d'Épargne × FFHandball depuis 2015.</p>
-          <div class="fe-meta">
-            <span class="fe-meta-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <strong>Arena Paris, Paris</strong>
-            </span>
-            <span class="fe-meta-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-              <strong>Samedi 14 juin 2026</strong>
-            </span>
-          </div>
-          <div class="fe-actions">
-            <a href="#" class="btn btn-white">
-              Voir le détail
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#" class="btn btn-ghost-white">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-              M'avertir le jour J
-            </a>
-          </div>
-        </div>
-        <div class="fe-right" style="background:url('assets/visuel-handball.jpg') center/cover no-repeat,linear-gradient(160deg,#1a3a8a,#5a4fcf 60%);align-items:flex-end;padding:24px;">
-          
-        </div>
-      </article>
-    </div>
-  </section>
+ <article class="featured-event">
+ <div class="fe-left">
+ <div class="fe-status">
+ <span class="pulse"></span>
+ Dans 12 jours
+ </div>
+ <div class="fe-meta-top">Partenariat fédéral · Handball</div>
+ <h2>Équipe de France de Handball — Tournoi de France 2026</h2>
+ <p>Soutenez les Bleus du handball à l'Arena Paris. Partenariat majeur Caisse d'Épargne × FFHandball depuis 2015.</p>
+ <div class="fe-meta">
+ <span class="fe-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ <strong>Arena Paris, Paris</strong>
+ </span>
+ <span class="fe-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ <strong>Samedi 14 juin 2026</strong>
+ </span>
+ </div>
+ <div class="fe-actions">
+ <a href="#" class="btn btn-white">
+ Voir le détail
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+ </a>
+ <a href="#" class="btn btn-ghost-white">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+ M'avertir le jour J
+ </a>
+ </div>
+ </div>
+ <div class="fe-right" style="background:url('assets/visuel-handball.jpg') center/cover no-repeat,linear-gradient(160deg,#1a3a8a,#5a4fcf 60%);align-items:flex-end;padding:24px;">
+ 
+ </div>
+ </article>
+ </div>
+ </section>
 
-  <!-- ═══ TIMELINE ═══ -->
-  <section class="section" style="padding-top:0;">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Tous les événements <span class="section-title-num">12 à venir</span></h2>
-          <p class="section-sub">Chronologie des prochains rendez-vous sportifs du Groupe</p>
-        </div>
-      </div>
+ <!-- ═══ TIMELINE ═══ -->
+ <section class="section" style="padding-top:0;">
+ <div class="container">
+ <div class="section-head">
+ <div>
+ <h2 class="section-title">Tous les événements <span class="section-title-num">12 à venir</span></h2>
+ <p class="section-sub">Chronologie des prochains rendez-vous sportifs du Groupe</p>
+ </div>
+ </div>
 
-      <div class="filters-bar">
-        <div class="filter-tabs" role="tablist">
-          <button class="filter-tab active" role="tab" aria-selected="true">Tous <span class="count">12</span></button>
-          <button class="filter-tab athlete-dot" role="tab"><span class="filter-tab-dot"></span>Athlètes <span class="count">7</span></button>
-          <button class="filter-tab partenariat-dot" role="tab"><span class="filter-tab-dot"></span>Partenariats <span class="count">3</span></button>
-          <button class="filter-tab tempsfort-dot" role="tab"><span class="filter-tab-dot"></span>Temps forts plateforme <span class="count">2</span></button>
-        </div>
-        <div class="select-wrap">
-          <select class="select" aria-label="Période">
-            <option>Cette semaine</option>
-            <option selected>Ce mois</option>
-            <option>3 mois à venir</option>
-            <option>Tout</option>
-          </select>
-        </div>
-      </div>
+ <div class="filters-bar">
+ <div class="filter-tabs" role="tablist">
+ <button class="filter-tab active" role="tab" aria-selected="true">Tous <span class="count">12</span></button>
+ <button class="filter-tab athlete-dot" role="tab"><span class="filter-tab-dot"></span>Athlètes <span class="count">7</span></button>
+ <button class="filter-tab partenariat-dot" role="tab"><span class="filter-tab-dot"></span>Partenariats <span class="count">3</span></button>
+ <button class="filter-tab tempsfort-dot" role="tab"><span class="filter-tab-dot"></span>Temps forts plateforme <span class="count">2</span></button>
+ </div>
+ <div class="select-wrap">
+ <select class="select" aria-label="Période">
+ <option>Cette semaine</option>
+ <option selected>Ce mois</option>
+ <option>3 mois à venir</option>
+ <option>Tout</option>
+ </select>
+ </div>
+ </div>
 
-      <!-- TIMELINE -->
-      <div class="timeline">
+ <!-- TIMELINE -->
+ <div class="timeline">
 
-        <!-- JUIN 2026 -->
-        <div class="timeline-month">
-          <span class="tm-label">Juin 2026</span>
-          <span class="tm-line"></span>
-        </div>
+ <!-- JUIN 2026 -->
+ <div class="timeline-month">
+ <span class="tm-label">Juin 2026</span>
+ <span class="tm-line"></span>
+ </div>
 
-        <!-- Événement 1 - Athlète - Jimmy Gressier -->
-        <div class="tl-event athlete">
-          <div class="tl-date">
-            <div class="tl-date-day">14</div>
-            <div class="tl-date-month">Juin</div>
-            <div class="tl-date-weekday">Samedi</div>
-            <div class="tl-date-time">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              19h00
-            </div>
-          </div>
-          <div class="tl-card">
-            <div class="tl-card-banner athlete">
-              <div class="tl-banner-inner">
-                <span class="tl-type athlete">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                  Athlète
-                </span>
-                <span class="tl-sport">Athlétisme</span>
-              </div>
-            </div>
-            <div class="tl-card-grid">
-              <div class="tl-card-body">
-              <h3 class="tl-event-name">Meeting de Paris 2026</h3>
-              <p class="tl-event-desc">Jimmy Gressier engage sa saison sur 5 000 m au Stade Charléty. Soutenu par la Caisse d'Épargne Hauts de France.</p>
+ <!-- Événement 1 - Athlète - Jimmy Gressier -->
+ <div class="tl-event athlete">
+ <div class="tl-date">
+ <div class="tl-date-day">14</div>
+ <div class="tl-date-month">Juin</div>
+ <div class="tl-date-weekday">Samedi</div>
+ <div class="tl-date-time">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+ 19h00
+ </div>
+ </div>
+ <div class="tl-card">
+ <div class="tl-card-banner athlete">
+ <div class="tl-banner-inner">
+ <span class="tl-type athlete">
+ <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+ Athlète
+ </span>
+ <span class="tl-sport">Athlétisme</span>
+ </div>
+ </div>
+ <div class="tl-card-grid">
+ <div class="tl-card-body">
+ <h3 class="tl-event-name">Meeting de Paris 2026</h3>
+ <p class="tl-event-desc">Jimmy Gressier engage sa saison sur 5 000 m au Stade Charléty. Soutenu par la Caisse d'Épargne Hauts de France.</p>
 
-              <div class="tl-athlete-chip">
-                <span class="tl-athlete-avatar">JG</span>
-                <span class="tl-athlete-info">
-                  <span class="tl-athlete-name">Jimmy Gressier</span>
-                  <span class="tl-athlete-disc">5 000 m · Caisse d'Épargne Hauts de France</span>
-                </span>
-              </div>
+ <div class="tl-athlete-chip">
+ <span class="tl-athlete-avatar">JG</span>
+ <span class="tl-athlete-info">
+ <span class="tl-athlete-name">Jimmy Gressier</span>
+ <span class="tl-athlete-disc">5 000 m · Caisse d'Épargne Hauts de France</span>
+ </span>
+ </div>
 
-              <div class="tl-event-meta">
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <strong>Stade Charléty, Paris</strong>
-                </span>
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                  <strong>14 juin 2026</strong>
-                </span>
-              </div>
+ <div class="tl-event-meta">
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ <strong>Stade Charléty, Paris</strong>
+ </span>
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ <strong>14 juin 2026</strong>
+ </span>
+ </div>
 
-              <div class="tl-actions">
-                <a href="#" class="btn btn-violet btn-sm">Voir le détail</a>
-                <a href="#" class="btn btn-outline btn-sm">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-                  M'avertir
-                </a>
-              </div>
-            </div>
-              <div class="tl-card-visual athlete" aria-hidden="true">
-              <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
-                  <circle cx="50" cy="25" r="10" fill="white"/>
-                  <path d="M50 35 L50 60 M50 45 L30 50 M50 45 L70 50 M50 60 L40 85 M50 60 L60 85" stroke="white" stroke-width="4" stroke-linecap="round"/>
-                </svg></div>
-            </div>
-            </div>
-          </div>
-        </div>
+ <div class="tl-actions">
+ <a href="#" class="btn btn-violet btn-sm">Voir le détail</a>
+ <a href="#" class="btn btn-outline btn-sm">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+ M'avertir
+ </a>
+ </div>
+ </div>
+ <div class="tl-card-visual athlete" aria-hidden="true">
+ <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
+ <circle cx="50" cy="25" r="10" fill="white"/>
+ <path d="M50 35 L50 60 M50 45 L30 50 M50 45 L70 50 M50 60 L40 85 M50 60 L60 85" stroke="white" stroke-width="4" stroke-linecap="round"/>
+ </svg></div>
+ </div>
+ </div>
+ </div>
+ </div>
 
-        <!-- Événement 2 - Partenariat - Equipe de France de Basket -->
-        <div class="tl-event partenariat">
-          <div class="tl-date">
-            <div class="tl-date-day">22</div>
-            <div class="tl-date-month">Juin</div>
-            <div class="tl-date-weekday">Dimanche</div>
-            <div class="tl-date-time">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              15h00
-            </div>
-          </div>
-          <div class="tl-card">
-            <div class="tl-card-banner partenariat">
-              <div class="tl-banner-inner">
-                <span class="tl-type partenariat">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                  Partenariat BPCE
-                </span>
-                <span class="tl-sport">Basket-ball</span>
-              </div>
-            </div>
-            <div class="tl-card-grid">
-              <div class="tl-card-body">
-              <h3 class="tl-event-name">Équipe de France de Basket — Match amical vs Espagne</h3>
-              <p class="tl-event-desc">Préparation de l'EuroBasket pour les Bleus. Partenariat majeur Caisse d'Épargne × FFBB depuis 2014.</p>
+ <!-- Événement 2 - Partenariat - Equipe de France de Basket -->
+ <div class="tl-event partenariat">
+ <div class="tl-date">
+ <div class="tl-date-day">22</div>
+ <div class="tl-date-month">Juin</div>
+ <div class="tl-date-weekday">Dimanche</div>
+ <div class="tl-date-time">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+ 15h00
+ </div>
+ </div>
+ <div class="tl-card">
+ <div class="tl-card-banner partenariat">
+ <div class="tl-banner-inner">
+ <span class="tl-type partenariat">
+ <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+ Partenariat BPCE
+ </span>
+ <span class="tl-sport">Basket-ball</span>
+ </div>
+ </div>
+ <div class="tl-card-grid">
+ <div class="tl-card-body">
+ <h3 class="tl-event-name">Équipe de France de Basket — Match amical vs Espagne</h3>
+ <p class="tl-event-desc">Préparation de l'EuroBasket pour les Bleus. Partenariat majeur Caisse d'Épargne × FFBB depuis 2014.</p>
 
-              <div class="tl-event-meta">
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <strong>Arena Paris, Paris</strong>
-                </span>
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                  <strong>22 juin 2026</strong>
-                </span>
-              </div>
+ <div class="tl-event-meta">
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ <strong>Arena Paris, Paris</strong>
+ </span>
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ <strong>22 juin 2026</strong>
+ </span>
+ </div>
 
-              <div class="tl-actions">
-                <a href="#" class="btn btn-violet btn-sm">Voir le détail</a>
-                <a href="#" class="btn btn-outline btn-sm">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-                  M'avertir
-                </a>
-              </div>
-            </div>
-              <div class="tl-card-visual partenariat" aria-hidden="true">
-              <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
-                  <circle cx="50" cy="50" r="30" stroke="white" stroke-width="3" fill="none"/>
-                  <path d="M22 50 Q50 25 78 50" stroke="white" stroke-width="2" fill="none"/>
-                  <path d="M22 50 Q50 75 78 50" stroke="white" stroke-width="2" fill="none"/>
-                </svg></div>
-            </div>
-            </div>
-          </div>
-        </div>
+ <div class="tl-actions">
+ <a href="#" class="btn btn-violet btn-sm">Voir le détail</a>
+ <a href="#" class="btn btn-outline btn-sm">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+ M'avertir
+ </a>
+ </div>
+ </div>
+ <div class="tl-card-visual partenariat" aria-hidden="true">
+ <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
+ <circle cx="50" cy="50" r="30" stroke="white" stroke-width="3" fill="none"/>
+ <path d="M22 50 Q50 25 78 50" stroke="white" stroke-width="2" fill="none"/>
+ <path d="M22 50 Q50 75 78 50" stroke="white" stroke-width="2" fill="none"/>
+ </svg></div>
+ </div>
+ </div>
+ </div>
+ </div>
 
-        <!-- Événement 3 - Temps fort plateforme - Quiz -->
-        <div class="tl-event tempsfort">
-          <div class="tl-date">
-            <div class="tl-date-day">30</div>
-            <div class="tl-date-month">Juin</div>
-            <div class="tl-date-weekday">Lundi</div>
-            <div class="tl-date-time">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              23h59
-            </div>
-          </div>
-          <div class="tl-card">
-            <div class="tl-card-banner tempsfort">
-              <div class="tl-banner-inner">
-                <span class="tl-type tempsfort">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                  Temps fort Team IMAGINE
-                </span>
-                <span class="tl-sport">Quiz</span>
-              </div>
-            </div>
-            <div class="tl-card-grid">
-              <div class="tl-card-body">
-              <h3 class="tl-event-name">Clôture du Quiz FFHandball — Les Bleus aux JO de Paris 2024</h3>
-              <p class="tl-event-desc">Dernière chance pour participer au quiz Caisse d'Épargne. Tirage parmi les meilleurs scores le 1<sup>er</sup> juillet.</p>
+ <!-- Événement 3 - Temps fort plateforme - Quiz -->
+ <div class="tl-event tempsfort">
+ <div class="tl-date">
+ <div class="tl-date-day">30</div>
+ <div class="tl-date-month">Juin</div>
+ <div class="tl-date-weekday">Lundi</div>
+ <div class="tl-date-time">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+ 23h59
+ </div>
+ </div>
+ <div class="tl-card">
+ <div class="tl-card-banner tempsfort">
+ <div class="tl-banner-inner">
+ <span class="tl-type tempsfort">
+ <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+ Temps fort Team IMAGINE
+ </span>
+ <span class="tl-sport">Quiz</span>
+ </div>
+ </div>
+ <div class="tl-card-grid">
+ <div class="tl-card-body">
+ <h3 class="tl-event-name">Clôture du Quiz FFHandball</h3>
+ <p class="tl-event-desc">Dernière chance pour participer au quiz Caisse d'Épargne. Tirage parmi les meilleurs scores le 1<sup>er</sup> juillet.</p>
 
-              <div class="tl-event-meta">
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <strong>En ligne sur Team IMAGINE</strong>
-                </span>
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                  <strong>Du 1<sup>er</sup> au 30 juin 2026</strong>
-                </span>
-              </div>
+ <div class="tl-event-meta">
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ <strong>En ligne sur Team IMAGINE</strong>
+ </span>
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ <strong>Du 1<sup>er</sup> au 30 juin 2026</strong>
+ </span>
+ </div>
 
-              <div class="tl-actions">
-                <a href="#" class="btn btn-violet btn-sm">Participer maintenant</a>
-                <a href="#" class="btn btn-outline btn-sm">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-                  M'avertir
-                </a>
-              </div>
-            </div>
-              <div class="tl-card-visual tempsfort" aria-hidden="true">
-              <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
-                  <circle cx="50" cy="50" r="30" stroke="white" stroke-width="3" fill="none"/>
-                  <path d="M40 38 Q43 32 50 32 Q57 32 60 38 Q60 45 50 50 L50 60" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
-                  <circle cx="50" cy="70" r="3" fill="white"/>
-                </svg></div>
-            </div>
-            </div>
-          </div>
-        </div>
+ <div class="tl-actions">
+ <a href="#" class="btn btn-violet btn-sm">Participer maintenant</a>
+ <a href="#" class="btn btn-outline btn-sm">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+ M'avertir
+ </a>
+ </div>
+ </div>
+ <div class="tl-card-visual tempsfort" aria-hidden="true">
+ <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
+ <circle cx="50" cy="50" r="30" stroke="white" stroke-width="3" fill="none"/>
+ <path d="M40 38 Q43 32 50 32 Q57 32 60 38 Q60 45 50 50 L50 60" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+ <circle cx="50" cy="70" r="3" fill="white"/>
+ </svg></div>
+ </div>
+ </div>
+ </div>
+ </div>
 
-        <!-- JUILLET 2026 -->
-        <div class="timeline-month">
-          <span class="tm-label">Juillet 2026</span>
-          <span class="tm-line"></span>
-        </div>
+ <!-- JUILLET 2026 -->
+ <div class="timeline-month">
+ <span class="tm-label">Juillet 2026</span>
+ <span class="tm-line"></span>
+ </div>
 
-        <!-- Événement 4 - Partenariat - Banque Populaire / Voile -->
-        <div class="tl-event partenariat">
-          <div class="tl-date">
-            <div class="tl-date-day">04</div>
-            <div class="tl-date-month">Juillet</div>
-            <div class="tl-date-weekday">Samedi</div>
-            <div class="tl-date-time">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              13h30
-            </div>
-          </div>
-          <div class="tl-card">
-            <div class="tl-card-banner partenariat">
-              <div class="tl-banner-inner">
-                <span class="tl-type partenariat">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                  Partenariat BPCE
-                </span>
-                <span class="tl-sport">Cyclisme</span>
-              </div>
-            </div>
-            <div class="tl-card-grid">
-              <div class="tl-card-body">
-              <h3 class="tl-event-name">Mise à l'eau de Banque Populaire 14 — Vendée Globe 2028</h3>
-              <p class="tl-event-desc">Inauguration du nouvel IMOCA avec Loïs Berrehar. Banque Populaire, partenaire FFVoile depuis 1989.</p>
+ <!-- Événement 4 - Partenariat - Banque Populaire / Voile -->
+ <div class="tl-event partenariat">
+ <div class="tl-date">
+ <div class="tl-date-day">04</div>
+ <div class="tl-date-month">Juillet</div>
+ <div class="tl-date-weekday">Samedi</div>
+ <div class="tl-date-time">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+ 13h30
+ </div>
+ </div>
+ <div class="tl-card">
+ <div class="tl-card-banner partenariat">
+ <div class="tl-banner-inner">
+ <span class="tl-type partenariat">
+ <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+ Partenariat BPCE
+ </span>
+ <span class="tl-sport">Cyclisme</span>
+ </div>
+ </div>
+ <div class="tl-card-grid">
+ <div class="tl-card-body">
+ <h3 class="tl-event-name">Mise à l'eau de Banque Populaire 14 — Vendée Globe 2028</h3>
+ <p class="tl-event-desc">Inauguration du nouvel IMOCA avec Loïs Berrehar. Banque Populaire, partenaire FFVoile depuis 1989.</p>
 
-              <div class="tl-event-meta">
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <strong>Port-la-Forêt, Bretagne</strong>
-                </span>
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                  <strong>4 juillet 2026</strong>
-                </span>
-              </div>
+ <div class="tl-event-meta">
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ <strong>Port-la-Forêt, Bretagne</strong>
+ </span>
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ <strong>4 juillet 2026</strong>
+ </span>
+ </div>
 
-              <div class="tl-actions">
-                <a href="#" class="btn btn-violet btn-sm">Voir le détail</a>
-                <a href="#" class="btn btn-outline btn-sm">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-                  M'avertir
-                </a>
-              </div>
-            </div>
-              <div class="tl-card-visual partenariat" aria-hidden="true">
-              <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
-                  <circle cx="30" cy="65" r="15" stroke="white" stroke-width="3" fill="none"/>
-                  <circle cx="70" cy="65" r="15" stroke="white" stroke-width="3" fill="none"/>
-                  <path d="M30 65 L50 35 L70 65" stroke="white" stroke-width="3" fill="none"/>
-                  <circle cx="50" cy="35" r="5" fill="white"/>
-                </svg></div>
-            </div>
-            </div>
-          </div>
-        </div>
+ <div class="tl-actions">
+ <a href="#" class="btn btn-violet btn-sm">Voir le détail</a>
+ <a href="#" class="btn btn-outline btn-sm">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+ M'avertir
+ </a>
+ </div>
+ </div>
+ <div class="tl-card-visual partenariat" aria-hidden="true">
+ <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
+ <circle cx="30" cy="65" r="15" stroke="white" stroke-width="3" fill="none"/>
+ <circle cx="70" cy="65" r="15" stroke="white" stroke-width="3" fill="none"/>
+ <path d="M30 65 L50 35 L70 65" stroke="white" stroke-width="3" fill="none"/>
+ <circle cx="50" cy="35" r="5" fill="white"/>
+ </svg></div>
+ </div>
+ </div>
+ </div>
+ </div>
 
-        <!-- Événement 5 - Athlète - Natation -->
-        <div class="tl-event athlete">
-          <div class="tl-date">
-            <div class="tl-date-day">12</div>
-            <div class="tl-date-month">Juillet</div>
-            <div class="tl-date-weekday">Dimanche</div>
-            <div class="tl-date-time">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              20h45
-            </div>
-          </div>
-          <div class="tl-card">
-            <div class="tl-card-banner athlete">
-              <div class="tl-banner-inner">
-                <span class="tl-type athlete">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                  Athlète
-                </span>
-                <span class="tl-sport">Biathlon</span>
-              </div>
-            </div>
-            <div class="tl-card-grid">
-              <div class="tl-card-body">
-              <h3 class="tl-event-name">Coupe du Monde de Biathlon — Östersund</h3>
-              <p class="tl-event-desc">Reprise de saison pour Justine Braisaz-Bouchet, championne olympique. Soutenue par la Caisse d'Épargne Rhône Alpes.</p>
+ <!-- Événement 5 - Athlète - Natation -->
+ <div class="tl-event athlete">
+ <div class="tl-date">
+ <div class="tl-date-day">12</div>
+ <div class="tl-date-month">Juillet</div>
+ <div class="tl-date-weekday">Dimanche</div>
+ <div class="tl-date-time">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+ 20h45
+ </div>
+ </div>
+ <div class="tl-card">
+ <div class="tl-card-banner athlete">
+ <div class="tl-banner-inner">
+ <span class="tl-type athlete">
+ <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+ Athlète
+ </span>
+ <span class="tl-sport">Biathlon</span>
+ </div>
+ </div>
+ <div class="tl-card-grid">
+ <div class="tl-card-body">
+ <h3 class="tl-event-name">Coupe du Monde de Biathlon — Östersund</h3>
+ <p class="tl-event-desc">Reprise de saison pour Justine Braisaz-Bouchet, championne olympique. Soutenue par la Caisse d'Épargne Rhône Alpes.</p>
 
-              <div class="tl-athlete-chip">
-                <span class="tl-athlete-avatar">JB</span>
-                <span class="tl-athlete-info">
-                  <span class="tl-athlete-name">Justine Braisaz-Bouchet</span>
-                  <span class="tl-athlete-disc">Biathlon · Caisse d'Épargne</span>
-                </span>
-              </div>
+ <div class="tl-athlete-chip">
+ <span class="tl-athlete-avatar">JB</span>
+ <span class="tl-athlete-info">
+ <span class="tl-athlete-name">Justine Braisaz-Bouchet</span>
+ <span class="tl-athlete-disc">Biathlon · Caisse d'Épargne</span>
+ </span>
+ </div>
 
-              <div class="tl-event-meta">
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <strong>Östersund, Suède</strong>
-                </span>
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                  <strong>29 novembre 2026</strong>
-                </span>
-              </div>
+ <div class="tl-event-meta">
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ <strong>Östersund, Suède</strong>
+ </span>
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ <strong>29 novembre 2026</strong>
+ </span>
+ </div>
 
-              <div class="tl-actions">
-                <a href="#" class="btn btn-violet btn-sm">Voir le détail</a>
-                <a href="#" class="btn btn-outline btn-sm">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-                  M'avertir
-                </a>
-              </div>
-            </div>
-              <div class="tl-card-visual athlete" aria-hidden="true">
-              <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
-                  <path d="M10 70 Q25 60 40 70 Q55 80 70 70 Q85 60 95 70" stroke="white" stroke-width="3" fill="none"/>
-                  <path d="M10 80 Q25 70 40 80 Q55 90 70 80 Q85 70 95 80" stroke="white" stroke-width="3" fill="none"/>
-                  <circle cx="50" cy="40" r="12" fill="white"/>
-                  <path d="M50 52 L50 65" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                  <path d="M50 55 L25 50" stroke="white" stroke-width="4" stroke-linecap="round"/>
-                  <path d="M50 55 L75 50" stroke="white" stroke-width="4" stroke-linecap="round"/>
-                </svg></div>
-            </div>
-            </div>
-          </div>
-        </div>
+ <div class="tl-actions">
+ <a href="#" class="btn btn-violet btn-sm">Voir le détail</a>
+ <a href="#" class="btn btn-outline btn-sm">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+ M'avertir
+ </a>
+ </div>
+ </div>
+ <div class="tl-card-visual athlete" aria-hidden="true">
+ <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
+ <path d="M10 70 Q25 60 40 70 Q55 80 70 70 Q85 60 95 70" stroke="white" stroke-width="3" fill="none"/>
+ <path d="M10 80 Q25 70 40 80 Q55 90 70 80 Q85 70 95 80" stroke="white" stroke-width="3" fill="none"/>
+ <circle cx="50" cy="40" r="12" fill="white"/>
+ <path d="M50 52 L50 65" stroke="white" stroke-width="5" stroke-linecap="round"/>
+ <path d="M50 55 L25 50" stroke="white" stroke-width="4" stroke-linecap="round"/>
+ <path d="M50 55 L75 50" stroke="white" stroke-width="4" stroke-linecap="round"/>
+ </svg></div>
+ </div>
+ </div>
+ </div>
+ </div>
 
-        <!-- Événement 6 - Temps fort - Lancement Défi -->
-        <div class="tl-event tempsfort">
-          <div class="tl-date">
-            <div class="tl-date-day">15</div>
-            <div class="tl-date-month">Juillet</div>
-            <div class="tl-date-weekday">Mercredi</div>
-            <div class="tl-date-time">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              00h00
-            </div>
-          </div>
-          <div class="tl-card">
-            <div class="tl-card-banner tempsfort">
-              <div class="tl-banner-inner">
-                <span class="tl-type tempsfort">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                  Temps fort Team IMAGINE
-                </span>
-                <span class="tl-sport">Défi collectif</span>
-              </div>
-            </div>
-            <div class="tl-card-grid">
-              <div class="tl-card-body">
-              <h3 class="tl-event-name">Lancement du Défi "Été actif 2026"</h3>
-              <p class="tl-event-desc">Nouveau défi collectif inter-entités pour l'été : 500 000 km à parcourir ensemble en marche et course. Récompenses régionales.</p>
+ <!-- Événement 6 - Temps fort - Lancement Défi -->
+ <div class="tl-event tempsfort">
+ <div class="tl-date">
+ <div class="tl-date-day">15</div>
+ <div class="tl-date-month">Juillet</div>
+ <div class="tl-date-weekday">Mercredi</div>
+ <div class="tl-date-time">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+ 00h00
+ </div>
+ </div>
+ <div class="tl-card">
+ <div class="tl-card-banner tempsfort">
+ <div class="tl-banner-inner">
+ <span class="tl-type tempsfort">
+ <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+ Temps fort Team IMAGINE
+ </span>
+ <span class="tl-sport">Défi collectif</span>
+ </div>
+ </div>
+ <div class="tl-card-grid">
+ <div class="tl-card-body">
+ <h3 class="tl-event-name">Lancement du Défi "Été actif 2026"</h3>
+ <p class="tl-event-desc">Nouveau défi collectif inter-entités pour l'été : 500 000 km à parcourir ensemble en marche et course. Récompenses régionales.</p>
 
-              <div class="tl-event-meta">
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <strong>En ligne sur Team IMAGINE</strong>
-                </span>
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                  <strong>Du 15 juillet au 31 août 2026</strong>
-                </span>
-              </div>
+ <div class="tl-event-meta">
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ <strong>En ligne sur Team IMAGINE</strong>
+ </span>
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ <strong>Du 15 juillet au 31 août 2026</strong>
+ </span>
+ </div>
 
-              <div class="tl-actions">
-                <a href="#" class="btn btn-violet btn-sm">Voir le défi</a>
-                <a href="#" class="btn btn-outline btn-sm">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-                  M'avertir
-                </a>
-              </div>
-            </div>
-              <div class="tl-card-visual tempsfort" aria-hidden="true">
-              <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
-                  <circle cx="30" cy="40" r="10" fill="white"/>
-                  <path d="M30 50 L30 75 M30 60 L20 70 M30 60 L40 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
-                  <circle cx="70" cy="40" r="10" fill="white"/>
-                  <path d="M70 50 L70 75 M70 60 L60 70 M70 60 L80 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
-                  <circle cx="50" cy="55" r="10" fill="white"/>
-                  <path d="M50 65 L50 90 M50 75 L40 85 M50 75 L60 85" stroke="white" stroke-width="4" stroke-linecap="round"/>
-                </svg></div>
-            </div>
-            </div>
-          </div>
-        </div>
+ <div class="tl-actions">
+ <a href="#" class="btn btn-violet btn-sm">Voir le défi</a>
+ <a href="#" class="btn btn-outline btn-sm">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+ M'avertir
+ </a>
+ </div>
+ </div>
+ <div class="tl-card-visual tempsfort" aria-hidden="true">
+ <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
+ <circle cx="30" cy="40" r="10" fill="white"/>
+ <path d="M30 50 L30 75 M30 60 L20 70 M30 60 L40 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="70" cy="40" r="10" fill="white"/>
+ <path d="M70 50 L70 75 M70 60 L60 70 M70 60 L80 70" stroke="white" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="50" cy="55" r="10" fill="white"/>
+ <path d="M50 65 L50 90 M50 75 L40 85 M50 75 L60 85" stroke="white" stroke-width="4" stroke-linecap="round"/>
+ </svg></div>
+ </div>
+ </div>
+ </div>
+ </div>
 
-        <!-- Événement 7 - Athlète - Tennis -->
-        <div class="tl-event athlete">
-          <div class="tl-date">
-            <div class="tl-date-day">28</div>
-            <div class="tl-date-month">Juillet</div>
-            <div class="tl-date-weekday">Mardi</div>
-            <div class="tl-date-time">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-              14h00
-            </div>
-          </div>
-          <div class="tl-card">
-            <div class="tl-card-banner athlete">
-              <div class="tl-banner-inner">
-                <span class="tl-type athlete">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                  Athlète
-                </span>
-                <span class="tl-sport">Tennis</span>
-              </div>
-            </div>
-            <div class="tl-card-grid">
-              <div class="tl-card-body">
-              <h3 class="tl-event-name">WSL Championship Tour — Jeffreys Bay</h3>
-              <p class="tl-event-desc">Kauli Vaast, champion olympique de Paris 2024, défend ses couleurs sur l'une des plus belles vagues du tour mondial.</p>
+ <!-- Événement 7 - Athlète - Tennis -->
+ <div class="tl-event athlete">
+ <div class="tl-date">
+ <div class="tl-date-day">28</div>
+ <div class="tl-date-month">Juillet</div>
+ <div class="tl-date-weekday">Mardi</div>
+ <div class="tl-date-time">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+ 14h00
+ </div>
+ </div>
+ <div class="tl-card">
+ <div class="tl-card-banner athlete">
+ <div class="tl-banner-inner">
+ <span class="tl-type athlete">
+ <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+ Athlète
+ </span>
+ <span class="tl-sport">Tennis</span>
+ </div>
+ </div>
+ <div class="tl-card-grid">
+ <div class="tl-card-body">
+ <h3 class="tl-event-name">WSL Championship Tour — Jeffreys Bay</h3>
+ <p class="tl-event-desc">Kauli Vaast, champion olympique en titre, défend ses couleurs sur l'une des plus belles vagues du tour mondial.</p>
 
-              <div class="tl-athlete-chip">
-                <span class="tl-athlete-avatar">KV</span>
-                <span class="tl-athlete-info">
-                  <span class="tl-athlete-name">Kauli Vaast</span>
-                  <span class="tl-athlete-disc">Surf · Caisse d'Épargne
-                </span>
-              </div>
+ <div class="tl-athlete-chip">
+ <span class="tl-athlete-avatar">KV</span>
+ <span class="tl-athlete-info">
+ <span class="tl-athlete-name">Kauli Vaast</span>
+ <span class="tl-athlete-disc">Surf · Caisse d'Épargne
+ </span>
+ </div>
 
-              <div class="tl-event-meta">
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <strong>Jeffreys Bay, Afrique du Sud</strong>
-                </span>
-                <span class="tl-event-meta-item">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-                  <strong>28 juillet 2026</strong>
-                </span>
-              </div>
+ <div class="tl-event-meta">
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+ <strong>Jeffreys Bay, Afrique du Sud</strong>
+ </span>
+ <span class="tl-event-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ <strong>28 juillet 2026</strong>
+ </span>
+ </div>
 
-              <div class="tl-actions">
-                <a href="#" class="btn btn-violet btn-sm">Voir le détail</a>
-                <a href="#" class="btn btn-outline btn-sm">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-                  M'avertir
-                </a>
-              </div>
-            </div>
-              <div class="tl-card-visual athlete" aria-hidden="true">
-              <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
-                  <circle cx="50" cy="50" r="32" stroke="white" stroke-width="3" fill="none"/>
-                  <path d="M22 50 Q50 30 78 50" stroke="white" stroke-width="2" fill="none"/>
-                  <path d="M22 50 Q50 70 78 50" stroke="white" stroke-width="2" fill="none"/>
-                </svg></div>
-            </div>
-            </div>
-          </div>
-        </div>
+ <div class="tl-actions">
+ <a href="#" class="btn btn-violet btn-sm">Voir le détail</a>
+ <a href="#" class="btn btn-outline btn-sm">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+ M'avertir
+ </a>
+ </div>
+ </div>
+ <div class="tl-card-visual athlete" aria-hidden="true">
+ <div class="tl-visual-icon"><svg viewBox="0 0 100 100" fill="none">
+ <circle cx="50" cy="50" r="32" stroke="white" stroke-width="3" fill="none"/>
+ <path d="M22 50 Q50 30 78 50" stroke="white" stroke-width="2" fill="none"/>
+ <path d="M22 50 Q50 70 78 50" stroke="white" stroke-width="2" fill="none"/>
+ </svg></div>
+ </div>
+ </div>
+ </div>
+ </div>
 
-      </div>
+ </div>
 
-      <!-- Load more -->
-      <div class="load-more-wrap">
-        <button class="btn btn-outline">
-          Charger 5 événements de plus
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
-        <p style="font-size:13px;color:var(--gray-600);margin-top:14px;">
-          <strong>7 sur 12</strong> événements affichés
-        </p>
-      </div>
-    </div>
-  </section>
+ <!-- Load more -->
+ <div class="load-more-wrap">
+ <button class="btn btn-outline">
+ Charger 5 événements de plus
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </button>
+ <p style="font-size:13px;color:var(--gray-600);margin-top:14px;">
+ <strong>7 sur 12</strong> événements affichés
+ </p>
+ </div>
+ </div>
+ </section>
 
-  <!-- ═══ PARTENARIATS SPORTIFS BPCE ═══ -->
-  <section class="section partnerships-section">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Partenariats sportifs BPCE</h2>
-          <p class="section-sub">Les 4 grands partenariats du Groupe — chaque partenariat est associé à une marque BPCE</p>
-        </div>
-      </div>
+ <!-- ═══ PARTENARIATS SPORTIFS BPCE ═══ -->
+ <section class="section partnerships-section">
+ <div class="container">
+ <div class="section-head">
+ <div>
+ <h2 class="section-title">Partenariats sportifs BPCE</h2>
+ <p class="section-sub">Les 4 grands partenariats du Groupe — chaque partenariat est associé à une marque BPCE</p>
+ </div>
+ </div>
 
-      <div class="partner-grid">
+ <div class="partner-grid">
 
-        <!-- 1. Banque Populaire — Voile (FFVoile, depuis 1989) -->
-        <article class="partner-card">
-          <div class="partner-visual" style="background:linear-gradient(135deg,#003a78,#0066cc);">
-            <div class="partner-visual-icon" aria-hidden="true">
-              <svg viewBox="0 0 100 100" fill="none"><path d="M50 12 L50 80 M50 12 L80 75 L50 75 Z" stroke="#fff" stroke-width="3" fill="#fff" opacity=".85"/><path d="M50 12 L20 75 L50 75 Z" stroke="#fff" stroke-width="3" fill="none"/><path d="M15 84 Q35 92 50 84 Q65 76 85 84" stroke="#fff" stroke-width="3" fill="none" opacity=".75"/></svg>
-            </div>
-          </div>
-          <div class="partner-body">
-            <div class="partner-brand">
-              <span class="pb-name">Banque Populaire</span>
-            </div>
-            <h3 class="partner-title">Fédération Française de Voile</h3>
-            <p class="partner-desc">La Banque de la Voile : Vendée Globe, Maxi Banque Populaire XI, Équipe de France de Voile et 1 500 clubs et écoles.</p>
-            <div class="partner-foot">
-              <span class="partner-since">Partenaire majeur depuis 1989</span>
-            </div>
-          </div>
-        </article>
+ <!-- 1. Banque Populaire — Voile (FFVoile, depuis 1989) -->
+ <article class="partner-card">
+ <div class="partner-visual" style="background:linear-gradient(135deg,#003a78,#0066cc);">
+ <div class="partner-visual-icon" aria-hidden="true">
+ <svg viewBox="0 0 100 100" fill="none"><path d="M50 12 L50 80 M50 12 L80 75 L50 75 Z" stroke="#fff" stroke-width="3" fill="#fff" opacity=".85"/><path d="M50 12 L20 75 L50 75 Z" stroke="#fff" stroke-width="3" fill="none"/><path d="M15 84 Q35 92 50 84 Q65 76 85 84" stroke="#fff" stroke-width="3" fill="none" opacity=".75"/></svg>
+ </div>
+ </div>
+ <div class="partner-body">
+ <div class="partner-brand">
+ <span class="pb-name">Banque Populaire</span>
+ </div>
+ <h3 class="partner-title">Fédération Française de Voile</h3>
+ <p class="partner-desc">La Banque de la Voile : Vendée Globe, Maxi Banque Populaire XI, Équipe de France de Voile et 1 500 clubs et écoles.</p>
+ <div class="partner-foot">
+ <span class="partner-since">Partenaire majeur depuis 1989</span>
+ </div>
+ </div>
+ </article>
 
-        <!-- 2. Caisse d'Epargne — Handball (FFHandball, depuis 2015) -->
-        <article class="partner-card">
-          <div class="partner-visual" style="background:linear-gradient(135deg,#0c5a30,#00843d);">
-            <div class="partner-visual-icon" aria-hidden="true">
-              <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="28" stroke="#fff" stroke-width="3" fill="none"/><path d="M28 38 Q50 30 72 38 M28 50 Q50 42 72 50 M28 62 Q50 54 72 62" stroke="#fff" stroke-width="2" fill="none" opacity=".8"/><path d="M50 22 L50 78 M22 50 L78 50" stroke="#fff" stroke-width="2" opacity=".5"/></svg>
-            </div>
-          </div>
-          <div class="partner-body">
-            <div class="partner-brand">
-              <span class="pb-name">Caisse d'Épargne</span>
-            </div>
-            <h3 class="partner-title">Fédération Française de Handball</h3>
-            <p class="partner-desc">Partenaire majeur des Bleus et des Bleues : 17 médailles internationales, dont l'or olympique de Tokyo et l'argent de Paris 2024.</p>
-            <div class="partner-foot">
-              <span class="partner-since">Partenaire majeur depuis 2015</span>
-            </div>
-          </div>
-        </article>
+ <!-- 2. Caisse d'Epargne — Handball (FFHandball, depuis 2015) -->
+ <article class="partner-card">
+ <div class="partner-visual" style="background:linear-gradient(135deg,#0c5a30,#00843d);">
+ <div class="partner-visual-icon" aria-hidden="true">
+ <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="28" stroke="#fff" stroke-width="3" fill="none"/><path d="M28 38 Q50 30 72 38 M28 50 Q50 42 72 50 M28 62 Q50 54 72 62" stroke="#fff" stroke-width="2" fill="none" opacity=".8"/><path d="M50 22 L50 78 M22 50 L78 50" stroke="#fff" stroke-width="2" opacity=".5"/></svg>
+ </div>
+ </div>
+ <div class="partner-body">
+ <div class="partner-brand">
+ <span class="pb-name">Caisse d'Épargne</span>
+ </div>
+ <h3 class="partner-title">Fédération Française de Handball</h3>
+ <p class="partner-desc">Partenaire majeur des Bleus et des Bleues : 17 médailles internationales aux Championnats du monde, d'Europe et aux Jeux olympiques.</p>
+ <div class="partner-foot">
+ <span class="partner-since">Partenaire majeur depuis 2015</span>
+ </div>
+ </div>
+ </article>
 
-        <!-- 3. Caisse d'Epargne — Basket-ball (FFBB, depuis 2014) -->
-        <article class="partner-card">
-          <div class="partner-visual" style="background:linear-gradient(135deg,#7c2d12,#ea580c);">
-            <div class="partner-visual-icon" aria-hidden="true">
-              <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#fff" stroke-width="3" fill="none"/><path d="M20 50 Q50 25 80 50 M20 50 Q50 75 80 50 M50 20 L50 80" stroke="#fff" stroke-width="2" fill="none" opacity=".8"/></svg>
-            </div>
-          </div>
-          <div class="partner-body">
-            <div class="partner-brand">
-              <span class="pb-name">Caisse d'Épargne</span>
-            </div>
-            <h3 class="partner-title">Fédération Française de Basket-ball</h3>
-            <p class="partner-desc">Partenaire des Équipes de France 5×5 et 3×3 — argent olympique masculin et féminin à Paris 2024, titres mondiaux en 3×3.</p>
-            <div class="partner-foot">
-              <span class="partner-since">Partenaire majeur depuis 2014</span>
-            </div>
-          </div>
-        </article>
+ <!-- 3. Caisse d'Epargne — Basket-ball (FFBB, depuis 2014) -->
+ <article class="partner-card">
+ <div class="partner-visual" style="background:linear-gradient(135deg,#7c2d12,#ea580c);">
+ <div class="partner-visual-icon" aria-hidden="true">
+ <svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="30" stroke="#fff" stroke-width="3" fill="none"/><path d="M20 50 Q50 25 80 50 M20 50 Q50 75 80 50 M50 20 L50 80" stroke="#fff" stroke-width="2" fill="none" opacity=".8"/></svg>
+ </div>
+ </div>
+ <div class="partner-body">
+ <div class="partner-brand">
+ <span class="pb-name">Caisse d'Épargne</span>
+ </div>
+ <h3 class="partner-title">Fédération Française de Basket-ball</h3>
+ <p class="partner-desc">Partenaire des Équipes de France 5×5 et 3×3 — médailles olympiques masculines et féminines, titres mondiaux en 3×3.</p>
+ <div class="partner-foot">
+ <span class="partner-since">Partenaire majeur depuis 2014</span>
+ </div>
+ </div>
+ </article>
 
-        <!-- 4. Natixis — Rugby (Racing 92, depuis 2007) -->
-        <article class="partner-card">
-          <div class="partner-visual" style="background:linear-gradient(135deg,#0a1a3a,#0f5fa8);">
-            <div class="partner-visual-icon" aria-hidden="true">
-              <svg viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="50" rx="22" ry="32" stroke="#fff" stroke-width="3" fill="none" transform="rotate(35 50 50)"/><path d="M36 36 L64 64 M40 32 L60 52 M48 30 L66 48 M56 32 L62 38" stroke="#fff" stroke-width="2" opacity=".8"/></svg>
-            </div>
-          </div>
-          <div class="partner-body">
-            <div class="partner-brand">
-              <span class="pb-name">Natixis</span>
-            </div>
-            <h3 class="partner-title">Racing 92</h3>
-            <p class="partner-desc">Partenaire du club ciel et blanc — équipe pro masculine, féminine, école de rugby et Racing 92 Natixis Seven.</p>
-            <div class="partner-foot">
-              <span class="partner-since">Partenaire majeur depuis 2007</span>
-            </div>
-          </div>
-        </article>
+ <!-- 4. Natixis — Rugby (Racing 92, depuis 2007) -->
+ <article class="partner-card">
+ <div class="partner-visual" style="background:linear-gradient(135deg,#0a1a3a,#0f5fa8);">
+ <div class="partner-visual-icon" aria-hidden="true">
+ <svg viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="50" rx="22" ry="32" stroke="#fff" stroke-width="3" fill="none" transform="rotate(35 50 50)"/><path d="M36 36 L64 64 M40 32 L60 52 M48 30 L66 48 M56 32 L62 38" stroke="#fff" stroke-width="2" opacity=".8"/></svg>
+ </div>
+ </div>
+ <div class="partner-body">
+ <div class="partner-brand">
+ <span class="pb-name">Natixis</span>
+ </div>
+ <h3 class="partner-title">Racing 92</h3>
+ <p class="partner-desc">Partenaire du club ciel et blanc — équipe pro masculine, féminine, école de rugby et Racing 92 Natixis Seven.</p>
+ <div class="partner-foot">
+ <span class="partner-since">Partenaire majeur depuis 2007</span>
+ </div>
+ </div>
+ </article>
 
-      </div>
-    </div>
-  </section>
+ </div>
+ </div>
+ </section>
 
-  <!-- ═══ ATHLÈTES SOUTENUS ═══ -->
-  <section class="section athletes-section">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Athlètes soutenus</h2>
-          <p class="section-sub">Nom, photo et marque du Groupe BPCE qui les soutient — suivez leur prochain rendez-vous</p>
-        </div>
-        <a href="#" class="section-link">Voir tous les athlètes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
+ <!-- ═══ ATHLÈTES SOUTENUS ═══ -->
+ <section class="section athletes-section">
+ <div class="container">
+ <div class="section-head">
+ <div>
+ <h2 class="section-title">Athlètes soutenus</h2>
+ <p class="section-sub">Nom, photo et marque du Groupe BPCE qui les soutient — suivez leur prochain rendez-vous</p>
+ </div>
+ <a href="#" class="section-link">Voir tous les athlètes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
 
-      <div class="athletes-grid">
+ <div class="athletes-grid">
 
-        <!-- 1. Jimmy GRESSIER — Athlétisme — Caisse d'Epargne Hauts de France -->
-        <div class="athlete-card">
-          <div class="athlete-portrait" style="background:linear-gradient(135deg,#3d1554 0%,#8433b8 100%);">
-            <span class="athlete-sport-tag">Athlétisme</span>
-            <div class="athlete-photo" aria-label="Photo de Jimmy Gressier">
-              <span class="athlete-photo-fallback">JG</span>
-            </div>
-          </div>
-          <div class="athlete-body">
-            <div class="athlete-name">JIMMY GRESSIER</div>
-            <div class="athlete-disc">Athlétisme — 5 000 m</div>
-            <div class="athlete-brand-line">Soutenu par <strong>Caisse d'Épargne Hauts de France</strong></div>
-            <div class="athlete-next">
-              <div class="athlete-next-date">
-                <div class="athlete-next-day">21</div>
-                <div class="athlete-next-month">Juin</div>
-              </div>
-              <div class="athlete-next-text">
-                <strong>Meeting de Paris</strong>
-                Stade Charléty · 20h30
-              </div>
-            </div>
-          </div>
-        </div>
+ <!-- 1. Jimmy GRESSIER — Athlétisme — Caisse d'Epargne Hauts de France -->
+ <div class="athlete-card">
+ <div class="athlete-portrait" style="background:linear-gradient(135deg,#3d1554 0%,#8433b8 100%);">
+ <span class="athlete-sport-tag">Athlétisme</span>
+ <div class="athlete-photo" aria-label="Photo de Jimmy Gressier">
+ <span class="athlete-photo-fallback">JG</span>
+ </div>
+ </div>
+ <div class="athlete-body">
+ <div class="athlete-name">JIMMY GRESSIER</div>
+ <div class="athlete-disc">Athlétisme — 5 000 m</div>
+ <div class="athlete-brand-line">Soutenu par <strong>Caisse d'Épargne Hauts de France</strong></div>
+ <div class="athlete-next">
+ <div class="athlete-next-date">
+ <div class="athlete-next-day">21</div>
+ <div class="athlete-next-month">Juin</div>
+ </div>
+ <div class="athlete-next-text">
+ <strong>Meeting de Paris</strong>
+ Stade Charléty · 20h30
+ </div>
+ </div>
+ </div>
+ </div>
 
-        <!-- 2. Kauli VAAST — Surf — Caisse d'Epargne Île-de-France -->
-        <div class="athlete-card">
-          <div class="athlete-portrait" style="background:linear-gradient(135deg,#0c4a85 0%,#1e7ad0 100%);">
-            <span class="athlete-sport-tag">Surf</span>
-            <div class="athlete-photo" aria-label="Photo de Kauli Vaast">
-              <span class="athlete-photo-fallback">KV</span>
-            </div>
-          </div>
-          <div class="athlete-body">
-            <div class="athlete-name">KAULI VAAST</div>
-            <div class="athlete-disc">Surf — Champion olympique Paris 2024</div>
-            <div class="athlete-brand-line">Soutenu par <strong>Caisse d'Épargne Île-de-France</strong></div>
-            <div class="athlete-next">
-              <div class="athlete-next-date">
-                <div class="athlete-next-day">04</div>
-                <div class="athlete-next-month">Juil.</div>
-              </div>
-              <div class="athlete-next-text">
-                <strong>WSL Championship Tour</strong>
-                Jeffreys Bay · 09h00
-              </div>
-            </div>
-          </div>
-        </div>
+ <!-- 2. Kauli VAAST — Surf — Caisse d'Epargne Île-de-France -->
+ <div class="athlete-card">
+ <div class="athlete-portrait" style="background:linear-gradient(135deg,#0c4a85 0%,#1e7ad0 100%);">
+ <span class="athlete-sport-tag">Surf</span>
+ <div class="athlete-photo" aria-label="Photo de Kauli Vaast">
+ <span class="athlete-photo-fallback">KV</span>
+ </div>
+ </div>
+ <div class="athlete-body">
+ <div class="athlete-name">KAULI VAAST</div>
+ <div class="athlete-disc">Surf — Champion olympique en titre</div>
+ <div class="athlete-brand-line">Soutenu par <strong>Caisse d'Épargne Île-de-France</strong></div>
+ <div class="athlete-next">
+ <div class="athlete-next-date">
+ <div class="athlete-next-day">04</div>
+ <div class="athlete-next-month">Juil.</div>
+ </div>
+ <div class="athlete-next-text">
+ <strong>WSL Championship Tour</strong>
+ Jeffreys Bay · 09h00
+ </div>
+ </div>
+ </div>
+ </div>
 
-        <!-- 3. Justine BRAISAZ-BOUCHET — Biathlon — Caisse d'Epargne Rhône Alpes -->
-        <div class="athlete-card">
-          <div class="athlete-portrait" style="background:linear-gradient(135deg,#0c5a30 0%,#1a7a45 100%);">
-            <span class="athlete-sport-tag">Biathlon</span>
-            <div class="athlete-photo" aria-label="Photo de Justine Braisaz-Bouchet">
-              <span class="athlete-photo-fallback">JB</span>
-            </div>
-          </div>
-          <div class="athlete-body">
-            <div class="athlete-name">JUSTINE BRAISAZ-BOUCHET</div>
-            <div class="athlete-disc">Biathlon — Championne olympique</div>
-            <div class="athlete-brand-line">Soutenue par <strong>Caisse d'Épargne Rhône Alpes</strong></div>
-            <div class="athlete-next">
-              <div class="athlete-next-date">
-                <div class="athlete-next-day">29</div>
-                <div class="athlete-next-month">Nov.</div>
-              </div>
-              <div class="athlete-next-text">
-                <strong>Coupe du Monde — Östersund</strong>
-                Suède · 14h15
-              </div>
-            </div>
-          </div>
-        </div>
+ <!-- 3. Justine BRAISAZ-BOUCHET — Biathlon — Caisse d'Epargne Rhône Alpes -->
+ <div class="athlete-card">
+ <div class="athlete-portrait" style="background:linear-gradient(135deg,#0c5a30 0%,#1a7a45 100%);">
+ <span class="athlete-sport-tag">Biathlon</span>
+ <div class="athlete-photo" aria-label="Photo de Justine Braisaz-Bouchet">
+ <span class="athlete-photo-fallback">JB</span>
+ </div>
+ </div>
+ <div class="athlete-body">
+ <div class="athlete-name">JUSTINE BRAISAZ-BOUCHET</div>
+ <div class="athlete-disc">Biathlon — Championne olympique</div>
+ <div class="athlete-brand-line">Soutenue par <strong>Caisse d'Épargne Rhône Alpes</strong></div>
+ <div class="athlete-next">
+ <div class="athlete-next-date">
+ <div class="athlete-next-day">29</div>
+ <div class="athlete-next-month">Nov.</div>
+ </div>
+ <div class="athlete-next-text">
+ <strong>Coupe du Monde — Östersund</strong>
+ Suède · 14h15
+ </div>
+ </div>
+ </div>
+ </div>
 
-        <!-- 4. Manon APITHY-BRUNET — Escrime — CASDEN Banque Populaire -->
-        <div class="athlete-card">
-          <div class="athlete-portrait" style="background:linear-gradient(135deg,#7c2d12 0%,#ea580c 100%);">
-            <span class="athlete-sport-tag">Escrime · Sabre</span>
-            <div class="athlete-photo" aria-label="Photo de Manon Apithy-Brunet">
-              <span class="athlete-photo-fallback">MA</span>
-            </div>
-          </div>
-          <div class="athlete-body">
-            <div class="athlete-name">MANON APITHY-BRUNET</div>
-            <div class="athlete-disc">Escrime — Championne olympique sabre</div>
-            <div class="athlete-brand-line">Soutenue par <strong>CASDEN Banque Populaire</strong></div>
-            <div class="athlete-next">
-              <div class="athlete-next-date">
-                <div class="athlete-next-day">15</div>
-                <div class="athlete-next-month">Juil.</div>
-              </div>
-              <div class="athlete-next-text">
-                <strong>Championnats du monde</strong>
-                Tbilissi · 18h00
-              </div>
-            </div>
-          </div>
-        </div>
+ <!-- 4. Manon APITHY-BRUNET — Escrime — CASDEN Banque Populaire -->
+ <div class="athlete-card">
+ <div class="athlete-portrait" style="background:linear-gradient(135deg,#7c2d12 0%,#ea580c 100%);">
+ <span class="athlete-sport-tag">Escrime · Sabre</span>
+ <div class="athlete-photo" aria-label="Photo de Manon Apithy-Brunet">
+ <span class="athlete-photo-fallback">MA</span>
+ </div>
+ </div>
+ <div class="athlete-body">
+ <div class="athlete-name">MANON APITHY-BRUNET</div>
+ <div class="athlete-disc">Escrime — Championne olympique sabre</div>
+ <div class="athlete-brand-line">Soutenue par <strong>CASDEN Banque Populaire</strong></div>
+ <div class="athlete-next">
+ <div class="athlete-next-date">
+ <div class="athlete-next-day">15</div>
+ <div class="athlete-next-month">Juil.</div>
+ </div>
+ <div class="athlete-next-text">
+ <strong>Championnats du monde</strong>
+ Tbilissi · 18h00
+ </div>
+ </div>
+ </div>
+ </div>
 
-      </div>
-    </div>
-  </section>
+ </div>
+ </div>
+ </section>
 
 
 </main>
@@ -1172,76 +1172,76 @@ img{max-width:100%;display:block;}
 
 <!-- ═══ INVITATION COLLABORATEUR ═══ -->
 <section class="invite-bar">
-  <div class="invite-inner">
-    <div class="invite-text">
-      <h3>Inviter un collaborateur</h3>
-      <p>Partage Team IMAGINE avec un collègue du Groupe BPCE — il rejoint la plateforme en un clic.</p>
-    </div>
-    <form class="invite-form" novalidate onsubmit="event.preventDefault();">
-      <label class="visually-hidden" for="invite-email">Adresse e-mail du collaborateur</label>
-      <input type="email" id="invite-email" name="invite-email" placeholder="prenom.nom@bpce.fr" required/>
-      <button type="submit" class="invite-btn">
-        J'invite
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </button>
-    </form>
-  </div>
+ <div class="invite-inner">
+ <div class="invite-text">
+ <h3>Inviter un collaborateur</h3>
+ <p>Partage Team IMAGINE avec un collègue du Groupe BPCE — il rejoint la plateforme en un clic.</p>
+ </div>
+ <form class="invite-form" novalidate onsubmit="event.preventDefault();">
+ <label class="visually-hidden" for="invite-email">Adresse e-mail du collaborateur</label>
+ <input type="email" id="invite-email" name="invite-email" placeholder="prenom.nom@bpce.fr" required/>
+ <button type="submit" class="invite-btn">
+ J'invite
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+ </button>
+ </form>
+ </div>
 </section>
 
 <footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="home.html" style="display:inline-block;background:#fff;padding:8px 14px;border-radius:10px;">
-          <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" style="height:48px;width:auto;display:block;"/>
-        </a>
-        <p>La plateforme d'engagement sportif et de bien-être du Groupe BPCE.</p>
-      </div>
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="home.html" style="display:inline-block;background:#fff;padding:8px 14px;border-radius:10px;">
+ <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" style="height:48px;width:auto;display:block;"/>
+ </a>
+ <p>La plateforme d'engagement sportif et de bien-être du Groupe BPCE.</p>
+ </div>
 
-      <div class="footer-col">
-        <h4>Explorer</h4>
-        <a href="actualites.html">Actualités</a>
-        <a href="#">Bouger</a>
-        <a href="#">Participer</a>
-        <a href="#">Calendrier</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="#">La Promesse</a>
-      </div>
+ <div class="footer-col">
+ <h4>Explorer</h4>
+ <a href="actualites.html">Actualités</a>
+ <a href="#">Bouger</a>
+ <a href="#">Participer</a>
+ <a href="#">Calendrier</a>
+ <a href="dashboard.html">Dashboard</a>
+ <a href="#">La Promesse</a>
+ </div>
 
-      <div class="footer-col">
-        <h4>Mon compte</h4>
-        <a href="#">Mes participations</a>
-        <a href="#">Mes badges</a>
-        <a href="#">App forme</a>
-        <a href="#">Confidentialité</a>
-        <a href="#">Notifications</a>
-      </div>
+ <div class="footer-col">
+ <h4>Mon compte</h4>
+ <a href="#">Mes participations</a>
+ <a href="#">Mes badges</a>
+ <a href="#">App forme</a>
+ <a href="#">Confidentialité</a>
+ <a href="#">Notifications</a>
+ </div>
 
-      <div class="footer-col">
-        <h4>Suivez-nous</h4>
-        <div class="footer-qr">
-          <div class="qr-box">
-            <svg viewBox="0 0 100 100" fill="#581d74"><rect x="0" y="0" width="30" height="30"/><rect x="8" y="8" width="14" height="14" fill="#fff"/><rect x="70" y="0" width="30" height="30"/><rect x="78" y="8" width="14" height="14" fill="#fff"/><rect x="0" y="70" width="30" height="30"/><rect x="8" y="78" width="14" height="14" fill="#fff"/><rect x="40" y="0" width="8" height="8"/><rect x="52" y="0" width="8" height="8"/><rect x="40" y="14" width="8" height="8"/><rect x="40" y="40" width="8" height="8"/><rect x="55" y="40" width="12" height="12"/><rect x="75" y="45" width="8" height="8"/><rect x="88" y="40" width="8" height="8"/><rect x="40" y="60" width="8" height="8"/><rect x="60" y="65" width="8" height="8"/><rect x="80" y="70" width="8" height="8"/><rect x="45" y="80" width="10" height="10"/><rect x="70" y="88" width="8" height="8"/><rect x="88" y="80" width="8" height="8"/></svg>
-          </div>
-          <div class="footer-qr-text">
-            <strong>@bpce_banquedusport</strong>
-            <a href="https://www.instagram.com/bpce_banquedusport" target="_blank" rel="noopener" style="color:rgba(255,255,255,.85);">Suivez-nous sur Instagram</a>
-          </div>
-        </div>
-      </div>
-    </div>
+ <div class="footer-col">
+ <h4>Suivez-nous</h4>
+ <div class="footer-qr">
+ <div class="qr-box">
+ <svg viewBox="0 0 100 100" fill="#581d74"><rect x="0" y="0" width="30" height="30"/><rect x="8" y="8" width="14" height="14" fill="#fff"/><rect x="70" y="0" width="30" height="30"/><rect x="78" y="8" width="14" height="14" fill="#fff"/><rect x="0" y="70" width="30" height="30"/><rect x="8" y="78" width="14" height="14" fill="#fff"/><rect x="40" y="0" width="8" height="8"/><rect x="52" y="0" width="8" height="8"/><rect x="40" y="14" width="8" height="8"/><rect x="40" y="40" width="8" height="8"/><rect x="55" y="40" width="12" height="12"/><rect x="75" y="45" width="8" height="8"/><rect x="88" y="40" width="8" height="8"/><rect x="40" y="60" width="8" height="8"/><rect x="60" y="65" width="8" height="8"/><rect x="80" y="70" width="8" height="8"/><rect x="45" y="80" width="10" height="10"/><rect x="70" y="88" width="8" height="8"/><rect x="88" y="80" width="8" height="8"/></svg>
+ </div>
+ <div class="footer-qr-text">
+ <strong>@bpce_banquedusport</strong>
+ <a href="https://www.instagram.com/bpce_banquedusport" target="_blank" rel="noopener" style="color:rgba(255,255,255,.85);">Suivez-nous sur Instagram</a>
+ </div>
+ </div>
+ </div>
+ </div>
 
-    <div class="footer-bottom">
-      <span>© 2026 Groupe BPCE — TEAM IMAGINE. Tous droits réservés.</span>
-      <div class="footer-legal">
-        <a href="#">Mentions légales</a>
-        <a href="#">CGU</a>
-        <a href="#">Confidentialité</a>
-        <a href="#">Cookies</a>
-        <a href="#">Accessibilité</a>
-      </div>
-    </div>
-  </div>
+ <div class="footer-bottom">
+ <span>© 2026 Groupe BPCE — TEAM IMAGINE. Tous droits réservés.</span>
+ <div class="footer-legal">
+ <a href="#">Mentions légales</a>
+ <a href="#">CGU</a>
+ <a href="#">Confidentialité</a>
+ <a href="#">Cookies</a>
+ <a href="#">Accessibilité</a>
+ </div>
+ </div>
+ </div>
 </footer>
 
 </body>
