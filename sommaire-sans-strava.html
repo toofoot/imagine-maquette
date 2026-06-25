@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEAM IMAGINE — Sommaire · Version Sans Strava</title>
+<style>
+:root {
+ --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
+ --violet-600:#581d74; --violet-500:#6b239a; --violet-400:#8433b8;
+ --violet-300:#a257cc; --violet-200:#c699e2; --violet-100:#e2c8f2; --violet-50:#f5eefa;
+ --gray-900:#111; --gray-800:#252525; --gray-700:#3d3d3d; --gray-600:#575757;
+ --gray-500:#737373; --gray-400:#909090; --gray-300:#b5b5b5; --gray-200:#d8d8d8;
+ --gray-100:#efefef; --gray-50:#f7f7f7; --white:#fff;
+ --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+ --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
+ --sh-md:0 4px 12px rgba(88,29,116,.1),0 2px 4px rgba(88,29,116,.06);
+ --sh-lg:0 10px 30px rgba(88,29,116,.12),0 4px 8px rgba(88,29,116,.06);
+ --sh-xl:0 20px 60px rgba(46,16,64,.25);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:var(--font);color:var(--gray-900);background:var(--gray-50);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1400px;margin:0 auto;padding:0 32px;}
+
+.hero{background:linear-gradient(135deg,#1c0926 0%,var(--violet-800) 30%,var(--violet-600) 70%,var(--violet-500) 100%);color:#fff;padding:48px 0 64px;position:relative;overflow:hidden;}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 30%,rgba(255,255,255,.08) 0,transparent 35%),radial-gradient(circle at 10% 80%,rgba(255,255,255,.05) 0,transparent 40%);}
+.hero-inner{position:relative;}
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:28px;}
+.brand a.logo{display:inline-flex;align-items:center;background:#fff;padding:10px 18px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.18);}
+.brand img{height:56px;width:auto;display:block;}
+.back-link{margin-left:auto;color:rgba(255,255,255,.85);font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:6px;}
+.back-link svg{width:15px;height:15px;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#fff;margin-bottom:16px;}
+.eyebrow .dot{width:7px;height:7px;background:#7be8a8;border-radius:50%;animation:pulse 1.8s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+.title{font-size:40px;font-weight:700;line-height:1.05;letter-spacing:-1px;margin-bottom:14px;max-width:780px;}
+.subtitle{font-size:16px;color:rgba(255,255,255,.85);max-width:680px;line-height:1.55;}
+
+.version-tabs{display:inline-flex;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:var(--r-full);padding:5px;margin-top:26px;gap:4px;}
+.version-tabs a{padding:10px 22px;border-radius:var(--r-full);font-size:13.5px;font-weight:700;color:rgba(255,255,255,.8);transition:.2s;display:inline-flex;align-items:center;gap:8px;}
+.version-tabs a .dotmark{width:8px;height:8px;border-radius:50%;background:currentColor;opacity:.6;}
+.version-tabs a.active{background:#fff;color:var(--violet-700);}
+.version-tabs a.active .dotmark{opacity:1;background:var(--violet-600);}
+.version-tabs a:not(.active):hover{color:#fff;background:rgba(255,255,255,.1);}
+
+.section{padding:48px 0;}
+.section-head{margin-bottom:28px;}
+.section-title{font-size:24px;font-weight:700;letter-spacing:-.3px;color:var(--gray-900);margin-bottom:6px;}
+.section-sub{font-size:14px;color:var(--gray-600);}
+
+.mockup-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:24px;}
+.mockup-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-xl);overflow:hidden;transition:.25s;text-decoration:none;color:inherit;display:flex;flex-direction:column;position:relative;}
+.mockup-card:hover{transform:translateY(-5px);box-shadow:var(--sh-xl);border-color:var(--violet-300);}
+.mockup-card:focus{outline:none;box-shadow:0 0 0 3px var(--violet-300),var(--sh-xl);}
+.mockup-thumb-wrap{position:relative;background:var(--gray-100);overflow:hidden;aspect-ratio:16/10;}
+.mockup-thumb-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:.4s;}
+.mockup-card:hover .mockup-thumb-wrap img{transform:scale(1.03);}
+.mockup-badge{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.96);padding:5px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;color:var(--violet-700);backdrop-filter:blur(8px);text-transform:uppercase;letter-spacing:.05em;}
+.mockup-num{position:absolute;top:14px;right:14px;background:var(--violet-700);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;}
+.mockup-body{padding:22px 24px;flex:1;display:flex;flex-direction:column;}
+.mockup-title{font-size:19px;font-weight:700;color:var(--gray-900);margin-bottom:8px;letter-spacing:-.2px;}
+.mockup-desc{font-size:13px;color:var(--gray-600);line-height:1.5;margin-bottom:18px;flex:1;}
+.mockup-foot{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--gray-100);padding-top:14px;}
+.mockup-tag{font-size:11px;color:var(--gray-500);font-weight:700;}
+.mockup-cta{display:inline-flex;align-items:center;gap:6px;color:var(--violet-600);font-size:13px;font-weight:700;}
+.mockup-card:hover .mockup-cta{gap:10px;color:var(--violet-700);}
+.mockup-cta svg{width:14px;height:14px;transition:.2s;}
+.mockup-card.wip .mockup-badge{background:#fff3e5;color:#8a4700;}
+
+footer{background:var(--violet-900);color:rgba(255,255,255,.7);padding:32px 0;font-size:13px;text-align:center;}
+footer strong{color:#fff;}
+
+@media(max-width:900px){
+ .title{font-size:30px;}
+ .container{padding:0 20px;}
+ .back-link{display:none;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+ <div class="container hero-inner">
+ <div class="brand">
+ <a class="logo" href="sommaire-sans-strava.html"><img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE"></a>
+ </div>
+ <div class="eyebrow"><span class="dot"></span> SOMMAIRE · VERSION SANS STRAVA</div>
+ <h1 class="title">Team IMAGINE — Version Sans Strava</h1>
+ <p class="subtitle">Aucune connexion Strava ni donnée d'activité automatique. Plateforme recentrée sur la participation et l'éditorial. Cliquez sur une page pour l'explorer.</p>
+ <nav class="version-tabs" aria-label="Choix de version">
+ <a class="active" href="sommaire-sans-strava.html"><span class="dotmark"></span>Sans Strava</a>
+ <a href="sommaire-strava.html"><span class="dotmark"></span>Avec Strava</a>
+ </nav>
+ </div>
+</header>
+
+<section class="section">
+ <div class="container">
+ <div class="section-head">
+ <h2 class="section-title">Les 7 pages principales</h2>
+ <p class="section-sub">Version sans Strava — défis au kilomètre, suivi d'activité et Mouv'Studio retirés</p>
+ </div>
+ <div class="mockup-grid">
+
+ <a href="prehome-sans-strava.html" class="mockup-card">
+ <div class="mockup-thumb-wrap"><img src="thumbs/prehome.jpg" alt="Aperçu de la Pré-Home"><span class="mockup-badge">Public</span><span class="mockup-num">1</span></div>
+ <div class="mockup-body">
+ <h3 class="mockup-title">Pré-Home / Login</h3>
+ <p class="mockup-desc">Page d'accueil avant connexion. SSO BPCE prioritaire, formulaire mail/mdp secondaire, 3 piliers Banque du Sport.</p>
+ <div class="mockup-foot"><span class="mockup-tag">Connexion · SSO</span><span class="mockup-cta">Voir la page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+ </div>
+ </a>
+
+ <a href="home-sans-strava.html" class="mockup-card">
+ <div class="mockup-thumb-wrap"><img src="thumbs/home.jpg" alt="Aperçu de la Home"><span class="mockup-badge">Connecté</span><span class="mockup-num">2</span></div>
+ <div class="mockup-body">
+ <h3 class="mockup-title">Home / Accueil</h3>
+ <p class="mockup-desc">Hub central post-connexion. Héros sur les 3 thèmes Banque du Sport, sans activité Strava ni défis au km, sans Mouv'Studio.</p>
+ <div class="mockup-foot"><span class="mockup-tag">Page d'accueil</span><span class="mockup-cta">Voir la page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+ </div>
+ </a>
+
+ <a href="actualites-sans-strava.html" class="mockup-card">
+ <div class="mockup-thumb-wrap"><img src="thumbs/actualites.jpg" alt="Aperçu des Actualités"><span class="mockup-badge">Éditorial</span><span class="mockup-num">3</span></div>
+ <div class="mockup-body">
+ <h3 class="mockup-title">Actualités</h3>
+ <p class="mockup-desc">Hub éditorial Banque du Sport. Filtres par thématique, article à la une, grille d'articles et de vidéos (hors Mouv'Studio).</p>
+ <div class="mockup-foot"><span class="mockup-tag">Contenu · Hub BDS</span><span class="mockup-cta">Voir la page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+ </div>
+ </a>
+
+ <a href="bouger-sans-strava.html" class="mockup-card">
+ <div class="mockup-thumb-wrap"><img src="thumbs/bouger.jpg" alt="Aperçu de Bouger"><span class="mockup-badge">Sport</span><span class="mockup-num">4</span></div>
+ <div class="mockup-body">
+ <h3 class="mockup-title">Bouger</h3>
+ <p class="mockup-desc">Défis sportifs saisonniers : Summer Challenge et Winter Challenge, participation déclarative, sans Strava ni km automatiques.</p>
+ <div class="mockup-foot"><span class="mockup-tag">Défis déclaratifs</span><span class="mockup-cta">Voir la page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+ </div>
+ </a>
+
+ <a href="participer-sans-strava.html" class="mockup-card">
+ <div class="mockup-thumb-wrap"><img src="thumbs/participer.jpg" alt="Aperçu de Participer"><span class="mockup-badge">Engagement</span><span class="mockup-num">5</span></div>
+ <div class="mockup-body">
+ <h3 class="mockup-title">Participer</h3>
+ <p class="mockup-desc">Mécaniques ponctuelles 100 % BPCE. Quiz, pronos, instant-gagnant, mes participations, derniers gagnants.</p>
+ <div class="mockup-foot"><span class="mockup-tag">Quiz · Pronos · Tirages</span><span class="mockup-cta">Voir la page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+ </div>
+ </a>
+
+ <a href="calendrier-sans-strava.html" class="mockup-card">
+ <div class="mockup-thumb-wrap"><img src="thumbs/calendrier.jpg" alt="Aperçu du Calendrier"><span class="mockup-badge">Agenda</span><span class="mockup-num">6</span></div>
+ <div class="mockup-body">
+ <h3 class="mockup-title">Calendrier</h3>
+ <p class="mockup-desc">Agenda sport unifié. Timeline chronologique, événements à venir, athlètes et partenariats BPCE en avant.</p>
+ <div class="mockup-foot"><span class="mockup-tag">Événements · Athlètes</span><span class="mockup-cta">Voir la page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+ </div>
+ </a>
+
+ <a href="dashboard-sans-strava.html" class="mockup-card">
+ <div class="mockup-thumb-wrap"><img src="thumbs/dashboard.jpg" alt="Aperçu du Dashboard"><span class="mockup-badge">Personnel</span><span class="mockup-num">7</span></div>
+ <div class="mockup-body">
+ <h3 class="mockup-title">Dashboard</h3>
+ <p class="mockup-desc">Bilan personnel recentré sur l'engagement : rétro en données blog (articles lus, vidéos, jeux), badges de participation.</p>
+ <div class="mockup-foot"><span class="mockup-tag">Personnel</span><span class="mockup-cta">Voir la page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+ </div>
+ </a>
+
+ </div>
+ </div>
+</section>
+
+<footer><div class="container">Prototype de revue interne — <strong>Team IMAGINE</strong> · Version Sans Strava · Données fictives</div></footer>
+
+</body>
+</html>

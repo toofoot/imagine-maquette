@@ -273,87 +273,6 @@ img{max-width:100%;display:block;}
 .version-pill .vp-dot{width:8px;height:8px;border-radius:50%;background:#9aa0a6;flex-shrink:0;}
 .version-pill.v2{background:#3d1554;}
 @media(max-width:600px){.version-pill{right:12px;bottom:12px;font-size:11.5px;padding:8px 13px;}}
-
-/* ═══ VOLET « Mon activité du jour » (V1) ═══ */
-.act-tab{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:280;display:flex;flex-direction:column;align-items:center;gap:10px;background:#581d74;color:#fff;border:none;cursor:pointer;padding:18px 9px;border-radius:0 14px 14px 0;box-shadow:0 6px 22px rgba(46,16,64,.4);font-family:inherit;font-weight:700;font-size:11px;}
-.act-tab:hover{background:#4b1a67;}
-.act-tab svg{width:20px;height:20px;}
-.act-tab .act-tab-label{writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.05em;text-transform:uppercase;}
-.act-overlay{position:fixed;inset:0;background:rgba(28,9,38,.55);z-index:285;opacity:0;pointer-events:none;transition:opacity .25s;}
-body.act-open .act-overlay{opacity:1;pointer-events:auto;}
-.act-drawer{position:fixed;top:0;left:0;height:100vh;width:min(34vw,460px);min-width:340px;background:linear-gradient(160deg,#2e1040 0%,#581d74 60%,#6b239a 100%);color:#fff;z-index:290;transform:translateX(-100%);transition:transform .3s ease;overflow-y:auto;padding:24px 24px 40px;box-shadow:8px 0 40px rgba(0,0,0,.35);}
-body.act-open .act-drawer{transform:translateX(0);}
-.act-drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
-.act-drawer-head h2{font-size:20px;font-weight:700;color:#fff;letter-spacing:-.3px;}
-.act-close{background:rgba(255,255,255,.14);border:none;color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;}
-.act-close:hover{background:rgba(255,255,255,.24);}
-.act-drawer .strava-connect{flex-direction:column;align-items:flex-start;gap:14px;}
-@media(max-width:700px){.act-drawer{width:90vw;}}
-/* ═══ ACTIVITY GAUGE ═══ */
-.act-drawer .activity-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-2xl);padding:28px;backdrop-filter:blur(8px);}
-.ac-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
-.ac-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--violet-200);}
-.ac-source{display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,.85);font-weight:700;}
-.ac-source svg{width:13px;height:13px;}
-.gauge-wrap{display:flex;align-items:center;gap:24px;margin-bottom:22px;}
-.gauge{position:relative;width:140px;height:140px;flex-shrink:0;}
-.gauge svg{width:100%;height:100%;transform:rotate(-90deg);}
-.gauge-bg{fill:none;stroke:rgba(255,255,255,.12);stroke-width:11;}
-.gauge-fill{fill:none;stroke:var(--gauge-fill);stroke-width:11;stroke-linecap:round;transition:stroke-dashoffset 1s ease;}
-.gauge-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;}
-.gauge-pct{font-size:32px;font-weight:700;line-height:1;}
-.gauge-status{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gauge-fill);margin-top:5px;}
-.gauge-info{flex:1;min-width:0;}
-.gauge-day-status{display:inline-flex;align-items:center;gap:6px;background:rgba(123,232,168,.15);color:var(--gauge-fill);padding:5px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;}
-.gauge-headline{font-size:18px;font-weight:700;line-height:1.3;margin-bottom:6px;}
-.gauge-detail{font-size:13px;color:rgba(255,255,255,.9);line-height:1.4;}
-.gauge-detail strong{color:#fff;font-weight:700;}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
-.stat-mini{background:rgba(255,255,255,.06);border-radius:var(--r-md);padding:10px 8px;text-align:center;}
-.stat-mini-num{font-size:15px;font-weight:700;line-height:1;}
-.stat-mini-label{font-size:10px;color:rgba(255,255,255,.85);margin-top:4px;text-transform:uppercase;letter-spacing:.04em;font-weight:700;}
-/* ═══ STREAK DUOLINGO STYLE ═══ */
-.streak-section{border-top:1px solid rgba(255,255,255,.14);padding-top:16px;margin-top:16px;}
-.streak-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
-.streak-flame{flex-shrink:0;filter:drop-shadow(0 2px 8px rgba(245,158,11,.5));}
-.streak-count{line-height:1;}
-.streak-num{font-size:30px;font-weight:700;color:#f59e0b;line-height:1;}
-.streak-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.85);margin-top:3px;}
-.streak-days{display:flex;align-items:center;justify-content:space-between;gap:4px;}
-.sd-item{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1;}
-.sd-day{font-size:10px;font-weight:700;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.04em;}
-.sd-dot{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0;transition:.2s;}
-.sd-dot.done{background:var(--gauge-fill);color:var(--violet-800);}
-.sd-dot.today{background:var(--violet-400);color:#fff;border:2px solid rgba(255,255,255,.4);animation:today-pulse 2s infinite;}
-.sd-dot.future{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.15);}
-.gauge-wrap{flex-direction:column;text-align:center;gap:16px;}
-.stats-row{grid-template-columns:1fr 1fr;}
-.activity-band .activity-card{max-width:none;}
-.strava-connect{display:flex;align-items:center;gap:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-2xl);padding:24px 28px;backdrop-filter:blur(8px);}
-.sc-ico{width:52px;height:52px;border-radius:var(--r-md);background:rgba(255,255,255,.14);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.sc-ico svg{width:26px;height:26px;}
-.sc-txt{flex:1;min-width:0;}
-.sc-title{font-size:17px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:4px;}
-.sc-sub{font-size:13.5px;color:rgba(255,255,255,.78);line-height:1.45;}
-.sc-btn{flex-shrink:0;background:#fff;color:var(--violet-700);font-weight:700;font-size:14px;padding:12px 22px;border-radius:var(--r-md);white-space:nowrap;}
-.strava-connect{flex-wrap:wrap;}
-.activity-band .activity-card{max-width:none;}
-/* ── Volet compact (éviter le scroll) ── */
-.act-drawer{padding:20px 20px 28px;}
-.act-drawer-head{margin-bottom:14px;}
-.act-drawer .activity-card{padding:22px;}
-.act-drawer .ac-head{margin-bottom:12px;}
-.act-drawer .gauge{width:150px;height:150px;}
-.act-drawer .gauge-wrap{flex-direction:column;align-items:center;text-align:center;gap:14px;}
-.act-drawer .gauge-info{text-align:center;}
-.act-drawer .gauge-wrap{gap:16px;margin-bottom:14px;}
-.act-drawer .gauge-headline{font-size:15px;margin-bottom:4px;}
-.act-drawer .gauge-detail{font-size:12px;}
-.act-drawer .stats-row{gap:6px;}
-.act-drawer .stat-mini{padding:8px 6px;}
-.act-drawer .streak-section{padding-top:12px;margin-top:12px;}
-.act-drawer .streak-head{margin-bottom:12px;}
-.act-drawer .sd-dot{width:26px;height:26px;font-size:13px;}
 </style>
 </head>
 <body>
@@ -363,7 +282,7 @@ body.act-open .act-drawer{transform:translateX(0);}
 <!-- Bandeau démo -->
 <div style="background:#1c0926;color:#fff;padding:8px 24px;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:Arial,Helvetica,sans-serif;">
  <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable TEAM IMAGINE</strong> — Démo de cadrage, juin 2026</span>
- <a href="sommaire-strava.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:.15s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
+ <a href="sommaire-sans-strava.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:.15s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
  Retour au sommaire
  </a>
@@ -373,27 +292,27 @@ body.act-open .act-drawer{transform:translateX(0);}
 <!-- ═══ HEADER ═══ -->
 <header class="header">
  <div class="container header-top">
- <a href="home.html" class="logo" aria-label="GROUPE BPCE × TEAM IMAGINE - Accueil">
+ <a href="home-sans-strava.html" class="logo" aria-label="GROUPE BPCE × TEAM IMAGINE - Accueil">
  <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" class="logo-img"/>
  </a>
  <nav class="nav" aria-label="Navigation principale">
  <div class="nav-dropdown">
- <a href="actualites.html" class="nav-dropdown-trigger">
+ <a href="actualites-sans-strava.html" class="nav-dropdown-trigger">
  Actualités
  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
  </a>
  <div class="nav-dropdown-menu" role="menu">
- <a href="actualites-articles.html" role="menuitem">
+ <a href="actualites-articles-sans-strava.html" role="menuitem">
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
  Articles
  </a>
- <a href="actualites-videos.html" role="menuitem">
+ <a href="actualites-videos-sans-strava.html" role="menuitem">
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
  Vidéos
  </a>
  </div>
  </div>
- <a href="bouger.html">
+ <a href="bouger-sans-strava.html">
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
  Bouger
  </a>
@@ -401,11 +320,11 @@ body.act-open .act-drawer{transform:translateX(0);}
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 11h.01M15 11h.01M8 15s1.5 2 4 2 4-2 4-2"/></svg>
  Participer
  </a>
- <a href="calendrier.html">
+ <a href="calendrier-sans-strava.html">
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
  Calendrier
  </a>
- <a href="dashboard.html">Dashboard</a>
+ <a href="dashboard-sans-strava.html">Dashboard</a>
  <span class="nav-defi" title="Le Défi 2027 — à venir"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2z"/></svg>Le Défi 2027</span>
  </nav>
  <div class="header-actions">
@@ -431,7 +350,7 @@ body.act-open .act-drawer{transform:translateX(0);}
 
  <div class="container">
  <div class="breadcrumb">
- <a href="home.html">Accueil</a>
+ <a href="home-sans-strava.html">Accueil</a>
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
  <span>Participer</span>
  </div>
@@ -805,7 +724,7 @@ body.act-open .act-drawer{transform:translateX(0);}
  <div class="container">
  <div class="footer-grid">
  <div class="footer-brand">
- <a href="home.html" style="display:inline-block;background:#fff;padding:8px 14px;border-radius:10px;">
+ <a href="home-sans-strava.html" style="display:inline-block;background:#fff;padding:8px 14px;border-radius:10px;">
  <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" style="height:48px;width:auto;display:block;"/>
  </a>
  <p>La plateforme d'engagement sportif et de bien-être du Groupe BPCE.</p>
@@ -813,11 +732,11 @@ body.act-open .act-drawer{transform:translateX(0);}
 
  <div class="footer-col">
  <h4>Explorer</h4>
- <a href="actualites.html">Actualités</a>
+ <a href="actualites-sans-strava.html">Actualités</a>
  <a href="#">Bouger</a>
  <a href="#">Participer</a>
  <a href="#">Calendrier</a>
- <a href="dashboard.html">Dashboard</a>
+ <a href="dashboard-sans-strava.html">Dashboard</a>
  <a href="#">La Promesse</a>
  </div>
 
@@ -857,150 +776,6 @@ body.act-open .act-drawer{transform:translateX(0);}
  </div>
 </footer>
 
-<a class="version-pill" href="sommaire-strava.html" title="Version Avec Strava — cliquer pour changer de version"><svg class="vp-logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg> Avec Strava</a>
-
-<!-- ═══ VOLET MON ACTIVITÉ DU JOUR (Strava) ═══ -->
-<button class="act-tab" id="actTabBtn" aria-label="Ouvrir mon activité du jour">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
- <span class="act-tab-label">Mon activité</span>
-</button>
-<div class="act-overlay" id="actOverlay"></div>
-<aside class="act-drawer" id="actDrawer" aria-label="Mon activité du jour" aria-hidden="true">
- <div class="act-drawer-head">
- <h2>Mon activité du jour</h2>
- <button class="act-close" id="actCloseBtn" aria-label="Fermer le volet">&times;</button>
- </div>
- <div class="sv-on">
- <div class="activity-card" aria-label="Mon jour d'activité">
- <div class="ac-head">
- <span class="ac-title">Mon jour d'activité</span>
- <span class="ac-source">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
- Mise à jour il y a 3 min
- </span>
- </div>
-
- <div class="gauge-wrap">
- <div class="gauge" role="img" aria-label="Jour d'activité à 80%">
- <svg viewBox="0 0 120 120">
- <circle class="gauge-bg" cx="60" cy="60" r="50"/>
- <circle class="gauge-fill" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="62.83"/>
- </svg>
- <div class="gauge-center">
- <div class="gauge-pct">80%</div>
- <div class="gauge-status">en cours</div>
- </div>
- </div>
- <div class="gauge-info">
- <span class="gauge-day-status">
- <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
- Bientôt validé
- </span>
- <div class="gauge-headline">Plus que <strong>0,6 km</strong> ou <strong>1 séance</strong> pour valider votre journée</div>
- <div class="gauge-detail">Objectif quotidien : <strong>3 km</strong> parcourus ou <strong>1 séance</strong> complétée</div>
- </div>
- </div>
-
- <div class="stats-row">
- <div class="stat-mini">
- <div class="stat-mini-num">2,4 km</div>
- <div class="stat-mini-label">parcourus</div>
- </div>
- <div class="stat-mini">
- <div class="stat-mini-num">0</div>
- <div class="stat-mini-label">séance</div>
- </div>
- <div class="stat-mini">
- <div class="stat-mini-num">28 min</div>
- <div class="stat-mini-label">activité</div>
- </div>
- <div class="stat-mini">
- <div class="stat-mini-num">7'12"</div>
- <div class="stat-mini-label">allure /km</div>
- </div>
- </div>
-
- <!-- STREAK STYLE DUOLINGO -->
- <div class="streak-section">
- <div class="streak-head">
- <div class="streak-flame">
- <svg width="26" height="32" viewBox="0 0 26 32" fill="none">
- <path d="M13 1 C13 1,21 9,22 17 C23 23,19 29,13 31 C7 29,3 23,4 17 C5 9,13 1,13 1Z" fill="#f59e0b"/>
- <path d="M13 10 C13 10,17 15,17.5 19 C18 23,15.5 27,13 27 C10.5 27,8 23,8.5 19 C9 15,13 10,13 10Z" fill="#fcd34d"/>
- <circle cx="13" cy="21" r="3" fill="#f59e0b"/>
- </svg>
- </div>
- <div class="streak-count">
- <div class="streak-num">12</div>
- <div class="streak-label">jours d'activité</div>
- </div>
- </div>
- <div class="streak-days" role="list" aria-label="Jours actifs de la semaine">
- <div class="sd-item" role="listitem">
- <span class="sd-day">L</span>
- <div class="sd-dot done" aria-label="Lundi validé">
- <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
- </div>
- </div>
- <div class="sd-item" role="listitem">
- <span class="sd-day">M</span>
- <div class="sd-dot done" aria-label="Mardi validé">
- <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
- </div>
- </div>
- <div class="sd-item" role="listitem">
- <span class="sd-day">Me</span>
- <div class="sd-dot done" aria-label="Mercredi validé">
- <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
- </div>
- </div>
- <div class="sd-item" role="listitem">
- <span class="sd-day">J</span>
- <div class="sd-dot done" aria-label="Jeudi validé">
- <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
- </div>
- </div>
- <div class="sd-item" role="listitem">
- <span class="sd-day">V</span>
- <div class="sd-dot done" aria-label="Vendredi validé">
- <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
- </div>
- </div>
- <div class="sd-item" role="listitem">
- <span class="sd-day">S</span>
- <div class="sd-dot today" aria-label="Samedi, journée en cours">
- <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></svg>
- </div>
- </div>
- <div class="sd-item" role="listitem">
- <span class="sd-day">D</span>
- <div class="sd-dot future" aria-label="Dimanche, à venir"></div>
- </div>
- </div>
- </div>
- </div>
- </div>
- <div class="sv-off" hidden>
- <div class="strava-connect">
- <div class="sc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
- <div class="sc-txt">
- <div class="sc-title">Connectez-vous à Strava pour voir votre activité du jour</div>
- <div class="sc-sub">Synchronisez vos séances de marche et de course pour suivre vos objectifs et votre régularité.</div>
- </div>
- <a href="#" class="sc-btn">Se connecter à Strava</a>
- </div>
- </div>
-</aside>
-<script>
-(function(){
- var b=document.body, tab=document.getElementById('actTabBtn'), ov=document.getElementById('actOverlay'), cl=document.getElementById('actCloseBtn'), dr=document.getElementById('actDrawer');
- function open(){b.classList.add('act-open');dr.setAttribute('aria-hidden','false');}
- function close(){b.classList.remove('act-open');dr.setAttribute('aria-hidden','true');}
- if(tab)tab.addEventListener('click',open);
- if(ov)ov.addEventListener('click',close);
- if(cl)cl.addEventListener('click',close);
- document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
-})();
-</script>
+<a class="version-pill v2" href="sommaire-sans-strava.html" title="Version Sans Strava — cliquer pour changer de version"><span class="vp-dot"></span> Sans Strava</a>
 </body>
 </html>
