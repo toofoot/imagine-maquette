@@ -384,6 +384,11 @@ img{max-width:100%;display:block;}
 .article-tag.tag-t1{color:#581d74;}
 .article-tag.tag-t2{color:#0c4a85;}
 .article-tag.tag-t3{color:#1a7a45;}
+.li-pin{position:absolute;top:12px;right:12px;z-index:3;width:30px;height:30px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.22);}
+.li-pin img{width:20px;height:20px;border-radius:4px;display:block;}
+.article-readmore.li{color:#0a66c2;}
+.article-readmore.li svg{width:13px;height:13px;}
+a.article-card{text-decoration:none;color:inherit;}
 .video-play-overlay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:rgba(255,255,255,.95);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 6px 20px rgba(0,0,0,.25);transition:.2s;}
 .video-play-overlay svg{width:22px;height:22px;color:var(--violet-700);margin-left:3px;}
 .article-card:hover .video-play-overlay{transform:translate(-50%,-50%) scale(1.1);background:#fff;}
@@ -532,7 +537,7 @@ img{max-width:100%;display:block;}
  <!-- 3 thèmes Banque du Sport (remplace le bloc activité dans le héros) -->
  <aside class="hero-article" aria-label="Dernier article publié">
  <span class="hero-article-kicker"><span class="hak-dot"></span>À la une</span>
- <a href="actualites-articles.html" class="hero-article-card">
+ <a href="article-sans-strava.html" class="hero-article-card">
  <div class="hero-article-img t1">
  <span class="hero-article-tag">Banque des athlètes</span>
  </div>
@@ -767,17 +772,17 @@ img{max-width:100%;display:block;}
  </div>
  </article>
 
- <article class="article-card">
+ <a class="article-card article-card--li" href="https://www.linkedin.com/company/bpce/" target="_blank" rel="noopener" aria-label="Voir le post LinkedIn (nouvel onglet)">
  <div class="article-img t3">
  <span class="article-tag tag-t3">BANQUE ACTIVE ET SPORTIVE</span>
+ <span class="li-pin"><img src="assets/favicon-linkedin.png" alt="Publié sur LinkedIn"></span>
  </div>
  <div class="article-body">
- <div class="article-meta"><span class="article-entity">CE Hauts-de-France</span> · <span>il y a 5 jours</span></div>
- <h3 class="article-title">Lancement du Summer Challenge 2026 : déjà 1 240 inscrits !</h3>
- <p class="article-excerpt">L'engouement est au rendez-vous pour ce premier grand défi collectif de l'année.</p>
- <span class="article-readmore">Lire l'article →</span>
+ <div class="article-meta"><span class="article-entity">CE Hauts-de-France</span> · <span>via LinkedIn</span></div>
+ <p class="article-excerpt">Belle mobilisation de nos collaborateurs pour la Journée du Sport en Entreprise. Merci à toutes et à tous pour votre énergie&nbsp;!</p>
+ <span class="article-readmore li">Voir le post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
  </div>
- </article>
+ </a>
  </div>
  </div>
  </section>

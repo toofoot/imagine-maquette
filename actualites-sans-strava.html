@@ -272,6 +272,11 @@ img{max-width:100%;display:block;}
 .article-tag.tag-t1{color:#581d74;}
 .article-tag.tag-t2{color:#0c4a85;}
 .article-tag.tag-t3{color:#1a7a45;}
+.li-pin{position:absolute;top:12px;right:12px;z-index:3;width:30px;height:30px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.22);}
+.li-pin img{width:20px;height:20px;border-radius:4px;display:block;}
+.article-readmore.li{color:#0a66c2;}
+.article-readmore.li svg{width:13px;height:13px;}
+a.article-card{text-decoration:none;color:inherit;}
 
 /* Bouton nav illustratif "Défi 2027" */
 .nav-defi{display:inline-flex;align-items:center;gap:7px;margin-left:8px;background:linear-gradient(135deg,#6b239a,#c026d3);color:#fff;font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:9999px;box-shadow:0 3px 10px rgba(123,46,167,.4);white-space:nowrap;cursor:default;}
@@ -425,7 +430,7 @@ img{max-width:100%;display:block;}
  <div class="section-head">
  <div>
  <h2 class="section-title">À la une — Articles</h2>
- <p class="section-sub">Les 3 derniers articles publiés</p>
+ <p class="section-sub">Articles rédigés et posts LinkedIn récents</p>
  </div>
  <a href="actualites-articles-sans-strava.html" class="section-link">Tous les articles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
  </div>
@@ -456,17 +461,17 @@ img{max-width:100%;display:block;}
  </div>
  </article>
 
- <article class="article-card">
+ <a class="article-card article-card--li" href="https://www.linkedin.com/company/bpce/" target="_blank" rel="noopener" aria-label="Voir le post LinkedIn (nouvel onglet)">
  <div class="article-img t3" style="background:url('assets/Article%203%20%E2%80%94%20Banque%20active%20%26%20sportive.png') center/cover no-repeat;">
  <span class="article-tag tag-t3">BANQUE ACTIVE ET SPORTIVE</span>
+ <span class="li-pin"><img src="assets/favicon-linkedin.png" alt="Publié sur LinkedIn"></span>
  </div>
  <div class="article-body">
- <div class="article-meta"><span class="article-entity">Caisse d'Épargne</span> · <span>il y a 6 jours</span></div>
- <h3 class="article-title">Pacte Utile : 120 terrains de sport rénovés ou créés en 3 ans</h3>
- <p class="article-excerpt">Bilan du programme Pacte Utile porté par Caisse d'Épargne.</p>
- <span class="article-readmore">Lire l'article →</span>
+ <div class="article-meta"><span class="article-entity">Groupe BPCE</span> · <span>via LinkedIn</span></div>
+ <p class="article-excerpt">Retour en images sur la Journée du Sport en Entreprise : plus de 3 000 collaborateurs mobilisés sur toutes les marques du Groupe. Bravo à toutes et à tous&nbsp;!</p>
+ <span class="article-readmore li">Voir le post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
  </div>
- </article>
+ </a>
 
  </div>
  </div>

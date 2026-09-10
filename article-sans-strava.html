@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nos athlètes sponsorisés brillent aux Championnats d'Europe 2026 — TEAM IMAGINE</title>
+<style>
+:root{
+ --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
+ --violet-600:#581d74; --violet-500:#6b239a; --violet-400:#8433b8;
+ --violet-300:#a257cc; --violet-200:#c699e2; --violet-100:#e2c8f2; --violet-50:#f5eefa;
+ --gray-900:#111; --gray-800:#252525; --gray-700:#3d3d3d; --gray-600:#575757;
+ --gray-500:#737373; --gray-400:#909090; --gray-300:#b5b5b5; --gray-200:#d8d8d8;
+ --gray-100:#efefef; --gray-50:#f7f7f7; --white:#fff;
+ --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+ --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
+ --sh-sm:0 1px 3px rgba(88,29,116,.08),0 1px 2px rgba(88,29,116,.05);
+ --sh-md:0 4px 12px rgba(88,29,116,.1),0 2px 4px rgba(88,29,116,.06);
+ --sh-lg:0 10px 30px rgba(88,29,116,.12),0 4px 8px rgba(88,29,116,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:var(--font);color:var(--gray-900);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1280px;margin:0 auto;padding:0 32px;}
+.skip-link{position:absolute;left:-9999px;}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--gray-200);}
+.header-top{display:flex;align-items:center;gap:22px;height:68px;}
+.logo-img{height:40px;width:auto;display:block;}
+.nav{display:flex;align-items:center;gap:4px;margin-left:8px;}
+.nav a,.nav-dropdown-trigger{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border-radius:var(--r-full);font-size:14px;font-weight:600;color:var(--gray-700);cursor:pointer;transition:.15s;}
+.nav a svg,.nav-dropdown-trigger svg{width:16px;height:16px;}
+.nav a:hover,.nav-dropdown-trigger:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav a.active,.nav-dropdown-trigger.active{color:var(--violet-700);}
+.nav-dropdown{position:relative;}
+.nav-dropdown-menu{position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:6px;min-width:180px;display:none;flex-direction:column;z-index:120;}
+.nav-dropdown:hover .nav-dropdown-menu{display:flex;}
+.nav-dropdown-menu a{padding:9px 12px;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--gray-700);}
+.nav-dropdown-menu a:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav-defi{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:var(--r-full);font-size:13px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--violet-600),var(--violet-400));margin-left:4px;}
+.nav-defi svg{width:14px;height:14px;}
+.header-actions{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.icon-btn{width:38px;height:38px;border-radius:50%;border:none;background:var(--gray-50);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;position:relative;color:var(--gray-700);}
+.icon-btn svg{width:18px;height:18px;}
+.icon-btn:hover{background:var(--violet-50);color:var(--violet-700);}
+.notif-dot{position:absolute;top:8px;right:9px;width:8px;height:8px;border-radius:50%;background:#e0245e;border:2px solid #fff;}
+.user-chip{display:inline-flex;align-items:center;gap:9px;padding:5px 12px 5px 5px;border-radius:var(--r-full);border:1px solid var(--gray-200);background:#fff;cursor:pointer;}
+.avatar{width:32px;height:32px;border-radius:50%;background:var(--violet-600);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;}
+.user-name{font-size:13px;font-weight:700;color:var(--gray-800);}
+
+/* ARTICLE */
+.article-top{background:var(--gray-50);border-bottom:1px solid var(--gray-100);}
+.breadcrumb{font-size:12.5px;color:var(--gray-500);padding:16px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.breadcrumb a:hover{color:var(--violet-600);}
+.breadcrumb svg{width:12px;height:12px;opacity:.6;}
+.article-head{max-width:840px;margin:0 auto;padding:10px 0 30px;}
+.a-cat{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--violet-100);color:var(--violet-700);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:6px 13px;border-radius:var(--r-full);}
+.a-cat .dot{width:7px;height:7px;border-radius:50%;background:var(--violet-500);}
+.a-title{font-size:38px;line-height:1.13;font-weight:700;letter-spacing:-1px;color:var(--gray-900);margin:16px 0 16px;}
+.a-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--gray-600);}
+.a-author{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:var(--gray-800);}
+.a-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--violet-600),var(--violet-400));color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0;}
+.a-meta-sep{color:var(--gray-300);}
+.a-hero-img{max-width:1040px;margin:-4px auto 0;height:460px;border-radius:var(--r-2xl);background-size:cover;background-position:center;box-shadow:var(--sh-lg);}
+@media(max-width:1080px){.a-hero-img{border-radius:0;margin-left:-32px;margin-right:-32px;max-width:none;height:340px;}}
+.a-body{max-width:720px;margin:0 auto;padding:44px 0 8px;}
+.a-lead{font-size:20px;line-height:1.6;color:var(--gray-900);font-weight:600;margin-bottom:26px;}
+.a-body p{font-size:17px;line-height:1.78;color:var(--gray-800);margin-bottom:22px;}
+.a-body h2{font-size:24px;font-weight:700;color:var(--gray-900);margin:36px 0 14px;letter-spacing:-.3px;}
+.a-body strong{color:var(--gray-900);}
+.a-quote{border-left:4px solid var(--violet-400);background:var(--violet-50);padding:20px 26px;border-radius:0 var(--r-lg) var(--r-lg) 0;font-size:19px;line-height:1.5;font-style:italic;color:var(--violet-800);margin:30px 0;font-weight:600;}
+.a-figure{margin:30px 0;}
+.a-figure .a-fig-img{height:320px;border-radius:var(--r-xl);background-size:cover;background-position:center;box-shadow:var(--sh-md);}
+.a-figure figcaption{font-size:12.5px;color:var(--gray-500);margin-top:10px;text-align:center;font-style:italic;}
+.a-share{max-width:720px;margin:14px auto 0;display:flex;align-items:center;gap:12px;padding:20px 0;border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);flex-wrap:wrap;}
+.a-share-label{font-size:13px;font-weight:700;color:var(--gray-700);margin-right:2px;}
+.a-share a{width:38px;height:38px;border-radius:50%;background:var(--gray-50);display:inline-flex;align-items:center;justify-content:center;color:var(--gray-700);transition:.15s;}
+.a-share a:hover{background:var(--violet-50);color:var(--violet-700);}
+.a-share a svg{width:17px;height:17px;}
+.a-share a img{width:18px;height:18px;border-radius:4px;}
+.author-box{max-width:720px;margin:28px auto 0;display:flex;gap:18px;align-items:center;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--r-xl);padding:22px 24px;}
+.author-box .ab-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--violet-600),var(--violet-400));color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;flex-shrink:0;}
+.author-box .ab-name{font-size:15px;font-weight:700;color:var(--gray-900);}
+.author-box .ab-role{font-size:13px;color:var(--gray-600);margin-top:3px;line-height:1.5;}
+
+/* RELATED */
+.related{background:var(--gray-50);margin-top:56px;padding:48px 0 56px;}
+.related-head{max-width:1080px;margin:0 auto 24px;}
+.related-head h2{font-size:24px;font-weight:700;letter-spacing:-.3px;color:var(--gray-900);}
+.related-grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.rc{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-xl);overflow:hidden;display:flex;flex-direction:column;transition:.2s;}
+.rc:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);}
+.rc-img{height:150px;position:relative;background-size:cover;background-position:center;}
+.rc-tag{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.95);color:var(--violet-700);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:5px 11px;border-radius:var(--r-full);}
+.li-pin{position:absolute;top:12px;right:12px;z-index:3;width:30px;height:30px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.22);}
+.li-pin img{width:20px;height:20px;border-radius:4px;display:block;}
+.rc-body{padding:18px 20px;display:flex;flex-direction:column;gap:8px;flex:1;}
+.rc-meta{font-size:12px;color:var(--gray-500);font-weight:600;}
+.rc-title{font-size:16px;font-weight:700;line-height:1.3;color:var(--gray-900);}
+.rc-more{margin-top:auto;font-size:13px;font-weight:700;color:var(--violet-600);display:inline-flex;align-items:center;gap:5px;}
+.rc-more.li{color:#0a66c2;}
+.rc-more svg{width:13px;height:13px;}
+
+/* BACK */
+.back-row{max-width:720px;margin:0 auto;padding:26px 0 4px;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--violet-600);}
+.back-link svg{width:16px;height:16px;}
+
+/* FOOTER */
+.footer{background:var(--violet-900);color:rgba(255,255,255,.7);padding:44px 0 24px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-brand p{font-size:13px;line-height:1.6;max-width:280px;margin-top:14px;}
+.footer-col h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.85);padding:5px 0;transition:.15s;}
+.footer-col a:hover{color:#fff;}
+.footer-qr{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);padding:12px;}
+.qr-box{width:70px;height:70px;background:#fff;border-radius:8px;padding:6px;flex-shrink:0;}
+.qr-box svg{width:100%;height:100%;}
+.footer-qr-text{font-size:12px;line-height:1.4;}
+.footer-qr-text strong{color:#fff;display:block;font-size:13px;margin-bottom:2px;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:20px;font-size:12px;flex-wrap:wrap;gap:10px;}
+.footer-legal{display:flex;gap:18px;flex-wrap:wrap;}
+.footer-legal a{color:rgba(255,255,255,.7);}
+.footer-legal a:hover{color:#fff;}
+
+/* VERSION PILL */
+.version-pill{position:fixed;right:18px;bottom:18px;z-index:200;display:inline-flex;align-items:center;gap:8px;background:var(--violet-900);color:#fff;padding:9px 15px;border-radius:var(--r-full);font-size:12.5px;font-weight:700;box-shadow:0 8px 24px rgba(46,16,64,.4);}
+.vp-dot{width:9px;height:9px;border-radius:50%;background:#7be8a8;}
+
+@media(max-width:900px){
+ .nav,.user-name{display:none;}
+ .container{padding:0 20px;}
+ .a-title{font-size:29px;}
+ .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
+ .related-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+
+<!-- Bandeau démo -->
+<div style="background:#1c0926;color:#fff;padding:8px 24px;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:Arial,Helvetica,sans-serif;">
+ <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable TEAM IMAGINE</strong> — Démo de cadrage, juin 2026</span>
+ <a href="sommaire-sans-strava.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;">
+ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+ Retour au sommaire
+ </a>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+ <div class="container header-top">
+ <a href="home-sans-strava.html" class="logo" aria-label="GROUPE BPCE × TEAM IMAGINE - Accueil">
+ <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" class="logo-img"/>
+ </a>
+ <nav class="nav" aria-label="Navigation principale">
+ <div class="nav-dropdown">
+ <a href="actualites-sans-strava.html" class="nav-dropdown-trigger active">
+ Actualités
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </a>
+ <div class="nav-dropdown-menu" role="menu">
+ <a href="actualites-articles-sans-strava.html" role="menuitem">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+ Articles
+ </a>
+ <a href="actualites-videos-sans-strava.html" role="menuitem">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
+ Vidéos
+ </a>
+ </div>
+ </div>
+ <a href="bouger-sans-strava.html">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+ Bouger
+ </a>
+ <a href="participer-sans-strava.html">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 11h.01M15 11h.01M8 15s1.5 2 4 2 4-2 4-2"/></svg>
+ Participer
+ </a>
+ <a href="calendrier-sans-strava.html">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ Calendrier
+ </a>
+ <a href="dashboard-sans-strava.html">Dashboard</a>
+ <span class="nav-defi" title="Le Défi 2027 — à venir"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2z"/></svg>Le Défi 2027</span>
+ </nav>
+ <div class="header-actions">
+ <button class="icon-btn" aria-label="Rechercher">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+ </button>
+ <button class="icon-btn" aria-label="Notifications">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+ <span class="notif-dot"></span>
+ </button>
+ <button class="user-chip">
+ <span class="avatar">CL</span>
+ <span class="user-name">Camille L.</span>
+ </button>
+ </div>
+ </div>
+</header>
+
+<main id="main">
+
+ <!-- EN-TÊTE ARTICLE -->
+ <div class="article-top">
+ <div class="container">
+ <nav class="breadcrumb" aria-label="Fil d'Ariane">
+ <a href="home-sans-strava.html">Accueil</a>
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+ <a href="actualites-sans-strava.html">Actualités</a>
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+ <a href="actualites-articles-sans-strava.html">Articles</a>
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+ <span>Championnats d'Europe 2026</span>
+ </nav>
+ <div class="article-head">
+ <span class="a-cat"><span class="dot"></span> Banque des athlètes</span>
+ <h1 class="a-title">Nos athlètes sponsorisés brillent aux Championnats d'Europe 2026</h1>
+ <div class="a-meta">
+ <span class="a-author"><span class="a-avatar">GB</span> Groupe BPCE</span>
+ <span class="a-meta-sep">•</span>
+ <span>Publié le 4 juin 2026</span>
+ <span class="a-meta-sep">•</span>
+ <span>6 min de lecture</span>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- IMAGE À LA UNE -->
+ <div class="container">
+ <div class="a-hero-img" style="background-image:url('assets/Article%201%20%E2%80%94%20Banque%20des%20athl%C3%A8tes.png');" role="img" aria-label="Athlètes du Groupe BPCE sur le podium des Championnats d'Europe"></div>
+ </div>
+
+ <!-- CORPS -->
+ <article class="a-body">
+ <p class="a-lead">Retour sur une saison exceptionnelle pour les sportifs soutenus par le Groupe BPCE. Entre médailles décrochées, records personnels battus et engagement sociétal renouvelé, nos 47 athlètes incarnent les valeurs de la Banque du Sport.</p>
+
+ <p>Les Championnats d'Europe 2026 resteront dans les mémoires des équipes de la <strong>Banque du Sport</strong>. Portés par un partenariat renouvelé et une saison de préparation minutieuse, les athlètes sponsorisés par le Groupe et ses marques ont multiplié les performances de premier plan, sur la piste comme dans les bassins.</p>
+
+ <p>Au total, ce sont <strong>douze médailles</strong> qui viennent récompenser une année d'efforts, dont quatre titres continentaux. Un bilan qui illustre la cohérence de l'accompagnement mis en place autour de chaque sportif : suivi de la performance, préparation à la reconversion et mise en lumière au sein des communautés de collaborateurs.</p>
+
+ <h2>Un accompagnement au-delà de la performance</h2>
+ <p>Si les résultats sportifs sont au rendez-vous, l'ambition du Groupe dépasse le seul palmarès. À travers le programme <strong>Double Carrière</strong>, chaque athlète bénéficie d'un dispositif sur mesure pour préparer l'après-carrière — formations, immersions en entreprise et mentorat par des collaborateurs.</p>
+
+ <blockquote class="a-quote">« Se sentir soutenu à la fois sur le terrain et dans mon projet professionnel change tout. Je sais que je construis mon avenir en même temps que mes performances. »</blockquote>
+
+ <p>Cette approche fait écho au positionnement de la Banque du Sport, à la croisée de la performance de haut niveau et de l'engagement sociétal. Elle nourrit également le lien entre les sportifs et les 40 000 collaborateurs du Groupe, invités à suivre et encourager « leurs » athlètes tout au long de la saison.</p>
+
+ <figure class="a-figure">
+ <div class="a-fig-img" style="background-image:url('assets/Article%202%20%E2%80%94%20%C3%89conomie%20du%20sport.png');" role="img" aria-label="Cérémonie de remise des médailles"></div>
+ <figcaption>Les athlètes du Groupe réunis à l'issue de la compétition — juin 2026.</figcaption>
+ </figure>
+
+ <h2>Une dynamique qui se prolonge en interne</h2>
+ <p>Les exploits de nos athlètes résonnent bien au-delà des stades. Sur la plateforme TEAM IMAGINE, articles, portraits vidéo et temps forts rythment la saison et alimentent la fierté collective. Une manière concrète de faire vivre la promesse d'une <strong>banque active et sportive</strong>, du plus haut niveau jusqu'aux initiatives bien-être du quotidien.</p>
+
+ <p>La saison n'est pas terminée : plusieurs rendez-vous majeurs attendent encore nos sportifs. Rendez-vous dans le calendrier de la plateforme pour ne rien manquer des prochaines échéances.</p>
+ </article>
+
+ <!-- PARTAGE -->
+ <div class="a-share">
+ <span class="a-share-label">Partager</span>
+ <a href="#" aria-label="Partager sur LinkedIn"><img src="assets/favicon-linkedin.png" alt="LinkedIn"></a>
+ <a href="#" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
+ <a href="#" aria-label="Copier le lien"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></a>
+ </div>
+
+ <!-- AUTEUR -->
+ <div class="author-box">
+ <span class="ab-avatar">GB</span>
+ <div>
+ <div class="ab-name">Groupe BPCE — Direction de la Communication</div>
+ <div class="ab-role">Publie les actualités de la Banque du Sport : temps forts des athlètes, engagement sociétal et vie des marques du Groupe.</div>
+ </div>
+ </div>
+
+ <!-- RETOUR -->
+ <div class="back-row">
+ <a href="actualites-articles-sans-strava.html" class="back-link">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+ Retour à tous les articles
+ </a>
+ </div>
+
+ <!-- ARTICLES LIÉS -->
+ <section class="related" aria-label="Articles liés">
+ <div class="related-head"><h2>À lire aussi</h2></div>
+ <div class="related-grid">
+
+ <a class="rc" href="actualites-articles-sans-strava.html">
+ <div class="rc-img" style="background-image:url('assets/Article%202%20%E2%80%94%20%C3%89conomie%20du%20sport.png');">
+ <span class="rc-tag">Économie du sport</span>
+ </div>
+ <div class="rc-body">
+ <div class="rc-meta">BPCE L'Observatoire · il y a 4 jours</div>
+ <div class="rc-title">L'économie du sport en France : les chiffres clés 2026</div>
+ <span class="rc-more">Lire l'article →</span>
+ </div>
+ </a>
+
+ <a class="rc" href="https://www.linkedin.com/company/bpce/" target="_blank" rel="noopener">
+ <div class="rc-img" style="background-image:url('assets/Article%203%20%E2%80%94%20Banque%20active%20%26%20sportive.png');">
+ <span class="rc-tag">Banque active &amp; sportive</span>
+ <span class="li-pin"><img src="assets/favicon-linkedin.png" alt="Publié sur LinkedIn"></span>
+ </div>
+ <div class="rc-body">
+ <div class="rc-meta">Groupe BPCE · via LinkedIn</div>
+ <div class="rc-title">Retour en images sur la Journée du Sport en Entreprise</div>
+ <span class="rc-more li">Voir le post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
+ </div>
+ </a>
+
+ <a class="rc" href="actualites-videos-sans-strava.html">
+ <div class="rc-img" style="background-image:url('assets/Vid%C3%A9o%201%20%E2%80%94%20Portrait%20d%27athl%C3%A8te%20sponsoris%C3%A9.png');">
+ <span class="rc-tag">Portraits</span>
+ </div>
+ <div class="rc-body">
+ <div class="rc-meta">Vidéo · 5 min</div>
+ <div class="rc-title">Manon Apithy-Brunet — Dans la peau d'une championne olympique</div>
+ <span class="rc-more">Regarder →</span>
+ </div>
+ </a>
+
+ </div>
+ </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="home-sans-strava.html" style="display:inline-block;background:#fff;padding:8px 14px;border-radius:10px;">
+ <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" style="height:48px;width:auto;display:block;"/>
+ </a>
+ <p>La plateforme d'engagement sportif et de bien-être du Groupe BPCE, en France et à l'international.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Explorer</h4>
+ <a href="actualites-sans-strava.html">Actualités</a>
+ <a href="bouger-sans-strava.html">Bouger</a>
+ <a href="participer-sans-strava.html">Participer</a>
+ <a href="calendrier-sans-strava.html">Calendrier</a>
+ <a href="dashboard-sans-strava.html">Dashboard</a>
+ <a href="#">La Promesse</a>
+ </div>
+ <div class="footer-col">
+ <h4>Mon compte</h4>
+ <a href="#">Mes participations</a>
+ <a href="#">Mes badges</a>
+ <a href="#">Confidentialité</a>
+ <a href="#">Notifications</a>
+ </div>
+ <div class="footer-col">
+ <h4>Suivez-nous</h4>
+ <div class="footer-qr">
+ <div class="qr-box">
+ <svg viewBox="0 0 100 100" fill="#581d74"><rect x="0" y="0" width="30" height="30"/><rect x="8" y="8" width="14" height="14" fill="#fff"/><rect x="70" y="0" width="30" height="30"/><rect x="78" y="8" width="14" height="14" fill="#fff"/><rect x="0" y="70" width="30" height="30"/><rect x="8" y="78" width="14" height="14" fill="#fff"/><rect x="40" y="0" width="8" height="8"/><rect x="52" y="0" width="8" height="8"/><rect x="40" y="14" width="8" height="8"/><rect x="40" y="40" width="8" height="8"/><rect x="55" y="40" width="12" height="12"/><rect x="75" y="45" width="8" height="8"/><rect x="88" y="40" width="8" height="8"/><rect x="40" y="60" width="8" height="8"/><rect x="60" y="65" width="8" height="8"/><rect x="80" y="70" width="8" height="8"/><rect x="45" y="80" width="10" height="10"/><rect x="70" y="88" width="8" height="8"/><rect x="88" y="80" width="8" height="8"/></svg>
+ </div>
+ <div class="footer-qr-text">
+ <strong>@bpce_banquedusport</strong>
+ <a href="https://www.instagram.com/bpce_banquedusport" target="_blank" rel="noopener" style="color:rgba(255,255,255,.85);">Suivez-nous sur Instagram</a>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <span>© 2026 Groupe BPCE — TEAM IMAGINE. Tous droits réservés.</span>
+ <div class="footer-legal">
+ <a href="#">Mentions légales</a>
+ <a href="#">CGU</a>
+ <a href="#">Confidentialité</a>
+ <a href="#">Cookies</a>
+ <a href="#">Accessibilité</a>
+ </div>
+ </div>
+ </div>
+</footer>
+
+<a class="version-pill" href="sommaire-sans-strava.html" title="Version Sans Strava — cliquer pour changer de version"><span class="vp-dot"></span> Sans Strava</a>
+
+</body>
+</html>

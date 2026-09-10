@@ -238,6 +238,11 @@ img{max-width:100%;display:block;}
 .article-tag.tag-t1{color:#581d74;}
 .article-tag.tag-t2{color:#0c4a85;}
 .article-tag.tag-t3{color:#1a7a45;}
+.li-pin{position:absolute;top:12px;right:12px;z-index:3;width:30px;height:30px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.22);}
+.li-pin img{width:20px;height:20px;border-radius:4px;display:block;}
+.article-readmore.li{color:#0a66c2;}
+.article-readmore.li svg{width:13px;height:13px;}
+a.article-card{text-decoration:none;color:inherit;}
 
 /* Bouton nav illustratif "Défi 2027" */
 .nav-defi{display:inline-flex;align-items:center;gap:7px;margin-left:8px;background:linear-gradient(135deg,#6b239a,#c026d3);color:#fff;font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:9999px;box-shadow:0 3px 10px rgba(123,46,167,.4);white-space:nowrap;cursor:default;}
@@ -405,7 +410,7 @@ img{max-width:100%;display:block;}
  <div class="result-count"><strong>28 articles</strong> publiés ce mois</div>
  </div>
 
- <article class="featured-article">
+ <a class="featured-article" href="article-sans-strava.html">
  <div class="featured-img t1" style="background:url('assets/Article%201%20%E2%80%94%20Banque%20des%20athl%C3%A8tes.png') center/cover no-repeat;">
  <div class="featured-tag-line">
  <span class="tag tag-featured">★ À la une</span>
@@ -430,7 +435,7 @@ img{max-width:100%;display:block;}
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
  </span>
  </div>
- </article>
+ </a>
  </div>
  </section>
 
@@ -508,6 +513,23 @@ img{max-width:100%;display:block;}
  </div>
  </article>
 
+ <!-- Post LinkedIn -->
+ <a class="article-card article-card--li" href="https://www.linkedin.com/company/bpce/" target="_blank" rel="noopener" aria-label="Voir le post LinkedIn (nouvel onglet)">
+ <div class="article-img t1" style="background:url('assets/Article%201%20%E2%80%94%20Banque%20des%20athl%C3%A8tes.png') center/cover no-repeat;">
+ <span class="tag t1"><span class="tag-dot"></span>BANQUE DES ATHLÈTES</span>
+ <span class="li-pin"><img src="assets/favicon-linkedin.png" alt="Publié sur LinkedIn"></span>
+ </div>
+ <div class="article-body">
+ <div class="article-meta">
+ <span class="article-entity">Groupe BPCE</span><span>·</span><span>via LinkedIn</span>
+ </div>
+ <p class="article-excerpt">Fierté immense : nos athlètes partenaires ramènent 12 médailles des Championnats d'Europe&nbsp;! Merci à nos collaborateurs qui les soutiennent au quotidien.</p>
+ <div class="article-foot">
+ <span class="article-readmore li">Voir le post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
+ </div>
+ </div>
+ </a>
+
  <!-- Article 4 - Athlètes paralympiques -->
  <article class="article-card">
  <div class="article-img t1" style="background:url('assets/Article%201%20%E2%80%94%20Banque%20des%20athl%C3%A8tes.png') center/cover no-repeat;">
@@ -570,6 +592,23 @@ img{max-width:100%;display:block;}
  </div>
  </div>
  </article>
+
+ <!-- Post LinkedIn -->
+ <a class="article-card article-card--li" href="https://www.linkedin.com/company/bpce/" target="_blank" rel="noopener" aria-label="Voir le post LinkedIn (nouvel onglet)">
+ <div class="article-img t3" style="background:url('assets/Article%203%20%E2%80%94%20Banque%20active%20%26%20sportive.png') center/cover no-repeat;">
+ <span class="tag t3"><span class="tag-dot"></span>BANQUE ACTIVE ET SPORTIVE</span>
+ <span class="li-pin"><img src="assets/favicon-linkedin.png" alt="Publié sur LinkedIn"></span>
+ </div>
+ <div class="article-body">
+ <div class="article-meta">
+ <span class="article-entity">Banque Populaire</span><span>·</span><span>via LinkedIn</span>
+ </div>
+ <p class="article-excerpt">Coup de projecteur sur nos collaborateurs qui bougent&nbsp;: témoignages inspirants tout au long de la semaine du bien-être au travail. Merci pour votre énergie&nbsp;!</p>
+ <div class="article-foot">
+ <span class="article-readmore li">Voir le post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg></span>
+ </div>
+ </div>
+ </a>
 
  <!-- Article 7 - Athlètes - Olympic torch -->
  <article class="article-card">
