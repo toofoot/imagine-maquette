@@ -81,6 +81,9 @@ img{max-width:100%;display:block;}
 .a-share a:hover{background:var(--violet-50);color:var(--violet-700);}
 .a-share a svg{width:17px;height:17px;}
 .a-share a img{width:18px;height:18px;border-radius:4px;}
+.a-share a.a-share-collab{width:auto;height:auto;border-radius:var(--r-full);padding:9px 17px;background:var(--violet-50);color:var(--violet-700);font-size:13px;font-weight:700;gap:8px;}
+.a-share a.a-share-collab:hover{background:var(--violet-100);color:var(--violet-700);}
+.a-share a.a-share-collab svg{width:17px;height:17px;}
 .author-box{max-width:720px;margin:28px auto 0;display:flex;gap:18px;align-items:center;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--r-xl);padding:22px 24px;}
 .author-box .ab-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--violet-600),var(--violet-400));color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;flex-shrink:0;}
 .author-box .ab-name{font-size:15px;font-weight:700;color:var(--gray-900);}
@@ -268,9 +271,10 @@ img{max-width:100%;display:block;}
  <!-- PARTAGE -->
  <div class="a-share">
  <span class="a-share-label">Partager</span>
- <a href="#" aria-label="Partager sur LinkedIn"><img src="assets/favicon-linkedin.png" alt="LinkedIn"></a>
- <a href="#" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
- <a href="#" aria-label="Copier le lien"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></a>
+ <a href="#" class="a-share-collab" aria-label="Partager à un collaborateur">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+ Partager à un collaborateur
+ </a>
  </div>
 
  <!-- AUTEUR -->
