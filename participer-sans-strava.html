@@ -273,6 +273,15 @@ img{max-width:100%;display:block;}
 .version-pill .vp-dot{width:8px;height:8px;border-radius:50%;background:#9aa0a6;flex-shrink:0;}
 .version-pill.v2{background:#3d1554;}
 @media(max-width:600px){.version-pill{right:12px;bottom:12px;font-size:11.5px;padding:8px 13px;}}
+
+/* ═══ Ajout oct. 2026 : 4 jeux (quiz, prono décalé, concours, instant) ═══ */
+.jeux-grid{grid-template-columns:repeat(2,1fr);}
+.jeu-banner{height:200px;}
+.jeu-banner.decale{background:url('assets/visuel-handball.jpg') center 30%/cover no-repeat;}
+.jeu-type.decale{color:var(--quiz);}
+.btn-decale{background:#0e7490;color:#fff;}
+.btn-decale:hover{background:#0b5a70;}
+@media(max-width:600px){.jeux-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -367,7 +376,7 @@ img{max-width:100%;display:block;}
  </div>
  <div class="hero-stats">
  <div class="hero-stat">
- <div class="hero-stat-num">3</div>
+ <div class="hero-stat-num">4</div>
  <div class="hero-stat-label">Jeux en cours</div>
  </div>
  <div class="hero-stat">
@@ -384,20 +393,20 @@ img{max-width:100%;display:block;}
  <div class="container">
  <div class="section-head">
  <div>
- <h2 class="section-title">Jeux en cours <span class="section-title-num">3 actifs</span></h2>
+ <h2 class="section-title">Jeux en cours <span class="section-title-num">4 actifs</span></h2>
  <p class="section-sub">Tentez votre chance avant la date de clôture</p>
  </div>
  </div>
 
  <div class="filter-tabs" role="tablist">
  <button class="filter-tab active" role="tab" aria-selected="true">
- Tous <span class="count">3</span>
+ Tous <span class="count">4</span>
  </button>
  <button class="filter-tab" role="tab">
  Quiz <span class="count">1</span>
  </button>
  <button class="filter-tab" role="tab">
- Pronostics <span class="count">1</span>
+ Pronostics <span class="count">2</span>
  </button>
  <button class="filter-tab" role="tab">
  Instant-gagnant <span class="count">1</span>
@@ -409,13 +418,6 @@ img{max-width:100%;display:block;}
  <!-- QUIZ -->
  <article class="jeu-card">
  <div class="jeu-banner quiz">
- <div class="jeu-svg" aria-hidden="true">
- <svg viewBox="0 0 100 100" fill="none">
- <circle cx="50" cy="50" r="35" stroke="white" stroke-width="3" fill="none"/>
- <path d="M40 38 Q43 32 50 32 Q57 32 60 38 Q60 45 50 50 L50 60" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
- <circle cx="50" cy="70" r="3" fill="white"/>
- </svg>
- </div>
  <div class="jeu-banner-inner">
  <span class="jeu-type quiz">
  <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><text x="12" y="17" text-anchor="middle" fill="white" font-size="13" font-weight="700">?</text></svg>
@@ -424,16 +426,16 @@ img{max-width:100%;display:block;}
  </div>
  </div>
  <div class="jeu-body">
- <h3 class="jeu-name">Quiz FFHandball</h3>
- <p class="jeu-desc">Testez vos connaissances sur le palmarès des Bleus du handball, partenaire historique Caisse d'Épargne.</p>
+ <h3 class="jeu-name">Quiz Handball — Objectif Euro 2026</h3>
+ <p class="jeu-desc">10 questions sur les Bleues et les Experts avant l'EHF EURO féminin. Correction immédiate dès l'envoi.</p>
 
- <div class="jeu-deadline urgent">
+ <div class="jeu-deadline">
  <div class="jeu-deadline-icon" aria-hidden="true">
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
  </div>
  <div class="jeu-deadline-text">
- <strong>Plus que 3 jours</strong>
- Clôture le 30 juin à 23h59
+ <strong>Encore 44 jours</strong>
+ Clôture le 2 décembre à 23h59
  </div>
  </div>
 
@@ -442,13 +444,13 @@ img{max-width:100%;display:block;}
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
  </div>
  <div class="jeu-prize-text">
- <strong>10 lots Team IMAGINE</strong>
- Tirage parmi les meilleurs scores
+ <strong>10 lots Caisse d'Épargne × FFHandball</strong>
+ Tirage au sort parmi les scores ≥ 7/10
  </div>
  </div>
 
  <div class="jeu-foot">
- <a href="#" class="btn btn-quiz">
+ <a href="quiz-sans-strava.html" class="btn btn-quiz">
  Participer au quiz
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
  </a>
@@ -456,41 +458,27 @@ img{max-width:100%;display:block;}
  </div>
  </article>
 
- <!-- PRONO -->
+ <!-- PRONO DÉCALÉ -->
  <article class="jeu-card">
- <div class="jeu-banner prono">
- <div class="jeu-svg" aria-hidden="true">
- <svg viewBox="0 0 100 100" fill="none">
- <circle cx="50" cy="50" r="32" stroke="white" stroke-width="3" fill="none"/>
- <path d="M22 50 Q50 30 78 50" stroke="white" stroke-width="2" fill="none"/>
- <path d="M22 50 Q50 70 78 50" stroke="white" stroke-width="2" fill="none"/>
- <ellipse cx="50" cy="50" rx="15" ry="32" stroke="white" stroke-width="2" fill="none"/>
- <ellipse cx="50" cy="50" rx="32" ry="15" stroke="white" stroke-width="2" fill="none"/>
- </svg>
- </div>
+ <div class="jeu-banner decale">
  <div class="jeu-banner-inner">
- <span class="jeu-type prono">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
- Pronostics
+ <span class="jeu-type decale">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg>
+ Prono décalé
  </span>
  </div>
  </div>
  <div class="jeu-body">
- <h3 class="jeu-name">Pronos Tournoi de France de Handball</h3>
- <p class="jeu-desc">Pronostiquez les résultats des 12 matchs du Tournoi de France de Handball. Partenariat Caisse d'Épargne × FFHandball.</p>
-
- <div class="jeu-status">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
- 7 pronos sur 12 effectués
- </div>
+ <h3 class="jeu-name">Prono décalé — Les Bleues à l'Euro</h3>
+ <p class="jeu-desc">6 pronos sur le parcours des Bleues à l'Euro (3–20 décembre) : 1N2, QCM et score chiffré. Chaque réponse vaut des points, résultats après chaque match.</p>
 
  <div class="jeu-deadline">
  <div class="jeu-deadline-icon" aria-hidden="true">
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
  </div>
  <div class="jeu-deadline-text">
- <strong>Encore 6 jours</strong>
- Tournoi jusqu'au 14 juin
+ <strong>Première date limite le 3 décembre</strong>
+ Une date limite par question
  </div>
  </div>
 
@@ -499,14 +487,57 @@ img{max-width:100%;display:block;}
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
  </div>
  <div class="jeu-prize-text">
- <strong>Places Tournoi de France</strong>
- Pour les 5 meilleurs pronostiqueurs · Arena Paris
+ <strong>Maillots des Bleues dédicacés</strong>
+ Pour les 5 premiers du classement
  </div>
  </div>
 
  <div class="jeu-foot">
- <a href="#" class="btn btn-prono">
- Continuer mes pronos
+ <a href="prono-decale-sans-strava.html" class="btn btn-quiz">
+ Faire mes pronos
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+ </a>
+ </div>
+ </div>
+ </article>
+
+ <!-- CONCOURS DE PRONOSTICS -->
+ <article class="jeu-card">
+ <div class="jeu-banner prono">
+ <div class="jeu-banner-inner">
+ <span class="jeu-type prono">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
+ Concours de pronostics
+ </span>
+ </div>
+ </div>
+ <div class="jeu-body">
+ <h3 class="jeu-name">Concours de pronostics — Mondial 2027</h3>
+ <p class="jeu-desc">Pronostiquez en 1N2 les matchs du Mondial de handball (13–31 janvier, Allemagne), de la phase de poules à la finale.</p>
+
+ <div class="jeu-deadline permanent">
+ <div class="jeu-deadline-icon" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+ </div>
+ <div class="jeu-deadline-text">
+ <strong>Pronos ouverts</strong>
+ Coup d'envoi le 13 janvier 2027
+ </div>
+ </div>
+
+ <div class="jeu-prize">
+ <div class="jeu-prize-icon" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+ </div>
+ <div class="jeu-prize-text">
+ <strong>Lots Caisse d'Épargne × FFHandball</strong>
+ Pour les 10 meilleurs pronostiqueurs
+ </div>
+ </div>
+
+ <div class="jeu-foot">
+ <a href="concours-pronostics-sans-strava.html" class="btn btn-prono">
+ Faire mes pronos
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
  </a>
  </div>

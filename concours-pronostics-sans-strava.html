@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team IMAGINE — Concours de pronostics</title>
+<style>
+:root {
+ --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
+ --violet-600:#581d74; --violet-500:#6b239a; --violet-400:#8433b8;
+ --violet-300:#a257cc; --violet-200:#c699e2; --violet-100:#e2c8f2; --violet-50:#f5eefa;
+ --gray-900:#111; --gray-800:#252525; --gray-700:#3d3d3d; --gray-600:#575757;
+ --gray-500:#737373; --gray-400:#909090; --gray-300:#b5b5b5; --gray-200:#d8d8d8;
+ --gray-100:#efefef; --gray-50:#f7f7f7; --white:#fff;
+ --success:#1a7a45; --success-bg:#e7f5ee; --warning:#8a4700; --warning-bg:#fff3e5;
+ --error:#b5001f; --info:#0f5fa8; --info-bg:#e7f0fa;
+ --gauge-fill:#7be8a8;
+ /* Mécaniques couleurs */
+ --quiz:#8433b8; --quiz-bg:#f3e8fb;
+ --prono:#0f5fa8; --prono-bg:#e7f0fa;
+ --instant:#ea580c; --instant-bg:#fff3e5;
+ --form:#1a7a45; --form-bg:#e7f5ee;
+ --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+ --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
+ --sh-sm:0 1px 3px rgba(88,29,116,.08),0 1px 2px rgba(88,29,116,.04);
+ --sh-md:0 4px 12px rgba(88,29,116,.1),0 2px 4px rgba(88,29,116,.06);
+ --sh-lg:0 10px 30px rgba(88,29,116,.12),0 4px 8px rgba(88,29,116,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:var(--font);color:var(--gray-900);background:var(--gray-50);line-height:1.5;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--violet-600);color:#fff;padding:12px 20px;z-index:999;}
+.skip-link:focus{left:0;}
+
+/* ═══ HEADER ═══ */
+.header{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100;}
+.header-top{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px;}
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0;text-decoration:none;}
+.logo-img{height:48px;width:auto;display:block;}
+.logo-mark{width:42px;height:42px;background:var(--violet-600);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;}
+.logo-mark span{color:#fff;font-weight:700;font-size:18px;letter-spacing:-.5px;}
+.logo-text{line-height:1.1;}
+.logo-name{font-weight:700;font-size:16px;color:var(--gray-900);letter-spacing:-.3px;}
+.logo-tag{font-size:11px;color:var(--violet-600);font-weight:700;}
+.nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;}
+.nav a{padding:10px 14px;font-size:14px;font-weight:700;color:var(--gray-700);border-radius:var(--r-md);transition:.15s;position:relative;display:flex;align-items:center;gap:6px;}
+.nav a:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav a.active{color:var(--violet-600);}
+.nav a.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--violet-600);border-radius:3px 3px 0 0;}
+.nav a svg{width:16px;height:16px;}
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.icon-btn{width:42px;height:42px;border-radius:var(--r-full);border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-600);transition:.15s;position:relative;}
+.icon-btn:hover{background:var(--gray-100);color:var(--violet-600);}
+.icon-btn svg{width:22px;height:22px;}
+.notif-dot{position:absolute;top:9px;right:9px;width:8px;height:8px;background:var(--error);border-radius:50%;border:2px solid #fff;}
+.user-chip{display:flex;align-items:center;gap:10px;padding:5px 12px 5px 5px;border-radius:var(--r-full);background:var(--gray-50);border:1px solid var(--gray-200);cursor:pointer;transition:.15s;}
+.user-chip:hover{border-color:var(--violet-300);background:var(--violet-50);}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--violet-600);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;}
+.user-name{font-size:14px;font-weight:700;color:var(--gray-800);}
+
+/* ═══ HERO ═══ */
+.page-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 30%,rgba(255,255,255,.07) 0,transparent 35%),radial-gradient(circle at 10% 90%,rgba(255,255,255,.05) 0,transparent 40%);}
+
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.85);margin-bottom:14px;position:relative;}
+.breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a:hover{color:#fff;}
+.breadcrumb svg{width:14px;height:14px;}
+.hero-inner{position:relative;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;}
+.page-title{font-size:42px;font-weight:700;line-height:1.05;letter-spacing:-1px;margin-bottom:10px;display:flex;align-items:center;gap:14px;}
+.page-title-icon{width:50px;height:50px;border-radius:var(--r-md);background:rgba(255,255,255,.16);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.page-title-icon svg{width:28px;height:28px;}
+.page-sub{font-size:16px;color:rgba(255,255,255,.85);max-width:560px;line-height:1.5;}
+
+/* Stats hero */
+.hero-stats{display:flex;gap:14px;}
+.hero-stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-xl);padding:18px 24px;text-align:center;backdrop-filter:blur(8px);min-width:130px;}
+.hero-stat-num{font-size:34px;font-weight:700;line-height:1;color:#fff;letter-spacing:-.5px;}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.85);margin-top:6px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;}
+
+/* ═══ SECTIONS ═══ */
+.section{padding:42px 0;}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;gap:24px;flex-wrap:wrap;}
+.section-title{font-size:28px;font-weight:700;letter-spacing:-.5px;color:var(--gray-900);display:flex;align-items:center;gap:12px;}
+.section-title-num{font-size:14px;background:var(--violet-100);color:var(--violet-700);padding:4px 12px;border-radius:var(--r-full);font-weight:700;}
+.section-sub{font-size:14px;color:var(--gray-600);margin-top:4px;}
+.section-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--violet-600);white-space:nowrap;cursor:pointer;}
+.section-link:hover{color:var(--violet-700);gap:9px;}
+.section-link svg{width:14px;height:14px;transition:.15s;}
+
+/* ═══ FILTRES TABS ═══ */
+.filter-tabs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.filter-tab{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:var(--r-full);font-size:13px;font-weight:700;color:var(--gray-700);background:var(--white);border:1.5px solid var(--gray-200);cursor:pointer;transition:.15s;font-family:var(--font);}
+.filter-tab:hover{border-color:var(--violet-300);background:var(--violet-50);color:var(--violet-700);}
+.filter-tab.active{background:var(--violet-600);color:#fff;border-color:var(--violet-600);}
+.filter-tab .count{background:rgba(255,255,255,.2);padding:2px 8px;border-radius:var(--r-full);font-size:11px;}
+.filter-tab:not(.active) .count{background:var(--gray-50);color:var(--gray-500);border:1px solid var(--gray-200);}
+
+/* ═══ JEUX CARDS ═══ */
+.jeux-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.jeu-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);overflow:hidden;transition:.2s;display:flex;flex-direction:column;}
+.jeu-card:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);border-color:var(--violet-200);}
+.jeu-banner{height:180px;position:relative;display:flex;align-items:flex-end;padding:18px 22px;overflow:hidden;background-size:cover;background-position:center;background-repeat:no-repeat;}
+.jeu-banner.quiz{background:url('assets/Quiz%20%E2%80%94%20FFHandball%20.png') center/cover no-repeat;}
+.jeu-banner.prono{background:url('assets/Pronos%20%E2%80%94%20Tournoi%20de%20France%20de%20Handball.png') center/cover no-repeat;}
+.jeu-banner.instant{background:url('assets/Instant-Gagnant%20%E2%80%94%20Banque%20Populaire%20%20FFVoile%20%C2%B7%20Tirage%20quotidien.png') center/cover no-repeat;}
+.jeu-banner::before{display:none;}
+.jeu-svg{display:none;}
+.jeu-svg svg{width:130px;height:130px;}
+.jeu-banner-inner{position:relative;z-index:1;width:100%;display:flex;align-items:flex-end;}
+.jeu-type{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.95);padding:5px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;backdrop-filter:blur(6px);}
+.jeu-type.quiz{color:var(--quiz);}
+.jeu-type.prono{color:var(--prono);}
+.jeu-type.instant{color:var(--instant);}
+.jeu-type svg{width:13px;height:13px;}
+
+.jeu-body{padding:20px 24px 22px;flex:1;display:flex;flex-direction:column;}
+.jeu-name{font-size:18px;font-weight:700;color:var(--gray-900);margin-bottom:8px;line-height:1.3;}
+.jeu-desc{font-size:13px;color:var(--gray-600);line-height:1.5;margin-bottom:18px;}
+
+/* Compte à rebours */
+.jeu-deadline{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--r-md);margin-bottom:12px;}
+.jeu-deadline-icon{width:28px;height:28px;border-radius:var(--r-sm);background:var(--warning-bg);color:var(--warning);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.jeu-deadline-icon svg{width:16px;height:16px;}
+.jeu-deadline-text{font-size:12px;color:var(--gray-700);line-height:1.3;}
+.jeu-deadline-text strong{display:block;color:var(--gray-900);font-size:14px;}
+
+.jeu-deadline.urgent .jeu-deadline-icon{background:#fef2f2;color:var(--error);}
+.jeu-deadline.permanent .jeu-deadline-icon{background:var(--success-bg);color:var(--success);}
+
+/* Lot/Récompense */
+.jeu-prize{display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #fcd34d;border-radius:var(--r-md);margin-bottom:16px;margin-top:auto;}
+.jeu-prize-icon{width:28px;height:28px;border-radius:var(--r-sm);background:#fbbf24;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.jeu-prize-icon svg{width:16px;height:16px;}
+.jeu-prize-text{font-size:12px;color:#78350f;line-height:1.3;}
+.jeu-prize-text strong{display:block;color:#451a03;font-size:13px;}
+
+.jeu-foot{padding-top:16px;margin-top:auto;border-top:1px solid var(--gray-100);}
+
+/* Status badge dans les jeux */
+.jeu-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--success);margin-bottom:12px;}
+.jeu-status svg{width:14px;height:14px;}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:var(--r-md);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;border:2px solid transparent;transition:.15s;white-space:nowrap;text-decoration:none;width:100%;}
+.btn svg{width:16px;height:16px;}
+.btn-violet{background:var(--violet-600);color:#fff;}
+.btn-violet:hover{background:var(--violet-700);transform:translateY(-1px);box-shadow:var(--sh-md);}
+.btn-outline{background:transparent;color:var(--violet-600);border-color:var(--violet-300);}
+.btn-outline:hover{background:var(--violet-50);border-color:var(--violet-600);}
+.btn-quiz{background:var(--quiz);color:#fff;}
+.btn-quiz:hover{background:#6b239a;}
+.btn-prono{background:var(--prono);color:#fff;}
+.btn-prono:hover{background:#0c4a85;}
+.btn-instant{background:var(--instant);color:#fff;}
+.btn-instant:hover{background:#9a3412;}
+
+/* ═══ MES PARTICIPATIONS ═══ */
+.particip-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);padding:28px 32px;}
+.particip-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--gray-100);}
+.particip-item:last-child{border-bottom:none;padding-bottom:0;}
+.particip-item:first-child{padding-top:0;}
+.particip-icon{width:44px;height:44px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.particip-icon.quiz{background:var(--quiz-bg);color:var(--quiz);}
+.particip-icon.prono{background:var(--prono-bg);color:var(--prono);}
+.particip-icon.instant{background:var(--instant-bg);color:var(--instant);}
+.particip-icon svg{width:22px;height:22px;}
+.particip-info{flex:1;min-width:0;}
+.particip-name{font-size:14px;font-weight:700;color:var(--gray-900);margin-bottom:3px;}
+.particip-meta{font-size:12px;color:var(--gray-500);}
+.particip-meta strong{color:var(--gray-700);}
+.particip-status{font-size:11px;font-weight:700;padding:5px 12px;border-radius:var(--r-full);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
+.status-pending{background:var(--warning-bg);color:var(--warning);}
+.status-won{background:var(--success-bg);color:var(--success);}
+.status-lost{background:var(--gray-100);color:var(--gray-600);}
+
+/* Voir tout link */
+.particip-see-all{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;margin-top:14px;background:var(--violet-50);border:1.5px dashed var(--violet-200);border-radius:var(--r-md);font-size:13px;font-weight:700;color:var(--violet-700);transition:.15s;cursor:pointer;}
+.particip-see-all:hover{background:var(--violet-100);border-color:var(--violet-400);gap:11px;}
+.particip-see-all svg{width:14px;height:14px;}
+
+/* ═══ RÉSULTATS RÉCENTS ═══ */
+.winners-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.winner-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-xl);padding:22px 24px;position:relative;overflow:hidden;}
+.winner-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;}
+.winner-card.gold::before{background:linear-gradient(180deg,#fbbf24,#b45309);}
+.winner-card.silver::before{background:linear-gradient(180deg,#d8d8d8,#737373);}
+.winner-card.bronze::before{background:linear-gradient(180deg,#d97706,#7c2d12);}
+.winner-jeu{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-500);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.winner-jeu-dot{width:8px;height:8px;border-radius:50%;}
+.winner-jeu-dot.quiz{background:var(--quiz);}
+.winner-jeu-dot.prono{background:var(--prono);}
+.winner-jeu-dot.instant{background:var(--instant);}
+.winner-name{font-size:18px;font-weight:700;color:var(--gray-900);margin-bottom:6px;letter-spacing:-.2px;}
+.winner-entity{font-size:12px;color:var(--gray-600);margin-bottom:12px;}
+.winner-prize{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--violet-50);border-radius:var(--r-sm);font-size:12px;color:var(--violet-700);font-weight:700;}
+.winner-prize svg{width:14px;height:14px;color:var(--violet-600);flex-shrink:0;}
+.winner-date{font-size:11px;color:var(--gray-500);margin-top:10px;text-align:right;}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--violet-900);color:rgba(255,255,255,.85);padding:42px 0 22px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-brand .logo-mark{margin-bottom:14px;}
+.footer-brand p{font-size:13px;line-height:1.6;max-width:280px;margin-top:14px;}
+.footer-col h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.85);padding:5px 0;transition:.15s;}
+.footer-col a:hover{color:#fff;}
+.footer-qr{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);padding:12px;}
+.qr-box{width:60px;height:60px;background:#fff;border-radius:var(--r-sm);flex-shrink:0;padding:5px;}
+.qr-box svg{width:100%;height:100%;}
+.footer-qr-text{font-size:12px;line-height:1.4;}
+.footer-qr-text strong{color:#fff;display:block;font-size:13px;margin-bottom:2px;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:20px;font-size:12px;flex-wrap:wrap;gap:10px;}
+.footer-legal{display:flex;gap:18px;flex-wrap:wrap;}
+.footer-legal a:hover{color:#fff;}
+
+@media(max-width:980px){
+ .nav{display:none;}
+ .hero-inner{grid-template-columns:1fr;}
+ .page-title{font-size:32px;}
+ .jeux-grid{grid-template-columns:1fr 1fr;}
+ .winners-grid{grid-template-columns:1fr 1fr;}
+ .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
+ .user-name{display:none;}
+}
+@media(max-width:600px){
+ .page-title{font-size:26px;}
+ .jeux-grid,.winners-grid{grid-template-columns:1fr;}
+ .footer-grid{grid-template-columns:1fr;}
+ .section-title{font-size:22px;}
+ .filter-tab{padding:7px 12px;font-size:12px;}
+ .hero-stats{flex-direction:column;width:100%;}
+}
+
+/* ═══ INVITE BAR ═══ */
+.invite-bar{background:linear-gradient(135deg,rgba(245,238,250,.55) 0%,rgba(239,239,239,.5) 100%),url('assets/image-parrainage.png') center/cover no-repeat;color:var(--gray-800);padding:0;position:relative;overflow:hidden;border-top:1px solid var(--gray-200);}
+.invite-bar + .footer,.invite-bar + footer{margin-top:0;}
+.invite-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;max-width:900px;margin:0 auto;padding:48px 32px;text-align:center;}
+.invite-text{text-align:center;max-width:600px;}
+.invite-text h3{font-size:26px;font-weight:700;letter-spacing:-.3px;margin-bottom:8px;color:var(--gray-900);}
+.invite-text p{font-size:14px;color:var(--gray-700);max-width:520px;line-height:1.5;margin:0 auto;}
+.invite-form{display:flex;align-items:stretch;gap:10px;background:#fff;border:1.5px solid var(--gray-200);border-radius:var(--r-full);padding:6px;min-width:380px;box-shadow:var(--sh-md);}
+.invite-form input{flex:1;border:none;background:transparent;color:var(--gray-900);font-family:var(--font);font-size:14px;padding:10px 16px;outline:none;}
+.invite-form input::placeholder{color:var(--gray-500);}
+.invite-btn{display:inline-flex;align-items:center;gap:6px;background:var(--violet-600);color:#fff;border:none;padding:10px 22px;border-radius:var(--r-full);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:.15s;white-space:nowrap;}
+.invite-btn:hover{background:var(--violet-700);transform:translateY(-1px);box-shadow:0 6px 16px rgba(88,29,116,.25);}
+.invite-btn svg{width:14px;height:14px;}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+@media(max-width:780px){.invite-form{min-width:0;width:100%;}.invite-inner{padding:32px 24px;}}
+
+/* ═══ NAV DROPDOWN ═══ */
+.nav-dropdown{position:relative;display:inline-block;}
+.nav-dropdown-trigger{padding:10px 14px;font-size:14px;font-weight:700;color:var(--gray-700);border-radius:var(--r-md);transition:.15s;display:inline-flex;align-items:center;gap:6px;cursor:pointer;}
+.nav-dropdown-trigger:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav-dropdown-trigger.active{color:var(--violet-600);position:relative;}
+.nav-dropdown-trigger.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--violet-600);border-radius:3px 3px 0 0;}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 6px);left:0;background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-md);box-shadow:var(--sh-lg);min-width:200px;padding:6px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.15s;z-index:50;}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 14px;font-size:14px;font-weight:600;color:var(--gray-800);border-radius:var(--r-sm);transition:.12s;}
+.nav-dropdown-menu a:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav-dropdown-menu a svg{width:16px;height:16px;flex-shrink:0;color:var(--violet-600);}
+
+/* Bouton nav illustratif "Défi 2027" */
+.nav-defi{display:inline-flex;align-items:center;gap:7px;margin-left:8px;background:linear-gradient(135deg,#6b239a,#c026d3);color:#fff;font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:9999px;box-shadow:0 3px 10px rgba(123,46,167,.4);white-space:nowrap;cursor:default;}
+.nav-defi svg{width:15px;height:15px;}
+
+/* Pastille de rappel de version (bas droite) */
+.version-pill{position:fixed;right:20px;bottom:20px;z-index:300;display:inline-flex;align-items:center;gap:8px;background:#4b1a67;color:#fff;font-size:12.5px;font-weight:700;padding:10px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(46,16,64,.4);text-decoration:none;transition:.2s;}
+.version-pill:hover{background:#581d74;transform:translateY(-2px);}
+.version-pill .vp-logo{width:14px;height:14px;flex-shrink:0;}
+.version-pill .vp-dot{width:8px;height:8px;border-radius:50%;background:#9aa0a6;flex-shrink:0;}
+.version-pill.v2{background:#3d1554;}
+@media(max-width:600px){.version-pill{right:12px;bottom:12px;font-size:11.5px;padding:8px 13px;}}
+
+/* ═══════════ MÉCANIQUES DE JEU — styles communs (quiz / prono décalé / concours) ═══════════ */
+[hidden]{display:none!important;}
+:root{--decale:#0e7490;--decale-bg:#e6f4f7;--decale-dark:#0b5a70;}
+.page-hero{background-image:linear-gradient(135deg,rgba(46,16,64,.95) 0%,rgba(88,29,116,.88) 55%,rgba(132,51,184,.78) 100%),url('assets/visuel-handball.jpg');background-size:cover;background-position:center;color:#fff;padding:44px 0 52px;position:relative;overflow:hidden;}
+.page-hero.hero-decale{background-image:linear-gradient(135deg,rgba(6,45,60,.95) 0%,rgba(14,116,144,.88) 55%,rgba(22,150,172,.76) 100%),url('assets/visuel-handball.jpg');}
+.page-hero.hero-concours{background-image:linear-gradient(135deg,rgba(7,40,80,.95) 0%,rgba(15,95,168,.86) 55%,rgba(40,135,215,.74) 100%),url('assets/Pronos%20%E2%80%94%20Tournoi%20de%20France%20de%20Handball.png');}
+.hero-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;position:relative;}
+.hero-chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:var(--r-full);font-size:12.5px;font-weight:700;color:#fff;}
+.hero-chip svg{width:14px;height:14px;flex-shrink:0;}
+.page-title-kicker{display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:rgba(255,255,255,.16);padding:5px 12px;border-radius:var(--r-full);margin-bottom:12px;position:relative;}
+
+/* Sélecteur d'état (démo) */
+.demo-switch{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#fff;border:1.5px dashed var(--violet-300);border-radius:var(--r-lg);padding:10px 14px;margin-top:24px;}
+.ds-label{font-size:11.5px;font-weight:700;color:var(--violet-700);text-transform:uppercase;letter-spacing:.06em;margin-right:6px;display:inline-flex;align-items:center;gap:6px;}
+.ds-label svg{width:15px;height:15px;}
+.ds-btn{font-family:var(--font);font-size:13px;font-weight:700;padding:7px 14px 7px 8px;border-radius:var(--r-full);border:1.5px solid var(--gray-200);background:var(--gray-50);color:var(--gray-700);cursor:pointer;display:inline-flex;gap:8px;align-items:center;transition:.15s;}
+.ds-btn:hover{border-color:var(--violet-300);color:var(--violet-700);}
+.ds-btn .n{width:22px;height:22px;border-radius:50%;background:var(--gray-200);display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+.ds-btn[aria-pressed="true"]{background:var(--violet-600);border-color:var(--violet-600);color:#fff;}
+.ds-btn[aria-pressed="true"] .n{background:rgba(255,255,255,.25);}
+.ds-hint{font-size:12px;color:var(--gray-500);margin-left:auto;}
+
+/* Mise en page jeu */
+.game-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:28px;align-items:start;padding:24px 0 64px;}
+.side{display:flex;flex-direction:column;gap:18px;position:sticky;top:92px;}
+.side.static{position:static;}
+.side-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);padding:22px 24px;}
+.side-title{font-size:17px;font-weight:700;color:var(--gray-900);margin-bottom:14px;letter-spacing:-.2px;}
+.side-text{font-size:13.5px;color:var(--gray-700);line-height:1.55;}
+.how{list-style:none;display:flex;flex-direction:column;gap:12px;counter-reset:how;}
+.how li{display:flex;gap:12px;font-size:13.5px;color:var(--gray-700);line-height:1.45;counter-increment:how;}
+.how li::before{content:counter(how);width:24px;height:24px;border-radius:50%;background:var(--violet-100);color:var(--violet-700);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.how li strong{color:var(--gray-900);}
+.side-partner{border-radius:var(--r-lg);overflow:hidden;margin-bottom:12px;aspect-ratio:16/9;background:var(--gray-100);}
+.side-partner img{width:100%;height:100%;object-fit:cover;}
+.jeu-prize{margin-top:0;}
+.coin{width:18px;height:18px;display:inline-block;vertical-align:-3px;flex-shrink:0;}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+.btn-decale{background:var(--decale);color:#fff;}
+.btn-decale:hover{background:var(--decale-dark);}
+.btn-auto{width:auto;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--violet-600);margin-top:8px;}
+.back-link svg{width:14px;height:14px;}
+.flag{display:inline-block;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.12),0 2px 6px rgba(0,0,0,.08);flex-shrink:0;line-height:0;}
+.flag svg{width:100%;height:100%;display:block;}
+.pill-ok{display:inline-flex;align-items:center;gap:6px;background:var(--success-bg);color:var(--success);border:1px solid #b9e2cb;font-size:12px;font-weight:700;padding:5px 12px;border-radius:var(--r-full);line-height:1.3;text-align:center;}
+.pill-ok svg{width:13px;height:13px;flex-shrink:0;}
+.pts-win{display:inline-flex;align-items:center;gap:6px;background:#1f9d55;color:#fff;font-size:15px;font-weight:700;padding:7px 18px;border-radius:var(--r-full);}
+.pts-zero{display:inline-flex;align-items:center;gap:6px;background:var(--gray-100);color:var(--gray-600);font-size:14px;font-weight:700;padding:7px 18px;border-radius:var(--r-full);}
+
+/* Compte à rebours */
+.cd{display:flex;gap:6px;justify-content:center;}
+.cd-u{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.cd-n{width:38px;height:38px;border-radius:50%;border:2px solid var(--gray-300);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--gray-800);background:#fff;}
+.cd-l{font-size:9px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.05em;}
+.cd-title{font-size:11px;font-weight:700;color:var(--gray-600);text-align:center;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+
+@media(max-width:980px){
+ .game-layout{grid-template-columns:1fr;}
+ .side{position:static;}
+}
+
+/* ═══ CONCOURS DE PRONOSTICS ═══ */
+.phase-tabs{display:flex;flex-wrap:wrap;gap:4px;background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-xl);padding:6px;overflow-x:auto;scrollbar-width:thin;}
+.phase-tab{padding:9px 13px;border-radius:var(--r-lg);font-weight:700;font-size:13.5px;color:var(--gray-600);background:none;border:none;white-space:nowrap;cursor:pointer;font-family:var(--font);transition:.15s;}
+.phase-tab:hover{background:var(--gray-50);color:var(--gray-900);}
+.phase-tab[aria-selected="true"]{background:var(--violet-900);color:#fff;}
+.status-tabs{display:flex;justify-content:center;gap:28px;margin:22px 0 4px;}
+.status-tab{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--gray-500);padding-bottom:8px;border-bottom:3px solid transparent;background:none;border-top:none;border-left:none;border-right:none;cursor:pointer;font-family:var(--font);}
+.status-tab[aria-selected="true"]{color:var(--gray-900);border-bottom-color:var(--violet-900);}
+.status-tab .cnt{background:#f5b301;color:#fff;font-size:12px;padding:2px 9px;border-radius:var(--r-full);}
+.status-tab .cnt.zero{background:var(--gray-200);color:var(--gray-600);}
+.day-title{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.05em;margin:26px 0 12px;}
+.day-title svg{width:20px;height:20px;}
+.match-card{background:#fff;border:1px solid var(--gray-200);border-left:5px solid var(--gray-200);border-radius:var(--r-2xl);padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px;margin-bottom:14px;transition:.2s;}
+.match-card.recorded{border-left-color:#7be8a8;}
+.match-card.tbd{border-style:dashed;border-left-style:solid;}
+.team{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;}
+.team-name{font-size:16px;font-weight:700;color:var(--gray-900);}
+.team-sub{font-size:12px;color:var(--gray-500);}
+.mc-center{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.mc-status{font-size:12px;font-weight:700;padding:4px 12px;border-radius:var(--r-full);background:var(--info-bg);color:var(--info);}
+.mc-status.done{background:#d92d3a;color:#fff;}
+.mc-meta{font-size:12px;color:var(--gray-500);text-align:center;}
+.mc-score{font-size:28px;font-weight:700;color:var(--gray-800);letter-spacing:1px;line-height:1;}
+.odds{display:flex;gap:8px;}
+.odd{width:112px;border:1.5px solid var(--gray-200);border-radius:var(--r-lg);padding:10px 8px 9px;text-align:center;background:#fff;cursor:pointer;font-family:var(--font);display:flex;flex-direction:column;align-items:center;gap:6px;transition:.15s;color:var(--gray-800);}
+.odd:hover:not([disabled]){border-color:var(--violet-300);transform:translateY(-1px);}
+.odd .k{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--gray-400);background:var(--gray-50);}
+.odd .lbl{font-size:13px;font-weight:700;color:var(--gray-700);line-height:1.2;}
+.odd[aria-pressed="true"]{background:var(--gray-100);border-color:var(--violet-900);box-shadow:var(--sh-md);}
+.odd[aria-pressed="true"] .k{background:var(--violet-900);color:#fff;}
+.odd[disabled]{cursor:default;}
+.match-card.played .odd:not([aria-pressed="true"]){opacity:.5;}
+.match-card.tbd .odd{opacity:.45;}
+.mc-foot{display:flex;flex-direction:column;align-items:center;gap:8px;min-height:10px;}
+.sub-card .pd-sub-q{font-size:15px;font-weight:700;color:var(--gray-800);line-height:1.4;text-transform:uppercase;}
+.sub-card .note{font-size:12.5px;color:var(--gray-500);font-style:italic;margin-top:4px;}
+.sub-table{margin-top:14px;border-top:1px solid var(--gray-100);}
+.sub-table div{display:flex;justify-content:space-between;padding:10px 4px;border-bottom:1px solid var(--gray-100);font-size:13.5px;color:var(--gray-700);}
+.sub-table b{color:var(--gray-900);}
+.sub-form{display:flex;gap:8px;margin-top:14px;}
+.sub-form .num-input{flex:1;width:auto;min-width:0;}
+.num-input{padding:11px 14px;border:1.5px solid var(--gray-300);border-radius:var(--r-md);font-family:var(--font);font-size:15px;font-weight:700;color:var(--gray-900);text-align:center;}
+.rank-tabs{display:flex;gap:4px;background:var(--gray-50);border-radius:var(--r-md);padding:4px;margin-bottom:10px;}
+.rank-tab{flex:1;font-family:var(--font);font-size:12.5px;font-weight:700;padding:7px 8px;border:none;border-radius:var(--r-sm);background:none;color:var(--gray-600);cursor:pointer;}
+.rank-tab[aria-selected="true"]{background:#fff;color:var(--gray-900);box-shadow:var(--sh-sm);}
+.rk{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--r-lg);font-size:14px;color:var(--gray-800);}
+.rk .pos{width:28px;font-weight:700;color:var(--gray-500);text-align:center;}
+.rk .av{width:34px;height:34px;border-radius:50%;background:var(--gray-200);color:var(--gray-600);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.rk .nm{flex:1;min-width:0;font-weight:600;line-height:1.3;}
+.rk .nm small{display:block;font-size:11.5px;color:var(--gray-500);font-weight:400;}
+.rk .sc{font-weight:700;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;}
+.rk.me{background:#fff4d6;}
+.rk.me .av{background:var(--violet-600);color:#fff;}
+.rk-gap{text-align:center;color:var(--gray-400);font-size:14px;line-height:1;padding:2px 0;}
+.empty-state{text-align:center;padding:8px 4px;}
+.empty-state svg{width:40px;height:40px;color:var(--gray-300);margin:0 auto 10px;}
+.empty-state p{font-size:13.5px;color:var(--gray-600);line-height:1.5;}
+.phase-empty{background:#fff;border:1.5px dashed var(--gray-300);border-radius:var(--r-2xl);padding:36px 28px;text-align:center;margin-top:22px;}
+.phase-empty h3{font-size:18px;font-weight:700;color:var(--gray-900);margin-bottom:6px;}
+.phase-empty p{font-size:14px;color:var(--gray-600);}
+.mock-note{font-size:12px;color:var(--gray-500);text-align:center;margin-top:6px;}
+@media(max-width:780px){.match-card{grid-template-columns:1fr 1fr;}.mc-center{grid-column:1/-1;order:3;}.odd{width:auto;flex:1;min-width:90px;}}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+
+<!-- Bandeau démo -->
+<div style="background:#1c0926;color:#fff;padding:8px 24px;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:Arial,Helvetica,sans-serif;">
+ <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable TEAM IMAGINE</strong> — Démo de cadrage, novembre 2026</span>
+ <a href="sommaire-sans-strava.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:.15s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
+ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+ Retour au sommaire
+ </a>
+</div>
+
+
+<!-- ═══ HEADER ═══ -->
+<header class="header">
+ <div class="container header-top">
+ <a href="home-sans-strava.html" class="logo" aria-label="GROUPE BPCE × TEAM IMAGINE - Accueil">
+ <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" class="logo-img"/>
+ </a>
+ <nav class="nav" aria-label="Navigation principale">
+ <div class="nav-dropdown">
+ <a href="actualites-sans-strava.html" class="nav-dropdown-trigger">
+ Actualités
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </a>
+ <div class="nav-dropdown-menu" role="menu">
+ <a href="actualites-articles-sans-strava.html" role="menuitem">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+ Articles
+ </a>
+ <a href="actualites-videos-sans-strava.html" role="menuitem">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
+ Vidéos
+ </a>
+ </div>
+ </div>
+ <a href="s-engager-sans-strava.html" class="active">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+ S'engager
+ </a>
+ <a href="calendrier-sans-strava.html">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ Calendrier
+ </a>
+ <a href="dashboard-sans-strava.html">Dashboard</a>
+ <span class="nav-defi" title="Le Défi 2027 — à venir"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2z"/></svg>Le Défi 2027</span>
+ </nav>
+ <div class="header-actions">
+ <button class="icon-btn" aria-label="Rechercher">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+ </button>
+ <button class="icon-btn" aria-label="Notifications">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+ <span class="notif-dot"></span>
+ </button>
+ <button class="user-chip">
+ <span class="avatar">CL</span>
+ <span class="user-name">Camille L.</span>
+ </button>
+ </div>
+ </div>
+</header>
+
+<main id="main">
+
+ <section class="page-hero hero-concours">
+ <div class="container">
+ <div class="breadcrumb">
+ <a href="home-sans-strava.html">Accueil</a>
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+ <a href="s-engager-sans-strava.html">S'engager</a>
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+ <span>Concours de pronostics</span>
+ </div>
+ <div class="hero-inner">
+ <div>
+ <span class="page-title-kicker">Concours de pronostics · Caisse d'Épargne × FFHandball</span>
+ <h1 class="page-title">
+ <span class="page-title-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg></span>
+ Mondial de handball 2027
+ </h1>
+ <p class="page-sub">Du 13 au 31 janvier en Allemagne, pronostiquez chaque match en 1N2, de la phase de poules à la finale. Les Experts démarrent à Stuttgart le 14 janvier.</p>
+ <div class="hero-chips">
+ <span class="hero-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>13 – 31 janvier 2027</span>
+ <span class="hero-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Finale à Cologne</span>
+ <span class="hero-chip">1, N ou 2 sur chaque match</span>
+ </div>
+ </div>
+ <div class="hero-stats">
+ <div class="hero-stat"><div class="hero-stat-num">32</div><div class="hero-stat-label">Nations</div></div>
+ <div class="hero-stat"><div class="hero-stat-num">48</div><div class="hero-stat-label">Matchs au 1<sup>er</sup> tour</div></div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <div class="container">
+ <div class="demo-switch" role="group" aria-label="État de la page (démo)">
+ <span class="ds-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="10" rx="5"/><circle cx="16" cy="12" r="3"/></svg>Démo · état</span>
+ <button class="ds-btn" data-set="1"><span class="n">1</span>Pronos à faire</button>
+ <button class="ds-btn" data-set="2"><span class="n">2</span>Pronos enregistrés</button>
+ <button class="ds-btn" data-set="3"><span class="n">3</span>Matchs terminés</button>
+ <span class="ds-hint">Cliquez sur 1, N ou 2 pour pronostiquer.</span>
+ </div>
+
+ <div class="game-layout">
+ <div>
+ <div class="phase-tabs" role="tablist" aria-label="Phases de la compétition" id="phaseTabs">
+ <button class="phase-tab" role="tab" aria-selected="true" data-phase="prelim">Tour préliminaire</button>
+ <button class="phase-tab" role="tab" aria-selected="false" data-phase="main">Tour principal</button>
+ <button class="phase-tab" role="tab" aria-selected="false" data-phase="qf">Quarts de finale</button>
+ <button class="phase-tab" role="tab" aria-selected="false" data-phase="sf">Demi-finales</button>
+ <button class="phase-tab" role="tab" aria-selected="false" data-phase="bronze">Match pour la 3<sup>e</sup> place</button>
+ <button class="phase-tab" role="tab" aria-selected="false" data-phase="final">Finale</button>
+ </div>
+
+ <div id="phasePrelim">
+ <div class="status-tabs" role="tablist">
+ <button class="status-tab" role="tab" id="tabUp">À venir <span class="cnt" id="cntUp">6</span></button>
+ <button class="status-tab" role="tab" id="tabDone">Terminés <span class="cnt" id="cntDone">0</span></button>
+ </div>
+ <div id="matchList"></div>
+ </div>
+ <div id="phaseOther" hidden></div>
+ </div>
+
+ <aside class="side static" aria-label="Question subsidiaire et classements">
+ <div class="side-card sub-card">
+ <h2 class="side-title">Question subsidiaire</h2>
+ <div class="pd-sub-q">Combien de buts seront marqués sur l'ensemble de la compétition ?</div>
+ <div class="note">(Pour départager les éventuels ex aequo)</div>
+ <div data-st="1">
+ <div class="sub-form"><label class="visually-hidden" for="subIn">Nombre total de buts</label><input type="number" min="0" class="num-input" id="subIn" placeholder="Ex. 6 400"/><button class="btn btn-prono btn-auto" type="button" id="subOk">Valider</button></div>
+ <p class="side-text" style="margin-top:10px;font-size:12.5px;">Vous avez jusqu'au 13 janvier 2027, 18h00, pour répondre.</p>
+ </div>
+ <div data-st="2 3" hidden>
+ <div class="sub-table"><div>Votre réponse <b id="subAns">6 420</b></div><div data-st="3" hidden>Buts actualisés <b>3 512</b></div></div>
+ <p class="side-text" style="margin-top:10px;font-size:12.5px;" data-st="2">Modifiable jusqu'au 13 janvier 2027, 18h00.</p>
+ <p class="side-text" style="margin-top:10px;font-size:12.5px;" data-st="3" hidden>Vous aviez jusqu'au 13 janvier 2027, 18h00, pour répondre.</p>
+ </div>
+ </div>
+
+ <div class="side-card">
+ <h2 class="side-title">Classement</h2>
+ <div class="rank-tabs" role="tablist">
+ <button class="rank-tab" role="tab" aria-selected="true" data-rk="gen">Général</button>
+ <button class="rank-tab" role="tab" aria-selected="false" data-rk="ent">Par entité</button>
+ </div>
+ <div data-st="1 2">
+ <div class="empty-state">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>
+ <p>Le classement s'ouvre au coup d'envoi du Mondial, le <strong>13 janvier 2027</strong>.</p>
+ </div>
+ </div>
+ <div data-st="3" hidden>
+ <p class="mock-note" style="text-align:left;margin:0 0 8px;">Critère provisoire : nombre de bons pronos, puis question subsidiaire. Mode de classement à définir.</p>
+ <div id="rkGen">
+ <div class="rk"><span class="pos">1</span><span class="av">AR</span><span class="nm">Adrien R.<small>Natixis CIB</small></span><span class="sc">6 / 6</span></div>
+ <div class="rk"><span class="pos">2</span><span class="av">LM</span><span class="nm">Léa M.<small>BP Grand Ouest</small></span><span class="sc">6 / 6</span></div>
+ <div class="rk"><span class="pos">3</span><span class="av">KN</span><span class="nm">Karim N.<small>CE Hauts de France</small></span><span class="sc">6 / 6</span></div>
+ <div class="rk-gap">⋮</div>
+ <div class="rk"><span class="pos">45</span><span class="av">FK</span><span class="nm">Fabrice K.<small>Banque Populaire Rives de Paris</small></span><span class="sc">5 / 6</span></div>
+ <div class="rk me"><span class="pos">46</span><span class="av">CL</span><span class="nm">Camille L. (vous)<small>CE Île-de-France</small></span><span class="sc" id="myPts">5 / 6</span></div>
+ <div class="rk"><span class="pos">47</span><span class="av">MM</span><span class="nm">Matthieu M.<small>BPCE SA</small></span><span class="sc">5 / 6</span></div>
+ </div>
+ <div id="rkEnt" hidden>
+ <div class="rk"><span class="pos">1</span><span class="nm">Natixis CIB<small>412 participants · bons pronos</small></span><span class="sc">81 %</span></div>
+ <div class="rk me"><span class="pos">2</span><span class="nm">CE Île-de-France (votre entité)<small>538 participants · bons pronos</small></span><span class="sc">79 %</span></div>
+ <div class="rk"><span class="pos">3</span><span class="nm">BP Grand Ouest<small>327 participants · bons pronos</small></span><span class="sc">77 %</span></div>
+ <div class="rk"><span class="pos">4</span><span class="nm">CE Hauts de France<small>291 participants · bons pronos</small></span><span class="sc">76 %</span></div>
+ <div class="rk"><span class="pos">5</span><span class="nm">BPCE SA<small>604 participants · bons pronos</small></span><span class="sc">74 %</span></div>
+ </div>
+ </div>
+ </div>
+
+ <div class="side-card">
+ <h2 class="side-title">Comment ça marche ?</h2>
+ <ol class="how">
+ <li><span>Choisissez <strong>1, N ou 2</strong> pour chaque match (1 ou 2 en phase finale).</span></li>
+ <li><span>Les <strong>résultats</strong> sont mis à jour après chaque match.</span></li>
+ <li><span>Modifiable <strong>jusqu'au coup d'envoi</strong> de chaque match.</span></li>
+ <li><span>Les <strong>10 meilleurs</strong> remportent des lots Caisse d'Épargne × FFHandball <em>(mode de classement à définir)</em>.</span></li>
+ </ol>
+ </div>
+ </aside>
+ </div>
+ </div>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+
+<!-- ═══ INVITATION COLLABORATEUR ═══ -->
+<section class="invite-bar">
+ <div class="invite-inner">
+ <div class="invite-text">
+ <h3>Inviter un collaborateur</h3>
+ <p>Partage Team IMAGINE avec un collègue du Groupe BPCE — il rejoint la plateforme en un clic.</p>
+ </div>
+ <form class="invite-form" novalidate onsubmit="event.preventDefault();">
+ <label class="visually-hidden" for="invite-email">Adresse e-mail du collaborateur</label>
+ <input type="email" id="invite-email" name="invite-email" placeholder="prenom.nom@bpce.fr" required/>
+ <button type="submit" class="invite-btn">
+ J'invite
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+ </button>
+ </form>
+ </div>
+</section>
+
+<footer class="footer">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="home-sans-strava.html" style="display:inline-block;background:#fff;padding:8px 14px;border-radius:10px;">
+ <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" style="height:48px;width:auto;display:block;"/>
+ </a>
+ <p>La plateforme d'engagement sportif et de bien-être du Groupe BPCE.</p>
+ </div>
+
+ <div class="footer-col">
+ <h4>Explorer</h4>
+ <a href="actualites-sans-strava.html">Actualités</a>
+ <a href="s-engager-sans-strava.html">S'engager</a>
+ <a href="calendrier-sans-strava.html">Calendrier</a>
+ <a href="dashboard-sans-strava.html">Dashboard</a>
+ <a href="#">La Promesse</a>
+ </div>
+
+ <div class="footer-col">
+ <h4>Mon compte</h4>
+ <a href="s-engager-sans-strava.html#participations">Mes participations</a>
+ <a href="dashboard-sans-strava.html#badges">Mes badges</a>
+ <a href="#">Confidentialité</a>
+ <a href="#">Notifications</a>
+ </div>
+
+ <div class="footer-col">
+ <h4>Suivez-nous</h4>
+ <div class="footer-qr">
+ <div class="qr-box">
+ <svg viewBox="0 0 100 100" fill="#581d74"><rect x="0" y="0" width="30" height="30"/><rect x="8" y="8" width="14" height="14" fill="#fff"/><rect x="70" y="0" width="30" height="30"/><rect x="78" y="8" width="14" height="14" fill="#fff"/><rect x="0" y="70" width="30" height="30"/><rect x="8" y="78" width="14" height="14" fill="#fff"/><rect x="40" y="0" width="8" height="8"/><rect x="52" y="0" width="8" height="8"/><rect x="40" y="14" width="8" height="8"/><rect x="40" y="40" width="8" height="8"/><rect x="55" y="40" width="12" height="12"/><rect x="75" y="45" width="8" height="8"/><rect x="88" y="40" width="8" height="8"/><rect x="40" y="60" width="8" height="8"/><rect x="60" y="65" width="8" height="8"/><rect x="80" y="70" width="8" height="8"/><rect x="45" y="80" width="10" height="10"/><rect x="70" y="88" width="8" height="8"/><rect x="88" y="80" width="8" height="8"/></svg>
+ </div>
+ <div class="footer-qr-text">
+ <strong>@bpce_banquedusport</strong>
+ <a href="https://www.instagram.com/bpce_banquedusport" target="_blank" rel="noopener" style="color:rgba(255,255,255,.85);">Suivez-nous sur Instagram</a>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <div class="footer-bottom">
+ <span>© 2026 Groupe BPCE — TEAM IMAGINE. Tous droits réservés.</span>
+ <div class="footer-legal">
+ <a href="#">Mentions légales</a>
+ <a href="#">CGU</a>
+ <a href="#">Confidentialité</a>
+ <a href="#">Cookies</a>
+ <a href="#">Accessibilité</a>
+ </div>
+ </div>
+ </div>
+</footer>
+
+<a class="version-pill v2" href="sommaire-sans-strava.html" title="Version Sans Strava — cliquer pour changer de version"><span class="vp-dot"></span> Sans Strava</a>
+<script>
+
+/* ═══ Utilitaires communs maquette (drapeaux, pièce, états démo, compte à rebours) ═══ */
+var TI = (function(){
+ var FLAGS = {
+  fr:'<rect width="20" height="60" fill="#002654"/><rect x="20" width="20" height="60" fill="#fff"/><rect x="40" width="20" height="60" fill="#ED2939"/>',
+  ar:'<rect width="60" height="20" fill="#74ACDF"/><rect y="20" width="60" height="20" fill="#fff"/><rect y="40" width="60" height="20" fill="#74ACDF"/><circle cx="30" cy="30" r="6" fill="#F6B40E"/>',
+  br:'<rect width="60" height="60" fill="#009C3B"/><polygon points="30,9 55,30 30,51 5,30" fill="#FFDF00"/><circle cx="30" cy="30" r="11" fill="#002776"/>',
+  kw:'<rect width="60" height="20" fill="#007A3D"/><rect y="20" width="60" height="20" fill="#fff"/><rect y="40" width="60" height="20" fill="#CE1126"/><polygon points="0,0 18,20 18,40 0,60" fill="#000"/>',
+  pl:'<rect width="60" height="30" fill="#fff"/><rect y="30" width="60" height="30" fill="#DC143C"/>',
+  ua:'<rect width="60" height="30" fill="#0057B7"/><rect y="30" width="60" height="30" fill="#FFD700"/>',
+  fo:'<rect width="60" height="60" fill="#fff"/><rect x="16" width="14" height="60" fill="#0065BD"/><rect y="23" width="60" height="14" fill="#0065BD"/><rect x="20" width="6" height="60" fill="#EF303E"/><rect y="27" width="60" height="6" fill="#EF303E"/>',
+  tbd:'<rect width="60" height="60" fill="#e9e3ee"/><text x="30" y="39" text-anchor="middle" font-family="Arial" font-weight="700" font-size="26" fill="#8a7a96">?</text>'
+ };
+ function flag(code,size){
+  size=size||56;
+  return '<span class="flag" style="width:'+size+'px;height:'+size+'px" aria-hidden="true"><svg viewBox="0 0 60 60" preserveAspectRatio="none">'+(FLAGS[code]||FLAGS.tbd)+'</svg></span>';
+ }
+ var COIN='<svg class="coin" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11.5" fill="#f59e0b"/><circle cx="12" cy="12" r="8.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/><text x="12" y="16.3" text-anchor="middle" font-size="11" font-weight="700" fill="#78350f" font-family="Arial">B</text></svg>';
+ var CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+ var CROSS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+ function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ');}
+ function nowLabel(){
+  var d=new Date();
+  return d.toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'})+', '+d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+ }
+ /* États de démonstration : éléments [data-st="1 2"] visibles seulement dans ces états */
+ var listeners=[];
+ function setState(n){
+  n=String(n);
+  document.body.setAttribute('data-state',n);
+  document.querySelectorAll('[data-st]').forEach(function(el){
+   el.hidden = el.getAttribute('data-st').split(' ').indexOf(n)===-1;
+  });
+  document.querySelectorAll('.ds-btn').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set')===n?'true':'false');});
+  listeners.forEach(function(f){f(n);});
+ }
+ function onState(f){listeners.push(f);}
+ function initSwitch(def){
+  document.querySelectorAll('.ds-btn').forEach(function(b){b.addEventListener('click',function(){setState(b.getAttribute('data-set'));});});
+  setState(def||'1');
+ }
+ /* Compte à rebours jj/hh/mm/ss */
+ function cdHTML(iso){
+  return '<div class="cd" data-cd="'+iso+'">'+['Jours','Hrs','Min','Sec'].map(function(l){return '<div class="cd-u"><span class="cd-n">00</span><span class="cd-l">'+l+'</span></div>';}).join('')+'</div>';
+ }
+ function tick(){
+  var now=Date.now();
+  document.querySelectorAll('[data-cd]').forEach(function(el){
+   var t=Math.max(0,new Date(el.getAttribute('data-cd')).getTime()-now)/1000;
+   var v=[Math.floor(t/86400),Math.floor(t%86400/3600),Math.floor(t%3600/60),Math.floor(t%60)];
+   el.querySelectorAll('.cd-n').forEach(function(n,i){n.textContent=String(v[i]).padStart(2,'0');});
+  });
+ }
+ setInterval(tick,1000);
+ function daysTo(iso){return Math.max(0,Math.ceil((new Date(iso).getTime()-Date.now())/86400000));}
+ return {flag:flag,COIN:COIN,CHECK:CHECK,CROSS:CROSS,fmt:fmt,nowLabel:nowLabel,setState:setState,onState:onState,initSwitch:initSwitch,cdHTML:cdHTML,tick:tick,daysTo:daysTo};
+})();
+
+(function(){
+ var M=[
+  {id:'m1',day:'Jeudi 14 janvier 2027',a:['fr','France'],b:['kw','Koweït'],t:'Stuttgart · Porsche-Arena',dt:'2027-01-14T18:00:00+01:00',c:[1.05,15,25],pick:0,sc:[41,19]},
+  {id:'m2',day:'Jeudi 14 janvier 2027',a:['ar','Argentine'],b:['br','Brésil'],t:'Stuttgart · Porsche-Arena',dt:'2027-01-14T20:30:00+01:00',c:[2.6,9,1.6],pick:0,sc:[27,29]},
+  {id:'m3',day:'Samedi 16 janvier 2027',a:['br','Brésil'],b:['fr','France'],t:'Stuttgart · Porsche-Arena',dt:'2027-01-16T20:30:00+01:00',c:[5.5,10,1.25],pick:2,sc:[26,33]},
+  {id:'m4',day:'Samedi 16 janvier 2027',a:['kw','Koweït'],b:['ar','Argentine'],t:'Stuttgart · Porsche-Arena',dt:'2027-01-16T18:00:00+01:00',c:[6,12,1.15],pick:2,sc:[22,30]},
+  {id:'m5',day:'Lundi 18 janvier 2027',a:['fr','France'],b:['ar','Argentine'],t:'Stuttgart · Porsche-Arena',dt:'2027-01-18T20:30:00+01:00',c:[1.08,14,18],pick:0,sc:[36,25]},
+  {id:'m6',day:'Lundi 18 janvier 2027',a:['br','Brésil'],b:['kw','Koweït'],t:'Stuttgart · Porsche-Arena',dt:'2027-01-18T18:00:00+01:00',c:[1.12,13,14],pick:0,sc:[34,21]}
+ ];
+ var CAL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>';
+ var picks={},stamps={},state='1';
+ function res(m){return m.sc[0]>m.sc[1]?0:(m.sc[0]<m.sc[1]?2:1);}
+ function gain(c){return Math.round(c*100);}
+ function cote(c){return String(c).replace('.',',');}
+ function card(m){
+  var played=state==='3',p=picks[m.id];
+  var odds=['1','N','2'].map(function(k,j){
+   var lb=j===0?m.a[1]:j===2?m.b[1]:'Match nul';
+   return '<button type="button" class="odd" data-m="'+m.id+'" data-j="'+j+'" aria-pressed="'+(p===j)+'"'+(played?' disabled':'')+' aria-label="'+k+' : '+lb+'"><span class="k">'+k+'</span><span class="lbl">'+lb+'</span></button>';
+  }).join('');
+  var foot='';
+  if(played){var ok=p===res(m);foot=(p!==undefined?'<span class="pill-ok">'+TI.CHECK+'<span>Pronostic enregistré le<br>'+(stamps[m.id]||'12 janv. 2027, 09:39')+'</span></span>':'')+(ok?'<span class="pts-win">'+TI.CHECK.replace('<svg','<svg width="14" height="14"')+' Bon prono</span>':'<span class="pts-zero">Raté</span>');}
+  else if(p!==undefined){foot='<span class="pill-ok">'+TI.CHECK+'<span>Pronostic enregistré le<br>'+(stamps[m.id]||'19 oct. 2026, 16:42')+'</span></span>';}
+  return '<div class="match-card'+(p!==undefined?' recorded':'')+(played?' played':'')+'" id="'+m.id+'">'+
+   '<div class="team">'+TI.flag(m.a[0],60)+'<span class="team-name">'+m.a[1]+'</span><span class="team-sub">Groupe D</span></div>'+
+   '<div class="mc-center">'+(played?'<span class="mc-status done">Terminé</span><span class="mc-score">'+m.sc[0]+' - '+m.sc[1]+'</span>':'<span class="mc-status">À venir · J-'+TI.daysTo(m.dt)+'</span>')+
+   '<div class="odds">'+odds+'</div><div class="mc-meta">'+m.t+' · '+new Date(m.dt).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}).replace(':','h')+'</div><div class="mc-foot">'+foot+'</div></div>'+
+   '<div class="team">'+TI.flag(m.b[0],60)+'<span class="team-name">'+m.b[1]+'</span><span class="team-sub">Groupe D</span></div></div>';
+ }
+ function render(){
+  var html='',last='';
+  M.slice().sort(function(x,y){return new Date(x.dt)-new Date(y.dt);}).forEach(function(m){
+   if(m.day!==last){html+='<div class="day-title">'+CAL+m.day+'</div>';last=m.day;}
+   html+=card(m);
+  });
+  document.getElementById('matchList').innerHTML=html;
+  var done=state==='3';
+  document.getElementById('cntUp').textContent=done?0:6;document.getElementById('cntUp').classList.toggle('zero',done);
+  document.getElementById('cntDone').textContent=done?6:0;document.getElementById('cntDone').classList.toggle('zero',!done);
+  document.getElementById('tabUp').setAttribute('aria-selected',!done);document.getElementById('tabDone').setAttribute('aria-selected',done);
+  var tot=0;M.forEach(function(m){if(picks[m.id]===res(m))tot++;});
+  document.getElementById('myPts').textContent=tot+' / 6';
+ }
+ document.getElementById('matchList').addEventListener('click',function(e){
+  var b=e.target.closest('.odd');if(!b||b.disabled)return;
+  var id=b.getAttribute('data-m'),j=+b.getAttribute('data-j');
+  if(picks[id]===j){delete picks[id];delete stamps[id];}else{picks[id]=j;stamps[id]=TI.nowLabel();}
+  render();
+  var el=document.querySelector('#'+id+' .odd[data-j="'+j+'"]');if(el)el.focus();
+ });
+ /* Onglets de phases */
+ var PH={main:['Tour principal','Les affiches seront connues à l’issue du tour préliminaire (18 janvier).'],qf:['Quarts de finale','26 et 27 janvier 2027 · Cologne'],sf:['Demi-finales','29 janvier 2027 · Cologne, LANXESS Arena'],bronze:['Match pour la 3e place','31 janvier 2027 · Cologne, LANXESS Arena']};
+ document.getElementById('phaseTabs').addEventListener('click',function(e){
+  var t=e.target.closest('.phase-tab');if(!t)return;
+  document.querySelectorAll('.phase-tab').forEach(function(x){x.setAttribute('aria-selected',x===t);});
+  var ph=t.getAttribute('data-phase'),o=document.getElementById('phaseOther');
+  document.getElementById('phasePrelim').hidden=ph!=='prelim';o.hidden=ph==='prelim';
+  if(ph==='final'){
+   o.innerHTML='<div class="day-title">'+CAL+'Dimanche 31 janvier 2027</div><div class="match-card tbd"><div class="team">'+TI.flag('tbd',60)+'<span class="team-name">À déterminer</span><span class="team-sub">Vainqueur demi-finale 1</span></div><div class="mc-center"><span class="mc-status">Finale · J-'+TI.daysTo('2027-01-31T18:00:00+01:00')+'</span><div class="odds"><button class="odd" disabled><span class="k">1</span><span class="lbl">À déterminer</span></button><button class="odd" disabled><span class="k">2</span><span class="lbl">À déterminer</span></button></div><div class="mc-meta">Cologne · LANXESS Arena</div><div class="mc-foot"><span class="mc-meta">Pronostics ouverts dès la fin des demi-finales</span></div></div><div class="team">'+TI.flag('tbd',60)+'<span class="team-name">À déterminer</span><span class="team-sub">Vainqueur demi-finale 2</span></div></div>';
+  }else{o.innerHTML='<div class="phase-empty"><h3>'+PH[ph][0]+'</h3><p>'+PH[ph][1]+'</p><p style="margin-top:6px;">Les matchs apparaîtront ici avec leurs cotes dès que les affiches seront connues. En phase finale, pas de match nul : on pronostique 1 ou 2.</p></div>';}
+ });
+ /* Classement : onglets */
+ document.querySelectorAll('.rank-tab').forEach(function(t){t.addEventListener('click',function(){
+  document.querySelectorAll('.rank-tab').forEach(function(x){x.setAttribute('aria-selected',x===t);});
+  document.getElementById('rkGen').hidden=t.getAttribute('data-rk')!=='gen';document.getElementById('rkEnt').hidden=t.getAttribute('data-rk')!=='ent';
+ });});
+ document.getElementById('subOk').addEventListener('click',function(){var v=document.getElementById('subIn').value;if(v!==''){document.getElementById('subAns').textContent=TI.fmt(v);this.textContent='Enregistré ✓';}});
+ TI.onState(function(s){
+  state=s;picks={};stamps={};
+  if(s!=='1'){M.forEach(function(m){picks[m.id]=m.pick;});}
+  else{document.getElementById('subOk').textContent='Valider';}
+  render();
+ });
+ TI.initSwitch('1');
+})();
+</script>
+</body>
+</html>

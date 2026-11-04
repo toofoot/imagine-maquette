@@ -445,6 +445,12 @@ a.article-card{text-decoration:none;color:inherit;}
 .hero-article-readmore svg{width:14px;height:14px;transition:.2s;}
 .hero-article-card:hover .hero-article-readmore{gap:11px;}
 @media(max-width:860px){.hero-article-img{height:160px;}}
+
+/* S'engager sur la home : cerveau = violet, muscles = vert */
+.eng-banner.jouer{background-image:linear-gradient(110deg,rgba(46,16,64,.92),rgba(88,29,116,.85)),url('assets/Quiz%20%E2%80%94%20FFHandball%20.png') !important;background-size:cover;background-position:center;}
+.eng-card.cerveau{--jouer:var(--violet-600);--jouer-bg:var(--violet-50);}
+.eng-card.muscles{--jouer:var(--success);--jouer-bg:var(--success-bg);}
+.eng-card .eng-foot-info svg{color:var(--violet-600);}
 </style>
 </head>
 <body>
@@ -453,7 +459,7 @@ a.article-card{text-decoration:none;color:inherit;}
 
 <!-- Bandeau démo -->
 <div style="background:#1c0926;color:#fff;padding:8px 24px;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:Arial,Helvetica,sans-serif;">
- <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable TEAM IMAGINE</strong> — Démo de cadrage, juin 2026</span>
+ <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable TEAM IMAGINE</strong> — Démo de cadrage, novembre 2026</span>
  <a href="sommaire-sans-strava.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:.15s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
  Retour au sommaire
@@ -484,13 +490,9 @@ a.article-card{text-decoration:none;color:inherit;}
  </a>
  </div>
  </div>
- <a href="bouger-sans-strava.html">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
- Bouger
- </a>
- <a href="participer-sans-strava.html">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 11h.01M15 11h.01M8 15s1.5 2 4 2 4-2 4-2"/></svg>
- Participer
+ <a href="s-engager-sans-strava.html">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+ S'engager
  </a>
  <a href="calendrier-sans-strava.html">
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
@@ -525,12 +527,12 @@ a.article-card{text-decoration:none;color:inherit;}
  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21 8 13.8 2 9.4h7.6z"/></svg>
  Bienvenue Camille
  </span>
- <h1>Bougez, <em>participez,</em><br>partagez le sport.</h1>
- <p>Rejoignez les défis sportifs et les jeux du Groupe, suivez le calendrier des athlètes et célébrez chaque effort avec vos collègues du Groupe.</p>
+ <h1>Le sport du Groupe,<br><em>à vivre ensemble.</em></h1>
+ <p>Un jeu pour tester vos connaissances, un défi pour faire avancer votre entité, et le calendrier des athlètes soutenus par le Groupe.</p>
  <div class="hero-cta">
- <a href="#" class="btn btn-white">
+ <a href="s-engager-sans-strava.html" class="btn btn-white">
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
- Voir les défis en cours
+ Voir le jeu et le défi du moment
  </a>
  </div>
  </div>
@@ -557,30 +559,30 @@ a.article-card{text-decoration:none;color:inherit;}
  <div class="container">
  <div class="section-head">
  <div>
- <h2 class="section-title">Prochain événement</h2>
- <p class="section-sub">Athlètes et partenaires sportifs du Groupe BPCE</p>
+ <h2 class="section-title">À ne pas manquer</h2>
+ <p class="section-sub">Le grand rendez-vous sportif des prochaines semaines</p>
  </div>
- <a href="#" class="section-link">Voir tout le calendrier <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ <a href="calendrier-sans-strava.html" class="section-link">Voir tout le calendrier <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
  </div>
 
- <a href="#" class="event-banner" style="text-decoration:none;color:inherit;">
+ <a href="calendrier-sans-strava.html" class="event-banner" style="text-decoration:none;color:inherit;">
  <div class="event-left">
- <span class="event-status"><span class="pulse"></span>Dans 12 jours</span>
+ <span class="event-status"><span class="pulse"></span>Dans 30 jours</span>
  <div class="event-meta-top">Partenariat fédéral · Handball</div>
- <h2>Équipe de France de Handball — Tournoi de France 2026</h2>
- <p>Soutenez les Bleus du handball pour le Tournoi de France à l'Arena Paris. Partenariat fédéral BPCE.</p>
+ <h2>Les Bleues à l'EHF EURO 2026</h2>
+ <p>Les Bleues entrent en lice le 3 décembre. Partenariat majeur Caisse d'Épargne × FFHandball depuis 2015.</p>
  <div class="event-meta">
  <span class="em-item">
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
- <strong>Samedi 14 juin 2026</strong>
+ <strong>Jeudi 3 décembre 2026</strong>
  </span>
  <span class="em-item">
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
- Arena Paris, Paris
+ Katowice, Pologne
  </span>
  <span class="em-item">
  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
- 20h45 · Diffusion en direct
+ 18h00 · Diffusion en direct
  </span>
  </div>
  </div>
@@ -591,142 +593,77 @@ a.article-card{text-decoration:none;color:inherit;}
  </div>
  </section>
 
- <!-- ═══ BOUGER + JOUER ═══ -->
+ <!-- ═══ S'ENGAGER : jeu et défi du moment ═══ -->
  <section class="section" style="padding-top:0;">
  <div class="container">
  <div class="section-head">
  <div>
  <h2 class="section-title">Mon engagement du moment</h2>
- <p class="section-sub">Bougez avec votre entité, jouez en équipe — opérations en cours, lancées par BPCE</p>
+ <p class="section-sub">Le jeu et le défi du moment, à retrouver dans S'engager</p>
  </div>
+ <a href="s-engager-sans-strava.html" class="section-link">Aller sur S'engager <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
  </div>
 
  <div class="engagement-split">
 
- <!-- ═══ BOUGER (défis saisonniers déclaratifs) ═══ -->
- <div class="eng-card">
- <div class="eng-banner bouger">
+ <!-- ═══ CÔTÉ CERVEAU : le jeu du moment ═══ -->
+ <div class="eng-card cerveau">
+ <div class="eng-banner jouer">
  <div class="eng-banner-inner">
- <div class="eng-banner-icon">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
- </div>
+ <div class="eng-banner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg></div>
  <div>
- <h3>Bouger</h3>
- <div class="eng-banner-sub">Défis sportifs du Groupe</div>
+ <h3>Le jeu du moment</h3>
+ <div class="eng-banner-sub">Côté cerveau</div>
  </div>
  </div>
  </div>
  <div class="eng-body">
- <div class="eng-active">3 défis sportifs</div>
-
+ <div class="eng-active">Jusqu'au 2 décembre</div>
  <div class="game-list">
- <a href="bouger-sans-strava.html" class="game-item" style="text-decoration:none;color:inherit;">
- <div class="game-icon featured">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
- </div>
+ <a href="quiz-sans-strava.html" class="game-item" style="text-decoration:none;color:inherit;">
+ <div class="game-icon featured"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3c-2.5 3-2.5 15 0 18"/><path d="M3.6 9c5 1.8 11.8 1.8 16.8 0"/><path d="M3.6 15c5-1.8 11.8-1.8 16.8 0"/></svg></div>
  <div class="game-info">
- <div class="game-type">Summer Challenge</div>
- <div class="game-title">Défi de l'été 2026</div>
- <div class="game-meta">BPCE · Du 21 juin au 21 sept. · 10 meilleurs temps → points</div>
+ <div class="game-type">Quiz · Caisse d'Épargne × FFHandball</div>
+ <div class="game-title">Quiz Handball — Objectif Euro 2026</div>
+ <div class="game-meta">10 questions · Correction immédiate · Clôture le 2 décembre à 23h59</div>
  </div>
- <span class="game-action">Bouger →</span>
+ <span class="game-action">Participer</span>
  </a>
+ </div>
+ <div class="eng-foot">
+ <div class="eng-foot-info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;vertical-align:-2px;margin-right:4px"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 8h18M12 8S10 3 7.5 3a2.5 2.5 0 0 0 0 5M12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg><strong>10 lots Caisse d'Épargne × FFHandball</strong> · tirage parmi les scores ≥ 7/10</div>
+ <a href="quiz-sans-strava.html" class="btn btn-violet btn-sm">Participer au quiz</a>
+ </div>
+ </div>
+ </div>
 
- <a href="bouger-sans-strava.html" class="game-item" style="text-decoration:none;color:inherit;">
- <div class="game-icon">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2"/><path d="M12 6.5v6"/><path d="M12 12.5l-3.5 6"/><path d="M12 12.5l3.5 6"/><path d="M7.5 9.5h9"/></svg>
+ <!-- ═══ CÔTÉ MUSCLES : le défi du moment ═══ -->
+ <div class="eng-card muscles">
+ <div class="eng-banner bouger">
+ <div class="eng-banner-inner">
+ <div class="eng-banner-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
+ <div>
+ <h3>Le défi du moment</h3>
+ <div class="eng-banner-sub">Côté muscles</div>
  </div>
- <div class="game-info">
- <div class="game-type">Compétition d'entité</div>
- <div class="game-title">Défi squat</div>
- <div class="game-meta">BPCE · Du 23 juin au 23 juillet · Mon entité 3<sup>e</sup>/27 · Moi 7<sup>e</sup></div>
  </div>
- <span class="game-action">Bouger →</span>
- </a>
-
- <a href="bouger-sans-strava.html" class="game-item" style="text-decoration:none;color:inherit;">
- <div class="game-icon">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0 10 10 10 10 0 1 1-10-10z"/></svg>
  </div>
+ <div class="eng-body">
+ <div class="eng-active">Ouverture le 21 décembre</div>
+ <div class="game-list">
+ <a href="s-engager-sans-strava.html#muscles" class="game-item" style="text-decoration:none;color:inherit;">
+ <div class="game-icon featured"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/><path d="M9.5 3.5L12 6l2.5-2.5M9.5 20.5L12 18l2.5 2.5M3.6 10.4L7 9.8 6.1 6.4M20.4 13.6L17 14.2l.9 3.4M3.6 13.6L7 14.2l-.9 3.4M20.4 10.4L17 9.8l.9-3.4"/></svg></div>
  <div class="game-info">
  <div class="game-type">Winter Challenge</div>
  <div class="game-title">Défi de l'hiver 2026</div>
- <div class="game-meta">BPCE · Ouverture le 21 déc. · Inscriptions bientôt</div>
+ <div class="game-meta">Participations illimitées · 10 meilleurs temps retenus et convertis en points</div>
  </div>
- <span class="game-action">Être alerté →</span>
+ <span class="game-action">Être alerté</span>
  </a>
-
  </div>
-
  <div class="eng-foot">
- <div class="eng-foot-info"><strong>3 défis</strong> ouverts à toute votre entité</div>
- <a href="bouger-sans-strava.html" class="btn btn-violet btn-sm">Voir tout Bouger</a>
- </div>
- </div>
- </div>
-
- <!-- ═══ JOUER ═══ -->
- <div class="eng-card">
- <div class="eng-banner jouer">
- <div class="eng-banner-inner">
- <div class="eng-banner-icon">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9 11h.01M15 11h.01M8 15s1.5 2 4 2 4-2 4-2"/></svg>
- </div>
- <div>
- <h3>Participer</h3>
- <div class="eng-banner-sub">Engagement intellectuel</div>
- </div>
- </div>
- </div>
- <div class="eng-body">
- <div class="eng-active">3 jeux disponibles cette semaine</div>
-
- <div class="game-list">
- <a href="#" class="game-item" style="text-decoration:none;color:inherit;">
- <div class="game-icon featured">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg>
- </div>
- <div class="game-info">
- <div class="game-type">Quiz thématique</div>
- <div class="game-title">Quiz FFHandball</div>
- <div class="game-meta">Caisse d'Épargne · 1 482 participants · Clôture dans 5 jours</div>
- </div>
- <span class="game-action">Participer →</span>
- </a>
-
- <a href="#" class="game-item" style="text-decoration:none;color:inherit;">
- <div class="game-icon">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM12 8v8M8 12h8"/></svg>
- </div>
- <div class="game-info">
- <div class="game-type">Pronostic</div>
- <div class="game-title">Pronos Tournoi de France de Handball</div>
- <div class="game-meta">Caisse d'Épargne · 876 participants · Clôture dans 2 jours</div>
- </div>
- <span class="game-action">Participer →</span>
- </a>
-
- <a href="#" class="game-item" style="text-decoration:none;color:inherit;">
- <div class="game-icon">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 8v6M4.9 4.9l4.2 4.2m5.8 5.8l4.2 4.2M2 12h6m8 0h6M4.9 19.1l4.2-4.2m5.8-5.8l4.2-4.2"/></svg>
- </div>
- <div class="game-info">
- <div class="game-type">Instant-win</div>
- <div class="game-title">Banque Populaire / FFVoile — 50 places à gagner</div>
- <div class="game-meta">Banque Populaire · Tirage permanent · 1 chance par jour</div>
- </div>
- <span class="game-action">Tenter ma chance →</span>
- </a>
- </div>
-
- <div class="eng-foot">
- <div class="eng-foot-info">
- <span class="game-status-done">
- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
- Vous avez participé au prono Racing 92 × Natixis
- </span>
- </div>
- <a href="#" class="btn btn-blue btn-sm">Voir tout Participer</a>
+ <div class="eng-foot-info"><strong>Préinscription possible</strong> · ouvert à toute votre entité</div>
+ <a href="s-engager-sans-strava.html#muscles" class="btn btn-violet btn-sm">Voir le défi</a>
  </div>
  </div>
  </div>
@@ -804,7 +741,7 @@ a.article-card{text-decoration:none;color:inherit;}
  <span class="video-duration-tag">4:32</span>
  </div>
  <div class="article-body">
- <div class="article-meta"><span class="article-entity">CASDEN Banque Populaire</span> · <span>il y a 1 jour</span></div>
+ <div class="article-meta"><span class="article-entity">CASDEN Banque Populaire</span> · <span>il y a 4 jours</span></div>
  <h3 class="article-title">Manon Apithy-Brunet — Dans la peau d'une championne olympique</h3>
  <span class="article-readmore">Regarder →</span>
  </div>
@@ -817,8 +754,8 @@ a.article-card{text-decoration:none;color:inherit;}
  <span class="video-duration-tag">3:18</span>
  </div>
  <div class="article-body">
- <div class="article-meta"><span class="article-entity">Caisse d'Épargne</span> · <span>il y a 3 jours</span></div>
- <h3 class="article-title">Bleus du Handball — Coulisses du Tournoi de France</h3>
+ <div class="article-meta"><span class="article-entity">Caisse d'Épargne</span> · <span>il y a 5 jours</span></div>
+ <h3 class="article-title">Les Bleues — Dernière ligne droite avant l'Euro</h3>
  <span class="article-readmore">Regarder →</span>
  </div>
  </article>
@@ -830,7 +767,7 @@ a.article-card{text-decoration:none;color:inherit;}
  <span class="video-duration-tag">6:45</span>
  </div>
  <div class="article-body">
- <div class="article-meta"><span class="article-entity">Banque Populaire</span> · <span>il y a 5 jours</span></div>
+ <div class="article-meta"><span class="article-entity">Banque Populaire</span> · <span>il y a 1 jour</span></div>
  <h3 class="article-title">Voile — Loïs Berrehar, futur skipper de Banque Populaire 14</h3>
  <span class="article-readmore">Regarder →</span>
  </div>
@@ -942,17 +879,16 @@ a.article-card{text-decoration:none;color:inherit;}
  <div class="footer-col">
  <h4>Explorer</h4>
  <a href="actualites-sans-strava.html">Actualités</a>
- <a href="#">Bouger</a>
- <a href="#">Participer</a>
- <a href="#">Calendrier</a>
+ <a href="s-engager-sans-strava.html">S'engager</a>
+ <a href="calendrier-sans-strava.html">Calendrier</a>
  <a href="dashboard-sans-strava.html">Dashboard</a>
  <a href="#">La Promesse</a>
  </div>
 
  <div class="footer-col">
  <h4>Mon compte</h4>
- <a href="#">Mes participations</a>
- <a href="#">Mes badges</a>
+ <a href="s-engager-sans-strava.html#participations">Mes participations</a>
+ <a href="dashboard-sans-strava.html#badges">Mes badges</a>
  <a href="#">Confidentialité</a>
  <a href="#">Notifications</a>
  </div>
