@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team IMAGINE — La Banque du Sport</title>
+<style>
+:root {
+ --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
+ --violet-600:#581d74; --violet-500:#6b239a; --violet-400:#8433b8;
+ --violet-300:#a257cc; --violet-200:#c699e2; --violet-100:#e2c8f2; --violet-50:#f5eefa;
+ --gray-900:#111; --gray-800:#252525; --gray-700:#3d3d3d; --gray-600:#575757;
+ --gray-500:#737373; --gray-400:#909090; --gray-300:#b5b5b5; --gray-200:#d8d8d8;
+ --gray-100:#efefef; --gray-50:#f7f7f7; --white:#fff;
+ --success:#1a7a45; --warning:#8a4700; --error:#b5001f;
+ --gauge-fill:#7be8a8;
+ --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+ --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
+ --sh-sm:0 1px 3px rgba(88,29,116,.08),0 1px 2px rgba(88,29,116,.04);
+ --sh-md:0 4px 12px rgba(88,29,116,.1),0 2px 4px rgba(88,29,116,.06);
+ --sh-lg:0 10px 30px rgba(88,29,116,.12),0 4px 8px rgba(88,29,116,.06);
+ --sh-xl:0 20px 60px rgba(46,16,64,.3),0 10px 24px rgba(46,16,64,.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;height:100%;}
+body{font-family:var(--font);color:var(--gray-900);background:var(--gray-50);line-height:1.5;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;height:100vh;overflow:hidden;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--violet-600);color:#fff;padding:12px 20px;z-index:999;}
+.skip-link:focus{left:0;}
+
+/* ═══ MAIN LAYOUT split 40/60 (login gauche, intro droite) ═══ */
+.prehome{flex:1;display:grid;grid-template-columns:40% 60%;position:relative;min-height:0;overflow:hidden;}
+
+/* ═══ COLONNE DROITE — PRÉSENTATION ═══ */
+.intro{background:linear-gradient(135deg,#1c0926 0%,var(--violet-800) 30%,var(--violet-600) 70%,var(--violet-500) 100%);color:#fff;padding:16px 48px 16px 88px;display:flex;flex-direction:column;position:relative;overflow:hidden;min-height:0;}
+.intro::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 80% 20%,rgba(255,255,255,.08) 0,transparent 35%),radial-gradient(circle at 15% 85%,rgba(123,232,168,.06) 0,transparent 40%);}
+.intro-pattern{position:absolute;right:-80px;bottom:-80px;width:520px;height:520px;opacity:.06;}
+
+/* Courbe organique de séparation - à gauche du bloc violet maintenant */
+.curve-divider{position:absolute;left:-1px;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
+.curve-divider svg{height:100%;width:auto;display:block;}
+
+/* Header */
+.intro-header{display:flex;align-items:center;gap:14px;position:absolute;top:24px;left:88px;z-index:3;}
+.logo-mark-big{width:60px;height:60px;background:rgba(255,255,255,.16);border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.25);}
+.logo-mark-big span{color:#fff;font-weight:700;font-size:26px;letter-spacing:-1px;}
+.logo-text-big{line-height:1.1;}
+.logo-name-big{font-weight:700;font-size:24px;color:#fff;letter-spacing:-.5px;}
+.logo-tag-big{font-size:13px;color:var(--violet-200);font-weight:700;margin-top:2px;}
+
+/* Body intro */
+.intro-body{flex:1;display:flex;flex-direction:column;justify-content:center;padding:80px 0 8px;position:relative;z-index:1;min-height:0;}
+
+.intro-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;margin-bottom:12px;width:fit-content;}
+.intro-eyebrow svg{width:13px;height:13px;}
+
+.intro-title{font-size:32px;font-weight:700;line-height:1.05;letter-spacing:-1px;margin-bottom:10px;color:#fff;}
+.intro-title em{font-style:normal;color:var(--violet-200);}
+.intro-lede{font-size:14px;color:rgba(255,255,255,.85);max-width:520px;line-height:1.5;margin-bottom:12px;}
+
+/* Vidéo placeholder */
+.video-placeholder{background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.18);border-radius:var(--r-xl);padding:0;overflow:hidden;width:100%;max-width:720px;aspect-ratio:16/9;position:relative;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.video-placeholder:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.25);border-color:rgba(255,255,255,.32);}
+.video-placeholder-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--violet-700),var(--violet-500));opacity:.5;}
+.video-placeholder-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 2px,transparent 2px,transparent 14px);}
+.video-play-btn{position:relative;z-index:1;width:80px;height:80px;background:rgba(255,255,255,.95);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:.2s;box-shadow:0 8px 24px rgba(0,0,0,.3);}
+.video-placeholder:hover .video-play-btn{transform:scale(1.1);background:#fff;}
+.video-play-btn svg{width:32px;height:32px;color:var(--violet-700);margin-left:5px;}
+.video-label{position:absolute;bottom:14px;left:18px;font-size:13px;font-weight:700;color:#fff;z-index:1;display:flex;align-items:center;gap:8px;}
+.video-label-tag{background:rgba(0,0,0,.4);padding:4px 10px;border-radius:var(--r-full);font-size:10px;text-transform:uppercase;letter-spacing:.06em;backdrop-filter:blur(8px);}
+.video-duration{position:absolute;bottom:14px;right:18px;background:rgba(0,0,0,.6);color:#fff;padding:4px 9px;border-radius:var(--r-sm);font-size:11px;font-weight:700;z-index:1;}
+
+/* Footer intro — 3 thématiques + athlètes */
+.intro-footer{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;margin-top:12px;}
+
+/* 3 piliers BDS */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.pillar{display:flex;align-items:center;gap:10px;padding:8px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-md);backdrop-filter:blur(6px);}
+.pillar-icon{width:36px;height:36px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pillar-icon.p1{background:rgba(132,51,184,.35);color:#d4a3ed;}
+.pillar-icon.p2{background:rgba(194,38,211,.3);color:#f0abfc;}
+.pillar-icon.p3{background:rgba(255,255,255,.16);color:#fff;}
+.pillar-icon svg{width:18px;height:18px;}
+.pillar-text{line-height:1.2;}
+.pillar-num{font-size:9px;color:rgba(255,255,255,.7);font-weight:700;letter-spacing:.08em;}
+.pillar-title{font-size:11.5px;font-weight:700;color:#fff;margin-top:2px;}
+
+
+
+/* ═══ COLONNE DROITE — CONNEXION ═══ */
+.login{background:#fff;padding:28px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;min-height:0;}
+.login-inner{max-width:380px;width:100%;margin:0 auto;}
+
+/* Title */
+.login-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--violet-600);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;}
+.login-eyebrow svg{width:14px;height:14px;}
+.login-title{font-size:24px;font-weight:700;letter-spacing:-.5px;color:var(--gray-900);margin-bottom:6px;line-height:1.2;}
+.login-sub{font-size:13px;color:var(--gray-600);line-height:1.5;margin-bottom:24px;}
+
+/* SSO bouton principal */
+.sso-btn{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:15px 18px;background:linear-gradient(135deg,var(--violet-700),var(--violet-500));color:#fff;border:none;border-radius:var(--r-md);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:.2s;box-shadow:0 4px 14px rgba(88,29,116,.3);position:relative;overflow:hidden;}
+.sso-btn::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent 50%);}
+.sso-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(88,29,116,.4);}
+.sso-btn:focus{outline:none;box-shadow:0 0 0 4px rgba(88,29,116,.25),0 4px 14px rgba(88,29,116,.3);}
+.sso-btn-left{display:flex;align-items:center;gap:10px;position:relative;z-index:1;}
+.sso-btn-icon{width:28px;height:28px;background:rgba(255,255,255,.2);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sso-btn-icon svg{width:15px;height:15px;}
+.sso-btn-text{position:relative;z-index:1;white-space:nowrap;}
+.sso-btn-arrow{position:relative;z-index:1;transition:.15s;width:18px;height:18px;flex-shrink:0;}
+.sso-btn:hover .sso-btn-arrow{transform:translateX(3px);}
+
+.sso-help{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--gray-600);margin-top:12px;line-height:1.4;}
+.sso-help svg{width:14px;height:14px;color:var(--violet-600);flex-shrink:0;margin-top:1px;}
+.sso-help strong{color:var(--gray-800);font-weight:700;}
+
+/* Séparateur "ou" */
+.divider{display:flex;align-items:center;gap:14px;margin:22px 0;}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--gray-200);}
+.divider span{font-size:11px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.08em;}
+
+/* Formulaire mail/mdp */
+.form-fields{display:flex;flex-direction:column;gap:12px;}
+.field{position:relative;}
+.field label{display:block;font-size:11px;font-weight:700;color:var(--gray-700);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em;}
+.field-input-wrap{position:relative;}
+.field input{width:100%;padding:11px 14px 11px 40px;border:1.5px solid var(--gray-200);border-radius:var(--r-md);font-family:var(--font);font-size:14px;color:var(--gray-900);background:var(--gray-50);transition:.15s;}
+.field input:hover{border-color:var(--gray-300);}
+.field input:focus{outline:none;border-color:var(--violet-600);background:#fff;box-shadow:0 0 0 3px rgba(88,29,116,.15);}
+.field-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--gray-500);}
+.field-icon svg{width:17px;height:17px;}
+
+.form-foot{display:flex;align-items:center;justify-content:space-between;margin-top:4px;flex-wrap:wrap;gap:10px;}
+.remember{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-700);cursor:pointer;}
+.remember input{width:16px;height:16px;accent-color:var(--violet-600);cursor:pointer;}
+.forgot-link{font-size:13px;color:var(--violet-600);font-weight:700;}
+.forgot-link:hover{color:var(--violet-700);text-decoration:underline;}
+
+.btn-login{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;background:transparent;color:var(--violet-700);border:1.5px solid var(--violet-300);border-radius:var(--r-md);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:.15s;margin-top:16px;}
+.btn-login:hover{background:var(--violet-50);border-color:var(--violet-600);}
+.btn-login svg{width:16px;height:16px;}
+
+/* Footer login — confidentialité */
+.login-foot{margin-top:auto;padding-top:24px;font-size:11px;color:var(--gray-500);line-height:1.5;text-align:center;}
+.login-foot a{color:var(--violet-600);text-decoration:underline;}
+.login-foot a:hover{color:var(--violet-700);}
+
+/* ═══ MINI FOOTER ═══ */
+.minimal-footer{background:var(--gray-50);border-top:1px solid var(--gray-200);padding:16px 0;font-size:12px;color:var(--gray-600);flex-shrink:0;}
+.minimal-footer-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.minimal-footer-legal{display:flex;gap:18px;flex-wrap:wrap;}
+.minimal-footer-legal a:hover{color:var(--violet-700);text-decoration:underline;}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1100px){
+ .prehome{grid-template-columns:55% 45%;}
+ .intro{padding:24px 36px 24px 48px;}
+ .login{padding:28px 36px;}
+ .intro-title{font-size:34px;}
+}
+@media(max-width:880px){
+ .prehome{grid-template-columns:1fr;}
+ .intro{padding:32px 28px 48px;min-height:auto;}
+ .curve-divider{display:none;}
+ .login{padding:40px 28px;min-height:auto;}
+ .intro-title{font-size:36px;}
+ .intro-body{padding:24px 0;}
+ .video-placeholder{max-width:100%;}
+ .pillars{grid-template-columns:1fr;gap:10px;}
+}
+@media(max-width:600px){
+ .intro-title{font-size:28px;}
+ .intro-lede{font-size:15px;}
+ .login-title{font-size:24px;}
+}
+
+/* ═══ Retours BPCE · Pré-home : 50/50, logo à gauche, vidéo carrée en boucle ═══ */
+html,body{height:auto!important;min-height:100%;}
+.prehome.ph{grid-template-columns:1fr 1fr!important;overflow:visible;flex:none;}
+.ph .login{padding:48px 56px;justify-content:flex-start;}
+.ph .login-inner{max-width:440px;}
+.ph-logo{display:inline-block;margin-bottom:28px;}
+.ph-logo img{height:84px;width:auto;display:block;}
+.ph-sso-desc{background:var(--violet-50);border-radius:12px;padding:16px 18px;margin:4px 0 18px;font-size:13.5px;line-height:1.55;color:var(--gray-700);}
+.ph-sso-desc p+p{margin-top:8px;}
+.ph-sso-desc strong{color:var(--violet-700);}
+.ph .intro{padding:48px 56px;display:flex;align-items:center;justify-content:center;}
+.ph-video-inner{width:100%;max-width:460px;display:flex;flex-direction:column;align-items:flex-start;}
+.ph .intro-title{font-size:36px;margin:14px 0 22px;}
+.ph-player{position:relative;width:100%;aspect-ratio:1/1;border-radius:20px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.25);}
+.ph-player-media{position:absolute;inset:0;background:url('assets/image-video-prehome.png') center/cover no-repeat;animation:phLoop 14s ease-in-out infinite alternate;}
+.ph-player.is-paused .ph-player-media{animation-play-state:paused;}
+@keyframes phLoop{0%{transform:scale(1) translate(0,0);}50%{transform:scale(1.1) translate(-1.5%,1%);}100%{transform:scale(1.04) translate(1.5%,-1%);}}
+.ph-player::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(0deg,rgba(46,16,64,.6),rgba(46,16,64,0));pointer-events:none;}
+.ph-player-tag{position:absolute;top:14px;left:14px;z-index:2;background:rgba(255,255,255,.92);color:var(--violet-700);font-size:11px;font-weight:700;padding:5px 10px;border-radius:999px;}
+.ph-player-ctrl{position:absolute;left:14px;right:14px;bottom:14px;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.ph-btn{width:44px;height:44px;border-radius:50%;border:0;background:#fff;color:var(--violet-700);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;}
+.ph-btn svg{width:18px;height:18px;}
+.ph-btn .i-play{display:none;}
+.ph-player.is-paused .ph-btn .i-play{display:block;margin-left:2px;}
+.ph-player.is-paused .ph-btn .i-pause{display:none;}
+.ph-switch{display:inline-flex;align-items:center;gap:8px;border:0;background:rgba(255,255,255,.92);color:var(--violet-800);font-family:inherit;font-size:12px;font-weight:700;padding:6px 8px 6px 12px;border-radius:999px;cursor:pointer;}
+.ph-switch svg{width:15px;height:15px;}
+.ph-switch-track{width:34px;height:20px;border-radius:999px;background:var(--gray-300);position:relative;transition:background .15s;}
+.ph-switch-knob{position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s;}
+.ph-switch[aria-checked="true"] .ph-switch-track{background:var(--violet-600);}
+.ph-switch[aria-checked="true"] .ph-switch-knob{left:16px;}
+.ph-btn:focus-visible,.ph-switch:focus-visible{outline:3px solid #fff;outline-offset:2px;}
+@media(prefers-reduced-motion:reduce){.ph-player-media{animation:none;}}
+.ph-brands{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px 24px;padding:22px 56px;background:#fff;border-top:1px solid var(--gray-200);}
+.ph-brands img{height:22px;width:auto;display:block;}
+@media(max-width:900px){
+ .prehome.ph{grid-template-columns:1fr!important;}
+ .ph-video{display:none!important;}
+ .ph .login{padding:32px 24px;}
+ .ph-logo img{height:64px;}
+ .ph-brands{padding:20px 24px;gap:16px 24px;}
+ .ph-brands img{height:20px;}
+}
+
+/* Pré-home tenue sur un seul écran + descriptif SSO en accordéon */
+body{min-height:100vh;display:flex;flex-direction:column;}
+.prehome.ph{flex:1 0 auto;}
+.ph .login{padding:20px 56px;justify-content:center;}
+.ph .intro{padding:24px 56px;}
+.ph-logo{margin-bottom:14px;}
+.ph-logo img{height:64px;}
+.ph .login-eyebrow{margin-bottom:6px;}
+.ph .login-title{margin-bottom:12px;}
+.ph-sso-acc{margin:0 0 14px;border-radius:12px;background:var(--violet-50);}
+.ph-sso-acc summary{list-style:none;display:flex;align-items:center;gap:10px;padding:11px 14px;font-size:13.5px;font-weight:700;color:var(--violet-700);cursor:pointer;border-radius:12px;}
+.ph-sso-acc summary::-webkit-details-marker{display:none;}
+.ph-sso-acc summary svg{width:16px;height:16px;flex-shrink:0;}
+.ph-sso-acc summary .ph-acc-chev{margin-left:auto;transition:transform .2s;}
+.ph-sso-acc[open] summary .ph-acc-chev{transform:rotate(180deg);}
+.ph-sso-acc summary:focus-visible{outline:2px solid var(--violet-600);outline-offset:2px;}
+.ph-sso-acc .ph-sso-desc{margin:0;padding:0 14px 14px 40px;background:none;}
+.ph .divider{margin:14px 0;}
+.ph .field{margin-bottom:10px;}
+.ph .form-foot{margin:4px 0 12px;}
+.ph .login-foot{padding-top:12px;}
+.ph .intro-title{font-size:32px;margin:10px 0 16px;}
+.ph-video-inner{max-width:420px;}
+.ph-player{width:min(100%, calc(100vh - 300px));aspect-ratio:1/1;max-width:100%;}
+.ph-brands{padding:12px 56px;}
+.ph-brands img{height:20px;}
+.minimal-footer{padding:10px 0;}
+
+@media(max-height:820px){
+ .ph .login{padding:12px 56px;}
+ .ph-logo{margin-bottom:8px;}
+ .ph-logo img{height:50px;}
+ .ph .login-title{font-size:22px;margin-bottom:8px;}
+ .ph-sso-acc{margin-bottom:10px;}
+ .ph .divider{margin:10px 0;}
+ .ph .field{margin-bottom:8px;}
+ .ph .form-foot{margin:2px 0 8px;}
+ .ph .login-foot{padding-top:8px;}
+}
+
+/* Vidéo élargie, proche du 16:9 */
+.ph-video-inner{max-width:600px!important;}
+.ph-player{aspect-ratio:16/10!important;width:min(100%, calc((100vh - 300px) * 1.6))!important;}
+</style>
+</head>
+<body>
+
+<a href="#login" class="skip-link">Aller directement à la connexion</a>
+
+<!-- Bandeau démo -->
+<div style="background:#1c0926;color:#fff;padding:8px 24px;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:Arial,Helvetica,sans-serif;">
+ <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable TEAM IMAGINE</strong> — Démo de cadrage, novembre 2026</span>
+ <a href="sommaire-sans-strava.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:.15s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
+ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+ Retour au sommaire
+ </a>
+</div>
+
+
+<div class="prehome ph">
+
+ <!-- ═══ GAUCHE — CONNEXION (50 %) ═══ -->
+ <section class="login" id="login" aria-labelledby="login-title">
+ <div class="login-inner">
+
+ <a href="home-sans-strava.html" class="ph-logo" aria-label="GROUPE BPCE × TEAM IMAGINE - Accueil">
+ <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE"/>
+ </a>
+
+ <div class="login-eyebrow">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+ Espace réservé aux collaborateurs
+ </div>
+
+ <h2 class="login-title" id="login-title">Connectez-vous</h2>
+
+ <!-- Bloc descriptif SSO actuel -->
+ <details class="ph-sso-acc" id="sso-help-text">
+ <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>Comment fonctionne la connexion automatique ?</span><svg class="ph-acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+ <div class="ph-sso-desc">
+ <p>Vous pouvez désormais accéder à Team IMAGINE sans login ni mot de passe, grâce à l'authentification automatique.</p>
+ <p>Pour ce faire, cliquez sur le bouton « <strong>Connexion automatique</strong> » puis sélectionnez le module correspondant à votre entité dans l'interface proposée.</p>
+ <p>Vous hésitez sur l'entité à sélectionner ? Contactez votre support IT.</p>
+ <p>En cas de doute ou de difficulté, vous pouvez toujours vous connecter ci-dessous avec vos identifiants habituels.</p>
+ </div>
+ </details>
+
+ <!-- SSO bouton principal -->
+ <button class="sso-btn" type="button" aria-describedby="sso-help-text">
+ <span class="sso-btn-left">
+ <span class="sso-btn-icon" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+ </span>
+ <span class="sso-btn-text">Connexion automatique</span>
+ </span>
+ <svg class="sso-btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+ </button>
+
+ <!-- Séparateur -->
+ <div class="divider" role="separator"><span>Ou</span></div>
+
+ <!-- Formulaire mail/mdp -->
+ <form class="form-fields" novalidate>
+ <div class="field">
+ <label for="email">Adresse e-mail professionnelle</label>
+ <div class="field-input-wrap">
+ <span class="field-icon" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+ </span>
+ <input type="email" id="email" name="email" placeholder="prenom.nom@bpce.fr" autocomplete="email">
+ </div>
+ </div>
+
+ <div class="field">
+ <label for="password">Mot de passe</label>
+ <div class="field-input-wrap">
+ <span class="field-icon" aria-hidden="true">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+ </span>
+ <input type="password" id="password" name="password" placeholder="••••••••••" autocomplete="current-password">
+ </div>
+ </div>
+
+ <div class="form-foot">
+ <label class="remember">
+ <input type="checkbox" name="remember">
+ Se souvenir de moi
+ </label>
+ <a href="#" class="forgot-link">Mot de passe oublié ?</a>
+ </div>
+
+ <button type="submit" class="btn-login">
+ Se connecter par e-mail
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+ </button>
+ </form>
+
+ <!-- Footer login -->
+ <div class="login-foot">
+ En vous connectant, vous acceptez les <a href="#">CGU</a> et la <a href="#">politique de confidentialité</a> de Team IMAGINE.
+ </div>
+
+ </div>
+ </section>
+
+ <!-- ═══ DROITE — VIDÉO (50 %, masquée sur mobile) ═══ -->
+ <section class="intro ph-video" aria-labelledby="intro-title">
+ <div class="ph-video-inner">
+ <span class="intro-eyebrow">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
+ Bienvenue dans la Banque du Sport
+ </span>
+ <h1 class="intro-title" id="intro-title">Le sport,<br><em>au cœur du Groupe BPCE.</em></h1>
+
+ <!-- Animation en boucle, format carré, action au centre. Musique de fond coupée par défaut, sans voix off ni sous-titres -->
+ <div class="ph-player" id="phPlayer">
+ <div class="ph-player-media" aria-hidden="true"></div>
+ <span class="ph-player-tag">Manifeste</span>
+ <div class="ph-player-ctrl">
+ <button type="button" class="ph-btn ph-playpause" id="phPlay" aria-pressed="false" aria-label="Mettre la vidéo en pause"><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+ <button type="button" class="ph-switch" id="phMusic" role="switch" aria-checked="false">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span class="ph-switch-lbl">Musique</span><span class="ph-switch-track"><span class="ph-switch-knob"></span></span>
+ </button>
+ </div>
+ </div>
+ </div>
+ </section>
+</div>
+
+<!-- ═══ FRISE DES MARQUES ═══ -->
+<div class="ph-brands" aria-label="Les marques du Groupe BPCE">
+ <img src="assets/logos_05.png" alt="Groupe BPCE"/>
+ <img src="assets/logos_01.png" alt="Marque 2 du Groupe BPCE"/>
+ <img src="assets/logos_02.png" alt="Marque 3 du Groupe BPCE"/>
+ <img src="assets/logos_03.png" alt="Marque 4 du Groupe BPCE"/>
+ <img src="assets/logos_04.png" alt="Marque 5 du Groupe BPCE"/>
+ <img src="assets/logos_06.png" alt="Marque 6 du Groupe BPCE"/>
+ <img src="assets/logos_07.png" alt="Marque 7 du Groupe BPCE"/>
+ <img src="assets/logos_08.png" alt="Marque 8 du Groupe BPCE"/>
+ <img src="assets/logos_09.png" alt="Marque 9 du Groupe BPCE"/>
+ <img src="assets/logos_10.png" alt="Marque 10 du Groupe BPCE"/>
+</div>
+
+<!-- ═══ MINI FOOTER ═══ -->
+<footer class="minimal-footer">
+ <div class="minimal-footer-inner">
+ <span>© 2026 Groupe BPCE — TEAM IMAGINE</span>
+ <div class="minimal-footer-legal">
+ <a href="#">Mentions légales</a>
+ <a href="#">CGU</a>
+ <a href="#

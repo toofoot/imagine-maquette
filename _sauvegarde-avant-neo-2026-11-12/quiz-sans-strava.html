@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team IMAGINE — Quiz Objectif Euro 2026</title>
+<style>
+:root {
+ --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
+ --violet-600:#581d74; --violet-500:#6b239a; --violet-400:#8433b8;
+ --violet-300:#a257cc; --violet-200:#c699e2; --violet-100:#e2c8f2; --violet-50:#f5eefa;
+ --gray-900:#111; --gray-800:#252525; --gray-700:#3d3d3d; --gray-600:#575757;
+ --gray-500:#737373; --gray-400:#909090; --gray-300:#b5b5b5; --gray-200:#d8d8d8;
+ --gray-100:#efefef; --gray-50:#f7f7f7; --white:#fff;
+ --success:#1a7a45; --success-bg:#e7f5ee; --warning:#8a4700; --warning-bg:#fff3e5;
+ --error:#b5001f; --info:#0f5fa8; --info-bg:#e7f0fa;
+ --gauge-fill:#7be8a8;
+ /* Mécaniques couleurs */
+ --quiz:#8433b8; --quiz-bg:#f3e8fb;
+ --prono:#0f5fa8; --prono-bg:#e7f0fa;
+ --instant:#ea580c; --instant-bg:#fff3e5;
+ --form:#1a7a45; --form-bg:#e7f5ee;
+ --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+ --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
+ --sh-sm:0 1px 3px rgba(88,29,116,.08),0 1px 2px rgba(88,29,116,.04);
+ --sh-md:0 4px 12px rgba(88,29,116,.1),0 2px 4px rgba(88,29,116,.06);
+ --sh-lg:0 10px 30px rgba(88,29,116,.12),0 4px 8px rgba(88,29,116,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:var(--font);color:var(--gray-900);background:var(--gray-50);line-height:1.5;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--violet-600);color:#fff;padding:12px 20px;z-index:999;}
+.skip-link:focus{left:0;}
+
+/* ═══ HEADER ═══ */
+.header{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100;}
+.header-top{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px;}
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0;text-decoration:none;}
+.logo-img{height:48px;width:auto;display:block;}
+.logo-mark{width:42px;height:42px;background:var(--violet-600);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;}
+.logo-mark span{color:#fff;font-weight:700;font-size:18px;letter-spacing:-.5px;}
+.logo-text{line-height:1.1;}
+.logo-name{font-weight:700;font-size:16px;color:var(--gray-900);letter-spacing:-.3px;}
+.logo-tag{font-size:11px;color:var(--violet-600);font-weight:700;}
+.nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;}
+.nav a{padding:10px 14px;font-size:14px;font-weight:700;color:var(--gray-700);border-radius:var(--r-md);transition:.15s;position:relative;display:flex;align-items:center;gap:6px;}
+.nav a:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav a.active{color:var(--violet-600);}
+.nav a.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--violet-600);border-radius:3px 3px 0 0;}
+.nav a svg{width:16px;height:16px;}
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.icon-btn{width:42px;height:42px;border-radius:var(--r-full);border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-600);transition:.15s;position:relative;}
+.icon-btn:hover{background:var(--gray-100);color:var(--violet-600);}
+.icon-btn svg{width:22px;height:22px;}
+.notif-dot{position:absolute;top:9px;right:9px;width:8px;height:8px;background:var(--error);border-radius:50%;border:2px solid #fff;}
+.user-chip{display:flex;align-items:center;gap:10px;padding:5px 12px 5px 5px;border-radius:var(--r-full);background:var(--gray-50);border:1px solid var(--gray-200);cursor:pointer;transition:.15s;}
+.user-chip:hover{border-color:var(--violet-300);background:var(--violet-50);}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--violet-600);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;}
+.user-name{font-size:14px;font-weight:700;color:var(--gray-800);}
+
+/* ═══ HERO ═══ */
+.page-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 30%,rgba(255,255,255,.07) 0,transparent 35%),radial-gradient(circle at 10% 90%,rgba(255,255,255,.05) 0,transparent 40%);}
+
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.85);margin-bottom:14px;position:relative;}
+.breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a:hover{color:#fff;}
+.breadcrumb svg{width:14px;height:14px;}
+.hero-inner{position:relative;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;}
+.page-title{font-size:42px;font-weight:700;line-height:1.05;letter-spacing:-1px;margin-bottom:10px;display:flex;align-items:center;gap:14px;}
+.page-title-icon{width:50px;height:50px;border-radius:var(--r-md);background:rgba(255,255,255,.16);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.page-title-icon svg{width:28px;height:28px;}
+.page-sub{font-size:16px;color:rgba(255,255,255,.85);max-width:560px;line-height:1.5;}
+
+/* Stats hero */
+.hero-stats{display:flex;gap:14px;}
+.hero-stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-xl);padding:18px 24px;text-align:center;backdrop-filter:blur(8px);min-width:130px;}
+.hero-stat-num{font-size:34px;font-weight:700;line-height:1;color:#fff;letter-spacing:-.5px;}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.85);margin-top:6px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;}
+
+/* ═══ SECTIONS ═══ */
+.section{padding:42px 0;}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;gap:24px;flex-wrap:wrap;}
+.section-title{font-size:28px;font-weight:700;letter-spacing:-.5px;color:var(--gray-900);display:flex;align-items:center;gap:12px;}
+.section-title-num{font-size:14px;background:var(--violet-100);color:var(--violet-700);padding:4px 12px;border-radius:var(--r-full);font-weight:700;}
+.section-sub{font-size:14px;color:var(--gray-600);margin-top:4px;}
+.section-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--violet-600);white-space:nowrap;cursor:pointer;}
+.section-link:hover{color:var(--violet-700);gap:9px;}
+.section-link svg{width:14px;height:14px;transition:.15s;}
+
+/* ═══ FILTRES TABS ═══ */
+.filter-tabs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.filter-tab{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:var(--r-full);font-size:13px;font-weight:700;color:var(--gray-700);background:var(--white);border:1.5px solid var(--gray-200);cursor:pointer;transition:.15s;font-family:var(--font);}
+.filter-tab:hover{border-color:var(--violet-300);background:var(--violet-50);color:var(--violet-700);}
+.filter-tab.active{background:var(--violet-600);color:#fff;border-color:var(--violet-600);}
+.filter-tab .count{background:rgba(255,255,255,.2);padding:2px 8px;border-radius:var(--r-full);font-size:11px;}
+.filter-tab:not(.active) .count{background:var(--gray-50);color:var(--gray-500);border:1px solid var(--gray-200);}
+
+/* ═══ JEUX CARDS ═══ */
+.jeux-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.jeu-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);overflow:hidden;transition:.2s;display:flex;flex-direction:column;}
+.jeu-card:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);border-color:var(--violet-200);}
+.jeu-banner{height:180px;position:relative;display:flex;align-items:flex-end;padding:18px 22px;overflow:hidden;background-size:cover;background-position:center;background-repeat:no-repeat;}
+.jeu-banner.quiz{background:url('assets/Quiz%20%E2%80%94%20FFHandball%20.png') center/cover no-repeat;}
+.jeu-banner.prono{background:url('assets/Pronos%20%E2%80%94%20Tournoi%20de%20France%20de%20Handball.png') center/cover no-repeat;}
+.jeu-banner.instant{background:url('assets/Instant-Gagnant%20%E2%80%94%20Banque%20Populaire%20%20FFVoile%20%C2%B7%20Tirage%20quotidien.png') center/cover no-repeat;}
+.jeu-banner::before{display:none;}
+.jeu-svg{display:none;}
+.jeu-svg svg{width:130px;height:130px;}
+.jeu-banner-inner{position:relative;z-index:1;width:100%;display:flex;align-items:flex-end;}
+.jeu-type{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.95);padding:5px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;backdrop-filter:blur(6px);}
+.jeu-type.quiz{color:var(--quiz);}
+.jeu-type.prono{color:var(--prono);}
+.jeu-type.instant{color:var(--instant);}
+.jeu-type svg{width:13px;height:13px;}
+
+.jeu-body{padding:20px 24px 22px;flex:1;display:flex;flex-direction:column;}
+.jeu-name{font-size:18px;font-weight:700;color:var(--gray-900);margin-bottom:8px;line-height:1.3;}
+.jeu-desc{font-size:13px;color:var(--gray-600);line-height:1.5;margin-bottom:18px;}
+
+/* Compte à rebours */
+.jeu-deadline{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--r-md);margin-bottom:12px;}
+.jeu-deadline-icon{width:28px;height:28px;border-radius:var(--r-sm);background:var(--warning-bg);color:var(--warning);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.jeu-deadline-icon svg{width:16px;height:16px;}
+.jeu-deadline-text{font-size:12px;color:var(--gray-700);line-height:1.3;}
+.jeu-deadline-text strong{display:block;color:var(--gray-900);font-size:14px;}
+
+.jeu-deadline.urgent .jeu-deadline-icon{background:#fef2f2;color:var(--error);}
+.jeu-deadline.permanent .jeu-deadline-icon{background:var(--success-bg);color:var(--success);}
+
+/* Lot/Récompense */
+.jeu-prize{display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #fcd34d;border-radius:var(--r-md);margin-bottom:16px;margin-top:auto;}
+.jeu-prize-icon{width:28px;height:28px;border-radius:var(--r-sm);background:#fbbf24;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.jeu-prize-icon svg{width:16px;height:16px;}
+.jeu-prize-text{font-size:12px;color:#78350f;line-height:1.3;}
+.jeu-prize-text strong{display:block;color:#451a03;font-size:13px;}
+
+.jeu-foot{padding-top:16px;margin-top:auto;border-top:1px solid var(--gray-100);}
+
+/* Status badge dans les jeux */
+.jeu-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--success);margin-bottom:12px;}
+.jeu-status svg{width:14px;height:14px;}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:var(--r-md);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;border:2px solid transparent;transition:.15s;white-space:nowrap;text-decoration:none;width:100%;}
+.btn svg{width:16px;height:16px;}
+.btn-violet{background:var(--violet-600);color:#fff;}
+.btn-violet:hover{background:var(--violet-700);transform:translateY(-1px);box-shadow:var(--sh-md);}
+.btn-outline{background:transparent;color:var(--violet-600);border-color:var(--violet-300);}
+.btn-outline:hover{background:var(--violet-50);border-color:var(--violet-600);}
+.btn-quiz{background:var(--quiz);color:#fff;}
+.btn-quiz:hover{background:#6b239a;}
+.btn-prono{background:var(--prono);color:#fff;}
+.btn-prono:hover{background:#3d1554;}
+.btn-instant{background:var(--instant);color:#fff;}
+.btn-instant:hover{background:#9a3412;}
+
+/* ═══ MES PARTICIPATIONS ═══ */
+.particip-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);padding:28px 32px;}
+.particip-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--gray-100);}
+.particip-item:last-child{border-bottom:none;padding-bottom:0;}
+.particip-item:first-child{padding-top:0;}
+.particip-icon{width:44px;height:44px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.particip-icon.quiz{background:var(--quiz-bg);color:var(--quiz);}
+.particip-icon.prono{background:var(--prono-bg);color:var(--prono);}
+.particip-icon.instant{background:var(--instant-bg);color:var(--instant);}
+.particip-icon svg{width:22px;height:22px;}
+.particip-info{flex:1;min-width:0;}
+.particip-name{font-size:14px;font-weight:700;color:var(--gray-900);margin-bottom:3px;}
+.particip-meta{font-size:12px;color:var(--gray-500);}
+.particip-meta strong{color:var(--gray-700);}
+.particip-status{font-size:11px;font-weight:700;padding:5px 12px;border-radius:var(--r-full);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
+.status-pending{background:var(--warning-bg);color:var(--warning);}
+.status-won{background:var(--success-bg);color:var(--success);}
+.status-lost{background:var(--gray-100);color:var(--gray-600);}
+
+/* Voir tout link */
+.particip-see-all{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;margin-top:14px;background:var(--violet-50);border:1.5px dashed var(--violet-200);border-radius:var(--r-md);font-size:13px;font-weight:700;color:var(--violet-700);transition:.15s;cursor:pointer;}
+.particip-see-all:hover{background:var(--violet-100);border-color:var(--violet-400);gap:11px;}
+.particip-see-all svg{width:14px;height:14px;}
+
+/* ═══ RÉSULTATS RÉCENTS ═══ */
+.winners-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.winner-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-xl);padding:22px 24px;position:relative;overflow:hidden;}
+.winner-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;}
+.winner-card.gold::before{background:linear-gradient(180deg,#fbbf24,#b45309);}
+.winner-card.silver::before{background:linear-gradient(180deg,#d8d8d8,#737373);}
+.winner-card.bronze::before{background:linear-gradient(180deg,#d97706,#7c2d12);}
+.winner-jeu{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-500);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.winner-jeu-dot{width:8px;height:8px;border-radius:50%;}
+.winner-jeu-dot.quiz{background:var(--quiz);}
+.winner-jeu-dot.prono{background:var(--prono);}
+.winner-jeu-dot.instant{background:var(--instant);}
+.winner-name{font-size:18px;font-weight:700;color:var(--gray-900);margin-bottom:6px;letter-spacing:-.2px;}
+.winner-entity{font-size:12px;color:var(--gray-600);margin-bottom:12px;}
+.winner-prize{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--violet-50);border-radius:var(--r-sm);font-size:12px;color:var(--violet-700);font-weight:700;}
+.winner-prize svg{width:14px;height:14px;color:var(--violet-600);flex-shrink:0;}
+.winner-date{font-size:11px;color:var(--gray-500);margin-top:10px;text-align:right;}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--violet-900);color:rgba(255,255,255,.85);padding:42px 0 22px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-brand .logo-mark{margin-bottom:14px;}
+.footer-brand p{font-size:13px;line-height:1.6;max-width:280px;margin-top:14px;}
+.footer-col h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.85);padding:5px 0;transition:.15s;}
+.footer-col a:hover{color:#fff;}
+.footer-qr{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);padding:12px;}
+.qr-box{width:60px;height:60px;background:#fff;border-radius:var(--r-sm);flex-shrink:0;padding:5px;}
+.qr-box svg{width:100%;height:100%;}
+.footer-qr-text{font-size:12px;line-height:1.4;}
+.footer-qr-text strong{color:#fff;display:block;font-size:13px;margin-bottom:2px;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:20px;font-size:12px;flex-wrap:wrap;gap:10px;}
+.footer-legal{display:flex;gap:18px;flex-wrap:wrap;}
+.footer-legal a:hover{color:#fff;}
+
+@media(max-width:980px){
+ .nav{display:none;}
+ .hero-inner{grid-template-columns:1fr;}
+ .page-title{font-size:32px;}
+ .jeux-grid{grid-template-columns:1fr 1fr;}
+ .winners-grid{grid-template-columns:1fr 1fr;}
+ .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
+ .user-name{display:none;}
+}
+@media(max-width:600px){
+ .page-title{font-size:26px;}
+ .jeux-grid,.winners-grid{grid-template-columns:1fr;}
+ .footer-grid{grid-template-columns:1fr;}
+ .section-title{font-size:22px;}
+ .filter-tab{padding:7px 12px;font-size:12px;}
+ .hero-stats{flex-direction:column;width:100%;}
+}
+
+/* ═══ INVITE BAR ═══ */
+.invite-bar{background:linear-gradient(135deg,rgba(245,238,250,.55) 0%,rgba(239,239,239,.5) 100%),url('assets/image-parrainage.png') center/cover no-repeat;color:var(--gray-800);padding:0;position:relative;overflow:hidden;border-top:1px solid var(--gray-200);}
+.invite-bar + .footer,.invite-bar + footer{margin-top:0;}
+.invite-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;max-width:900px;margin:0 auto;padding:48px 32px;text-align:center;}
+.invite-text{text-align:center;max-width:600px;}
+.invite-text h3{font-size:26px;font-weight:700;letter-spacing:-.3px;margin-bottom:8px;color:var(--gray-900);}
+.invite-text p{font-size:14px;color:var(--gray-700);max-width:520px;line-height:1.5;margin:0 auto;}
+.invite-form{display:flex;align-items:stretch;gap:10px;background:#fff;border:1.5px solid var(--gray-200);border-radius:var(--r-full);padding:6px;min-width:380px;box-shadow:var(--sh-md);}
+.invite-form input{flex:1;border:none;background:transparent;color:var(--gray-900);font-family:var(--font);font-size:14px;padding:10px 16px;outline:none;}
+.invite-form input::placeholder{color:var(--gray-500);}
+.invite-btn{display:inline-flex;align-items:center;gap:6px;background:var(--violet-600);color:#fff;border:none;padding:10px 22px;border-radius:var(--r-full);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:.15s;white-space:nowrap;}
+.invite-btn:hover{background:var(--violet-700);transform:translateY(-1px);box-shadow:0 6px 16px rgba(88,29,116,.25);}
+.invite-btn svg{width:14px;height:14px;}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+@media(max-width:780px){.invite-form{min-width:0;width:100%;}.invite-inner{padding:32px 24px;}}
+
+/* ═══ NAV DROPDOWN ═══ */
+.nav-dropdown{position:relative;display:inline-block;}
+.nav-dropdown-trigger{padding:10px 14px;font-size:14px;font-weight:700;color:var(--gray-700);border-radius:var(--r-md);transition:.15s;display:inline-flex;align-items:center;gap:6px;cursor:pointer;}
+.nav-dropdown-trigger:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav-dropdown-trigger.active{color:var(--violet-600);position:relative;}
+.nav-dropdown-trigger.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--violet-600);border-radius:3px 3px 0 0;}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 6px);left:0;background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-md);box-shadow:var(--sh-lg);min-width:200px;padding:6px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.15s;z-index:50;}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 14px;font-size:14px;font-weight:600;color:var(--gray-800);border-radius:var(--r-sm);transition:.12s;}
+.nav-dropdown-menu a:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav-dropdown-menu a svg{width:16px;height:16px;flex-shrink:0;color:var(--violet-600);}
+
+/* Bouton nav illustratif "Défi 2027" */
+.nav-defi{display:inline-flex;align-items:center;gap:7px;margin-left:8px;background:linear-gradient(135deg,#6b239a,#c026d3);color:#fff;font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:9999px;box-shadow:0 3px 10px rgba(123,46,167,.4);white-space:nowrap;cursor:default;}
+.nav-defi svg{width:15px;height:15px;}
+
+/* Pastille de rappel de version (bas droite) */
+.version-pill{position:fixed;right:20px;bottom:20px;z-index:300;display:inline-flex;align-items:center;gap:8px;background:#4b1a67;color:#fff;font-size:12.5px;font-weight:700;padding:10px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(46,16,64,.4);text-decoration:none;transition:.2s;}
+.version-pill:hover{background:#581d74;transform:translateY(-2px);}
+.version-pill .vp-logo{width:14px;height:14px;flex-shrink:0;}
+.version-pill .vp-dot{width:8px;height:8px;border-radius:50%;background:#9aa0a6;flex-shrink:0;}
+.version-pill.v2{background:#3d1554;}
+@media(max-width:600px){.version-pill{right:12px;bottom:12px;font-size:11.5px;padding:8px 13px;}}
+
+/* ═══════════ MÉCANIQUES DE JEU — styles communs (quiz / prono décalé / concours) ═══════════ */
+[hidden]{display:none!important;}
+:root{--decale:#0e7490;--decale-bg:#e6f4f7;--decale-dark:#0b5a70;}
+.page-hero{background-image:linear-gradient(135deg,rgba(46,16,64,.95) 0%,rgba(88,29,116,.88) 55%,rgba(132,51,184,.78) 100%),url('assets/visuel-handball.jpg');background-size:cover;background-position:center;color:#fff;padding:44px 0 52px;position:relative;overflow:hidden;}
+.page-hero.hero-decale{background-image:linear-gradient(135deg,rgba(6,45,60,.95) 0%,rgba(14,116,144,.88) 55%,rgba(22,150,172,.76) 100%),url('assets/visuel-handball.jpg');}
+.page-hero.hero-concours{background-image:linear-gradient(135deg,rgba(7,40,80,.95) 0%,rgba(15,95,168,.86) 55%,rgba(40,135,215,.74) 100%),url('assets/Pronos%20%E2%80%94%20Tournoi%20de%20France%20de%20Handball.png');}
+.hero-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;position:relative;}
+.hero-chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:var(--r-full);font-size:12.5px;font-weight:700;color:#fff;}
+.hero-chip svg{width:14px;height:14px;flex-shrink:0;}
+.page-title-kicker{display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:rgba(255,255,255,.16);padding:5px 12px;border-radius:var(--r-full);margin-bottom:12px;position:relative;}
+
+/* Sélecteur d'état (démo) */
+.demo-switch{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#fff;border:1.5px dashed var(--violet-300);border-radius:var(--r-lg);padding:10px 14px;margin-top:24px;}
+.ds-label{font-size:11.5px;font-weight:700;color:var(--violet-700);text-transform:uppercase;letter-spacing:.06em;margin-right:6px;display:inline-flex;align-items:center;gap:6px;}
+.ds-label svg{width:15px;height:15px;}
+.ds-btn{font-family:var(--font);font-size:13px;font-weight:700;padding:7px 14px 7px 8px;border-radius:var(--r-full);border:1.5px solid var(--gray-200);background:var(--gray-50);color:var(--gray-700);cursor:pointer;display:inline-flex;gap:8px;align-items:center;transition:.15s;}
+.ds-btn:hover{border-color:var(--violet-300);color:var(--violet-700);}
+.ds-btn .n{width:22px;height:22px;border-radius:50%;background:var(--gray-200);display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+.ds-btn[aria-pressed="true"]{background:var(--violet-600);border-color:var(--violet-600);color:#fff;}
+.ds-btn[aria-pressed="true"] .n{background:rgba(255,255,255,.25);}
+.ds-hint{font-size:12px;color:var(--gray-500);margin-left:auto;}
+
+/* Mise en page jeu */
+.game-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:28px;align-items:start;padding:24px 0 64px;}
+.side{display:flex;flex-direction:column;gap:18px;position:sticky;top:92px;}
+.side.static{position:static;}
+.side-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);padding:22px 24px;}
+.side-title{font-size:17px;font-weight:700;color:var(--gray-900);margin-bottom:14px;letter-spacing:-.2px;}
+.side-text{font-size:13.5px;color:var(--gray-700);line-height:1.55;}
+.how{list-style:none;display:flex;flex-direction:column;gap:12px;counter-reset:how;}
+.how li{display:flex;gap:12px;font-size:13.5px;color:var(--gray-700);line-height:1.45;counter-increment:how;}
+.how li::before{content:counter(how);width:24px;height:24px;border-radius:50%;background:var(--violet-100);color:var(--violet-700);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.how li strong{color:var(--gray-900);}
+.side-partner{border-radius:var(--r-lg);overflow:hidden;margin-bottom:12px;aspect-ratio:16/9;background:var(--gray-100);}
+.side-partner img{width:100%;height:100%;object-fit:cover;}
+.jeu-prize{margin-top:0;}
+.coin{width:18px;height:18px;display:inline-block;vertical-align:-3px;flex-shrink:0;}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+.btn-decale{background:var(--decale);color:#fff;}
+.btn-decale:hover{background:var(--decale-dark);}
+.btn-auto{width:auto;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--violet-600);margin-top:8px;}
+.back-link svg{width:14px;height:14px;}
+.flag{display:inline-block;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.12),0 2px 6px rgba(0,0,0,.08);flex-shrink:0;line-height:0;}
+.flag svg{width:100%;height:100%;display:block;}
+.pill-ok{display:inline-flex;align-items:center;gap:6px;background:var(--success-bg);color:var(--success);border:1px solid #b9e2cb;font-size:12px;font-weight:700;padding:5px 12px;border-radius:var(--r-full);line-height:1.3;text-align:center;}
+.pill-ok svg{width:13px;height:13px;flex-shrink:0;}
+.pts-win{display:inline-flex;align-items:center;gap:6px;background:#1f9d55;color:#fff;font-size:15px;font-weight:700;padding:7px 18px;border-radius:var(--r-full);}
+.pts-zero{display:inline-flex;align-items:center;gap:6px;background:var(--gray-100);color:var(--gray-600);font-size:14px;font-weight:700;padding:7px 18px;border-radius:var(--r-full);}
+
+/* Compte à rebours */
+.cd{display:flex;gap:6px;justify-content:center;}
+.cd-u{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.cd-n{width:38px;height:38px;border-radius:50%;border:2px solid var(--gray-300);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--gray-800);background:#fff;}
+.cd-l{font-size:9px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.05em;}
+.cd-title{font-size:11px;font-weight:700;color:var(--gray-600);text-align:center;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+
+@media(max-width:980px){
+ .game-layout{grid-template-columns:1fr;}
+ .side{position:static;}
+}
+
+/* ═══ QUIZ ═══ */
+.q-intro{display:flex;align-items:center;gap:14px;background:var(--quiz-bg);border:1px solid #e3cdf3;border-radius:var(--r-xl);padding:14px 18px;margin-bottom:18px;font-size:14px;color:var(--violet-800);}
+.q-intro svg{width:22px;height:22px;flex-shrink:0;color:var(--quiz);}
+.q-list{display:flex;flex-direction:column;gap:16px;}
+.q-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);padding:20px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:22px;align-items:start;transition:.2s;}
+.q-card.answered{border-color:#dcc2ef;}
+.q-img{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;background:var(--gray-100);}
+.q-img img{width:100%;height:100%;object-fit:cover;}
+.q-num{position:absolute;top:10px;left:10px;background:#fff;color:var(--quiz);font-weight:700;font-size:12px;padding:4px 10px;border-radius:var(--r-full);box-shadow:var(--sh-sm);}
+.q-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px;}
+.q-text{font-size:17px;font-weight:700;line-height:1.35;color:var(--gray-900);}
+.q-verdict{display:none;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:5px 11px;border-radius:var(--r-full);white-space:nowrap;}
+.q-verdict svg{width:13px;height:13px;}
+.q-card.done .q-verdict{display:inline-flex;}
+.q-verdict.ok{background:var(--success-bg);color:var(--success);}
+.q-verdict.ko{background:#fdecef;color:var(--error);}
+.q-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;border:none;}
+.q-opt{position:relative;display:flex;align-items:center;gap:10px;padding:11px 14px;border:1.5px solid var(--gray-200);border-radius:var(--r-md);cursor:pointer;font-size:14px;font-weight:600;color:var(--gray-800);background:#fff;transition:.15s;line-height:1.3;}
+.q-opt input{position:absolute;opacity:0;pointer-events:none;}
+.q-opt:hover{border-color:var(--violet-300);background:var(--violet-50);}
+.q-opt:has(input:focus-visible){outline:3px solid var(--violet-300);outline-offset:2px;}
+.q-letter{width:26px;height:26px;border-radius:50%;background:var(--gray-100);color:var(--gray-700);display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;}
+.q-opt:has(input:checked){border-color:var(--quiz);background:var(--quiz-bg);}
+.q-opt:has(input:checked) .q-letter{background:var(--quiz);color:#fff;}
+.q-mark{margin-left:auto;display:none;align-items:center;gap:4px;font-size:11px;font-weight:700;white-space:nowrap;}
+.q-mark svg{width:16px;height:16px;}
+.q-card.done .q-opt{cursor:default;}
+.q-card.done .q-opt:hover{border-color:var(--gray-200);background:#fff;}
+.q-card.done .q-opt.is-correct{border-color:var(--success);background:var(--success-bg);color:#0f5130;}
+.q-card.done .q-opt.is-correct .q-letter{background:var(--success);color:#fff;}
+.q-card.done .q-opt.is-wrong{border-color:var(--error);background:#fdecef;color:#7a0015;}
+.q-card.done .q-opt.is-wrong .q-letter{background:var(--error);color:#fff;}
+.q-card.done .q-opt:not(.is-correct):not(.is-wrong){opacity:.6;}
+.q-card.done .q-opt.is-correct .q-mark,.q-card.done .q-opt.is-wrong .q-mark{display:inline-flex;}
+.q-opt.is-correct .q-mark{color:var(--success);}
+.q-opt.is-wrong .q-mark{color:var(--error);}
+.q-explain{display:none;margin-top:12px;font-size:13px;color:var(--gray-700);background:var(--gray-50);border-left:3px solid var(--quiz);padding:10px 14px;border-radius:0 var(--r-sm) var(--r-sm) 0;line-height:1.5;}
+.q-explain strong{color:var(--violet-800);}
+.q-card.done .q-explain{display:block;}
+.q-submit{position:sticky;bottom:16px;z-index:20;margin-top:20px;background:var(--violet-900);color:#fff;border-radius:var(--r-2xl);padding:14px 16px 14px 22px;display:flex;align-items:center;gap:18px;box-shadow:0 12px 32px rgba(46,16,64,.35);}
+.q-progress{flex:1;min-width:0;}
+.q-progress-label{font-size:13px;font-weight:700;margin-bottom:7px;}
+.q-progress-label span{color:var(--violet-200);font-weight:400;}
+.q-bar{height:7px;background:rgba(255,255,255,.18);border-radius:var(--r-full);overflow:hidden;}
+.q-bar span{display:block;height:100%;width:0;background:var(--gauge-fill);border-radius:var(--r-full);transition:width .3s;}
+.q-submit .btn{width:auto;background:#fff;color:var(--violet-700);font-size:14px;padding:12px 22px;}
+.q-submit .btn:hover{background:var(--violet-50);}
+.score-banner{display:flex;align-items:center;gap:24px;background:linear-gradient(135deg,var(--violet-800) 0%,var(--quiz) 100%);color:#fff;border-radius:var(--r-2xl);padding:24px 28px;margin-bottom:18px;}
+.score-ring{width:104px;height:104px;position:relative;flex-shrink:0;}
+.score-ring svg{width:100%;height:100%;transform:rotate(-90deg);}
+.score-ring .bg{fill:none;stroke:rgba(255,255,255,.18);stroke-width:10;}
+.score-ring .fg{fill:none;stroke:var(--gauge-fill);stroke-width:10;stroke-linecap:round;transition:stroke-dashoffset .8s ease;}
+.score-ring-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.score-ring-c strong{font-size:30px;line-height:1;}
+.score-ring-c span{font-size:11px;font-weight:700;color:var(--violet-200);margin-top:3px;}
+.score-txt h2{font-size:23px;font-weight:700;letter-spacing:-.3px;margin-bottom:6px;}
+.score-txt p{font-size:14px;color:rgba(255,255,255,.88);line-height:1.5;}
+.score-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.score-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:var(--r-full);padding:5px 12px;font-size:12.5px;font-weight:700;}
+.score-chip svg{width:14px;height:14px;}
+.res-row{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--gray-100);font-size:13.5px;color:var(--gray-700);}
+.res-row:last-child{border-bottom:none;}
+.res-row strong{color:var(--gray-900);font-size:15px;display:inline-flex;align-items:center;gap:6px;}
+@media(max-width:780px){
+ .q-card{grid-template-columns:1fr;}
+ .q-img{aspect-ratio:16/7;}
+ .q-opts{grid-template-columns:1fr;}
+ .score-banner{flex-direction:column;text-align:center;}
+ .score-chips{justify-content:center;}
+ .q-submit{flex-direction:column;align-items:stretch;}
+}
+/* ═══ Variante « prono décalé » (même composant que le quiz) ═══ */
+.q-type{display:inline-flex;align-items:center;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 9px;border-radius:var(--r-full);background:var(--quiz-bg);color:var(--quiz);margin-bottom:8px;}
+.q-match{display:flex;align-items:center;gap:10px;margin:-4px 0 14px;font-size:14px;font-weight:700;color:var(--gray-800);}
+.q-match .vs{font-size:12px;color:var(--gray-400);font-weight:400;}
+.q-match .when{margin-left:auto;font-size:12px;color:var(--gray-500);font-weight:400;}
+.q-opts.n3{grid-template-columns:repeat(3,1fr);}
+.q-verdict.wait{background:var(--gray-100);color:var(--gray-600);}
+.q-card.pending .q-verdict{display:inline-flex;}
+.q-card.pending .q-opt{cursor:default;}
+.q-card.pending .q-opt:hover{border-color:var(--gray-200);background:#fff;}
+.q-card.pending .q-opt:has(input:checked){border-color:var(--quiz);background:var(--quiz-bg);}
+.q-deadline{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:#fff;border:1px solid var(--gray-200);border-left:4px solid var(--quiz);border-radius:var(--r-xl);padding:14px 20px;margin-bottom:18px;}
+.q-deadline-txt{flex:1;min-width:220px;font-size:14px;color:var(--gray-700);line-height:1.45;}
+.q-deadline-txt strong{display:block;color:var(--gray-900);font-size:15px;}
+.wait-banner{display:flex;align-items:center;gap:18px;background:linear-gradient(135deg,var(--violet-800) 0%,var(--quiz) 100%);color:#fff;border-radius:var(--r-2xl);padding:22px 26px;margin-bottom:18px;}
+.wait-ico{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.wait-ico svg{width:28px;height:28px;}
+.wait-banner h2{font-size:21px;font-weight:700;margin-bottom:4px;}
+.wait-banner p{font-size:14px;color:rgba(255,255,255,.88);line-height:1.5;}
+.wait-banner .btn{width:auto;background:#fff;color:var(--violet-700);margin-left:auto;}
+@media(max-width:780px){.q-opts.n3{grid-template-columns:1fr;}.wait-banner{flex-direction:column;text-align:center;}.wait-banner .btn{margin-left:0;}}
+
+
+/* ═══ Retours BPCE : wrapper, header, menu Camille L., footer ═══ */
+.container{max-width:1280px!important;padding-left:56px!important;padding-right:56px!important;}
+@media(max-width:768px){.container{padding-left:20px!important;padding-right:20px!important;}}
+.header-top{height:auto!important;min-height:68px;padding:12px 0;gap:28px!important;transition:padding .25s ease;}
+.logo-img{height:60px!important;transition:height .25s ease;}
+.header.is-scrolled .header-top{padding:4px 0;}
+.header.is-scrolled .logo-img{height:40px!important;}
+.nav{gap:6px;}
+.nav-dropdown-menu{min-width:250px;}
+.nav-menu-sep{font-size:11px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.06em;padding:12px 14px 4px;border-top:1px solid var(--gray-100);margin-top:6px;}
+.nav-dropdown-menu a .ext{width:12px!important;height:12px!important;margin-left:auto;color:var(--gray-400)!important;}
+.user-menu{position:relative;}
+.user-chip{position:relative;}
+.user-chip .um-chev{width:14px;height:14px;color:var(--gray-500);}
+.user-dot{position:absolute;top:4px;left:30px;width:9px;height:9px;border-radius:50%;background:var(--error,#d92d20);border:2px solid #fff;}
+.user-menu-list{position:absolute;top:calc(100% + 8px);right:0;min-width:240px;background:#fff;border:1px solid var(--gray-200);border-radius:12px;box-shadow:0 12px 32px rgba(46,16,64,.14);padding:6px;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s,visibility .15s;z-index:200;}
+.user-menu:hover .user-menu-list,.user-menu:focus-within .user-menu-list{opacity:1;visibility:visible;transform:none;}
+.user-menu-list a{display:flex;align-items:center;gap:10px;padding:10px 12px;font-size:14px;font-weight:600;color:var(--gray-800);border-radius:8px;}
+.user-menu-list a:hover,.user-menu-list a.active{background:var(--violet-50);color:var(--violet-700);}
+.user-menu-list a svg{width:17px;height:17px;color:var(--violet-600);flex-shrink:0;}
+.um-badge{margin-left:auto;background:var(--violet-600);color:#fff;font-size:11px;font-weight:700;border-radius:999px;padding:2px 8px;}
+.um-sep{height:1px;background:var(--gray-100);margin:6px 4px;}
+.um-head{padding:10px 12px 8px;font-size:12px;color:var(--gray-500);}
+.um-head strong{display:block;font-size:14px;color:var(--gray-900);}
+/* Étiquette Dashboard sur le côté gauche */
+.side-tab{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:150;display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--violet-600);color:#fff;padding:16px 9px;border-radius:0 10px 10px 0;box-shadow:0 6px 18px rgba(46,16,64,.25);font-size:13px;font-weight:700;text-decoration:none;}
+.side-tab span{writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.02em;}
+.side-tab svg{width:18px;height:18px;}
+.side-tab:hover{background:var(--violet-700,#4b1a67);padding-left:13px;}
+@media(max-width:768px){.side-tab{display:none;}}
+/* Footer : sans « Explorer » ni « Mon compte », invitation sous « Suivez-nous » */
+.footer-grid{grid-template-columns:2fr 1fr 1.6fr!important;}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr!important;}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr!important;}}
+.footer-invite{margin-top:16px;}
+.footer-invite-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;}
+.footer-invite-sub{font-size:12px;color:rgba(255,255,255,.75);margin-bottom:10px;}
+.footer-invite-form{display:flex;gap:6px;background:#fff;border-radius:999px;padding:4px;}
+.footer-invite-form input{flex:1;min-width:0;border:0;outline:0;background:transparent;padding:8px 12px;font-family:inherit;font-size:13px;color:var(--gray-900);}
+.footer-invite-form button{border:0;border-radius:999px;background:var(--violet-600);color:#fff;font-family:inherit;font-weight:700;font-size:13px;padding:8px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+.footer-invite-form button svg{width:14px;height:14px;}
+.footer-invite-form button:hover{background:var(--violet-700,#4b1a67);}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+/* Retours BPCE · jeux : une seule famille de couleur (violet) pour tous les formats */
+:root{--prono:var(--quiz);--decale:var(--quiz);--prono-bg:var(--quiz-bg);--decale-bg:var(--quiz-bg);}
+.page-hero.hero-decale{background-image:linear-gradient(135deg,rgba(46,16,64,.95) 0%,rgba(88,29,116,.88) 55%,rgba(132,51,184,.78) 100%),url('assets/visuel-handball.jpg');}
+.page-hero.hero-concours{background-image:linear-gradient(135deg,rgba(46,16,64,.95) 0%,rgba(88,29,116,.88) 55%,rgba(132,51,184,.78) 100%),url('assets/Pronos%20%E2%80%94%20Tournoi%20de%20France%20de%20Handball.png');}
+
+/* Footer équilibré : logo + liens à gauche, réseaux + invitation à droite */
+.footer-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)!important;grid-template-rows:auto 1fr;column-gap:72px!important;row-gap:18px!important;}
+.footer-grid>.footer-brand{grid-column:1;grid-row:1;}
+.footer-grid>.footer-col:nth-child(2){grid-column:1;grid-row:2;display:flex;flex-wrap:wrap;align-content:flex-start;gap:6px 28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);}
+.footer-grid>.footer-col:nth-child(2) a{font-size:14px;font-weight:600;color:#fff;padding:4px 0;}
+.footer-grid>.footer-col:nth-child(2) a:hover{color:var(--violet-200);}
+.footer-grid>.footer-col:nth-child(3){grid-column:2;grid-row:1 / span 2;}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr!important;}.footer-grid>.footer-col:nth-child(3){grid-column:1;grid-row:auto;}}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+
+<!-- Bandeau démo -->
+<div style="background:#1c0926;color:#fff;padding:8px 24px;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:Arial,Helvetica,sans-serif;">
+ <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable TEAM IMAGINE</strong> — Démo de cadrage, novembre 2026</span>
+ <a href="sommaire-sans-strava.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:.15s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
+ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+ Retour au sommaire
+ </a>
+</div>
+
+
+<!-- ═══ HEADER ═══ -->
+<header class="header">
+ <div class="container header-top">
+ <a href="home-sans-strava.html" class="logo" aria-label="GROUPE BPCE × TEAM IMAGINE - Accueil">
+ <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" class="logo-img"/>
+ </a>
+ <nav class="nav" aria-label="Navigation principale">
+ <div class="nav-dropdown">
+ <a href="actualites-sans-strava.html" class="nav-dropdown-trigger">
+ Actualités
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </a>
+ <div class="nav-dropdown-menu" role="menu">
+ <a href="actualites-articles-sans-strava.html" role="menuitem">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+ Articles
+ </a>
+ <a href="actualites-videos-sans-strava.html" role="menuitem">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
+ Vidéos
+ </a>
+ <div class="nav-menu-sep">La Banque du Sport</div>
+ <a href="https://www.groupebpce.com/la-banque-du-sport/les-athletes-soutenus/" target="_blank" rel="noopener" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M8.2 12.3L7 22l5-3 5 3-1.2-9.7"/></svg> Les athlètes soutenus <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+ <a href="https://www.groupebpce.com/la-banque-du-sport/des-entreprises-engagees/" target="_blank" rel="noopener" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 17l-2 2a2.8 2.8 0 0 1-4-4l3.5-3.5a2.8 2.8 0 0 1 4 0"/><path d="M13 7l2-2a2.8 2.8 0 0 1 4 4l-3.5 3.5a2.8 2.8 0 0 1-4 0"/></svg> Nos partenariats sport <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+ </div>
+ </div>
+ <a href="s-engager-sans-strava.html" class="active">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+ S'engager
+ </a>
+ <a href="calendrier-sans-strava.html">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ Calendrier
+ </a>
+ <span class="nav-defi" title="Le Défi 2027 — à venir"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2z"/></svg>Le Défi 2027</span>
+ </nav>
+ <div class="header-actions">
+ <button class="icon-btn" aria-label="Rechercher">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+ </button>
+ <div class="user-menu">
+ <button class="user-chip" type="button" aria-haspopup="true">
+ <span class="avatar">CL</span>
+ <span class="user-dot" aria-hidden="true"></span>
+ <span class="user-name">Camille L.</span>
+ <svg class="um-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+ </button>
+ <div class="user-menu-list" role="menu">
+ <div class="um-head"><strong>Camille L.</strong>CE Île-de-France</div>
+ <a href="dashboard-sans-strava.html" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg> Dashboard</a>
+ <a href="#" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg> Notifications <span class="um-badge">3</span></a>
+ <div class="um-sep"></div>
+ <a href="prehome-sans-strava.html" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg> Se déconnecter</a>
+ </div>
+ </div>
+ </div>
+ </div>
+</header>
+<a href="dashboard-sans-strava.html" class="side-tab" aria-label="Mon dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg><span>Dashboard</span></a>
+
+<main id="main">
+
+ <section class="page-hero">
+ <div class="container">
+ <div class="breadcrumb">
+ <a href="home-sans-strava.html">Accueil</a>
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+ <a href="s-engager-sans-strava.html">S'engager</a>
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+ <span>Quiz</span>
+ </div>
+ <div class="hero-inner">
+ <div>
+ <span class="page-title-kicker">Quiz · Caisse d'Épargne × FFHandball</span>
+ <h1 class="page-title">
+ <span class="page-title-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></span>
+ Objectif Euro 2026
+ </h1>
+ <p class="page-sub">10 questions sur les Bleues et les Experts avant l'EHF EURO féminin (3–20 décembre). Vous découvrez vos bonnes réponses dès l'envoi du quiz.</p>
+ <div class="hero-chips">
+ <span class="hero-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Clôture le 2 décembre à 23h59</span>
+ <span class="hero-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>1 seule participation</span>
+ <span class="hero-chip">Correction immédiate</span>
+ </div>
+ </div>
+ <div class="hero-stats">
+ <div class="hero-stat"><div class="hero-stat-num">10</div><div class="hero-stat-label">Questions</div></div>
+ <div class="hero-stat"><div class="hero-stat-num">1 862</div><div class="hero-stat-label">Participants</div></div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <div class="container">
+ <div class="demo-switch" role="group" aria-label="État de la page (démo)">
+ <span class="ds-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="10" rx="5"/><circle cx="16" cy="12" r="3"/></svg>Démo · état</span>
+ <button class="ds-btn" data-set="1"><span class="n">1</span>Avant participation</button>
+ <button class="ds-btn" data-set="2"><span class="n">2</span>Après envoi (correction)</button>
+ <span class="ds-hint">Astuce : répondez aux 10 questions puis validez, la correction se fait sur vos réponses.</span>
+ </div>
+
+ <div class="game-layout">
+ <div>
+ <div class="score-banner" data-st="2" hidden>
+ <div class="score-ring" role="img" id="scoreRingLbl" aria-label="Score">
+ <svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="50"/><circle class="fg" id="scoreRing" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="314.16"/></svg>
+ <div class="score-ring-c"><strong id="scoreNum">7/10</strong><span>score</span></div>
+ </div>
+ <div class="score-txt">
+ <h2 id="scoreTitle">Bien joué Camille !</h2>
+ <p id="scoreSub">Votre participation est enregistrée. Retrouvez ci-dessous la correction détaillée, question par question.</p>
+ <div class="score-chips">
+ <span class="score-chip" id="scorePts"></span>
+ <span class="score-chip" id="scoreDraw"></span>
+ </div>
+ </div>
+ </div>
+
+ <div class="q-intro" data-st="1">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+ <span>Une seule réponse par question. Une fois le quiz envoyé, vos réponses ne sont plus modifiables et la correction s'affiche immédiatement.</span>
+ </div>
+
+ <form id="quizForm" onsubmit="event.preventDefault();">
+ <div class="q-list" id="qList"></div>
+ <div class="q-submit" data-st="1">
+ <div class="q-progress">
+ <div class="q-progress-label"><b id="qCount">0</b> / 10 réponses <span id="qHint">· répondez à toutes les questions pour valider</span></div>
+ <div class="q-bar"><span id="qBar"></span></div>
+ </div>
+ <button type="submit" class="btn" id="qSubmit" disabled>Valider mes réponses
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+ </div>
+ </form>
+ <div data-st="2" hidden style="margin-top:22px;text-align:center;">
+ <a href="s-engager-sans-strava.html" class="btn btn-violet btn-auto">Retour aux jeux
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </div>
+
+ <aside class="side" aria-label="Informations sur le quiz">
+ <div class="side-card" data-st="2" hidden>
+ <h2 class="side-title">Mon résultat</h2>
+ <div class="res-row">Bonnes réponses <strong id="resGood">7 / 10</strong></div>
+ <div class="res-row">Classement du quiz <strong id="resRank">214<sup>e</sup> / 1 862</strong></div>
+ <div class="res-row">Tirage au sort <strong id="resDraw">Éligible</strong></div>
+ </div>
+ <div class="side-card" data-st="1">
+ <h2 class="side-title">Comment ça marche ?</h2>
+ <ol class="how">
+ <li><span>Répondez aux <strong>10 questions</strong> (une seule réponse possible).</span></li>
+ <li><span>Validez : la <strong>correction s'affiche aussitôt</strong>.</span></li>
+ <li><span>Votre <strong>score</strong> vous classe parmi tous les participants.</span></li>
+ <li><span>À partir de 7/10, vous participez au <strong>tirage au sort</strong>.</span></li>
+ </ol>
+ </div>
+ <div class="side-card">
+ <h2 class="side-title">À gagner</h2>
+ <div class="jeu-prize">
+ <div class="jeu-prize-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+ <div class="jeu-prize-text"><strong>10 lots Caisse d'Épargne × FFHandball</strong>Tirage au sort le 4 décembre parmi les scores ≥ 7/10</div>
+ </div>
+ </div>
+ <div class="side-card">
+ <div class="side-partner"><img src="assets/PARTNER%20Caisse%20d'%C3%89pargne%20%E2%80%94%20F%C3%A9d%C3%A9ration%20Fran%C3%A7aise%20de%20Handball.png" alt=""/></div>
+ <h2 class="side-title" style="margin-bottom:6px;">Caisse d'Épargne × FFHandball</h2>
+ <p class="side-text">Partenaire majeur de la Fédération depuis 2015 : équipes de France masculine, féminine, jeunes et beach handball.</p>
+ </div>
+ </aside>
+ </div>
+ </div>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+
+<footer class="footer">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="home-sans-strava.html" style="display:inline-block;background:#fff;padding:8px 14px;border-radius:10px;">
+ <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" style="height:48px;width:auto;display:block;"/>
+ </a>
+ <p>La plateforme d'engagement sportif et de bien-être du Groupe BPCE.</p>
+ </div>
+
+ <div class="footer-col">
+ <a href="actualites-sans-strava.html">Actualités</a>
+ <a href="s-engager-sans-strava.html">S'engager</a>
+ <a href="calendrier-sans-strava.html">Calendrier</a>
+ <a href="dashboard-sans-strava.html">Dashboard</a>
+ <a href="#">La Promesse</a>
+ </div>
+
+ <div class="footer-col">
+ <h4>Suivez-nous</h4>
+ <div class="footer-qr">
+ <div class="qr-box">
+ <svg viewBox="0 0 100 100" fill="#581d74"><rect x="0" y="0" width="30" height="30"/><rect x="8" y="8" width="14" height="14" fill="#fff"/><rect x="70" y="0" width="30" height="30"/><rect x="78" y="8" width="14" height="14" fill="#fff"/><rect x="0" y="70" width="30" height="30"/><rect x="8" y="78" width="14" height="14" fill="#fff"/><rect x="40" y="0" width="8" height="8"/><rect x="52" y="0" width="8" height="8"/><rect x="40" y="14" width="8" height="8"/><rect x="40" y="40" width="8" height="8"/><rect x="55" y="40" width="12" height="12"/><rect x="75" y="45" width="8" height="8"/><rect x="88" y="40" width="8" height="8"/><rect x="40" y="60" width="8" height="8"/><rect x="60" y="65" width="8" height="8"/><rect x="80" y="70" width="8" height="8"/><rect x="45" y="80" width="10" height="10"/><rect x="70" y="88" width="8" height="8"/><rect x="88" y="80" width="8" height="8"/></svg>
+ </div>
+ <div class="footer-qr-text">
+ <strong>@bpce_banquedusport</strong>
+ <a href="https://www.instagram.com/bpce_banquedusport" target="_blank" rel="noopener" style="color:rgba(255,255,255,.85);">Suivez-nous sur Instagram</a>
+ </div>
+ </div>
+ <div class="footer-invite">
+ <div class="footer-invite-title">Inviter un collaborateur</div>
+ <div class="footer-invite-sub">Partagez Team IMAGINE avec un collègue du Groupe BPCE.</div>
+ <form class="footer-invite-form" novalidate onsubmit="event.preventDefault();">
+ <label class="visually-hidden" for="invite-email">Adresse e-mail du collaborateur</label>
+ <input type="email" id="invite-email" name="invite-email" placeholder="prenom.nom@bpce.fr"/>
+ <button type="submit">J'invite <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+ </form>
+ </div>
+ </div>
+ </div>
+
+ <div class="footer-bottom">
+ <span>© 2026 Groupe BPCE — TEAM IMAGINE. Tous droits réservés.</span>
+ <div class="footer-legal">
+ <a href="#">Mentions légales</a>
+ <a href="#">CGU</a>
+ <a href="#">Confidentialité</a>
+ <a href="#">Cookies</a>
+ <a href="#">Accessibilité</a>
+ </div>
+ </div>
+ </div>
+</footer>
+
+<a class="version-pill v2" href="sommaire-sans-strava.html" title="Version Sans Strava — retour au sommaire"><span class="vp-dot"></span> Sans Strava</a>
+<script>
+
+/* ═══ Utilitaires communs maquette (drapeaux, pièce, états démo, compte à rebours) ═══ */
+var TI = (function(){
+ var FLAGS = {
+  fr:'<rect width="20" height="60" fill="#002654"/><rect x="20" width="20" height="60" fill="#fff"/><rect x="40" width="20" height="60" fill="#ED2939"/>',
+  ar:'<rect width="60" height="20" fill="#74ACDF"/><rect y="20" width="60" height="20" fill="#fff"/><rect y="40" width="60" height="20" fill="#74ACDF"/><circle cx="30" cy="30" r="6" fill="#F6B40E"/>',
+  br:'<rect width="60" height="60" fill="#009C3B"/><polygon points="30,9 55,30 30,51 5,30" fill="#FFDF00"/><circle cx="30" cy="30" r="11" fill="#002776"/>',
+  kw:'<rect width="60" height="20" fill="#007A3D"/><rect y="20" width="60" height="20" fill="#fff"/><rect y="40" width="60" height="20" fill="#CE1126"/><polygon points="0,0 18,20 18,40 0,60" fill="#000"/>',
+  pl:'<rect width="60" height="30" fill="#fff"/><rect y="30" width="60" height="30" fill="#DC143C"/>',
+  ua:'<rect width="60" height="30" fill="#0057B7"/><rect y="30" width="60" height="30" fill="#FFD700"/>',
+  fo:'<rect width="60" height="60" fill="#fff"/><rect x="16" width="14" height="60" fill="#0065BD"/><rect y="23" width="60" height="14" fill="#0065BD"/><rect x="20" width="6" height="60" fill="#EF303E"/><rect y="27" width="60" height="6" fill="#EF303E"/>',
+  tbd:'<rect width="60" height="60" fill="#e9e3ee"/><text x="30" y="39" text-anchor="middle" font-family="Arial" font-weight="700" font-size="26" fill="#8a7a96">?</text>'
+ };
+ function flag(code,size){
+  size=size||56;
+  return '<span class="flag" style="width:'+size+'px;height:'+size+'px" aria-hidden="true"><svg viewBox="0 0 60 60" preserveAspectRatio="none">'+(FLAGS[code]||FLAGS.tbd)+'</svg></span>';
+ }
+ var COIN='<svg class="coin" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11.5" fill="#f59e0b"/><circle cx="12" cy="12" r="8.6" fill="#fbbf24" stroke="#d97706" stroke-width="1"/><text x="12" y="16.3" text-anchor="middle" font-size="11" font-weight="700" fill="#78350f" font-family="Arial">B</text></svg>';
+ var CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+ var CROSS='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6 6 18M6 6l12 12"/></svg>';
+ function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ');}
+ function nowLabel(){
+  var d=new Date();
+  return d.toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'})+', '+d.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+ }
+ /* États de démonstration : éléments [data-st="1 2"] visibles seulement dans ces états */
+ var listeners=[];
+ function setState(n){
+  n=String(n);
+  document.body.setAttribute('data-state',n);
+  document.querySelectorAll('[data-st]').forEach(function(el){
+   el.hidden = el.getAttribute('data-st').split(' ').indexOf(n)===-1;
+  });
+  document.querySelectorAll('.ds-btn').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set')===n?'true':'false');});
+  listeners.forEach(function(f){f(n);});
+ }
+ function onState(f){listeners.push(f);}
+ function initSwitch(def){
+  document.querySelectorAll('.ds-btn').forEach(function(b){b.addEventListener('click',function(){setState(b.getAttribute('data-set'));});});
+  setState(def||'1');
+ }
+ /* Compte à rebours jj/hh/mm/ss */
+ function cdHTML(iso){
+  return '<div class="cd" data-cd="'+iso+'">'+['Jours','Hrs','Min','Sec'].map(function(l){return '<div class="cd-u"><span class="cd-n">00</span><span class="cd-l">'+l+'</span></div>';}).join('')+'</div>';
+ }
+ function tick(){
+  var now=Date.now();
+  document.querySelectorAll('[data-cd]').forEach(function(el){
+   var t=Math.max(0,new Date(el.getAttribute('data-cd')).getTime()-now)/1000;
+   var v=[Math.floor(t/86400),Math.floor(t%86400/3600),Math.floor(t%3600/60),Math.floor(t%60)];
+   el.querySelectorAll('.cd-n').forEach(function(n,i){n.textContent=String(v[i]).padStart(2,'0');});
+  });
+ }
+ setInterval(tick,1000);
+ function daysTo(iso){return Math.max(0,Math.ceil((new Date(iso).getTime()-Date.now())/86400000));}
+ return {flag:flag,COIN:COIN,CHECK:CHECK,CROSS:CROSS,fmt:fmt,nowLabel:nowLabel,setState:setState,onState:onState,initSwitch:initSwitch,cdHTML:cdHTML,tick:tick,daysTo:daysTo};
+})();
+
+/* ═══ Moteur commun QUIZ / PRONO DÉCALÉ ═══
+   Back-office : même objet « questionnaire », avec 2 réglages en plus pour le prono décalé :
+   - reveal : 'instant' (quiz, correction à l'envoi) | 'later' (prono décalé, résultats publiés après l'événement)
+   - deadline : date limite de participation (prono décalé)
+   Types de question : 'qcm' (2 à 4 choix, dont Oui/Non) | '1n2' (match : 1 / N / 2) */
+function QZ(cfg){
+ var Q=cfg.questions,N=Q.length,later=cfg.reveal==='later';
+ var list=document.getElementById('qList');
+ var CLOCK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
+ list.innerHTML=Q.map(function(x,i){
+  var is1n2=x.type==='1n2',letters=is1n2?['1','N','2']:['A','B','C','D'];
+  var badge=x.type==='1n2'?'1N2':(x.o.length===2?'Oui / Non':'QCM');
+  return '<fieldset class="q-card" id="q'+i+'"><div class="q-img"><img src="'+cfg.images[i%cfg.images.length]+'" alt=""/><span class="q-num">Question '+(i+1)+'/'+N+'</span></div><div>'+
+   (later?'<span class="q-type">'+badge+'</span>':'')+
+   '<div class="q-head"><legend class="q-text">'+x.q+'</legend><span class="q-verdict"></span></div>'+
+   (x.match?'<div class="q-match">'+TI.flag(x.match[0],28)+x.match[1]+'<span class="vs">vs</span>'+TI.flag(x.match[2],28)+x.match[3]+'<span class="when">'+x.when+'</span></div>':'')+
+   '<div class="q-opts'+(x.o.length===3?' n3':'')+'" role="radiogroup">'+
+   x.o.map(function(o,j){return '<label class="q-opt" data-j="'+j+'"><input type="radio" name="q'+i+'" value="'+j+'"/><span class="q-letter">'+letters[j]+'</span><span>'+o+'</span><span class="q-mark"></span></label>';}).join('')+
+   '</div><div class="q-explain">'+x.e+'</div></div></fieldset>';
+ }).join('');
+ var userAnswers=null,keep=false;
+ function answered(){return Q.map(function(x,i){var c=document.querySelector('input[name="q'+i+'"]:checked');return c?+c.value:null;});}
+ function progress(){
+  var a=answered(),n=a.filter(function(v){return v!==null;}).length;
+  document.getElementById('qCount').textContent=n;
+  document.getElementById('qBar').style.width=(n*100/N)+'%';
+  document.getElementById('qHint').textContent=n<N?'· répondez à toutes les questions pour valider':'· tout est prêt !';
+  document.getElementById('qSubmit').disabled=n<N;
+  Q.forEach(function(x,i){document.getElementById('q'+i).classList.toggle('answered',a[i]!==null);});
+ }
+ list.addEventListener('change',progress);
+ function setAnswers(ans){Q.forEach(function(x,i){document.querySelectorAll('input[name="q'+i+'"]').forEach(function(inp){inp.checked=ans?(+inp.value===ans[i]):false;});});}
+ function clean(){
+  Q.forEach(function(x,i){
+   var card=document.getElementById('q'+i);card.classList.remove('done','pending');card.disabled=false;
+   card.querySelectorAll('.q-opt').forEach(function(o){o.classList.remove('is-correct','is-wrong');o.querySelector('.q-mark').innerHTML='';});
+  });
+ }
+ function pending(ans){
+  clean();setAnswers(ans);
+  Q.forEach(function(x,i){
+   var card=document.getElementById('q'+i);card.classList.add('pending');card.disabled=true;card.classList.remove('answered');
+   var v=card.querySelector('.q-verdict');v.className='q-verdict wait';v.innerHTML=CLOCK+x.r;
+  });
+ }
+ function correct(ans){
+  clean();setAnswers(ans);var good=0;
+  Q.forEach(function(x,i){
+   var card=document.getElementById('q'+i),ok=ans[i]===x.a;if(ok)good++;
+   card.querySelectorAll('.q-opt').forEach(function(o){
+    var j=+o.getAttribute('data-j'),m=o.querySelector('.q-mark');
+    o.classList.toggle('is-correct',j===x.a);o.classList.toggle('is-wrong',j===ans[i]&&!ok);
+    m.innerHTML=j===x.a?(j===ans[i]?'Votre réponse '+TI.CHECK:'Bonne réponse '+TI.CHECK):(j===ans[i]?'Votre réponse '+TI.CROSS:'');
+   });
+   var v=card.querySelector('.q-verdict');v.className='q-verdict '+(ok?'ok':'ko');v.innerHTML=ok?TI.CHECK+(later?'Bon prono':'Bonne réponse'):TI.CROSS+'Raté';
+   card.classList.add('done');card.disabled=true;card.classList.remove('answered');
+  });
+  if(cfg.onScore)cfg.onScore(good,N);
+ }
+ document.getElementById('quizForm').addEventListener('submit',function(){
+  userAnswers=answered();if(userAnswers.indexOf(null)>-1)return;
+  TI.setState('2');window.scrollTo({top:0,behavior:'smooth'});
+ });
+ var edit=document.getElementById('qEdit');
+ if(edit)edit.addEventListener('click',function(){keep=true;TI.setState('1');});
+ TI.onState(function(s){
+  if(s==='1'){clean();if(keep&&userAnswers){setAnswers(userAnswers);}else{userAnswers=null;setAnswers(null);}keep=false;progress();return;}
+  var ans=userAnswers||cfg.demo;
+  if(later&&s==='2')pending(ans);else correct(ans);
+ });
+ TI.initSwitch('1');
+}
+
+(function(){
+ var IMG=['assets/visuel-handball.jpg',"assets/PARTNER%20Caisse%20d'%C3%89pargne%20%E2%80%94%20F%C3%A9d%C3%A9ration%20Fran%C3%A7aise%20de%20Handball.png",'assets/Quiz%20%E2%80%94%20FFHandball%20.png','assets/EVENT%20Cl%C3%B4ture%20du%20Quiz%20FFHandball.png','assets/Pronos%20%E2%80%94%20Tournoi%20de%20France%20de%20Handball.png'];
+ var Q=[
+  {q:"Depuis quelle année la Caisse d'Épargne est-elle partenaire de la FFHandball ?",o:['2009','2012','2015','2018'],a:2,e:"Partenaire majeur depuis <strong>2015</strong> : équipes de France masculine, féminine et jeunes. Le beach handball a rejoint le partenariat en 2018."},
+  {q:"Combien de pays co-organisent l'EHF EURO féminin 2026 ?",o:['2','3','4','5'],a:3,e:"<strong>Cinq pays</strong> : Pologne, République tchèque, Roumanie, Slovaquie et Turquie."},
+  {q:"Dans quelle ville les Bleues disputent-elles leur tour préliminaire de l'Euro ?",o:['Prague','Katowice','Bratislava','Istanbul'],a:1,e:"Groupe E à la Spodek Arena de <strong>Katowice</strong> (Pologne), qui accueille aussi le Final Four du 18 au 20 décembre."},
+  {q:"Quels sont les adversaires des Bleues au premier tour de l'Euro 2026 ?",o:['Pologne, Îles Féroé, Ukraine','Norvège, Danemark, Suède','Espagne, Croatie, Serbie','Pays-Bas, Hongrie, Monténégro'],a:0,e:"Groupe E : <strong>Pologne</strong> (5 déc.), <strong>Îles Féroé</strong> (7 déc.) et <strong>Ukraine</strong> (9 déc.)."},
+  {q:"En quelle année les Bleues ont-elles décroché leur premier titre olympique ?",o:['2012','2016','2021','2024'],a:2,e:"Médaille d'or aux Jeux de Tokyo, disputés en <strong>2021</strong>. Elles avaient pris l'argent à Rio en 2016."},
+  {q:"Combien de titres de championnes du monde compte l'équipe de France féminine ?",o:['1','2','3','4'],a:2,e:"<strong>Trois titres</strong> mondiaux : 2003, 2017 et 2023."},
+  {q:"En quelle année les Bleues ont-elles été sacrées championnes d'Europe ?",o:['2014','2016','2018','2022'],a:2,e:"En <strong>2018</strong>, à domicile : finale gagnée à Paris face à la Russie."},
+  {q:"Combien de joueuses par équipe (gardienne comprise) sont sur le terrain ?",o:['5','6','7','8'],a:2,e:"<strong>7 joueuses</strong> : 6 joueuses de champ et 1 gardienne."},
+  {q:"Au Mondial masculin 2027 en Allemagne, où les Experts jouent-ils le tour préliminaire ?",o:['Munich','Stuttgart','Cologne','Kiel'],a:1,e:"Groupe D à <strong>Stuttgart</strong> (Porsche-Arena) face au Koweït, au Brésil et à l'Argentine. La finale aura lieu à Cologne le 31 janvier."},
+  {q:"Combien de titres de champions du monde compte l'équipe de France masculine ?",o:['4','5','6','7'],a:2,e:"<strong>Six titres</strong> : 1995, 2001, 2009, 2011, 2015 et 2017, un record."}
+ ];
+ QZ({questions:Q.map(function(x){return {q:x.q,o:x.o,a:x.a,e:x.e,type:'qcm'};}),images:IMG,reveal:'instant',demo:[2,2,1,0,2,2,1,2,2,2],
+  onScore:function(good){
+   var pts=good*10,elig=good>=7,rank=[1862,1790,1640,1402,1105,812,560,214,61,1][good];
+   document.getElementById('scoreNum').textContent=good+'/10';
+   document.getElementById('scoreRingLbl').setAttribute('aria-label','Score : '+good+' bonnes réponses sur 10');
+   setTimeout(function(){document.getElementById('scoreRing').style.strokeDashoffset=314.16*(1-good/10);},60);
+   document.getElementById('scoreTitle').textContent=good===10?'Sans faute, bravo Camille !':good>=7?'Bien joué Camille !':'Merci pour votre participation !';
+   document.getElementById('scoreSub').textContent=good>=7?'Votre participation est enregistrée. Retrouvez ci-dessous la correction détaillée, question par question.':'Votre participation est enregistrée. Découvrez les bonnes réponses ci-dessous, il y a de quoi briller au prochain quiz.';
+   document.getElementById('scorePts').innerHTML=TI.fmt(rank)+'<sup>e</sup>&nbsp;/ 1\u202f862 participants';
+   document.getElementById('scoreDraw').innerHTML=elig?TI.CHECK+' Éligible au tirage du 4 décembre':'Tirage au sort : à partir de 7/10';
+   document.getElementById('resGood').textContent=good+' / 10';
+   document.getElementById('resRank').innerHTML=TI.fmt(rank)+'<sup>e</sup> / 1\u202f862';
+   document.getElementById('resDraw').textContent=elig?'Éligible':'Non éligible';
+  }});
+})();
+</script>
+<script>
+/* Logo composite : plus grand au repos, il rétrécit au scroll */
+(function(){var h=document.querySelector('.header');if(!h)return;function u(){h.classList.toggle('is-scrolled',window.scrollY>40);}window.addEventListener('scroll',u,{passive:true});u();})();
+</script>
+</body>
+</html>

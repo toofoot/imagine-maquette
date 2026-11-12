@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team IMAGINE — S'engager</title>
+<style>
+:root {
+ --violet-900:#2e1040; --violet-800:#3d1554; --violet-700:#4b1a67;
+ --violet-600:#581d74; --violet-500:#6b239a; --violet-400:#8433b8;
+ --violet-300:#a257cc; --violet-200:#c699e2; --violet-100:#e2c8f2; --violet-50:#f5eefa;
+ --gray-900:#111; --gray-800:#252525; --gray-700:#3d3d3d; --gray-600:#575757;
+ --gray-500:#737373; --gray-400:#909090; --gray-300:#b5b5b5; --gray-200:#d8d8d8;
+ --gray-100:#efefef; --gray-50:#f7f7f7; --white:#fff;
+ --success:#1a7a45; --success-bg:#e7f5ee; --warning:#8a4700; --warning-bg:#fff3e5;
+ --error:#b5001f; --info:#0f5fa8; --info-bg:#e7f0fa;
+ --gauge-fill:#7be8a8;
+ /* Mécaniques couleurs */
+ --quiz:#8433b8; --quiz-bg:#f3e8fb;
+ --prono:#0f5fa8; --prono-bg:#e7f0fa;
+ --instant:#ea580c; --instant-bg:#fff3e5;
+ --form:#1a7a45; --form-bg:#e7f5ee;
+ --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+ --r-sm:4px; --r-md:8px; --r-lg:12px; --r-xl:16px; --r-2xl:24px; --r-full:9999px;
+ --sh-sm:0 1px 3px rgba(88,29,116,.08),0 1px 2px rgba(88,29,116,.04);
+ --sh-md:0 4px 12px rgba(88,29,116,.1),0 2px 4px rgba(88,29,116,.06);
+ --sh-lg:0 10px 30px rgba(88,29,116,.12),0 4px 8px rgba(88,29,116,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+body{font-family:var(--font);color:var(--gray-900);background:var(--gray-50);line-height:1.5;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--violet-600);color:#fff;padding:12px 20px;z-index:999;}
+.skip-link:focus{left:0;}
+
+/* ═══ HEADER ═══ */
+.header{background:var(--white);border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100;}
+.header-top{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px;}
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0;text-decoration:none;}
+.logo-img{height:48px;width:auto;display:block;}
+.logo-mark{width:42px;height:42px;background:var(--violet-600);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;}
+.logo-mark span{color:#fff;font-weight:700;font-size:18px;letter-spacing:-.5px;}
+.logo-text{line-height:1.1;}
+.logo-name{font-weight:700;font-size:16px;color:var(--gray-900);letter-spacing:-.3px;}
+.logo-tag{font-size:11px;color:var(--violet-600);font-weight:700;}
+.nav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center;}
+.nav a{padding:10px 14px;font-size:14px;font-weight:700;color:var(--gray-700);border-radius:var(--r-md);transition:.15s;position:relative;display:flex;align-items:center;gap:6px;}
+.nav a:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav a.active{color:var(--violet-600);}
+.nav a.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--violet-600);border-radius:3px 3px 0 0;}
+.nav a svg{width:16px;height:16px;}
+.header-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.icon-btn{width:42px;height:42px;border-radius:var(--r-full);border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray-600);transition:.15s;position:relative;}
+.icon-btn:hover{background:var(--gray-100);color:var(--violet-600);}
+.icon-btn svg{width:22px;height:22px;}
+.notif-dot{position:absolute;top:9px;right:9px;width:8px;height:8px;background:var(--error);border-radius:50%;border:2px solid #fff;}
+.user-chip{display:flex;align-items:center;gap:10px;padding:5px 12px 5px 5px;border-radius:var(--r-full);background:var(--gray-50);border:1px solid var(--gray-200);cursor:pointer;transition:.15s;}
+.user-chip:hover{border-color:var(--violet-300);background:var(--violet-50);}
+.avatar{width:34px;height:34px;border-radius:50%;background:var(--violet-600);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;}
+.user-name{font-size:14px;font-weight:700;color:var(--gray-800);}
+
+/* ═══ HERO ═══ */
+.page-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 30%,rgba(255,255,255,.07) 0,transparent 35%),radial-gradient(circle at 10% 90%,rgba(255,255,255,.05) 0,transparent 40%);}
+
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.85);margin-bottom:14px;position:relative;}
+.breadcrumb a{color:rgba(255,255,255,.85);}
+.breadcrumb a:hover{color:#fff;}
+.breadcrumb svg{width:14px;height:14px;}
+.hero-inner{position:relative;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;}
+.page-title{font-size:42px;font-weight:700;line-height:1.05;letter-spacing:-1px;margin-bottom:10px;display:flex;align-items:center;gap:14px;}
+.page-title-icon{width:50px;height:50px;border-radius:var(--r-md);background:rgba(255,255,255,.16);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+.page-title-icon svg{width:28px;height:28px;}
+.page-sub{font-size:16px;color:rgba(255,255,255,.85);max-width:560px;line-height:1.5;}
+
+/* Stats hero */
+.hero-stats{display:flex;gap:14px;}
+.hero-stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-xl);padding:18px 24px;text-align:center;backdrop-filter:blur(8px);min-width:130px;}
+.hero-stat-num{font-size:34px;font-weight:700;line-height:1;color:#fff;letter-spacing:-.5px;}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.85);margin-top:6px;text-transform:uppercase;letter-spacing:.05em;font-weight:700;}
+
+/* ═══ SECTIONS ═══ */
+.section{padding:42px 0;}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;gap:24px;flex-wrap:wrap;}
+.section-title{font-size:28px;font-weight:700;letter-spacing:-.5px;color:var(--gray-900);display:flex;align-items:center;gap:12px;}
+.section-title-num{font-size:14px;background:var(--violet-100);color:var(--violet-700);padding:4px 12px;border-radius:var(--r-full);font-weight:700;}
+.section-sub{font-size:14px;color:var(--gray-600);margin-top:4px;}
+.section-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--violet-600);white-space:nowrap;cursor:pointer;}
+.section-link:hover{color:var(--violet-700);gap:9px;}
+.section-link svg{width:14px;height:14px;transition:.15s;}
+
+/* ═══ FILTRES TABS ═══ */
+.filter-tabs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.filter-tab{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:var(--r-full);font-size:13px;font-weight:700;color:var(--gray-700);background:var(--white);border:1.5px solid var(--gray-200);cursor:pointer;transition:.15s;font-family:var(--font);}
+.filter-tab:hover{border-color:var(--violet-300);background:var(--violet-50);color:var(--violet-700);}
+.filter-tab.active{background:var(--violet-600);color:#fff;border-color:var(--violet-600);}
+.filter-tab .count{background:rgba(255,255,255,.2);padding:2px 8px;border-radius:var(--r-full);font-size:11px;}
+.filter-tab:not(.active) .count{background:var(--gray-50);color:var(--gray-500);border:1px solid var(--gray-200);}
+
+/* ═══ JEUX CARDS ═══ */
+.jeux-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.jeu-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);overflow:hidden;transition:.2s;display:flex;flex-direction:column;}
+.jeu-card:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);border-color:var(--violet-200);}
+.jeu-banner{height:180px;position:relative;display:flex;align-items:flex-end;padding:18px 22px;overflow:hidden;background-size:cover;background-position:center;background-repeat:no-repeat;}
+.jeu-banner.quiz{background:url('assets/Quiz%20%E2%80%94%20FFHandball%20.png') center/cover no-repeat;}
+.jeu-banner.prono{background:url('assets/Pronos%20%E2%80%94%20Tournoi%20de%20France%20de%20Handball.png') center/cover no-repeat;}
+.jeu-banner.instant{background:url('assets/Instant-Gagnant%20%E2%80%94%20Banque%20Populaire%20%20FFVoile%20%C2%B7%20Tirage%20quotidien.png') center/cover no-repeat;}
+.jeu-banner::before{display:none;}
+.jeu-svg{display:none;}
+.jeu-svg svg{width:130px;height:130px;}
+.jeu-banner-inner{position:relative;z-index:1;width:100%;display:flex;align-items:flex-end;}
+.jeu-type{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.95);padding:5px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;backdrop-filter:blur(6px);}
+.jeu-type.quiz{color:var(--quiz);}
+.jeu-type.prono{color:var(--prono);}
+.jeu-type.instant{color:var(--instant);}
+.jeu-type svg{width:13px;height:13px;}
+
+.jeu-body{padding:20px 24px 22px;flex:1;display:flex;flex-direction:column;}
+.jeu-name{font-size:18px;font-weight:700;color:var(--gray-900);margin-bottom:8px;line-height:1.3;}
+.jeu-desc{font-size:13px;color:var(--gray-600);line-height:1.5;margin-bottom:18px;}
+
+/* Compte à rebours */
+.jeu-deadline{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--r-md);margin-bottom:12px;}
+.jeu-deadline-icon{width:28px;height:28px;border-radius:var(--r-sm);background:var(--warning-bg);color:var(--warning);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.jeu-deadline-icon svg{width:16px;height:16px;}
+.jeu-deadline-text{font-size:12px;color:var(--gray-700);line-height:1.3;}
+.jeu-deadline-text strong{display:block;color:var(--gray-900);font-size:14px;}
+
+.jeu-deadline.urgent .jeu-deadline-icon{background:#fef2f2;color:var(--error);}
+.jeu-deadline.permanent .jeu-deadline-icon{background:var(--success-bg);color:var(--success);}
+
+/* Lot/Récompense */
+.jeu-prize{display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(135deg,#fef3c7,#fde68a);border:1px solid #fcd34d;border-radius:var(--r-md);margin-bottom:16px;margin-top:auto;}
+.jeu-prize-icon{width:28px;height:28px;border-radius:var(--r-sm);background:#fbbf24;color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.jeu-prize-icon svg{width:16px;height:16px;}
+.jeu-prize-text{font-size:12px;color:#78350f;line-height:1.3;}
+.jeu-prize-text strong{display:block;color:#451a03;font-size:13px;}
+
+.jeu-foot{padding-top:16px;margin-top:auto;border-top:1px solid var(--gray-100);}
+
+/* Status badge dans les jeux */
+.jeu-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--success);margin-bottom:12px;}
+.jeu-status svg{width:14px;height:14px;}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:var(--r-md);font-family:var(--font);font-size:13px;font-weight:700;cursor:pointer;border:2px solid transparent;transition:.15s;white-space:nowrap;text-decoration:none;width:100%;}
+.btn svg{width:16px;height:16px;}
+.btn-violet{background:var(--violet-600);color:#fff;}
+.btn-violet:hover{background:var(--violet-700);transform:translateY(-1px);box-shadow:var(--sh-md);}
+.btn-outline{background:transparent;color:var(--violet-600);border-color:var(--violet-300);}
+.btn-outline:hover{background:var(--violet-50);border-color:var(--violet-600);}
+.btn-quiz{background:var(--quiz);color:#fff;}
+.btn-quiz:hover{background:#6b239a;}
+.btn-prono{background:var(--prono);color:#fff;}
+.btn-prono:hover{background:#0c4a85;}
+.btn-instant{background:var(--instant);color:#fff;}
+.btn-instant:hover{background:#9a3412;}
+
+/* ═══ MES PARTICIPATIONS ═══ */
+.particip-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);padding:28px 32px;}
+.particip-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--gray-100);}
+.particip-item:last-child{border-bottom:none;padding-bottom:0;}
+.particip-item:first-child{padding-top:0;}
+.particip-icon{width:44px;height:44px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.particip-icon.quiz{background:var(--quiz-bg);color:var(--quiz);}
+.particip-icon.prono{background:var(--prono-bg);color:var(--prono);}
+.particip-icon.instant{background:var(--instant-bg);color:var(--instant);}
+.particip-icon svg{width:22px;height:22px;}
+.particip-info{flex:1;min-width:0;}
+.particip-name{font-size:14px;font-weight:700;color:var(--gray-900);margin-bottom:3px;}
+.particip-meta{font-size:12px;color:var(--gray-500);}
+.particip-meta strong{color:var(--gray-700);}
+.particip-status{font-size:11px;font-weight:700;padding:5px 12px;border-radius:var(--r-full);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
+.status-pending{background:var(--warning-bg);color:var(--warning);}
+.status-won{background:var(--success-bg);color:var(--success);}
+.status-lost{background:var(--gray-100);color:var(--gray-600);}
+
+/* Voir tout link */
+.particip-see-all{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;margin-top:14px;background:var(--violet-50);border:1.5px dashed var(--violet-200);border-radius:var(--r-md);font-size:13px;font-weight:700;color:var(--violet-700);transition:.15s;cursor:pointer;}
+.particip-see-all:hover{background:var(--violet-100);border-color:var(--violet-400);gap:11px;}
+.particip-see-all svg{width:14px;height:14px;}
+
+/* ═══ RÉSULTATS RÉCENTS ═══ */
+.winners-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.winner-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-xl);padding:22px 24px;position:relative;overflow:hidden;}
+.winner-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;}
+.winner-card.gold::before{background:linear-gradient(180deg,#fbbf24,#b45309);}
+.winner-card.silver::before{background:linear-gradient(180deg,#d8d8d8,#737373);}
+.winner-card.bronze::before{background:linear-gradient(180deg,#d97706,#7c2d12);}
+.winner-jeu{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gray-500);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.winner-jeu-dot{width:8px;height:8px;border-radius:50%;}
+.winner-jeu-dot.quiz{background:var(--quiz);}
+.winner-jeu-dot.prono{background:var(--prono);}
+.winner-jeu-dot.instant{background:var(--instant);}
+.winner-name{font-size:18px;font-weight:700;color:var(--gray-900);margin-bottom:6px;letter-spacing:-.2px;}
+.winner-entity{font-size:12px;color:var(--gray-600);margin-bottom:12px;}
+.winner-prize{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--violet-50);border-radius:var(--r-sm);font-size:12px;color:var(--violet-700);font-weight:700;}
+.winner-prize svg{width:14px;height:14px;color:var(--violet-600);flex-shrink:0;}
+.winner-date{font-size:11px;color:var(--gray-500);margin-top:10px;text-align:right;}
+
+/* ═══ FOOTER ═══ */
+.footer{background:var(--violet-900);color:rgba(255,255,255,.85);padding:42px 0 22px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:36px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1);}
+.footer-brand .logo-mark{margin-bottom:14px;}
+.footer-brand p{font-size:13px;line-height:1.6;max-width:280px;margin-top:14px;}
+.footer-col h4{font-size:13px;font-weight:700;color:#fff;margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.85);padding:5px 0;transition:.15s;}
+.footer-col a:hover{color:#fff;}
+.footer-qr{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);padding:12px;}
+.qr-box{width:60px;height:60px;background:#fff;border-radius:var(--r-sm);flex-shrink:0;padding:5px;}
+.qr-box svg{width:100%;height:100%;}
+.footer-qr-text{font-size:12px;line-height:1.4;}
+.footer-qr-text strong{color:#fff;display:block;font-size:13px;margin-bottom:2px;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:20px;font-size:12px;flex-wrap:wrap;gap:10px;}
+.footer-legal{display:flex;gap:18px;flex-wrap:wrap;}
+.footer-legal a:hover{color:#fff;}
+
+@media(max-width:980px){
+ .nav{display:none;}
+ .hero-inner{grid-template-columns:1fr;}
+ .page-title{font-size:32px;}
+ .jeux-grid{grid-template-columns:1fr 1fr;}
+ .winners-grid{grid-template-columns:1fr 1fr;}
+ .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
+ .user-name{display:none;}
+}
+@media(max-width:600px){
+ .page-title{font-size:26px;}
+ .jeux-grid,.winners-grid{grid-template-columns:1fr;}
+ .footer-grid{grid-template-columns:1fr;}
+ .section-title{font-size:22px;}
+ .filter-tab{padding:7px 12px;font-size:12px;}
+ .hero-stats{flex-direction:column;width:100%;}
+}
+
+/* ═══ INVITE BAR ═══ */
+.invite-bar{background:linear-gradient(135deg,rgba(245,238,250,.55) 0%,rgba(239,239,239,.5) 100%),url('assets/image-parrainage.png') center/cover no-repeat;color:var(--gray-800);padding:0;position:relative;overflow:hidden;border-top:1px solid var(--gray-200);}
+.invite-bar + .footer,.invite-bar + footer{margin-top:0;}
+.invite-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;max-width:900px;margin:0 auto;padding:48px 32px;text-align:center;}
+.invite-text{text-align:center;max-width:600px;}
+.invite-text h3{font-size:26px;font-weight:700;letter-spacing:-.3px;margin-bottom:8px;color:var(--gray-900);}
+.invite-text p{font-size:14px;color:var(--gray-700);max-width:520px;line-height:1.5;margin:0 auto;}
+.invite-form{display:flex;align-items:stretch;gap:10px;background:#fff;border:1.5px solid var(--gray-200);border-radius:var(--r-full);padding:6px;min-width:380px;box-shadow:var(--sh-md);}
+.invite-form input{flex:1;border:none;background:transparent;color:var(--gray-900);font-family:var(--font);font-size:14px;padding:10px 16px;outline:none;}
+.invite-form input::placeholder{color:var(--gray-500);}
+.invite-btn{display:inline-flex;align-items:center;gap:6px;background:var(--violet-600);color:#fff;border:none;padding:10px 22px;border-radius:var(--r-full);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:.15s;white-space:nowrap;}
+.invite-btn:hover{background:var(--violet-700);transform:translateY(-1px);box-shadow:0 6px 16px rgba(88,29,116,.25);}
+.invite-btn svg{width:14px;height:14px;}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+@media(max-width:780px){.invite-form{min-width:0;width:100%;}.invite-inner{padding:32px 24px;}}
+
+/* ═══ NAV DROPDOWN ═══ */
+.nav-dropdown{position:relative;display:inline-block;}
+.nav-dropdown-trigger{padding:10px 14px;font-size:14px;font-weight:700;color:var(--gray-700);border-radius:var(--r-md);transition:.15s;display:inline-flex;align-items:center;gap:6px;cursor:pointer;}
+.nav-dropdown-trigger:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav-dropdown-trigger.active{color:var(--violet-600);position:relative;}
+.nav-dropdown-trigger.active::after{content:"";position:absolute;left:14px;right:14px;bottom:-1px;height:3px;background:var(--violet-600);border-radius:3px 3px 0 0;}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 6px);left:0;background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-md);box-shadow:var(--sh-lg);min-width:200px;padding:6px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.15s;z-index:50;}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0);}
+.nav-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 14px;font-size:14px;font-weight:600;color:var(--gray-800);border-radius:var(--r-sm);transition:.12s;}
+.nav-dropdown-menu a:hover{background:var(--violet-50);color:var(--violet-700);}
+.nav-dropdown-menu a svg{width:16px;height:16px;flex-shrink:0;color:var(--violet-600);}
+
+/* Bouton nav illustratif "Défi 2027" */
+.nav-defi{display:inline-flex;align-items:center;gap:7px;margin-left:8px;background:linear-gradient(135deg,#6b239a,#c026d3);color:#fff;font-weight:700;font-size:13.5px;padding:8px 16px;border-radius:9999px;box-shadow:0 3px 10px rgba(123,46,167,.4);white-space:nowrap;cursor:default;}
+.nav-defi svg{width:15px;height:15px;}
+
+/* Pastille de rappel de version (bas droite) */
+.version-pill{position:fixed;right:20px;bottom:20px;z-index:300;display:inline-flex;align-items:center;gap:8px;background:#4b1a67;color:#fff;font-size:12.5px;font-weight:700;padding:10px 16px;border-radius:9999px;box-shadow:0 8px 24px rgba(46,16,64,.4);text-decoration:none;transition:.2s;}
+.version-pill:hover{background:#581d74;transform:translateY(-2px);}
+.version-pill .vp-logo{width:14px;height:14px;flex-shrink:0;}
+.version-pill .vp-dot{width:8px;height:8px;border-radius:50%;background:#9aa0a6;flex-shrink:0;}
+.version-pill.v2{background:#3d1554;}
+@media(max-width:600px){.version-pill{right:12px;bottom:12px;font-size:11.5px;padding:8px 13px;}}
+
+/* ═══ Ajout oct. 2026 : 4 jeux (quiz, prono décalé, concours, instant) ═══ */
+.jeux-grid{grid-template-columns:repeat(2,1fr);}
+.jeu-banner{height:200px;}
+.jeu-banner.decale{background:url('assets/visuel-handball.jpg') center 30%/cover no-repeat;}
+.jeu-type.decale{color:var(--quiz);}
+.btn-decale{background:#0e7490;color:#fff;}
+.btn-decale:hover{background:#0b5a70;}
+@media(max-width:600px){.jeux-grid{grid-template-columns:1fr;}}
+
+/* ═══════════ MÉCANIQUES DE JEU — styles communs (quiz / prono décalé / concours) ═══════════ */
+[hidden]{display:none!important;}
+:root{--decale:#0e7490;--decale-bg:#e6f4f7;--decale-dark:#0b5a70;}
+.page-hero{background-image:linear-gradient(135deg,rgba(46,16,64,.95) 0%,rgba(88,29,116,.88) 55%,rgba(132,51,184,.78) 100%),url('assets/visuel-handball.jpg');background-size:cover;background-position:center;color:#fff;padding:44px 0 52px;position:relative;overflow:hidden;}
+.page-hero.hero-decale{background-image:linear-gradient(135deg,rgba(6,45,60,.95) 0%,rgba(14,116,144,.88) 55%,rgba(22,150,172,.76) 100%),url('assets/visuel-handball.jpg');}
+.page-hero.hero-concours{background-image:linear-gradient(135deg,rgba(7,40,80,.95) 0%,rgba(15,95,168,.86) 55%,rgba(40,135,215,.74) 100%),url('assets/Pronos%20%E2%80%94%20Tournoi%20de%20France%20de%20Handball.png');}
+.hero-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;position:relative;}
+.hero-chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:6px 13px;border-radius:var(--r-full);font-size:12.5px;font-weight:700;color:#fff;}
+.hero-chip svg{width:14px;height:14px;flex-shrink:0;}
+.page-title-kicker{display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:rgba(255,255,255,.16);padding:5px 12px;border-radius:var(--r-full);margin-bottom:12px;position:relative;}
+
+/* Sélecteur d'état (démo) */
+.demo-switch{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#fff;border:1.5px dashed var(--violet-300);border-radius:var(--r-lg);padding:10px 14px;margin-top:24px;}
+.ds-label{font-size:11.5px;font-weight:700;color:var(--violet-700);text-transform:uppercase;letter-spacing:.06em;margin-right:6px;display:inline-flex;align-items:center;gap:6px;}
+.ds-label svg{width:15px;height:15px;}
+.ds-btn{font-family:var(--font);font-size:13px;font-weight:700;padding:7px 14px 7px 8px;border-radius:var(--r-full);border:1.5px solid var(--gray-200);background:var(--gray-50);color:var(--gray-700);cursor:pointer;display:inline-flex;gap:8px;align-items:center;transition:.15s;}
+.ds-btn:hover{border-color:var(--violet-300);color:var(--violet-700);}
+.ds-btn .n{width:22px;height:22px;border-radius:50%;background:var(--gray-200);display:inline-flex;align-items:center;justify-content:center;font-size:11px;}
+.ds-btn[aria-pressed="true"]{background:var(--violet-600);border-color:var(--violet-600);color:#fff;}
+.ds-btn[aria-pressed="true"] .n{background:rgba(255,255,255,.25);}
+.ds-hint{font-size:12px;color:var(--gray-500);margin-left:auto;}
+
+/* Mise en page jeu */
+.game-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:28px;align-items:start;padding:24px 0 64px;}
+.side{display:flex;flex-direction:column;gap:18px;position:sticky;top:92px;}
+.side.static{position:static;}
+.side-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);padding:22px 24px;}
+.side-title{font-size:17px;font-weight:700;color:var(--gray-900);margin-bottom:14px;letter-spacing:-.2px;}
+.side-text{font-size:13.5px;color:var(--gray-700);line-height:1.55;}
+.how{list-style:none;display:flex;flex-direction:column;gap:12px;counter-reset:how;}
+.how li{display:flex;gap:12px;font-size:13.5px;color:var(--gray-700);line-height:1.45;counter-increment:how;}
+.how li::before{content:counter(how);width:24px;height:24px;border-radius:50%;background:var(--violet-100);color:var(--violet-700);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.how li strong{color:var(--gray-900);}
+.side-partner{border-radius:var(--r-lg);overflow:hidden;margin-bottom:12px;aspect-ratio:16/9;background:var(--gray-100);}
+.side-partner img{width:100%;height:100%;object-fit:cover;}
+.jeu-prize{margin-top:0;}
+.coin{width:18px;height:18px;display:inline-block;vertical-align:-3px;flex-shrink:0;}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none!important;box-shadow:none!important;}
+.btn-decale{background:var(--decale);color:#fff;}
+.btn-decale:hover{background:var(--decale-dark);}
+.btn-auto{width:auto;}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--violet-600);margin-top:8px;}
+.back-link svg{width:14px;height:14px;}
+.flag{display:inline-block;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.12),0 2px 6px rgba(0,0,0,.08);flex-shrink:0;line-height:0;}
+.flag svg{width:100%;height:100%;display:block;}
+.pill-ok{display:inline-flex;align-items:center;gap:6px;background:var(--success-bg);color:var(--success);border:1px solid #b9e2cb;font-size:12px;font-weight:700;padding:5px 12px;border-radius:var(--r-full);line-height:1.3;text-align:center;}
+.pill-ok svg{width:13px;height:13px;flex-shrink:0;}
+.pts-win{display:inline-flex;align-items:center;gap:6px;background:#1f9d55;color:#fff;font-size:15px;font-weight:700;padding:7px 18px;border-radius:var(--r-full);}
+.pts-zero{display:inline-flex;align-items:center;gap:6px;background:var(--gray-100);color:var(--gray-600);font-size:14px;font-weight:700;padding:7px 18px;border-radius:var(--r-full);}
+
+/* Compte à rebours */
+.cd{display:flex;gap:6px;justify-content:center;}
+.cd-u{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.cd-n{width:38px;height:38px;border-radius:50%;border:2px solid var(--gray-300);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--gray-800);background:#fff;}
+.cd-l{font-size:9px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.05em;}
+.cd-title{font-size:11px;font-weight:700;color:var(--gray-600);text-align:center;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+
+@media(max-width:980px){
+ .game-layout{grid-template-columns:1fr;}
+ .side{position:static;}
+}
+.hero-top{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;margin-bottom:32px;position:relative;}
+.essentials{position:relative;}
+.essentials-label{font-size:12px;font-weight:700;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.essentials-label::after{content:"";flex:1;height:1px;background:rgba(255,255,255,.18);}
+.essentials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.essential-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-xl);padding:18px 20px;display:flex;align-items:center;gap:14px;backdrop-filter:blur(8px);transition:.2s;}
+.essential-card:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28);}
+.essential-icon{width:52px;height:52px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.essential-icon.water{background:rgba(59,130,246,.25);color:#93c5fd;}
+.essential-icon.food{background:rgba(16,185,129,.25);color:#6ee7b7;}
+.essential-icon.sleep{background:rgba(167,139,250,.25);color:#c4b5fd;}
+.essential-icon svg{width:26px;height:26px;}
+.essential-text{line-height:1.3;}
+.essential-num{font-size:22px;font-weight:700;color:#fff;letter-spacing:-.3px;}
+.essential-num small{font-size:14px;font-weight:400;color:rgba(255,255,255,.85);margin-left:3px;}
+.essential-label{font-size:12px;color:rgba(255,255,255,.95);margin-top:2px;font-weight:700;}
+.defis-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.defi-card{background:#fff;border:1px solid var(--gray-200);border-radius:var(--r-2xl);overflow:hidden;transition:.2s;cursor:pointer;display:flex;flex-direction:column;}
+.defi-card:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);border-color:var(--violet-200);}
+.defi-banner{height:160px;position:relative;display:flex;align-items:flex-end;padding:18px 22px;overflow:hidden;background-size:cover;background-position:center;background-repeat:no-repeat;}
+.defi-banner.collectif{background:url('assets/Visuel%20-%20bouger.png') center/cover no-repeat;}
+.defi-banner.squat{background:#3d1554 url('assets/Squat.png') center/cover no-repeat;}
+.defi-banner.individuel{background:url('assets/D%C3%A9fi%20Individuel%20%E2%80%94%203%20km%20par%20jour.png') center/cover no-repeat;}
+.defi-banner::before{display:none;}
+.defi-banner-svg{display:none;}
+.defi-banner-svg svg{width:140px;height:140px;}
+.defi-banner-inner{position:relative;z-index:1;color:#fff;display:flex;align-items:center;gap:14px;width:100%;}
+.defi-banner-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.95);color:var(--violet-700);padding:6px 12px;border-radius:var(--r-full);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;backdrop-filter:blur(6px);}
+.defi-banner-tag .pulse{width:7px;height:7px;background:var(--gauge-fill);border-radius:50%;animation:pulse 1.8s infinite;flex-shrink:0;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.5;}}
+.defi-body{padding:20px 24px 22px;flex:1;display:flex;flex-direction:column;}
+.defi-name{font-size:19px;font-weight:700;color:var(--gray-900);margin-bottom:8px;line-height:1.3;}
+.defi-desc{font-size:13px;color:var(--gray-600);line-height:1.5;margin-bottom:18px;}
+.defi-meta{display:flex;gap:18px;margin-bottom:18px;flex-wrap:wrap;}
+.defi-meta-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray-600);}
+.defi-meta-item svg{width:14px;height:14px;color:var(--violet-500);}
+.defi-meta-item strong{color:var(--gray-900);font-weight:700;}
+.defi-progress{margin-bottom:14px;}
+.defi-progress-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
+.defi-progress-num{font-size:20px;font-weight:700;color:var(--violet-700);letter-spacing:-.3px;}
+.defi-progress-num small{font-size:13px;color:var(--gray-500);font-weight:400;}
+.defi-progress-pct{font-size:14px;font-weight:700;color:var(--violet-600);}
+.defi-track{height:8px;background:var(--gray-100);border-radius:var(--r-full);overflow:hidden;}
+.defi-fill{height:100%;background:linear-gradient(90deg,var(--violet-600),var(--violet-400));border-radius:var(--r-full);}
+.defi-foot{display:flex;align-items:center;justify-content:space-between;padding-top:16px;margin-top:auto;border-top:1px solid var(--gray-100);gap:14px;}
+.defi-stat-chip{background:var(--violet-50);padding:6px 12px;border-radius:var(--r-md);font-size:12px;color:var(--violet-700);font-weight:700;}
+.defi-stat-chip strong{color:var(--violet-900);}
+.history-toggle{background:#fff;border:1.5px solid var(--gray-200);border-radius:var(--r-md);padding:14px 18px;width:100%;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-family:var(--font);font-size:14px;font-weight:700;color:var(--gray-800);transition:.15s;margin-top:24px;}
+.history-toggle:hover{border-color:var(--violet-300);background:var(--violet-50);}
+.history-toggle-left{display:flex;align-items:center;gap:10px;}
+.history-toggle-icon{width:28px;height:28px;border-radius:var(--r-sm);background:var(--gray-100);color:var(--gray-600);display:flex;align-items:center;justify-content:center;}
+.history-toggle-icon svg{width:16px;height:16px;}
+.history-toggle-chevron{color:var(--gray-500);transition:.2s;}
+.history-toggle-chevron svg{width:18px;height:18px;}
+.history-count{font-size:12px;font-weight:700;color:var(--gray-500);background:var(--gray-100);padding:3px 10px;border-radius:var(--r-full);}
+.defi-upcoming{display:flex;gap:10px;align-items:flex-start;background:#f5eefa;border:1px solid #e2c8f2;color:#4b1a67;border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.4;margin:0 0 16px;}
+.defi-upcoming svg{width:18px;height:18px;flex-shrink:0;margin-top:1px;}
+@media(max-width:980px){.hero-top{grid-template-columns:1fr;gap:24px;}.essentials-grid{grid-template-columns:1fr;}.defis-grid{grid-template-columns:1fr;}}
+/* ═══════════ PAGE S'ENGAGER (fusion Bouger + Participer) ═══════════ */
+.page-hero{padding:44px 0 40px;}
+.eng-panels{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:6px 0 28px;position:relative;}
+.eng-panel{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-2xl);padding:18px 24px 18px 14px;color:#fff;backdrop-filter:blur(8px);transition:.25s;position:relative;overflow:hidden;}
+.eng-panel:hover{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.34);transform:translateY(-3px);}
+.eng-panel:focus-visible{outline:3px solid #fff;outline-offset:3px;}
+.eng-panel::after{content:"";position:absolute;inset:auto -40px -60px auto;width:180px;height:180px;border-radius:50%;opacity:.18;pointer-events:none;}
+.eng-panel.legs::after{background:radial-gradient(circle,#7be8a8 0,transparent 70%);}
+.eng-panel.head::after{background:radial-gradient(circle,#f0abfc 0,transparent 70%);}
+.eng-anim{width:150px;height:150px;}
+.eng-anim svg{width:100%;height:100%;overflow:visible;}
+.eng-eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 11px;border-radius:var(--r-full);margin-bottom:10px;}
+.legs .eng-eyebrow{background:rgba(123,232,168,.18);color:#a7f3c8;}
+.head .eng-eyebrow{background:rgba(240,171,252,.18);color:#f5c8fb;}
+.eng-title{font-size:24px;font-weight:700;letter-spacing:-.4px;line-height:1.15;margin-bottom:6px;}
+.eng-desc{font-size:14px;color:rgba(255,255,255,.86);line-height:1.5;margin-bottom:12px;}
+.eng-cta{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;}
+.eng-cta svg{width:15px;height:15px;transition:.2s;}
+.eng-panel:hover .eng-cta svg{transform:translateY(3px);}
+.eng-count{background:rgba(255,255,255,.18);padding:2px 9px;border-radius:var(--r-full);font-size:12px;}
+.eng-ctrl{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;position:relative;}
+.eng-ctrl-label{font-size:12px;font-weight:700;color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.06em;}
+.anim-toggle{display:inline-flex;align-items:center;gap:6px;font-family:var(--font);font-size:12px;font-weight:700;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:var(--r-full);padding:6px 12px;cursor:pointer;}
+.anim-toggle:hover{background:rgba(255,255,255,.2);}
+.anim-toggle svg{width:13px;height:13px;}
+.hero-top{margin-bottom:22px;}
+
+/* Sections cerveau / muscles */
+.side-label{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;padding:5px 12px 5px 6px;border-radius:var(--r-full);margin-bottom:10px;}
+.side-label .ico{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.side-label .ico svg{width:14px;height:14px;}
+.side-label.legs{background:var(--success-bg);color:var(--success);}
+.side-label.legs .ico{background:var(--success);color:#fff;}
+.side-label.head{background:var(--quiz-bg);color:var(--quiz);}
+.side-label.head .ico{background:var(--quiz);color:#fff;}
+#muscles,#cerveau{scroll-margin-top:84px;}
+.defis-grid{grid-template-columns:repeat(3,1fr);}
+.jeu-card.wide{flex-direction:row;}
+.jeu-card.wide .jeu-banner{width:46%;height:auto;min-height:300px;flex-shrink:0;}
+.jeu-card.wide .jeu-body{padding:26px 30px;}
+.jeu-card.wide .jeu-name{font-size:22px;}
+.jeu-card.wide .jeu-desc{font-size:14px;}
+.jeu-card.wide .jeu-foot .btn{width:auto;}
+.jeu-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.jeu-row .jeu-prize{margin-top:0;}
+
+/* Participations unifiées */
+.particip-icon.defi{background:var(--success-bg);color:var(--success);}
+.particip-tag{display:inline-block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 8px;border-radius:var(--r-full);margin-right:6px;vertical-align:1px;}
+.particip-tag.defi{background:var(--success-bg);color:var(--success);}
+.particip-tag.jeu{background:var(--quiz-bg);color:var(--quiz);}
+.winner-jeu-dot.defi{background:var(--success);}
+.status-upcoming{background:var(--info-bg);color:var(--info);}
+
+@media(max-width:980px){
+ .eng-panels{grid-template-columns:1fr;}
+ .defis-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:700px){
+ .eng-panel{grid-template-columns:96px 1fr;padding:14px 16px 14px 10px;}
+ .eng-anim{width:96px;height:96px;}
+ .eng-title{font-size:19px;}
+ .defis-grid{grid-template-columns:1fr;}
+ .jeu-card.wide{flex-direction:column;}
+ .jeu-card.wide .jeu-banner{width:100%;min-height:180px;}
+ .jeu-row{grid-template-columns:1fr;}
+}
+/* Défi du moment : carte horizontale */
+.defi-card.wide{flex-direction:row;cursor:default;}
+.defi-card.wide .defi-banner{width:46%;height:auto;min-height:300px;flex-shrink:0;}
+.defi-card.wide .defi-body{padding:26px 30px;}
+.defi-card.wide .defi-name{font-size:22px;}
+.defi-card.wide .defi-desc{font-size:14px;}
+.defi-card.wide .defi-foot .btn{width:auto;}
+@media(max-width:700px){.defi-card.wide{flex-direction:column;}.defi-card.wide .defi-banner{width:100%;min-height:180px;}}
+.defi-card.wide .defi-banner.individuel{background-size:auto 152%;background-position:center 52%;}
+/* Bandeau 3 essentiels sous le héros */
+.eng-panels{margin-bottom:4px;}
+.essentials-band{background:#fff;border-bottom:1px solid var(--gray-200);padding:16px 0;}
+.essentials-band .essentials{display:flex;align-items:center;gap:24px;}
+.essentials-band .essentials-label{color:var(--gray-700);margin:0;white-space:nowrap;}
+.essentials-band .essentials-label::after{display:none;}
+.essentials-band .essentials-grid{flex:1;gap:12px;}
+.essentials-band .essential-card{background:var(--gray-50);border-color:var(--gray-200);padding:10px 14px;backdrop-filter:none;}
+.essentials-band .essential-card:hover{background:var(--violet-50);border-color:var(--violet-200);}
+.essentials-band .essential-icon{width:40px;height:40px;}
+.essentials-band .essential-icon svg{width:21px;height:21px;}
+.essentials-band .essential-icon.water{background:#e0edff;color:#1d4ed8;}
+.essentials-band .essential-icon.food{background:#dcfce7;color:#15803d;}
+.essentials-band .essential-icon.sleep{background:#ede9fe;color:#6d28d9;}
+.essentials-band .essential-num{font-size:18px;color:var(--gray-900);}
+.essentials-band .essential-num small{color:var(--gray-600);}
+.essentials-band .essential-label{color:var(--gray-600);}
+@media(max-width:980px){.essentials-band .essentials{flex-direction:column;align-items:stretch;gap:10px;}.essentials-band .essentials-grid{grid-template-columns:1fr 1fr 1fr;}}
+@media(max-width:640px){.essentials-band .essentials-grid{grid-template-columns:1fr;}}
+
+/* ═══ DERNIERS GAGNANTS (entre-deux) ═══ */
+.wv{padding-top:0;}
+.wv .section-link svg{width:16px;height:16px;}
+.wv-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;}
+.wv-c{position:relative;display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid var(--gray-200);border-radius:16px;padding:20px;overflow:hidden;transition:border-color 150ms ease,box-shadow 150ms ease;}
+.wv-c::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;}
+.wv-c.muscles::before{background:var(--success);}
+.wv-c.cerveau::before{background:var(--quiz);}
+.wv-c:hover{border-color:var(--violet-200);box-shadow:0 8px 24px rgba(46,16,64,.08);}
+.wv-c-top{display:flex;align-items:center;gap:12px;margin-bottom:4px;}
+.wv-av{position:relative;width:48px;height:48px;border-radius:50%;background:var(--violet-100);color:var(--violet-700);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.wv-av.team{background:var(--success-bg);color:var(--success);}
+.wv-av.team > svg{width:22px;height:22px;}
+.wv-troph{position:absolute;right:-4px;bottom:-4px;width:22px;height:22px;border-radius:50%;background:#f5b301;color:#fff;border:2px solid #fff;display:flex;align-items:center;justify-content:center;}
+.wv-troph svg{width:11px;height:11px;}
+.wv-name{font-size:16px;font-weight:700;color:var(--gray-900);line-height:1.25;}
+.wv-ent{font-size:12.5px;color:var(--gray-500);line-height:1.35;}
+.wv-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:3px 10px 3px 8px;border-radius:var(--r-full);width:fit-content;}
+.wv-tag svg{width:13px;height:13px;}
+.wv-tag.muscles{background:var(--success-bg);color:var(--success);}
+.wv-tag.cerveau{background:var(--quiz-bg);color:var(--quiz);}
+.wv-game{font-size:14px;font-weight:700;color:var(--gray-800);}
+.wv-res{font-size:13px;color:var(--gray-600);font-variant-numeric:tabular-nums;}
+.wv-res b{font-size:20px;color:var(--violet-700);font-weight:700;margin-right:2px;}
+.wv-quote{margin:2px 0 0;font-size:13px;line-height:1.45;color:var(--gray-700);}
+.wv-lot{margin-top:auto;display:flex;align-items:center;gap:10px;background:var(--violet-50);border-radius:10px;padding:10px 12px;}
+.wv-lot > svg{width:18px;height:18px;color:var(--violet-600);flex-shrink:0;}
+.wv-lot strong{display:block;font-size:13px;color:var(--gray-900);line-height:1.3;}
+.wv-lot small{font-size:11.5px;color:var(--gray-500);}
+.wv-c .wv-lot{margin-top:auto;}
+.wv-c > .wv-res + .wv-lot,.wv-c > .wv-quote + .wv-lot{margin-top:auto;}
+.wv-foot{display:flex;flex-wrap:wrap;gap:8px 32px;margin-top:16px;font-size:13px;color:var(--gray-600);font-variant-numeric:tabular-nums;}
+.wv-foot b{font-weight:700;color:var(--gray-900);margin-right:4px;font-size:15px;}
+@media(max-width:1100px){.wv-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:600px){.wv-grid{grid-template-columns:1fr;}.wv-foot{flex-direction:column;gap:4px;}}
+
+/* ═══ Retours BPCE : wrapper, header, menu Camille L., footer ═══ */
+.container{max-width:1280px!important;padding-left:56px!important;padding-right:56px!important;}
+@media(max-width:768px){.container{padding-left:20px!important;padding-right:20px!important;}}
+.header-top{height:auto!important;min-height:68px;padding:12px 0;gap:28px!important;transition:padding .25s ease;}
+.logo-img{height:60px!important;transition:height .25s ease;}
+.header.is-scrolled .header-top{padding:4px 0;}
+.header.is-scrolled .logo-img{height:40px!important;}
+.nav{gap:6px;}
+.nav-dropdown-menu{min-width:250px;}
+.nav-menu-sep{font-size:11px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.06em;padding:12px 14px 4px;border-top:1px solid var(--gray-100);margin-top:6px;}
+.nav-dropdown-menu a .ext{width:12px!important;height:12px!important;margin-left:auto;color:var(--gray-400)!important;}
+.user-menu{position:relative;}
+.user-chip{position:relative;}
+.user-chip .um-chev{width:14px;height:14px;color:var(--gray-500);}
+.user-dot{position:absolute;top:4px;left:30px;width:9px;height:9px;border-radius:50%;background:var(--error,#d92d20);border:2px solid #fff;}
+.user-menu-list{position:absolute;top:calc(100% + 8px);right:0;min-width:240px;background:#fff;border:1px solid var(--gray-200);border-radius:12px;box-shadow:0 12px 32px rgba(46,16,64,.14);padding:6px;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s,transform .15s,visibility .15s;z-index:200;}
+.user-menu:hover .user-menu-list,.user-menu:focus-within .user-menu-list{opacity:1;visibility:visible;transform:none;}
+.user-menu-list a{display:flex;align-items:center;gap:10px;padding:10px 12px;font-size:14px;font-weight:600;color:var(--gray-800);border-radius:8px;}
+.user-menu-list a:hover,.user-menu-list a.active{background:var(--violet-50);color:var(--violet-700);}
+.user-menu-list a svg{width:17px;height:17px;color:var(--violet-600);flex-shrink:0;}
+.um-badge{margin-left:auto;background:var(--violet-600);color:#fff;font-size:11px;font-weight:700;border-radius:999px;padding:2px 8px;}
+.um-sep{height:1px;background:var(--gray-100);margin:6px 4px;}
+.um-head{padding:10px 12px 8px;font-size:12px;color:var(--gray-500);}
+.um-head strong{display:block;font-size:14px;color:var(--gray-900);}
+/* Étiquette Dashboard sur le côté gauche */
+.side-tab{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:150;display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--violet-600);color:#fff;padding:16px 9px;border-radius:0 10px 10px 0;box-shadow:0 6px 18px rgba(46,16,64,.25);font-size:13px;font-weight:700;text-decoration:none;}
+.side-tab span{writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.02em;}
+.side-tab svg{width:18px;height:18px;}
+.side-tab:hover{background:var(--violet-700,#4b1a67);padding-left:13px;}
+@media(max-width:768px){.side-tab{display:none;}}
+/* Footer : sans « Explorer » ni « Mon compte », invitation sous « Suivez-nous » */
+.footer-grid{grid-template-columns:2fr 1fr 1.6fr!important;}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr!important;}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr!important;}}
+.footer-invite{margin-top:16px;}
+.footer-invite-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;}
+.footer-invite-sub{font-size:12px;color:rgba(255,255,255,.75);margin-bottom:10px;}
+.footer-invite-form{display:flex;gap:6px;background:#fff;border-radius:999px;padding:4px;}
+.footer-invite-form input{flex:1;min-width:0;border:0;outline:0;background:transparent;padding:8px 12px;font-family:inherit;font-size:13px;color:var(--gray-900);}
+.footer-invite-form button{border:0;border-radius:999px;background:var(--violet-600);color:#fff;font-family:inherit;font-weight:700;font-size:13px;padding:8px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+.footer-invite-form button svg{width:14px;height:14px;}
+.footer-invite-form button:hover{background:var(--violet-700,#4b1a67);}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+/* « Voir toutes mes participations » : un vrai bouton secondaire, plus de cadre pointillé */
+.particip-see-all,.partic-see-all{display:flex!important;width:max-content;margin:18px auto 4px!important;align-items:center;gap:8px;padding:11px 20px!important;border:1.5px solid var(--violet-600)!important;border-radius:999px!important;background:#fff!important;color:var(--violet-700)!important;font-weight:700;font-size:14px;text-decoration:none;}
+.particip-see-all:hover,.partic-see-all:hover{background:var(--violet-50)!important;}
+.particip-see-all svg,.partic-see-all svg{width:15px;height:15px;}
+
+/* Retours BPCE · S'engager : bannière à la hauteur du Calendrier */
+.page-hero{padding:56px 0 64px!important;}
+@media(min-width:981px){
+ .page-hero .container{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);column-gap:40px;align-items:center;}
+ .page-hero .breadcrumb{grid-column:1 / -1;}
+ .page-hero .hero-top{grid-column:1;grid-row:2 / span 2;margin:0!important;display:block;}
+ .page-hero .eng-ctrl{grid-column:2;grid-row:2;justify-content:flex-end;margin:0 0 8px;}
+ .page-hero .eng-panels{grid-column:2;grid-row:3;margin:0!important;grid-template-columns:1fr 1fr!important;gap:12px;}
+ .eng-panel{grid-template-columns:76px minmax(0,1fr)!important;gap:12px!important;padding:12px 14px 12px 8px!important;}
+ .eng-anim{width:76px!important;height:76px!important;}
+ .eng-desc{display:none;}
+ .eng-title{font-size:17px!important;margin-bottom:8px!important;}
+ .eng-eyebrow{margin-bottom:6px!important;}
+}
+.anim-toggle{font-size:11px;padding:5px 10px;}
+
+/* Footer équilibré : logo + liens à gauche, réseaux + invitation à droite */
+.footer-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)!important;grid-template-rows:auto 1fr;column-gap:72px!important;row-gap:18px!important;}
+.footer-grid>.footer-brand{grid-column:1;grid-row:1;}
+.footer-grid>.footer-col:nth-child(2){grid-column:1;grid-row:2;display:flex;flex-wrap:wrap;align-content:flex-start;gap:6px 28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);}
+.footer-grid>.footer-col:nth-child(2) a{font-size:14px;font-weight:600;color:#fff;padding:4px 0;}
+.footer-grid>.footer-col:nth-child(2) a:hover{color:var(--violet-200);}
+.footer-grid>.footer-col:nth-child(3){grid-column:2;grid-row:1 / span 2;}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr!important;}.footer-grid>.footer-col:nth-child(3){grid-column:1;grid-row:auto;}}
+
+/* Bannières alignées : même hauteur sur Actualités, S'engager, Calendrier et Dashboard */
+.page-hero,.dash-hero{box-sizing:border-box;min-height:320px;padding:48px 0!important;display:flex;flex-direction:column;justify-content:center;}
+.page-hero>.container,.dash-hero>.container{width:100%;}
+@media(max-width:980px){.page-hero,.dash-hero{min-height:0;}}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+
+<!-- Bandeau démo -->
+<div style="background:#1c0926;color:#fff;padding:8px 24px;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:Arial,Helvetica,sans-serif;">
+ <span style="opacity:.75;">🎨 <strong style="color:#c699e2;">Maquette navigable TEAM IMAGINE</strong> — Démo de cadrage, novembre 2026</span>
+ <a href="sommaire-sans-strava.html" style="color:#fff;text-decoration:none;background:rgba(255,255,255,.12);padding:4px 12px;border-radius:9999px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:.15s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
+ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+ Retour au sommaire
+ </a>
+</div>
+
+
+<!-- ═══ HEADER ═══ -->
+<header class="header">
+ <div class="container header-top">
+ <a href="home-sans-strava.html" class="logo" aria-label="GROUPE BPCE × TEAM IMAGINE - Accueil">
+ <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" class="logo-img"/>
+ </a>
+ <nav class="nav" aria-label="Navigation principale">
+ <div class="nav-dropdown">
+ <a href="actualites-sans-strava.html" class="nav-dropdown-trigger">
+ Actualités
+ <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+ </a>
+ <div class="nav-dropdown-menu" role="menu">
+ <a href="actualites-articles-sans-strava.html" role="menuitem">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+ Articles
+ </a>
+ <a href="actualites-videos-sans-strava.html" role="menuitem">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg>
+ Vidéos
+ </a>
+ <div class="nav-menu-sep">La Banque du Sport</div>
+ <a href="https://www.groupebpce.com/la-banque-du-sport/les-athletes-soutenus/" target="_blank" rel="noopener" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M8.2 12.3L7 22l5-3 5 3-1.2-9.7"/></svg> Les athlètes soutenus <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+ <a href="https://www.groupebpce.com/la-banque-du-sport/des-entreprises-engagees/" target="_blank" rel="noopener" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 17l-2 2a2.8 2.8 0 0 1-4-4l3.5-3.5a2.8 2.8 0 0 1 4 0"/><path d="M13 7l2-2a2.8 2.8 0 0 1 4 4l-3.5 3.5a2.8 2.8 0 0 1-4 0"/></svg> Nos partenariats sport <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+ </div>
+ </div>
+ <a href="s-engager-sans-strava.html" class="active">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+ S'engager
+ </a>
+ <a href="calendrier-sans-strava.html">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ Calendrier
+ </a>
+ <span class="nav-defi" title="Le Défi 2027 — à venir"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 4.8L18 8l-4.4 1.2L12 14l-1.6-4.8L6 8l4.4-1.2z"/></svg>Le Défi 2027</span>
+ </nav>
+ <div class="header-actions">
+ <button class="icon-btn" aria-label="Rechercher">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+ </button>
+ <div class="user-menu">
+ <button class="user-chip" type="button" aria-haspopup="true">
+ <span class="avatar">CL</span>
+ <span class="user-dot" aria-hidden="true"></span>
+ <span class="user-name">Camille L.</span>
+ <svg class="um-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+ </button>
+ <div class="user-menu-list" role="menu">
+ <div class="um-head"><strong>Camille L.</strong>CE Île-de-France</div>
+ <a href="dashboard-sans-strava.html" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg> Dashboard</a>
+ <a href="#" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg> Notifications <span class="um-badge">3</span></a>
+ <div class="um-sep"></div>
+ <a href="prehome-sans-strava.html" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg> Se déconnecter</a>
+ </div>
+ </div>
+ </div>
+ </div>
+</header>
+<a href="dashboard-sans-strava.html" class="side-tab" aria-label="Mon dashboard"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg><span>Dashboard</span></a>
+
+<main id="main">
+ <!-- ═══ HERO (mix Bouger + Participer) ═══ -->
+ <section class="page-hero">
+ <div class="container">
+ <div class="breadcrumb">
+ <a href="home-sans-strava.html">Accueil</a>
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+ <span>S'engager</span>
+ </div>
+
+ <div class="hero-top">
+ <div>
+ <h1 class="page-title">
+ <span class="page-title-icon">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+ </span>
+ S'engager
+ </h1>
+ <p class="page-sub">Jouez pour tester vos connaissances, relevez des challenges pour faire avancer votre entité : deux façons de vous engager avec la Banque du Sport, et des lots à la clé.</p>
+ </div>
+ </div>
+
+ <!-- Deux portes d'entrée animées : le cerveau (Jouer) / les muscles (Bouger) -->
+ <div class="eng-ctrl">
+ <button type="button" class="anim-toggle" id="animToggle" aria-pressed="false">
+ <svg viewBox="0 0 24 24" fill="currentColor" id="animIco"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+ <span id="animLbl">Mettre en pause les animations</span>
+ </button>
+ </div>
+ <div class="eng-panels">
+
+ <a href="#cerveau" class="eng-panel head">
+ <div class="eng-anim" aria-hidden="true">
+ <svg class="anim" viewBox="0 0 160 160">
+ <circle cx="80" cy="70" r="58" fill="#f0abfc" opacity=".12"><animate attributeName="r" values="52;62;52" dur="2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".08;.2;.08" dur="2.6s" repeatCount="indefinite"/></circle>
+ <g fill="rgba(255,255,255,.1)" stroke="#f5c8fb" stroke-width="3" stroke-linejoin="round">
+ <path d="M78 28C64 20 44 24 40 40C26 42 20 58 28 68C18 78 24 98 40 100C42 114 60 122 78 112Z"/>
+ <path d="M82 28C96 20 116 24 120 40C134 42 140 58 132 68C142 78 136 98 120 100C118 114 100 122 82 112Z"/>
+ </g>
+ <g fill="none" stroke="#f5c8fb" stroke-width="2.5" stroke-linecap="round" opacity=".6">
+ <path d="M44 52C54 48 60 56 68 52"/><path d="M36 78C48 74 54 84 66 78"/><path d="M50 98C58 92 66 98 72 94"/>
+ <path d="M116 52C106 48 100 56 92 52"/><path d="M124 78C112 74 106 84 94 78"/><path d="M110 98C102 92 94 98 88 94"/>
+ <path d="M76 114C76 126 80 132 86 140" stroke-width="3" opacity="1"/>
+ </g>
+ <!-- réseau de neurones -->
+ <g stroke="#fde68a" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round" opacity=".9">
+ <animate attributeName="stroke-dashoffset" from="16" to="0" dur="0.9s" repeatCount="indefinite"/>
+ <line x1="80" y1="66" x2="56" y2="60"/><line x1="80" y1="66" x2="70" y2="40"/><line x1="80" y1="66" x2="98" y2="42"/>
+ <line x1="80" y1="66" x2="110" y2="66"/><line x1="80" y1="66" x2="94" y2="90"/><line x1="80" y1="66" x2="62" y2="90"/>
+ </g>
+ <g fill="#fde68a">
+ <circle cx="56" cy="60" r="4.5"><animate attributeName="opacity" values=".2;1;.2" dur="1.8s" begin="0s" repeatCount="indefinite"/></circle>
+ <circle cx="70" cy="40" r="4.5"><animate attributeName="opacity" values=".2;1;.2" dur="1.8s" begin="0.3s" repeatCount="indefinite"/></circle>
+ <circle cx="98" cy="42" r="4.5"><animate attributeName="opacity" values=".2;1;.2" dur="1.8s" begin="0.6s" repeatCount="indefinite"/></circle>
+ <circle cx="110" cy="66" r="4.5"><animate attributeName="opacity" values=".2;1;.2" dur="1.8s" begin="0.9s" repeatCount="indefinite"/></circle>
+ <circle cx="94" cy="90" r="4.5"><animate attributeName="opacity" values=".2;1;.2" dur="1.8s" begin="1.2s" repeatCount="indefinite"/></circle>
+ <circle cx="62" cy="90" r="4.5"><animate attributeName="opacity" values=".2;1;.2" dur="1.8s" begin="1.5s" repeatCount="indefinite"/></circle>
+ <circle cx="80" cy="66" r="7" fill="#fff"><animate attributeName="r" values="6;8.5;6" dur="0.9s" repeatCount="indefinite"/></circle>
+ </g>
+ <!-- étincelles -->
+ <g fill="#fff">
+ <path d="M134 22l2.5 6.5 6.5 2.5-6.5 2.5-2.5 6.5-2.5-6.5-6.5-2.5 6.5-2.5z"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/></path>
+ <path d="M24 26l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"><animate attributeName="opacity" values="0;1;0" dur="2s" begin="1s" repeatCount="indefinite"/></path>
+ </g>
+ </svg>
+ </div>
+ <div>
+ <span class="eng-eyebrow">Brain side</span>
+ <div class="eng-title">Jouer &amp; pronostiquer</div>
+ <p class="eng-desc">Quiz, pronostics et jeux autour des partenariats sportifs du Groupe BPCE : testez vos connaissances entre collègues.</p>
+ <span class="eng-cta">Voir le jeu <span class="eng-count">1</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span>
+ </div>
+ </a>
+ <a href="#muscles" class="eng-panel legs">
+ <div class="eng-anim" aria-hidden="true">
+ <svg class="anim" viewBox="0 0 160 160">
+ <defs>
+ <linearGradient id="mFill" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#e9d5f7" stop-opacity=".55"/><stop offset=".55" stop-color="#b57ddb" stop-opacity=".5"/><stop offset="1" stop-color="#8433b8" stop-opacity=".55"/>
+ </linearGradient>
+ <linearGradient id="mWave" gradientUnits="userSpaceOnUse" x1="0" y1="-30" x2="0" y2="10">
+ <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+ <animate attributeName="y1" values="-30;150" dur="2.6s" repeatCount="indefinite"/>
+ <animate attributeName="y2" values="10;190" dur="2.6s" repeatCount="indefinite"/>
+ </linearGradient>
+ </defs>
+ <!-- halo -->
+ <circle cx="80" cy="80" r="58" fill="#f0abfc" opacity=".08"><animate attributeName="opacity" values=".05;.18;.05" keyTimes="0;.5;1" dur="2.6s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></circle>
+ <!-- muscle + tendons, réduits pour laisser la place aux tendons -->
+ <g transform="translate(80 80) scale(.8) translate(-80 -80)">
+ <g transform="translate(80 81) rotate(-10)">
+ <!-- tendons : ancrage fixe, l'extrémité côté muscle suit exactement la contraction (mêmes temps et courbes) -->
+ <g transform="translate(-80 -81)" fill="#f3e8fb" stroke="#f5c8fb" stroke-width="1" stroke-linejoin="round">
+ <rect x="70" y="-17" width="24" height="8" rx="4" fill="#e2c8f2" opacity=".75" stroke="none"/>
+ <rect x="68" y="171" width="24" height="8" rx="4" fill="#e2c8f2" opacity=".75" stroke="none"/>
+ <path d="M79.5 -10L84.5 -10L89 23L75 23Z"><animate attributeName="d" values="M79.5 -10L84.5 -10L89 23L75 23Z;M79.5 -10L84.5 -10L89 28.36L75 28.36Z;M79.5 -10L84.5 -10L89 23L75 23Z" keyTimes="0;.5;1" dur="2.6s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></path>
+ <path d="M75 139L85 139L82.5 172L77.5 172Z"><animate attributeName="d" values="M75 139L85 139L82.5 172L77.5 172Z;M75 133.64L85 133.64L82.5 172L77.5 172Z;M75 139L85 139L82.5 172L77.5 172Z" keyTimes="0;.5;1" dur="2.6s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></path>
+ <path d="M82 -6V19" stroke="#c699e2" stroke-width="1.2" fill="none" opacity=".8"><animate attributeName="d" values="M82 -6V19;M82 -6V24.36;M82 -6V19" keyTimes="0;.5;1" dur="2.6s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></path>
+ <path d="M80 143V168" stroke="#c699e2" stroke-width="1.2" fill="none" opacity=".8"><animate attributeName="d" values="M80 143V168;M80 137.64V168;M80 143V168" keyTimes="0;.5;1" dur="2.6s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/></path>
+ </g>
+ <!-- corps du muscle : contraction / relâchement -->
+ <g>
+ <animateTransform attributeName="transform" type="scale" values="1 1;1.12 .92;1 1" keyTimes="0;.5;1" dur="2.6s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/>
+ <g transform="translate(-80 -81)">
+ <path d="M82 14C99 14 117 46 113 86C110 118 96 148 80 148C64 148 50 118 47 86C43 46 64 14 82 14Z" fill="url(#mFill)" stroke="#f5c8fb" stroke-width="3" stroke-linejoin="round"/>
+ <!-- reflet de volume -->
+ <ellipse cx="64" cy="70" rx="6.5" ry="26" fill="#fff" opacity=".18" transform="rotate(4 64 70)"/>
+ <!-- faisceaux de fibres -->
+ <g fill="none" stroke-linecap="round">
+ <g stroke="#f5c8fb" stroke-width="1.8" opacity=".6">
+ <path d="M80 18C60 46 56 112 80 146"/><path d="M80 18C72 50 70 112 80 146"/><path d="M80 18C88 50 90 112 80 146"/><path d="M80 18C100 46 104 112 80 146"/><path d="M80 18C52 48 50 110 74 144"/><path d="M80 18C108 48 110 110 86 144"/>
+ </g>
+
+ <!-- influx qui parcourt les fibres pendant la contraction -->
+ <g stroke="url(#mWave)" stroke-width="2.3">
+ <path d="M80 18C60 46 56 112 80 146"/><path d="M80 18C72 50 70 112 80 146"/><path d="M80 18C88 50 90 112 80 146"/><path d="M80 18C100 46 104 112 80 146"/>
+ </g>
+ </g>
+ </g>
+ </g></g>
+ </g>
+</svg>
+ </div>
+ <div>
+ <span class="eng-eyebrow">Body side</span>
+ <div class="eng-title">Relever des challenges</div>
+ <p class="eng-desc">Challenges sportifs saisonniers et compétitions d'entité : déclarez vos performances et grimpez au classement.</p>
+ <span class="eng-cta">Voir le challenge <span class="eng-count">1</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg></span>
+ </div>
+ </a>
+
+ </div>
+
+ </div>
+ </section>
+
+ <!-- ═══ Brain side : JEU DU MOMENT ═══ -->
+ <section class="section" id="cerveau">
+ <div class="container">
+ <div class="section-head">
+ <div>
+ <span class="side-label head"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg></span>Brain side</span>
+ <h2 class="section-title">Le jeu du moment</h2>
+ <p class="section-sub">Un nouveau jeu à chaque temps fort sportif du Groupe BPCE</p>
+ </div>
+ </div>
+ <article class="jeu-card wide">
+ <div class="jeu-banner quiz">
+ <div class="jeu-banner-inner">
+ <span class="jeu-type quiz"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><text x="12" y="17" text-anchor="middle" fill="white" font-size="13" font-weight="700">?</text></svg>Quiz</span>
+ </div>
+ </div>
+ <div class="jeu-body">
+ <h3 class="jeu-name">Quiz Handball — Objectif Euro 2026</h3>
+ <p class="jeu-desc">10 questions sur les Bleues et les Experts avant l'EHF EURO féminin (3–20 décembre). Vous découvrez vos bonnes réponses dès l'envoi du quiz.</p>
+ <div class="jeu-row">
+ <div class="jeu-deadline">
+ <div class="jeu-deadline-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+ <div class="jeu-deadline-text"><strong>Encore 29 jours</strong>Clôture le 2 décembre à 23h59</div>
+ </div>
+ <div class="jeu-prize">
+ <div class="jeu-prize-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div>
+ <div class="jeu-prize-text"><strong>10 lots Caisse d'Épargne × FFHandball</strong>Tirage parmi les scores ≥ 7/10</div>
+ </div>
+ </div>
+ <div class="jeu-foot">
+ <a href="quiz-sans-strava.html" class="btn btn-quiz">Participer au quiz
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </div>
+ </article>
+ </div>
+ </section>
+
+ <!-- ═══ Body side : DÉFIS ═══ -->
+ <section class="section" id="muscles" style="padding-top:0;">
+ <div class="container">
+ <div class="section-head">
+ <div>
+ <span class="side-label legs"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></span>Body side</span>
+ <h2 class="section-title">Le challenge du moment</h2>
+ <p class="section-sub">Un challenge sportif à chaque saison : inscrivez-vous, déclarez vos performances et faites avancer votre entité</p>
+ </div>
+ </div>
+<article class="defi-card wide">
+ <div class="defi-banner individuel">
+ <div class="defi-banner-svg" aria-hidden="true">
+ <svg viewBox="0 0 100 100" fill="none"><path d="M64 52a26 26 0 1 1-25-32 21 21 0 0 0 25 32z" fill="white"/></svg>
+ </div>
+ <div class="defi-banner-inner">
+ <span class="defi-banner-tag">Winter Challenge</span>
+ </div>
+ </div>
+ <div class="defi-body">
+ <h3 class="defi-name">Challenge de l'hiver 2026</h3>
+ <p class="defi-desc">Même principe pour l'hiver : participations illimitées, vos 10 meilleurs temps retenus et convertis en points. Inscriptions à l'ouverture.</p>
+
+ <div class="defi-meta">
+ <span class="defi-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+ Ouverture le <strong>21 déc.</strong>
+ </span>
+ <span class="defi-meta-item">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></svg>
+ Inscriptions à venir
+ </span>
+ </div>
+
+ <div class="defi-upcoming">
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+ Ce challenge n'a pas encore commencé. Soyez prévenu dès son ouverture.
+ </div>
+
+ <div class="defi-foot">
+ <div class="defi-stat-chip">
+ <strong>Préinscription</strong> possible
+ </div>
+ <a href="#" class="btn btn-violet">Être alerté →</a>
+ </div>
+ </div>
+ </article>
+ </div>
+ </section>
+
+ <!-- ═══ MES PARTICIPATIONS (défis + jeux) ═══ -->
+ <section id="participations" class="section" style="padding-top:0;">
+ <div class="container">
+ <div class="section-head">
+ <div>
+ <h2 class="section-title">Mes participations</h2>
+ <p class="section-sub">Tout mon historique Team IMAGINE : challenges sportifs et jeux</p>
+ </div>
+ </div>
+ <div class="particip-card" id="partList">
+ <div class="particip-item" data-k="defi">
+ <div class="particip-icon defi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
+ <div class="particip-info"><div class="particip-name"><span class="particip-tag defi">Challenge</span>Challenge de l'hiver 2026</div><div class="particip-meta">Préinscription enregistrée · ouverture le <strong>21 décembre</strong></div></div>
+ <span class="particip-status status-upcoming">À venir</span>
+ </div>
+ <div class="particip-item" data-k="jeu">
+ <div class="particip-icon quiz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg></div>
+ <div class="particip-info"><div class="particip-name"><span class="particip-tag jeu">Jeu</span>Quiz Racing 92 — édition septembre</div><div class="particip-meta">Score : <strong>9/10</strong> · il y a 5 semaines</div></div>
+ <span class="particip-status status-won">Gagné</span>
+ </div>
+ <div class="particip-item" data-k="defi">
+ <div class="particip-icon defi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
+ <div class="particip-info"><div class="particip-name"><span class="particip-tag defi">Challenge</span>Challenge de l'été 2026</div><div class="particip-meta"><strong>9 800 points</strong> · 5<sup>e</sup> du classement · terminé le 21 septembre</div></div>
+ <span class="particip-status status-won">Top 5</span>
+ </div>
+ <div class="particip-item" data-k="defi">
+ <div class="particip-icon defi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
+ <div class="particip-info"><div class="particip-name"><span class="particip-tag defi">Challenge</span>Challenge squat</div><div class="particip-meta"><strong>1 240 squats</strong> · 7<sup>e</sup> · mon entité 3<sup>e</sup>/27</div></div>
+ <span class="particip-status status-lost">Terminé</span>
+ </div>
+ <div class="particip-item" data-k="jeu">
+ <div class="particip-icon quiz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg></div>
+ <div class="particip-info"><div class="particip-name"><span class="particip-tag jeu">Jeu</span>Banque Populaire Voile — Tirage du 26 juin</div><div class="particip-meta">Instant-gagnant · tentative quotidienne</div></div>
+ <span class="particip-status status-lost">Non retenu</span>
+ </div>
+ <a href="#" class="particip-see-all">Voir toutes mes participations
+ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+ </div>
+ </div>
+ </section>
+
+ <!-- ═══ DERNIERS GAGNANTS ═══ -->
+ <section class="section wv" aria-labelledby="wvTitle">
+ <div class="container">
+ <div class="section-head">
+ <div>
+ <h2 class="section-title" id="wvTitle">Derniers gagnants</h2>
+ <p class="section-sub">Bravo aux derniers collaborateurs et entités récompensés sur les jeux et les challenges</p>
+ </div>
+ </div>
+
+ <div class="wv-grid">
+ <article class="wv-c muscles">
+ <div class="wv-c-top">
+ <span class="wv-av" aria-hidden="true">LM<span class="wv-troph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/></svg></span></span>
+ <div><div class="wv-name">Léa M.</div><div class="wv-ent">BP Grand Ouest</div></div>
+ </div>
+ <span class="wv-tag muscles"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>Body side</span>
+ <div class="wv-game">Challenge de l'été 2026</div>
+ <div class="wv-res"><b>14 200</b> points</div>
+ <div class="wv-lot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 8h18M12 8S10 3 7.5 3a2.5 2.5 0 0 0 0 5M12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg><div><strong>Montre connectée de sport</strong><small>Remise le 2 octobre</small></div></div>
+ </article>
+ <article class="wv-c cerveau">
+ <div class="wv-c-top">
+ <span class="wv-av" aria-hidden="true">MD<span class="wv-troph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/></svg></span></span>
+ <div><div class="wv-name">Marc D.</div><div class="wv-ent">CE Hauts-de-France</div></div>
+ </div>
+ <span class="wv-tag cerveau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg>Brain side</span>
+ <div class="wv-game">Quiz Racing 92</div>
+ <div class="wv-res"><b>10/10</b> · sans faute</div>
+ <div class="wv-lot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 8h18M12 8S10 3 7.5 3a2.5 2.5 0 0 0 0 5M12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg><div><strong>Maillot officiel Racing 92</strong><small>Remis le 29 septembre</small></div></div>
+ </article>
+ <article class="wv-c muscles">
+ <div class="wv-c-top">
+ <span class="wv-av team" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="wv-troph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/></svg></span></span>
+ <div><div class="wv-name">Natixis</div><div class="wv-ent">Entité · 412 participants</div></div>
+ </div>
+ <span class="wv-tag muscles"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>Body side</span>
+ <div class="wv-game">Challenge squat</div>
+ <div class="wv-res"><b>112 400</b> squats</div>
+ <div class="wv-lot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 8h18M12 8S10 3 7.5 3a2.5 2.5 0 0 0 0 5M12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg><div><strong>Séance coachée pour l'équipe</strong><small>Remise le 24 juillet</small></div></div>
+ </article>
+ <article class="wv-c cerveau">
+ <div class="wv-c-top">
+ <span class="wv-av" aria-hidden="true">SL<span class="wv-troph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4z"/></svg></span></span>
+ <div><div class="wv-name">Sophie L.</div><div class="wv-ent">Natixis</div></div>
+ </div>
+ <span class="wv-tag cerveau"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg>Brain side</span>
+ <div class="wv-game">Instant-gagnant BP Voile</div>
+ <div class="wv-res">Tirage du <b>26 juin</b></div>
+ <div class="wv-lot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M12 8v13M3 8h18M12 8S10 3 7.5 3a2.5 2.5 0 0 0 0 5M12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg><div><strong>Sac Banque Populaire Voile</strong><small>Remis le 30 juin</small></div></div>
+ </article>
+ </div>
+
+ <div class="wv-foot">
+ <span><b>142</b> gagnants depuis janvier</span>
+ <span><b>318</b> lots distribués</span>
+ <span><b>24</b> entités récompensées</span>
+ </div>
+ </div>
+ </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+
+<footer class="footer">
+ <div class="container">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <a href="home-sans-strava.html" style="display:inline-block;background:#fff;padding:8px 14px;border-radius:10px;">
+ <img src="assets/Logo-IMAGINE-2025-header-composite.png" alt="GROUPE BPCE × TEAM IMAGINE" style="height:48px;width:auto;display:block;"/>
+ </a>
+ <p>La plateforme d'engagement sportif et de bien-être du Groupe BPCE.</p>
+ </div>
+
+ <div class="footer-col">
+ <a href="actualites-sans-strava.html">Actualités</a>
+ <a href="s-engager-sans-strava.html">S'engager</a>
+ <a href="calendrier-sans-strava.html">Calendrier</a>
+ <a href="dashboard-sans-strava.html">Dashboard</a>
+ <a href="#">La Promesse</a>
+ </div>
+
+ <div class="footer-col">
+ <h4>Suivez-nous</h4>
+ <div class="footer-qr">
+ <div class="qr-box">
+ <svg viewBox="0 0 100 100" fill="#581d74"><rect x="0" y="0" width="30" height="30"/><rect x="8" y="8" width="14" height="14" fill="#fff"/><rect x="70" y="0" width="30" height="30"/><rect x="78" y="8" width="14" height="14" fill="#fff"/><rect x="0" y="70" width="30" height="30"/><rect x="8" y="78" width="14" height="14" fill="#fff"/><rect x="40" y="0" width="8" height="8"/><rect x="52" y="0" width="8" height="8"/><rect x="40" y="14" width="8" height="8"/><rect x="40" y="40" width="8" height="8"/><rect x="55" y="40" width="12" height="12"/><rect x="75" y="45" width="8" height="8"/><rect x="88" y="40" width="8" height="8"/><rect x="40" y="60" width="8" height="8"/><rect x="60" y="65" width="8" height="8"/><rect x="80" y="70" width="8" height="8"/><rect x="45" y="80" width="10" height="10"/><rect x="70" y="88" width="8" height="8"/><rect x="88" y="80" width="8" height="8"/></svg>
+ </div>
+ <div class="footer-qr-text">
+ <strong>@bpce_banquedusport</strong>
+ <a href="https://www.instagram.com/bpce_banquedusport" target="_blank" rel="noopener" style="color:rgba(255,255,255,.85);">Suivez-nous sur Instagram</a>
+ </div>
+ </div>
+ <div class="footer-invite">
+ <div class="footer-invite-title">Inviter un collaborateur</div>
+ <div class="footer-invite-sub">Partagez Team IMAGINE avec un collègue du Groupe BPCE.</div>
+ <form class="footer-invite-form" novalidate onsubmit="event.preventDefault();">
+ <label class="visually-hidden" for="invite-email">Adresse e-mail du collaborateur</label>
+ <input type="email" id="invite-email" name="invite-email" placeholder="prenom.nom@bpce.fr"/>
+ <button type="submit">J'invite <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+ </form>
+ </div>
+ </div>
+ </div>
+
+ <div class="footer-bottom">
+ <span>© 2026 Groupe BPCE — TEAM IMAGINE. Tous droits réservés.</span>
+ <div class="footer-legal">
+ <a href="#">Mentions légales</a>
+ <a href="#">CGU</a>
+ <a href="#">Confidentialité</a>
+ <a href="#">Cookies</a>
+ <a href="#">Accessibilité</a>
+ </div>
+ </div>
+ </div>
+</footer>
+
+<a class="version-pill v2" href="sommaire-sans-strava.html" title="Version Sans Strava — retour au sommaire"><span class="vp-dot"></span> Sans Strava</a>
+<script>
+(function(){
+ /* Animations : pause/lecture (RGAA 13.8) + respect de prefers-reduced-motion */
+ var svgs=[].slice.call(document.querySelectorAll('svg.anim')),btn=document.getElementById('animToggle'),lbl=document.getElementById('animLbl'),ico=document.getElementById('animIco');
+ var PAUSE='<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>',PLAY='<path d="M7 4l13 8-13 8z"/>';
+ function set(paused){svgs.forEach(function(s){paused?s.pauseAnimations():s.unpauseAnimations();});btn.setAttribute('aria-pressed',paused);lbl.textContent=paused?'Relancer les animations':'Mettre en pause les animations';ico.innerHTML=paused?PLAY:PAUSE;}
+ btn.addEventListener('click',function(){set(btn.getAttribute('aria-pressed')!=='true');});
+ if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)set(true);
+ /* Filtre des participations */
+ var tabs=document.querySelectorAll('#partTabs .filter-tab');
+ tabs.forEach(function(t){t.addEventListener('click',function(){
+  tabs.forEach(function(x){x.classList.toggle('active',x===t);x.setAttribute('aria-selected',x===t);});
+  var f=t.getAttribute('data-f');
+  document.querySelectorAll('#partList .particip-item').forEach(function(i){i.hidden=!(f==='all'||i.getAttribute('data-k')===f);});
+ });});
+})();
+</script>
+<script>
+/* Logo composite : plus grand au repos, il rétrécit au scroll */
+(function(){var h=document.querySelector('.header');if(!h)return;function u(){h.classList.toggle('is-scrolled',window.scrollY>40);}window.addEventListener('scroll',u,{passive:true});u();})();
+</script>
+</body>
+</html>
