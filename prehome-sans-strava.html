@@ -266,6 +266,16 @@ body{min-height:100vh;display:flex;flex-direction:column;}
 svg.neo-ico, svg.neo-ico *{stroke:none !important}
 svg.neo-ico path{fill:currentColor}
 svg.ico-lucide, svg.ico-lucide *{stroke-width:1.5 !important}
+/* ═══ Accessibilité (12/11/2026) ═══ */
+/* 1.4.10 — l'en-tête tient dans 320 px */
+@media(max-width:359px){.header-top{gap:8px!important}.logo-img{height:26px!important}.header-actions{gap:2px!important}.header-actions .icon-btn{width:34px;height:34px}.user-chip .um-chev{display:none}.user-chip{padding-right:5px}}
+/* 2.5.8 — liens du pied de page : zone cliquable de 24 px */
+.footer-legal a,.footer-bottom a{display:inline-block;padding-block:4px}
+/* 1.4.3 — textes gris sur fonds teintés */
+.tl-date-weekday,.badge-progress-label,.ac-card-count,.day-title,.filter-tab:not(.active) .count{color:#525252!important}
+@media(max-width:359px){.footer-grid>*,.footer-invite,.footer-invite-form,.footer-qr,.footer-brand{min-width:0!important;max-width:100%}.footer-invite-form{width:100%}}
+
+
 </style>
 </head>
 <body>
